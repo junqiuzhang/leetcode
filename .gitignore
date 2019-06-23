@@ -1,0 +1,23 @@
+# Lines that start with '#' are comments.
+
+# some local files
+*/.settings/
+*/.DS_Store
+.DS_Store
+*/.idea/
+.idea/
+gradlew
+gradlew.bat
+unused.txt
+test.js
+
+# Log Files
+*.log
+
+#.swp
+*.*~
+~*.*
+
+/dist
+
+lib/
