@@ -1,37 +1,39 @@
 /**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
+ * @param {number[]} nums
+ * @return {number}
  */
-/**
- * @param {ListNode} l1
- * @param {ListNode} l2
- * @return {ListNode}
- */
-var mergeTwoLists = function(l1, l2) {
-    var list0 = new ListNode(null);
-    var list1 = l1;
-    var list2 = l2;
-    var l0 = list0;
-    while(list1 || list2) {
-        if (!list1) {
-            list0.next = list2;
-            break;
-        } else if (!list2) {
-            list0.next = list1;
-            break;
-        } else {
-            if (list1.val < list2.val) {
-                list0.next = new ListNode(list1.val);
-                list1 = list1.next;
-            } else {
-                list0.next = new ListNode(list2.val);
-                list2 = list2.next;
+var removeDuplicates = function(nums) {
+    if (nums.length <= 1) {
+        return nums.length;
+    }
+    var len = 1;
+    var nex = 1;
+    var pre = nums[0];
+    for (var i = 1; i < nums.length; i++) {
+        if (nums[i] == pre) {
+            nums[i] = undefined;
+            if (nex == 1) {
+                nex = i + 1;
             }
-            list0 = list0.next;
+            continue;
+        }
+        pre = nums[i];
+        len++;
+    }
+    for (var i = 1; i < len; i++) {
+        if (typeof nums[i] == 'undefined') {
+            for (var j = nex; j < nums.length; j++) {
+                if (typeof nums[j] != 'undefined') {
+                    nums[i] = nums[j];
+                    nums[j] = undefined;
+                    nex = j + 1;
+                    break;
+                }
+            }
+            if (j == nums.length) {
+                break;
+            }
         }
     }
-    return l0.next;
+    return len;
 };
