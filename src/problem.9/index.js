@@ -1,31 +1,20 @@
 /**
  * @param {number[]} nums
+ * @param {number} val
  * @return {number}
  */
-var removeDuplicates = function(nums) {
-    if (nums.length <= 1) {
-        return nums.length;
-    }
-    var len = 1;
+var removeElement = function(nums, val) {
+    var len = 0;
     var nex = 1;
-    var pre = nums[0];
-    for (var i = 1; i < nums.length; i++) {
-        if (nums[i] == pre) {
-            nums[i] = undefined;
+    for (var i = 0; i < nums.length; i++) {
+        if (nums[i] == val) {
             if (nex == 1) {
                 nex = i + 1;
             }
-            continue;
-        }
-        pre = nums[i];
-        len++;
-    }
-    for (var i = 1; i < len; i++) {
-        if (typeof nums[i] == 'undefined') {
             for (var j = nex; j < nums.length; j++) {
-                if (typeof nums[j] != 'undefined') {
+                if (nums[j] != val) {
                     nums[i] = nums[j];
-                    nums[j] = undefined;
+                    nums[j] = val;
                     nex = j + 1;
                     break;
                 }
@@ -34,6 +23,18 @@ var removeDuplicates = function(nums) {
                 break;
             }
         }
+        if (nums[i] != val) {
+            len++;
+        }
     }
+    nums.length = len;
     return len;
 };
+var a = [0,1,2,2,3,0,4,2];
+var b = 2;
+// var a = [3,2,2,3];
+// var b = 3;
+// var a = [1];
+// var b = 1;
+var len = removeElement(a, b);
+console.log(a, len);
