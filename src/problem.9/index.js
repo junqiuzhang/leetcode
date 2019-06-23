@@ -30,11 +30,3 @@ var removeElement = function(nums, val) {
     nums.length = len;
     return len;
 };
-var a = [0,1,2,2,3,0,4,2];
-var b = 2;
-// var a = [3,2,2,3];
-// var b = 3;
-// var a = [1];
-// var b = 1;
-var len = removeElement(a, b);
-console.log(a, len);
