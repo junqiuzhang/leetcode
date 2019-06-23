@@ -16,27 +16,27 @@ var mergeTwoLists = function(l1, l2) {
     } else if (!l2) {
         return l1;
     }
-    function mergeLists(list0, list1, list2) {
+    var list0 = new ListNode(null);
+    var list1 = l1;
+    var list2 = l2;
+    var l0 = list0;
+    while(list1 || list2) {
         if (!list1) {
             list0.next = list2;
-            list0 = list0.next;
-            return list0;
+            break;
         } else if (!list2) {
             list0.next = list1;
-            list0 = list0.next;
-            return list0;
+            break;
         } else {
             if (list1.val < list2.val) {
                 list0.next = new ListNode(list1.val);
-                list0 = list0.next;
+                list1 = list1.next;
             } else {
                 list0.next = new ListNode(list2.val);
-                list0 = list0.next;
+                list2 = list2.next;
             }
-            return mergeLists(list0, list1, list2);
+            list0 = list0.next;
         }
     }
-    var list0 = new ListNode(null);
-    mergeLists(list0, l1, l2);
-    return list0.next;
+    return l0.next;
 };
