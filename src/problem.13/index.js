@@ -14,22 +14,19 @@ var maxSubArray = function(nums) {
     }
     var left = 0;
     var right = 0;
-    var leftIndex = -1;
-    var rightIndex = nums.length;
     var i = 0;
     var j = nums.length - 1;
     left += nums[i];
     right += nums[nums.length - 1];
     while (i < j) {
+        console.log(left, right)
         if (left < 0 || right < 0) {
             if (left <= right) {
                 left = 0;
-                leftIndex = i;
                 i++;
                 left += nums[i];
             } else {
                 right = 0;
-                rightIndex = j;
                 j--;
                 right += nums[j];
             }
@@ -42,10 +39,8 @@ var maxSubArray = function(nums) {
                 right += nums[j];
             }
         }
+        if (i == j - 1) {
+            return Math.max(left, right, left + right)
+        }
     }
-    var res = 0;
-    for (var i = leftIndex + 1; i < rightIndex; i++) {
-        res += nums[i];
-    }
-    return res;
 };
