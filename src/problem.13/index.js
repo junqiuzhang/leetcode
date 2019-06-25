@@ -19,7 +19,6 @@ var maxSubArray = function(nums) {
     left += nums[i];
     right += nums[j];
     while (i < j) {
-        console.log(left, right)
         if (left < 0 || right < 0) {
             if (left <= right) {
                 left = 0;
