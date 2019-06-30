@@ -3,26 +3,29 @@
  * @return {number}
  */
 var climbStairs = function(n) {
+    if (n < 4) {
+        return n;
+    }
     var Max = Math.floor(n / 2);
-    var two = 0;
     var one = 0;
+    var two = 0;
     var res = 0;
-    var resArr = {};
+    var resArr = [];
     function C_nm(n, m) {
         if (m == 0 || n == m) {
             return 1;
         }
-        var firStr = (n - 1).toString() + ',' + (m - 1).toString();
-        var secStr = (n - 1).toString() + ',' + m.toString();
-        var fir = resArr[firStr];
-        var sec = resArr[secStr];
+        var fir = resArr[n - 1] ? resArr[n - 1][m - 1] : 0;
+        var sec = resArr[n - 1] ? resArr[n - 1][m] : 0;
         if (!fir) {
             fir = C_nm(n - 1, m - 1);
-            resArr[firStr] = fir;
+            resArr[n - 1] = [];
+            resArr[n - 1][m - 1] = fir;
         }
         if (!sec) {
             sec = C_nm(n - 1, m);
-            resArr[secStr] = sec;
+            resArr[n - 1] = [];
+            resArr[n - 1][m] = sec;
         }
         return fir + sec;
     }
@@ -32,5 +35,3 @@ var climbStairs = function(n) {
     }
     return res;
 }
-console.log(climbStairs(44))
-
