@@ -2,6 +2,7 @@
  * @param {number} n
  * @return {number}
  */
+var climbStairs = function(n) {
     var Max = Math.floor(n / 2);
     var two = 0;
     var one = 0;
@@ -30,6 +31,6 @@
         res += C_nm(one + two, one > two ? two : one);
     }
     return res;
-};
+}
 console.log(climbStairs(44))
 
