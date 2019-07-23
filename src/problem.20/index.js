@@ -6,60 +6,35 @@
  * @return {void} Do not return anything, modify nums1 in-place instead.
  */
 var merge = function(nums1, m, nums2, n) {
+    /**
+     * 方案1(失败):
+     * 归并排序：
+     * 将nums1和nums2按照归并排序的方法排列到nums1中，用nums1的富余空间存替换出的nums1元素
+     * 交换比较数字的位置
+     * 方案2:
+     * 归并排序：
+     * 用新nums存归并排序的元素
+     */
     if (nums1.length == 0) {
         return nums2;
     }
     if (nums2.length == 0) {
-        return [];
+        return nums1;
     }
+    var nums3 = [];
     var i = 0;
     var j = 0;
-    var swap = 0;
-    for (var k = 0; k < m; k++) {
-        if (nums1[i] <= nums2[j]) {
-            i++;
+    for (var k = 0; k < m + n; k++) {
+        if (i >= m || nums1[i] > nums2[j]) {
+            nums3[k] = nums2[j];
+            j++;
             continue;
         }
-        swap = nums1[i];
-        nums1[i] = nums2[j];
-        nums2[j] = swap;
+        nums3[k] = nums1[i];
         i++;
-        j++;
-        if (j >= n) {
-            break;
-        }
     }
-    console.log(nums1, nums2, i, j)
-    i2 = 0;
-    j2 = j;
-    for (var k = m; k < m + n; k++) {
-        console.log(nums1, nums2, i2, j2)
-        if (nums2[i2] <= nums2[j2] && i2 < j || j2 >= n) {
-            nums1[k] = nums2[i2];
-            i2++;
-            continue;
-        }
-        nums1[k] = nums2[j2];
-        j2++;
+    for (var k = 0; k < m + n; k++) {
+        nums1[k] = nums3[k];
     }
-    return nums1;
+    return nums3;
 };
-// var a = [1,2,3,0,0,0];
-// var b = [2,5,6];
-// var a = [4,5,6,0,0,0]
-// var b = [1,2,3]
-// var m = 3;
-// var n = 3;
-// var a = [4,0,0,0,0,0]
-// var m = 1
-// var b = [1,2,3,5,6]
-// var n = 5
-// var a = [2,0]
-// var m = 1
-// var b = [1]
-// var n = 1
-var a = [1,2,4,5,6,0]
-var m = 5
-var b = [3]
-var n = 1
-console.log(merge(a, m, b, n))
