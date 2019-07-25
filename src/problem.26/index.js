@@ -13,32 +13,23 @@ var isBalanced = function(root) {
     if (!root) {
         return true;
     }
-    function isBalance(r) {
+    function getDepth(r) {
         if (!r) {
-            return {
-                isBalance: true,
-                depth: 0,
-            }
+            return 1;
         }
-        var leftBalance = isBalance(r.left);
-        if (!leftBalance.isBalance) {
-            return {
-                isBalance: leftBalance.isBalance,
-                depth: leftBalance.depth,
-            }
+        var leftDepth = getDepth(r.left);
+        if (!leftDepth) {
+            return 0;
         }
-        var rightBalance = isBalance(r.right);
-        if (!rightBalance.isBalance) {
-            return {
-                isBalance: rightBalance.isBalance,
-                depth: rightBalance.depth,
-            }
+        var rightDepth = getDepth(r.right);
+        if (!rightDepth) {
+            return 0;
         }
-        return {
-            isBalance: Math.abs(leftBalance.depth - rightBalance.depth) <= 1,
-            depth: Math.max(leftBalance.depth, rightBalance.depth) + 1,
+        if (Math.abs(leftDepth - rightDepth) > 1) {
+            return 0;
         }
+        return Math.max(leftDepth, rightDepth) + 1;
     }
-    var rootBalance = isBalance(root);
-    return rootBalance.isBalance;
+    var rootDepth = getDepth(root);
+    return !!rootDepth;
 };
