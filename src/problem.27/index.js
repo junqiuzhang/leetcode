@@ -10,5 +10,26 @@
  * @return {number}
  */
 var minDepth = function(root) {
-    
+    if (!root) {
+        return 0;
+    }
+    if (!root.left && !root.right) {
+        return 1;
+    }
+    function getMinDepth(r) {
+        if (!r.left && !r.right) {
+            return 1;
+        }
+        var leftDepth = Infinity;
+        if (r.left && typeof r.left.val === 'number') {
+            leftDepth = getMinDepth(r.left);
+        }
+        var rightDepth = Infinity;
+        if (r.right && typeof r.right.val === 'number') {
+            rightDepth = getMinDepth(r.right);
+        }
+        return Math.min(leftDepth, rightDepth) + 1;
+    }
+    var rootDepth = getMinDepth(root);
+    return rootDepth;
 };
