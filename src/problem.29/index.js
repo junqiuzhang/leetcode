@@ -21,4 +21,3 @@ var generate = function(numRows) {
     }
     return res;
 };
-console.log(generate(5))
