@@ -9,7 +9,7 @@ var reverse = function(x) {
         res = res * 10 + temp % 10;
         temp = parseInt(temp / 10);
     }
-    if ( res > 2147483647 || res < -2147483648) {
+    if (res > 2147483647 || res < -2147483648) {
         return 0;
     }
     return res;
