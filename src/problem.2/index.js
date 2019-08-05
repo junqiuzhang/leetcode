@@ -3,12 +3,14 @@
  * @return {number}
  */
 var reverse = function(x) {
-    if ( x >= 0 ) {
-        var n = +(x.toString().split('').reverse().join(''));    
-    } else {
-        var n = -((-x).toString().split('').reverse().join('')); 
+    var res = 0;
+    var temp = x;
+    while (temp) {
+        res = res * 10 + temp % 10;
+        temp = parseInt(temp / 10);
     }
-    
-    if ( n > Math.pow(2,31) - 1 || n < -Math.pow(2,31)) return 0;
-    return n;
+    if ( res > 2147483647 || res < -2147483648) {
+        return 0;
+    }
+    return res;
 };
