@@ -6,18 +6,22 @@ var maxProfit = function(prices) {
     if (!prices.length) {
         return 0;
     }
-    var tempMax = -1;
-    var max = -1;
-    for (var i = 0; i < prices.length; i++) {
-        for (var j = i; j < prices.length; j++) {
-            tempMax = prices[j] - prices[i];
-            if (tempMax > max) {
-                max = tempMax;
+    var left = Infinity;
+    var right = -1;
+    var max = 0;
+    var temp = -1;
+    var len = prices.length;
+    for (var i = 0; i < len; i++) {
+        temp = prices[i];
+        if (temp < left) {
+            left = temp;
+            right = temp;
+        } else if (temp > right) {
+            right = temp;
+            if (right - left > max) {
+                max = right - left;
             }
         }
     }
-    if (max > 0) {
-        return max;
-    }
-    return 0;
+    return max;
 };
