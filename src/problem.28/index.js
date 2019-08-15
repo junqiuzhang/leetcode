@@ -12,37 +12,42 @@ const {array2tree} = require('../common')
  * @return {boolean}
  */
 var hasPathSum = function(root, sum) {
-    if (!root || typeof root.val !== 'number') {
+    if (!root) {
         return false;
     }
+    if (!root.left && !root.right) {
+        return root.val == sum;
+    }
     var cur = root;
+    var direction = true;
     var tempSum = 0;
     var stack = [];
-    while (cur) {
-        if (!cur.visited) {
+    do {
+        if (direction) {
             tempSum += cur.val;
-            cur.visited = true;
             stack.push(cur);
-        }
-        console.log(tempSum,cur)
-        if (!cur.left && !cur.right) {
-            if (tempSum === sum) {
-                return true;
+            if (cur.left) {
+                cur = cur.left;
+            } else if (cur.right) {
+                cur = cur.right;
+            } else {
+                if (tempSum === sum) {
+                    return true;
+                }
+                direction = false;
             }
+        } else {
             tempSum -= cur.val;
             stack.pop();
             cur = stack[stack.length - 1];
-        } else if (cur.left && !cur.left.visited) {
-            cur = cur.left;
-        } else if (cur.right && !cur.right.visited) {
-            cur = cur.right;
-        } else {
-            tempSum -= cur.val;
-            cur = stack.pop();
+            if (cur && cur.right) {
+                cur = cur.right;
+                direction = true;
+            }
         }
-    }
+    } while (stack.length > 0)
     return false;
 };
-var a = [1,-2,-3,1,3,-2,null,-1]
-var b = -4
+var a = [-2,null,-3]
+var b = -2
 console.log(hasPathSum(array2tree(a), b))
