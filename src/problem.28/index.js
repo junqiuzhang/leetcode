@@ -23,24 +23,25 @@ var hasPathSum = function(root, sum) {
     var tempSum = 0;
     var stack = [];
     do {
+        if (!cur.left && !cur.right) {
+            if (tempSum === sum) {
+                return true;
+            }
+        }
         if (direction) {
             tempSum += cur.val;
             stack.push(cur);
-            if (cur.left) {
+            cur.visit = true;
+            if (cur && cur.left && !cur.left.visit) {
                 cur = cur.left;
-            } else if (cur.right) {
-                cur = cur.right;
             } else {
-                if (tempSum === sum) {
-                    return true;
-                }
                 direction = false;
             }
         } else {
             tempSum -= cur.val;
             stack.pop();
             cur = stack[stack.length - 1];
-            if (cur && cur.right) {
+            if (cur && cur.right && !cur.right.visit) {
                 cur = cur.right;
                 direction = true;
             }
@@ -48,6 +49,6 @@ var hasPathSum = function(root, sum) {
     } while (stack.length > 0)
     return false;
 };
-var a = [-2,null,-3]
-var b = -2
+var a = [1]
+var b = 1
 console.log(hasPathSum(array2tree(a), b))
