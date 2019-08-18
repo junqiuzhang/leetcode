@@ -11,5 +11,17 @@
  * @return {boolean}
  */
 var hasCycle = function(head) {
-    
+    var first = head;
+    var second = head;
+    while (first && first.next && second) {
+        first = first.next.next;
+        second = second.next;
+        if (!first || !second) {
+            return false;
+        }
+        if (first == second) {
+            return true;
+        }
+    }
+    return false;
 };
