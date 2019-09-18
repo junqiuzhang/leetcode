@@ -1,3 +1,13 @@
+// 链表元素
+function ListNode(val) {
+  this.val = val;
+  this.next = null;
+}
+// 树元素
+function TreeNode(val) {
+  this.val = val;
+  this.left = this.right = null;
+}
 // 数组转二叉树
 function array2tree(arr) {
   if (arr.length == 0 || arr.length == 1 && typeof arr[0] != 'number') {
@@ -25,10 +35,6 @@ function array2list(arr) {
   if (arr.length == 0 || arr.length == 1 && typeof arr[0] != 'number') {
     return null;
   }
-  function ListNode(val) {
-    this.val = val;
-    this.next = null;
-  }
   var listNode = new ListNode();
   var node = listNode;
   for (var i = 0; i < arr.length; i++) {
@@ -37,5 +43,7 @@ function array2list(arr) {
   }
   return listNode.next;
 }
+exports.ListNode = ListNode;
+exports.TreeNode = TreeNode;
 exports.array2tree = array2tree;
 exports.array2list = array2list;
