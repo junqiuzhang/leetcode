@@ -2,7 +2,7 @@
  * Initialize your data structure here.
  */
 var MyQueue = function() {
-    
+    this.stack = [];
 };
 
 /**
@@ -11,7 +11,7 @@ var MyQueue = function() {
  * @return {void}
  */
 MyQueue.prototype.push = function(x) {
-    
+    this.stack.push(x);
 };
 
 /**
@@ -19,7 +19,7 @@ MyQueue.prototype.push = function(x) {
  * @return {number}
  */
 MyQueue.prototype.pop = function() {
-    
+    return this.stack.splice(0,1);
 };
 
 /**
@@ -27,7 +27,7 @@ MyQueue.prototype.pop = function() {
  * @return {number}
  */
 MyQueue.prototype.peek = function() {
-    
+    return this.stack[0];
 };
 
 /**
@@ -35,7 +35,7 @@ MyQueue.prototype.peek = function() {
  * @return {boolean}
  */
 MyQueue.prototype.empty = function() {
-    
+    return this.stack.length == 0;
 };
 
 /** 
