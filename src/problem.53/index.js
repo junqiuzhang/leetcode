@@ -4,5 +4,16 @@
  * @return {boolean}
  */
 var containsNearbyDuplicate = function(nums, k) {
-    
+    var len = nums.length;
+    var numberMap = {};
+    var temp;
+    for (i = 0; i < len; i++) {
+        temp = nums[i];
+        if (typeof numberMap[`${temp}`] == 'number' && Math.abs(numberMap[`${temp}`] - i) <= k) {
+            return true;
+        } else {
+            numberMap[`${temp}`] = i;
+        }
+    }
+    return false;
 };
