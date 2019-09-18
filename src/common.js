@@ -21,7 +21,7 @@ function array2tree(arr) {
   tree.right = array2tree(right);
   return tree;
 }
-function array2listNode(arr) {
+function array2list(arr) {
   if (arr.length == 0 || arr.length == 1 && typeof arr[0] != 'number') {
     return null;
   }
@@ -38,4 +38,4 @@ function array2listNode(arr) {
   return listNode.next;
 }
 exports.array2tree = array2tree;
-exports.array2listNode = array2listNode;
+exports.array2list = array2list;
