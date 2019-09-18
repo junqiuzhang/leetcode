@@ -8,6 +8,19 @@ function TreeNode(val) {
   this.val = val;
   this.left = this.right = null;
 }
+// 数组转链表
+function array2list(arr) {
+  if (arr.length == 0 || arr.length == 1 && typeof arr[0] != 'number') {
+    return null;
+  }
+  var listNode = new ListNode();
+  var node = listNode;
+  for (var i = 0; i < arr.length; i++) {
+    node.next = new ListNode(arr[i]);
+    node = node.next;
+  }
+  return listNode.next;
+}
 // 数组转二叉树
 function array2tree(arr) {
   if (arr.length == 0 || arr.length == 1 && typeof arr[0] != 'number') {
@@ -30,18 +43,6 @@ function array2tree(arr) {
   tree.left = array2tree(left);
   tree.right = array2tree(right);
   return tree;
-}
-function array2list(arr) {
-  if (arr.length == 0 || arr.length == 1 && typeof arr[0] != 'number') {
-    return null;
-  }
-  var listNode = new ListNode();
-  var node = listNode;
-  for (var i = 0; i < arr.length; i++) {
-    node.next = new ListNode(arr[i]);
-    node = node.next;
-  }
-  return listNode.next;
 }
 exports.ListNode = ListNode;
 exports.TreeNode = TreeNode;
