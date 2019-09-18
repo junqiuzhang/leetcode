@@ -2,7 +2,7 @@
  * Initialize your data structure here.
  */
 var MyStack = function() {
-    
+    this.stack = [];
 };
 
 /**
@@ -11,7 +11,7 @@ var MyStack = function() {
  * @return {void}
  */
 MyStack.prototype.push = function(x) {
-    
+    this.stack.push(x);
 };
 
 /**
@@ -19,7 +19,7 @@ MyStack.prototype.push = function(x) {
  * @return {number}
  */
 MyStack.prototype.pop = function() {
-    
+    return this.stack.pop();
 };
 
 /**
@@ -27,7 +27,7 @@ MyStack.prototype.pop = function() {
  * @return {number}
  */
 MyStack.prototype.top = function() {
-    
+    return this.stack[this.stack.length - 1];
 };
 
 /**
@@ -35,7 +35,7 @@ MyStack.prototype.top = function() {
  * @return {boolean}
  */
 MyStack.prototype.empty = function() {
-    
+    return this.stack.length == 0;
 };
 
 /** 
