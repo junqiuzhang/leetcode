@@ -1,99 +1,101 @@
 # leetcode
 
-## 用时排名
-1. 91.25%
-1. 97.75%
-1. 92.48%
-1. 36.70%
-1. 47.62%
-1. 85.98%
-1. 68.66%
-1. 97.95%
-1. 92.86%
-1. 91.12%
-1. 59.32%
-1. 73.42%
-1. 88.95%
-1. 44.30%
-1. 91.08%
-1. 99.85%
-1. 90.95%
-1. 55.81%
-1. 61.97%
-1. 70.15%
-1. 87.33%
-1. 88.71%
-1. 85.77%
-1. 96.82%
-1. 17.17%
-1. 82.94%
-1. 87.66%
-1. 5.93%
-1. 99.16%
-1. 80.61%
-1. 88.85%
-1. 84.74%
-1. 97.86%
-1. 93.51%
-1. 97.05%
-1. 81.40%
-1. 95.54%
-1. 87.91%
-1. 89.47%
-1. 90.78%
-1. 89.97%
-1. 74.10%
-1. 97.59%
-1. NaN
-1. 58.18%
-1. 64.87%
-1. 97.56%
-1. 81.43%
-1. 71.20%
-1. 80.62%
-1. 71.54%
-1. 67.42%
-1. 61.48%
-1. 97.74%
-1. 68.05%
-1. 91.38%
-1. 62.00%
+## Problem
+# | Name | Ranking
+-- | -- | --
+1 | Two Sum | 91.25%
+2 | Reverse Integer | 97.75%
+3 | Palindrome Number | 92.48%
+4 | Roman to Integer | 36.70%
+5 | Longest Common Prefix | 47.62%
+6 | Valid Parentheses | 85.98%
+7 | Merge Two Sorted Lists | 68.66%
+8 | Remove Duplicates from Sorted Array | 97.95%
+9 | Remove Element | 92.86%
+10 | Implement strStr() | 91.12%
+11 | Search Insert Position | 59.32%
+12 | Count and Say | 73.42%
+13 | Maximum Subarray | 88.95%
+14 | Length of Last Word | 44.30%
+15 | Plus One | 91.08%
+16 | Add Binary | 99.85%
+17 | Sqrt(x) | 90.95%
+18 | Climbing Stairs | 55.81%
+19 | Remove Duplicates from Sorted List | 61.97%
+20 | Merge Sorted Array | 70.15%
+21 | Same Tree | 87.33%
+22 | Symmetric Tree | 88.71%
+23 | Maximum Depth of Binary Tree | 85.77%
+24 | Binary Tree Level Order Traversal II | 96.82%
+25 | Convert Sorted Array to Binary Search Tree | 17.17%
+26 | Balanced Binary Tree | 82.94%
+27 | Minimum Depth of Binary Tree | 87.66%
+28 | Path Sum | 5.93%
+29 | Pascal's Triangle | 99.16%
+30 | Pascal's Triangle II | 80.61%
+31 | Best Time to Buy and Sell Stock | 88.85%
+32 | Best Time to Buy and Sell Stock II | 84.74%
+33 | Valid Palindrome | 97.86%
+34 | Single Number | 93.51%
+35 | Linked List Cycle | 97.05%
+36 | Min Stack | 81.40%
+37 | Intersection of Two Linked Lists | 95.54%
+38 | Two Sum II - Input array is sorted | 87.91%
+39 | Excel Sheet Column Title | 89.47%
+40 | Majority Element | 90.78%
+41 | Excel Sheet Column Number | 89.97%
+42 | Factorial Trailing Zeroes | 74.10%
+43 | Rotate Array | 97.59%
+44 | Reverse Bits | NaN
+45 | Number of 1 Bits | 58.18%
+46 | House Robber | 64.87%
+47 | Happy Number | 97.56%
+48 | Remove Linked List Elements | 81.43%
+49 | Count Primes | 71.20%
+50 | Isomorphic Strings | 80.62%
+51 | Reverse Linked List | 71.54%
+52 | Contains Duplicate | 67.42%
+53 | Contains Duplicate II | 61.48%
+54 | Implement Stack using Queues | 97.74%
+55 | Invert Binary Tree | 68.05%
+56 | Power of Two | 91.38%
+57 | Implement Queue using Stacks | 62.00%
 
-## 标签
-1. 栈
-1. 堆
-1. 贪心算法
-1. 排序
-1. 位运算
-1. 树
-1. 深度优先搜索
-1. 广度优先搜索
-1. 并查集
-1. 图
-1. 设计
-1. 拓扑排序
-1. 字典树
-1. 树状数组
-1. 线段树
-1. 二叉搜索树
-1. 递归
-1. 脑筋急转弯
-1. 记忆化
-1. 队列
-1. 极小化极大
-1. 蓄水池抽样
-1. 几何
+## Tag
+1. Stack
+1. Heap
+1. Greedy
+1. Sort
+1. Bit Manipulation
+1. Tree
+1. Depth-first Search
+1. Breadth-first Search
+1. Union Find
+1. Graph
+1. Design
+1. Topological Sort
+1. Trie
+1. Binary Indexed Tree
+1. Segment Tree
+1. Binary Search Tree
+1. Recursion
+1. Brainteaser
+1. Memoization
+1. Queue
+1. Minimax
+1. Reservoir Sampling
+1. Geometry
 1. Map
-1. 数组
-1. 哈希表
-1. 链表
-1. 数学
-1. 双指针
-1. 字符串
-1. 二分查找
-1. 分治算法
-1. 动态规划
-1. 回溯算法
+1. Array
+1. Hash Table
+1. Linked List
+1. Math
+1. Two Pointers
+1. String
+1. Binary Search
+1. Divide and Conquer
+1. Dynamic Programming
+1. Backtracking
 1. Random 
 1. Rejection Sampling 
 1. Sliding Window 
