@@ -1,7 +1,7 @@
 # leetcode
 
 ## Problem
-# | Name | Ranking
+number | Name | Ranking
 -- | -- | --
 1 | Two Sum | 91.25%
 2 | Reverse Integer | 97.75%
