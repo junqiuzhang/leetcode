@@ -1,3 +1,4 @@
+const { array2list } = require('../common')
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
@@ -23,10 +24,9 @@ var isPalindrome = function(head) {
         temp = temp.next;
         len++;
     }
-    temp = head;
     // 翻转前半部分链表
     var before = head;
-    var temp = head.next;
+    temp = head.next;
     var next = head.next.next;
     head.next = null;
     for (var i = 0; i < len; i++) {
@@ -46,3 +46,6 @@ var isPalindrome = function(head) {
     }
     return true;
 };
+var a = [1,2,2,1]
+var list = array2list(a);
+console.log(isPalindrome(list))
