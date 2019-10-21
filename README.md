@@ -62,6 +62,7 @@ Number | Name | Ranking
 57 | Implement Queue using Stacks | 62.00%
 58 | Palindrome Linked List | 69.59%
 59 | Lowest Common Ancestor of a Binary Search Tree | 82.37%
+60 | Delete Node in a Linked List | 97.96%
 
 ## Tag
 1. Stack
