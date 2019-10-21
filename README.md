@@ -30,7 +30,7 @@ Number | Name | Ranking
 25 | Convert Sorted Array to Binary Search Tree | 17.17%
 26 | Balanced Binary Tree | 82.94%
 27 | Minimum Depth of Binary Tree | 87.66%
-28 | Path Sum | 5.93%
+28 | Path Sum | 95.63%
 29 | Pascal's Triangle | 99.16%
 30 | Pascal's Triangle II | 80.61%
 31 | Best Time to Buy and Sell Stock | 88.85%
