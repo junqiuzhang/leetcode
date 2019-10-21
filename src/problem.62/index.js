@@ -10,5 +10,6 @@
  * @return {string[]}
  */
 var binaryTreePaths = function(root) {
+    var res = [];
     
 };

@@ -1,4 +1,3 @@
-const {array2tree} = require('../common')
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -19,36 +18,39 @@ var hasPathSum = function(root, sum) {
         return root.val == sum;
     }
     var cur = root;
-    var direction = true;
     var tempSum = 0;
     var stack = [];
+    var leftState = false;
+    var rightState = false;
     do {
-        if (!cur.left && !cur.right) {
-            if (tempSum === sum) {
-                return true;
-            }
-        }
-        if (direction) {
+        leftState = cur.left && !cur.left.visit;
+        rightState = cur.right && !cur.right.visit;
+        if (!cur.visit) {
+            cur.visit = true;
             tempSum += cur.val;
             stack.push(cur);
-            cur.visit = true;
-            if (cur && cur.left && !cur.left.visit) {
+            if (leftState) {
                 cur = cur.left;
-            } else {
-                direction = false;
+            } else if (rightState) {
+                cur = cur.right;
             }
         } else {
-            tempSum -= cur.val;
-            stack.pop();
-            cur = stack[stack.length - 1];
-            if (cur && cur.right && !cur.right.visit) {
+            if (leftState) {
+                cur = cur.left;
+            } else if (rightState) {
                 cur = cur.right;
-                direction = true;
+            } else {
+                if (!cur.left && !cur.right) {
+                    if (tempSum == sum) {
+                        return true;
+                    }
+                }
+                tempSum -= cur.val;
+                stack.pop();
+                cur = stack[stack.length - 1];
             }
         }
-    } while (stack.length > 0)
+
+    } while (stack.length > 0 && cur)
     return false;
 };
-var a = [1]
-var b = 1
-console.log(hasPathSum(array2tree(a), b))
