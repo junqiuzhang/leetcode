@@ -1,4 +1,3 @@
-const { array2list } = require('../common')
 /**
  * Definition for singly-linked list.
  * function ListNode(val) {
@@ -54,6 +53,3 @@ var isPalindrome = function(head) {
     }
     return true;
 };
-var a = [1,2,3,4,4,2,1]
-var list = array2list(a);
-console.log(isPalindrome(list))

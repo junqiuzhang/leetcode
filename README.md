@@ -60,6 +60,7 @@ Number | Name | Ranking
 55 | Invert Binary Tree | 68.05%
 56 | Power of Two | 91.38%
 57 | Implement Queue using Stacks | 62.00%
+58 | Palindrome Linked List | 69.59%
 
 ## Tag
 1. Stack
