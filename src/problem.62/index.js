@@ -1,4 +1,3 @@
-const {array2tree} = require('../common')
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -19,7 +18,6 @@ var binaryTreePaths = function(root) {
     }
     var res = [];
     var cur = root;
-    var tempSum = [];
     var stack = [];
     var leftState = false;
     var rightState = false;
@@ -28,7 +26,6 @@ var binaryTreePaths = function(root) {
         rightState = cur.right && !cur.right.visit;
         if (!cur.visit) {
             cur.visit = true;
-            tempSum.push(cur.val);
             stack.push(cur);
             if (leftState) {
                 cur = cur.left;
@@ -42,9 +39,8 @@ var binaryTreePaths = function(root) {
                 cur = cur.right;
             } else {
                 if (!cur.left && !cur.right) {
-                    res.push(tempSum.join('->'));
+                    res.push(stack.map((s) => s.val).join('->'));
                 }
-                tempSum.pop();
                 stack.pop();
                 cur = stack[stack.length - 1];
             }
@@ -53,6 +49,3 @@ var binaryTreePaths = function(root) {
     } while (stack.length > 0 && cur)
     return res;
 };
-var a = [1,2,3,null,5]
-var tree = array2tree(a)
-console.log(binaryTreePaths(tree));

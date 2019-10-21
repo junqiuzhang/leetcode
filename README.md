@@ -64,6 +64,7 @@ Number | Name | Ranking
 59 | Lowest Common Ancestor of a Binary Search Tree | 82.37%
 60 | Delete Node in a Linked List | 97.96%
 61 | Valid Anagram | 97.26%
+62 | Binary Tree Paths | 94.14%
 
 ## Tag
 1. Stack
