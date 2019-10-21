@@ -61,6 +61,7 @@ Number | Name | Ranking
 56 | Power of Two | 91.38%
 57 | Implement Queue using Stacks | 62.00%
 58 | Palindrome Linked List | 69.59%
+59 | Lowest Common Ancestor of a Binary Search Tree | 82.37%
 
 ## Tag
 1. Stack
