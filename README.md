@@ -63,6 +63,7 @@ Number | Name | Ranking
 58 | Palindrome Linked List | 69.59%
 59 | Lowest Common Ancestor of a Binary Search Tree | 82.37%
 60 | Delete Node in a Linked List | 97.96%
+61 | Valid Anagram | 97.26%
 
 ## Tag
 1. Stack
