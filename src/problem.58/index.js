@@ -28,24 +28,32 @@ var isPalindrome = function(head) {
     var before = head;
     temp = head.next;
     var next = head.next.next;
+    var i = 0;
     head.next = null;
-    for (var i = 0; i < len; i++) {
+    while (temp && i < len/2 - 1) {
         next = temp && temp.next;
         temp.next = before;
         before = temp;
         temp = next;
         next = temp && temp.next;
+        i++;
+    }
+    // 链表个数为奇数时修正链表
+    if (len % 2) {
+        before = before.next;
     }
     // 对比前半部分链表和后半部分链表
-    for (var i = 0; i < len; i++) {
-        if (temp.val != next.val) {
+    i = 0;
+    while (temp && i < len/2) {
+        if (before.val != temp.val) {
             return false;
         }
+        before = before.next;
         temp = temp.next;
-        next = next.next;
+        i++;
     }
     return true;
 };
-var a = [1,2,2,1]
+var a = [1,2,3,4,4,2,1]
 var list = array2list(a);
 console.log(isPalindrome(list))
