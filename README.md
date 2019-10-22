@@ -71,7 +71,7 @@ Number | Name | Ranking
 66 | First Bad Version | 82.70%
 67 | Move Zeroes | 85.48%
 68 | Word Pattern | 62.71%
-69 | Nim Game | 
+69 | Nim Game | 97.84%
 
 ## Tag
 1. Stack
