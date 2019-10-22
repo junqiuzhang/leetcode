@@ -72,6 +72,7 @@ Number | Name | Ranking
 67 | Move Zeroes | 85.48%
 68 | Word Pattern | 62.71%
 69 | Nim Game | 97.84%
+70 | Bulls And Cows |
 
 ## Tag
 1. Stack
