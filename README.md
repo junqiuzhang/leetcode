@@ -69,6 +69,7 @@ Number | Name | Ranking
 64 | Ugly Number | 79.23%
 65 | Missing Number | 90.13%
 66 | First Bad Version | 82.70%
+67 | Move Zeroes | 
 
 ## Tag
 1. Stack
