@@ -73,6 +73,7 @@ Number | Name | Ranking
 68 | Word Pattern | 62.71%
 69 | Nim Game | 97.84%
 70 | Bulls And Cows | 76.27%
+71 | Range Sum Query - Immutable | 
 
 ## Tag
 1. Stack
