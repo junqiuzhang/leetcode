@@ -70,6 +70,7 @@ Number | Name | Ranking
 65 | Missing Number | 90.13%
 66 | First Bad Version | 82.70%
 67 | Move Zeroes | 85.48%
+68 | Word Pattern | 
 
 ## Tag
 1. Stack
