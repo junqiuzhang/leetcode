@@ -68,7 +68,7 @@ Number | Name | Ranking
 63 | Add Digits | 93.64%
 64 | Ugly Number | 79.23%
 65 | Missing Number | 90.13%
-66 | First Bad Version | 
+66 | First Bad Version | 82.70%
 
 ## Tag
 1. Stack
