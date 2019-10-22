@@ -67,6 +67,7 @@ Number | Name | Ranking
 62 | Binary Tree Paths | 94.14%
 63 | Add Digits | 93.64%
 64 | Ugly Number | 79.23%
+65 | Missing Number | 90.13%
 
 ## Tag
 1. Stack
