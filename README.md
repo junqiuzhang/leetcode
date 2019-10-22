@@ -66,7 +66,7 @@ Number | Name | Ranking
 61 | Valid Anagram | 97.26%
 62 | Binary Tree Paths | 94.14%
 63 | Add Digits | 93.64%
-64 | Ugly Number | 
+64 | Ugly Number | 79.23%
 
 ## Tag
 1. Stack
