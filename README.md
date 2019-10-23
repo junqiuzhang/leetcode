@@ -76,6 +76,7 @@ Number | Name | Ranking
 71 | Range Sum Query - Immutable | 95.19%
 72 | Power of Three | 97.50%
 73 | Power of Four | 92.92%
+74 | Reverse String | 
 
 ## Tag
 1. Stack
