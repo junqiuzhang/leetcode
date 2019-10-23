@@ -74,6 +74,7 @@ Number | Name | Ranking
 69 | Nim Game | 97.84%
 70 | Bulls And Cows | 76.27%
 71 | Range Sum Query - Immutable | 95.19%
+72 | Power of Three | 97.50%
 
 ## Tag
 1. Stack
