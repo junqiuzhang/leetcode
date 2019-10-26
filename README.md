@@ -78,6 +78,7 @@ Number | Name | Ranking
 73 | Power of Four | 92.92%
 74 | Reverse String | 77.42%
 75 | Reverse Vowels of a String | 96.47%
+76 | Intersection of Two Arrays | 
 
 ## Tag
 1. Stack
