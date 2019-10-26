@@ -77,6 +77,7 @@ Number | Name | Ranking
 72 | Power of Three | 97.50%
 73 | Power of Four | 92.92%
 74 | Reverse String | 77.42%
+75 | Reverse Vowels of a String | 
 
 ## Tag
 1. Stack
