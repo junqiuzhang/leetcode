@@ -88,6 +88,7 @@ Number | Name | Ranking
 83 | Find the Difference | 87.46%
 84 | Is Subsequence | 71.61%
 85 | Sum of Left Leaves | 97.99%
+86 | Convert a Number to Hexadecimal | 
 
 ## Tag
 1. Stack
