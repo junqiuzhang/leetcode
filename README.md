@@ -1,97 +1,97 @@
 # leetcode
 
 ## Problem
-Number | Name | Ranking
+# | 题名 | 排名
 -- | -- | --
-1 | Two Sum | 91.25%
-2 | Reverse Integer | 97.75%
-3 | Palindrome Number | 92.48%
-4 | Roman to Integer | 36.70%
-5 | Longest Common Prefix | 47.62%
-6 | Valid Parentheses | 85.98%
-7 | Merge Two Sorted Lists | 68.66%
-8 | Remove Duplicates from Sorted Array | 97.95%
-9 | Remove Element | 92.86%
-10 | Implement strStr() | 91.12%
-11 | Search Insert Position | 59.32%
-12 | Count and Say | 73.42%
-13 | Maximum Subarray | 88.95%
-14 | Length of Last Word | 44.30%
-15 | Plus One | 91.08%
-16 | Add Binary | 99.85%
-17 | Sqrt(x) | 90.95%
-18 | Climbing Stairs | 55.81%
-19 | Remove Duplicates from Sorted List | 61.97%
-20 | Merge Sorted Array | 70.15%
-21 | Same Tree | 87.33%
-22 | Symmetric Tree | 88.71%
-23 | Maximum Depth of Binary Tree | 85.77%
-24 | Binary Tree Level Order Traversal II | 96.82%
-25 | Convert Sorted Array to Binary Search Tree | 17.17%
-26 | Balanced Binary Tree | 82.94%
-27 | Minimum Depth of Binary Tree | 87.66%
-28 | Path Sum | 95.63%
-29 | Pascal's Triangle | 99.16%
-30 | Pascal's Triangle II | 80.61%
-31 | Best Time to Buy and Sell Stock | 88.85%
-32 | Best Time to Buy and Sell Stock II | 84.74%
-33 | Valid Palindrome | 97.86%
-34 | Single Number | 93.51%
-35 | Linked List Cycle | 97.05%
-36 | Min Stack | 81.40%
-37 | Intersection of Two Linked Lists | 95.54%
-38 | Two Sum II - Input array is sorted | 87.91%
-39 | Excel Sheet Column Title | 89.47%
-40 | Majority Element | 90.78%
-41 | Excel Sheet Column Number | 89.97%
-42 | Factorial Trailing Zeroes | 74.10%
-43 | Rotate Array | 97.59%
-44 | Reverse Bits | NaN
-45 | Number of 1 Bits | 58.18%
-46 | House Robber | 64.87%
-47 | Happy Number | 97.56%
-48 | Remove Linked List Elements | 81.43%
-49 | Count Primes | 71.20%
-50 | Isomorphic Strings | 80.62%
-51 | Reverse Linked List | 71.54%
-52 | Contains Duplicate | 67.42%
-53 | Contains Duplicate II | 61.48%
-54 | Implement Stack using Queues | 97.74%
-55 | Invert Binary Tree | 68.05%
-56 | Power of Two | 91.38%
-57 | Implement Queue using Stacks | 62.00%
-58 | Palindrome Linked List | 69.59%
-59 | Lowest Common Ancestor of a Binary Search Tree | 82.37%
-60 | Delete Node in a Linked List | 97.96%
-61 | Valid Anagram | 97.26%
-62 | Binary Tree Paths | 94.14%
-63 | Add Digits | 93.64%
-64 | Ugly Number | 79.23%
-65 | Missing Number | 90.13%
-66 | First Bad Version | 82.70%
-67 | Move Zeroes | 85.48%
-68 | Word Pattern | 62.71%
-69 | Nim Game | 97.84%
-70 | Bulls And Cows | 76.27%
-71 | Range Sum Query - Immutable | 95.19%
-72 | Power of Three | 97.50%
-73 | Power of Four | 92.92%
-74 | Reverse String | 77.42%
-75 | Reverse Vowels of a String | 96.47%
-76 | Intersection of Two Arrays | 88.37%
-77 | Intersection of Two Arrays II | 94.94%
-78 | Valid Perfect Square | 89.86%
-79 | Sum of Two Integers | as same as 16th
-80 | Guess Number Higher or Lower | as same as 66th
-81 | Ransom Note | as same as 61th
-82 | First Unique Character in a String | 64.78%
-83 | Find the Difference | 87.46%
-84 | Is Subsequence | 71.61%
-85 | Sum of Left Leaves | 97.99%
-86 | Convert a Number to Hexadecimal | as same as 39th
-87 | Longest Palindrome | as same as 83th
+1 | 两数之和 | 91.25%
+2 | 整数反转 | 97.75%
+3 | 回文数 | 92.48%
+4 | 罗马数字转整数 | 36.70%
+5 | 最长公共前缀 | 47.62%
+6 | 有效的括号 | 85.98%
+7 | 合并两个有序链表 | 68.66%
+8 | 删除排序数组中的重复项 | 97.95%
+9 | 移除元素 | 92.86%
+10 | 实现 strStr() | 91.12%
+11 | 搜索插入位置 | 59.32%
+12 | 报数 | 73.42%
+13 | 最大子序和 | 88.95%
+14 | 最后一个单词的长度 | 44.30%
+15 | 加一 | 91.08%
+16 | 二进制求和 | 99.85%
+17 | x 的平方根 | 90.95%
+18 | 爬楼梯 | 55.81%
+19 | 删除排序链表中的重复元素 | 61.97%
+20 | 合并两个有序数组 | 70.15%
+21 | 相同的树 | 87.33%
+22 | 对称二叉树 | 88.71%
+23 | 二叉树的最大深度 | 85.77%
+24 | 二叉树的层次遍历 II | 96.82%
+25 | 将有序数组转换为二叉搜索树 | 17.17%
+26 | 平衡二叉树 | 82.94%
+27 | 二叉树的最小深度 | 87.66%
+28 | 路径总和 | 95.63%
+29 | 杨辉三角 | 99.16%
+30 | 杨辉三角 II | 80.61%
+31 | 买卖股票的最佳时机 | 88.85%
+32 | 买卖股票的最佳时机 II | 84.74%
+33 | 验证回文串 | 97.86%
+34 | 只出现一次的数字 | 93.51%
+35 | 环形链表 | 97.05%
+36 | 最小栈 | 81.40%
+37 | 相交链表 | 95.54%
+38 | 两数之和 II - 输入有序数组 | 87.91%
+39 | Excel表列名称 | 89.47%
+40 | 求众数 | 90.78%
+41 | Excel表列序号 | 89.97%
+42 | 阶乘后的零 | 74.10%
+43 | 旋转数组 | 97.59%
+44 | 颠倒二进制位 | NaN
+45 | 位1的个数 | 58.18%
+46 | 打家劫舍 | 64.87%
+47 | 快乐数 | 97.56%
+48 | 移除链表元素 | 81.43%
+49 | 计数质数 | 71.20%
+50 | 同构字符串 | 80.62%
+51 | 反转链表 | 71.54%
+52 | 存在重复元素 | 67.42%
+53 | 存在重复元素 II | 61.48%
+54 | 用队列实现栈 | 97.74%
+55 | 翻转二叉树 | 68.05%
+56 | 2的幂 | 91.38%
+57 | 用栈实现队列 | 62.00%
+58 | 回文链表 | 69.59%
+59 | 二叉搜索树的最近公共祖先 | 82.37%
+60 | 删除链表中的节点 | 97.96%
+61 | 有效的字母异位词 | 97.26%
+62 | 二叉树的所有路径 | 94.14%
+63 | 各位相加 | 93.64%
+64 | 丑数 | 79.23%
+65 | 缺失数字 | 90.13%
+66 | 第一个错误的版本 | 82.70%
+67 | 移动零 | 85.48%
+68 | 单词规律 | 62.71%
+69 | Nim 游戏 | 97.84%
+70 | 猜数字游戏 | 76.27%
+71 | 区域和检索 - 数组不可变 | 95.19%
+72 | 3的幂 | 97.50%
+73 | 4的幂 | 92.92%
+74 | 反转字符串 | 77.42%
+75 | 反转字符串中的元音字母 | 96.47%
+76 | 两个数组的交集 | 88.37%
+77 | 两个数组的交集 II | 94.94%
+78 | 有效的完全平方数 | 89.86%
+79 | 两整数之和 | as same as 16th
+80 | 猜数字大小 | as same as 66th
+81 | 赎金信 | as same as 61th
+82 | 字符串中的第一个唯一字符 | 64.78%
+83 | 找不同 | 87.46%
+84 | 判断子序列 | 71.61%
+85 | 左叶子之和 | 97.99%
+86 | 数字转换为十六进制数 | as same as 39th
+87 | 最长回文串 | as same as 83th
 88 | Fizz Buzz | as same as 64
-89 | Third Maximum Number |
+89 | 第三大的数 |
 
 ## Tag
 1. Stack
