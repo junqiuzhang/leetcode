@@ -20,8 +20,6 @@ var findTheDifference = function(s, t) {
             temp[s[i].charCodeAt() - 97] = -1;
         }
     }
-    console.log(temp);
-    
     for (i = 0; i < temp.length; i++) {
         if (typeof temp[i] == 'number' && temp[i] === 1) {
           return String.fromCharCode(i + 97)
