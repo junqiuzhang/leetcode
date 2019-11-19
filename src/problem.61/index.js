@@ -12,7 +12,7 @@ var isAnagram = function(s, t) {
         if (typeof temp[s[i].charCodeAt() - 97] == 'number') {
             temp[s[i].charCodeAt() - 97]++;
         } else {
-          temp[s[i].charCodeAt() - 97] = 1;
+            temp[s[i].charCodeAt() - 97] = 1;
         }
     }
     for (var i = 0; i < t.length; i++) {

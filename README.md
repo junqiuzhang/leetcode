@@ -84,6 +84,7 @@ Number | Name | Ranking
 79 | Sum of Two Integers | as same as 16th
 80 | Guess Number Higher or Lower | as same as 66th
 81 | Ransom Note | as same as 61th
+82 | First Unique Character in a String | 50.26%
 
 
 ## Tag
