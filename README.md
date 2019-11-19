@@ -80,6 +80,7 @@ Number | Name | Ranking
 75 | Reverse Vowels of a String | 96.47%
 76 | Intersection of Two Arrays | 88.37%
 77 | Intersection of Two Arrays II | 94.94%
+78 | Valid Perfect Square | 89.86%
 
 
 ## Tag
