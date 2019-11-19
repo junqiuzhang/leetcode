@@ -85,7 +85,7 @@ Number | Name | Ranking
 80 | Guess Number Higher or Lower | as same as 66th
 81 | Ransom Note | as same as 61th
 82 | First Unique Character in a String | 64.78%
-83 | Find the Difference | 
+83 | Find the Difference | 87.46%
 
 
 ## Tag
