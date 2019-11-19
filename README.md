@@ -81,7 +81,9 @@ Number | Name | Ranking
 76 | Intersection of Two Arrays | 88.37%
 77 | Intersection of Two Arrays II | 94.94%
 78 | Valid Perfect Square | 89.86%
-79 | Sum of Two Integers | 
+79 | Sum of Two Integers | as same as 16th
+80 | Guess Number Higher or Lower | as same as 66th
+81 | Ransom Note | as same as 61th
 
 
 ## Tag
