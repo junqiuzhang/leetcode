@@ -3,7 +3,7 @@
  * @return {number}
  */
 var firstUniqChar = function(s) {
-    var temp = [];
+    var temp = {};
     var len = s.length;
     for (var i = 0; i < len; i++) {
         if (typeof temp[s[i]] == 'number') {
