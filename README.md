@@ -92,6 +92,7 @@
 87 | 最长回文串 | as same as 83th
 88 | Fizz Buzz | as same as 64
 89 | 第三大的数 | 85.17%
+90 | 字符串之和 | as same as 16
 
 ## Tag
 1. Stack
