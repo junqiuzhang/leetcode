@@ -91,7 +91,7 @@
 86 | 数字转换为十六进制数 | as same as 39th
 87 | 最长回文串 | as same as 83th
 88 | Fizz Buzz | as same as 64
-89 | 第三大的数 |
+89 | 第三大的数 | 85.17%
 
 ## Tag
 1. Stack
