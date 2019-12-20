@@ -24,6 +24,7 @@ var numberOfBoomerangs = function(points) {
           distanceVector[j] = distance;
         }
         if (rowDistanceTotal[distance]) {
+          total = total + rowDistanceTotal[distance] * 2;
           rowDistanceTotal[distance]++;
         } else {
           rowDistanceTotal[distance] = 1;
@@ -31,12 +32,6 @@ var numberOfBoomerangs = function(points) {
       }
     }
     distanceMatrix[i] = distanceVector;
-    for (var key in rowDistanceTotal) {
-      var num = rowDistanceTotal[key];
-      if (num > 1) {
-        total = total + num * (num - 1);
-      }
-    }
   }
   return total;
 };
