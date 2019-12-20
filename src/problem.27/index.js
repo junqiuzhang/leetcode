@@ -1,39 +1,36 @@
 /**
- * 数据结构：二叉树
- * 算法：递归遍历
+ * 数据结构：数组
+ * 算法：遍历
  */
 /**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
- */
-/**
- * @param {TreeNode} root
+ * @param {number[]} nums
+ * @param {number} val
  * @return {number}
  */
-var minDepth = function(root) {
-    if (!root) {
-        return 0;
-    }
-    if (!root.left && !root.right) {
-        return 1;
-    }
-    function getMinDepth(r) {
-        if (!r.left && !r.right) {
-            return 1;
+var removeElement = function(nums, val) {
+    var len = 0;
+    var nex = 1;
+    for (var i = 0; i < nums.length; i++) {
+        if (nums[i] == val) {
+            if (nex == 1) {
+                nex = i + 1;
+            }
+            for (var j = nex; j < nums.length; j++) {
+                if (nums[j] != val) {
+                    nums[i] = nums[j];
+                    nums[j] = val;
+                    nex = j + 1;
+                    break;
+                }
+            }
+            if (j == nums.length) {
+                break;
+            }
         }
-        var leftDepth = Infinity;
-        if (r.left && typeof r.left.val === 'number') {
-            leftDepth = getMinDepth(r.left);
+        if (nums[i] != val) {
+            len++;
         }
-        var rightDepth = Infinity;
-        if (r.right && typeof r.right.val === 'number') {
-            rightDepth = getMinDepth(r.right);
-        }
-        return Math.min(leftDepth, rightDepth) + 1;
     }
-    var rootDepth = getMinDepth(root);
-    return rootDepth;
+    nums.length = len;
+    return len;
 };

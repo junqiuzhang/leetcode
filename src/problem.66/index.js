@@ -1,39 +1,24 @@
 /**
  * 数据结构：数字
- * 算法：二分查找
+ * 算法：循环
  */
 /**
- * Definition for isBadVersion()
- * 
- * @param {integer} version number
- * @return {boolean} whether the version is bad
- * isBadVersion = function(version) {
- *     ...
- * };
+ * @param {number[]} digits
+ * @return {number[]}
  */
-
-/**
- * @param {function} isBadVersion()
- * @return {function}
- */
-var solution = function(isBadVersion) {
-    /**
-     * @param {integer} n Total versions
-     * @return {integer} The first bad version
-     */
-    return function(n) {
-        if (isBadVersion(1)) return 1;
-        var min = 1;
-        var max = n;
-        var mid = 0;
-        while (max - min > 1) {
-            mid = Math.floor((min + max) / 2);
-            if (isBadVersion(mid)) {
-                max = mid;
-            } else {
-                min = mid;
-            }
+var plusOne = function(digits) {
+    digits[digits.length - 1]++;
+    for (var i = digits.length - 2; i >= 0; i--) {
+        if (digits[i + 1] > 9) {
+            digits[i + 1] = 0;
+            digits[i]++;
+        } else {
+            break;
         }
-        return max;
-    };
+    }
+    if (digits[0] == 10) {
+        digits[0] = 0;
+        return [1].concat(digits);
+    }
+    return digits;
 };

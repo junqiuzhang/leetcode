@@ -1,60 +1,32 @@
 /**
- * 数据结构：二叉树
- * 算法：循环遍历
+ * 数据结构：数组
+ * 算法：遍历
  */
 /**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
+ * @param {string} haystack
+ * @param {string} needle
+ * @return {number}
  */
-/**
- * @param {TreeNode} root
- * @param {number} sum
- * @return {boolean}
- */
-var hasPathSum = function(root, sum) {
-    if (!root) {
-        return false;
+var strStr = function(haystack, needle) {
+    if (!needle.length) {
+        return 0;
     }
-    if (!root.left && !root.right) {
-        return root.val == sum;
+    if (!haystack.length) {
+        return -1;
     }
-    var cur = root;
-    var tempSum = 0;
-    var stack = [];
-    var leftState = false;
-    var rightState = false;
-    do {
-        leftState = cur.left && !cur.left.visit;
-        rightState = cur.right && !cur.right.visit;
-        if (!cur.visit) {
-            cur.visit = true;
-            tempSum += cur.val;
-            stack.push(cur);
-            if (leftState) {
-                cur = cur.left;
-            } else if (rightState) {
-                cur = cur.right;
+    var num = needle.length;
+    for (var i = 0; i < haystack.length - needle.length + 1; i++) {
+        for (var j = 0; j < needle.length; j++) {
+            if (haystack[i + j] != needle[j]) {
+                break;
             }
-        } else {
-            if (leftState) {
-                cur = cur.left;
-            } else if (rightState) {
-                cur = cur.right;
-            } else {
-                if (!cur.left && !cur.right) {
-                    if (tempSum == sum) {
-                        return true;
-                    }
-                }
-                tempSum -= cur.val;
-                stack.pop();
-                cur = stack[stack.length - 1];
-            }
+            num--;
         }
-
-    } while (stack.length > 0 && cur)
-    return false;
+        if (num == 0) {
+            return i;
+        } else {
+            num = needle.length;
+        }
+    }
+    return -1;
 };

@@ -1,39 +1,43 @@
 /**
- * 数据结构：二叉树
- * 算法：递归遍历
+ * 数据结构：数组
+ * 算法：遍历
  */
 /**
- * Definition for a binary tree node.
- * function TreeNode(val) {
- *     this.val = val;
- *     this.left = this.right = null;
- * }
+ * @param {number[]} nums
+ * @return {number}
  */
-/**
- * @param {TreeNode} root
- * @return {boolean}
- */
-var isBalanced = function(root) {
-    if (!root) {
-        return true;
+var removeDuplicates = function(nums) {
+    if (nums.length <= 1) {
+        return nums.length;
     }
-    function getDepth(r) {
-        if (!r) {
-            return 1;
+    var len = 1;
+    var nex = 1;
+    var pre = nums[0];
+    for (var i = 1; i < nums.length; i++) {
+        if (nums[i] == pre) {
+            nums[i] = undefined;
+            if (nex == 1) {
+                nex = i + 1;
+            }
+            continue;
         }
-        var leftDepth = getDepth(r.left);
-        if (!leftDepth) {
-            return 0;
-        }
-        var rightDepth = getDepth(r.right);
-        if (!rightDepth) {
-            return 0;
-        }
-        if (Math.abs(leftDepth - rightDepth) > 1) {
-            return 0;
-        }
-        return Math.max(leftDepth, rightDepth) + 1;
+        pre = nums[i];
+        len++;
     }
-    var rootDepth = getDepth(root);
-    return !!rootDepth;
+    for (var i = 1; i < len; i++) {
+        if (typeof nums[i] == 'undefined') {
+            for (var j = nex; j < nums.length; j++) {
+                if (typeof nums[j] != 'undefined') {
+                    nums[i] = nums[j];
+                    nums[j] = undefined;
+                    nex = j + 1;
+                    break;
+                }
+            }
+            if (j == nums.length) {
+                break;
+            }
+        }
+    }
+    return len;
 };

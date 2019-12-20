@@ -1,25 +1,36 @@
 /**
- * 数据结构：数组
- * 算法：遍历
+ * 数据结构：数字
+ * 算法：循环
  */
 /**
- * @param {number[]} numbers
- * @param {number} target
- * @return {number[]}
+ * @param {number} n
+ * @return {string}
  */
-var twoSum = function(numbers, target) {
-    var len = numbers.length;
-    var res = [1, len];
-    var diff = 0;
-    for (var i = 0; i < len; i++) {
-        diff = numbers[res[0] - 1] + numbers[res[1] - 1] - target;
-        if (diff === 0) {
-            return res;
-        } else if (diff < 0) {
-            res[0]++;
-        } else if (diff > 0) {
-            res[1]--;
-        }
+var countAndSay = function(n) {
+    if (n == 1) {
+        return '1';
     }
-    return res;
+    var suf = n % 2 == 0 ? '11' : '21';
+    if (n <= 3) {
+        return suf;
+    }
+    function iteration(str) {
+        var newStr = '';
+        var num = 1;
+        var pre = str[0];
+        for (var i = 1; i <= str.length; i++) {
+            if (str[i] != pre) {
+                newStr += '' + num + pre;
+                pre = str[i];
+                num = 0;
+            }
+            num++;
+        }
+        return newStr;
+    }
+    var str = '21';
+    for (var i = 0; i < n - 3; i++) {
+        str = iteration(str);
+    }
+    return str;
 };

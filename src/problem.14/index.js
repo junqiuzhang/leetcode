@@ -3,22 +3,30 @@
  * 算法：遍历
  */
 /**
- * @param {string} s
- * @return {number}
+ * @param {string[]} strs
+ * @return {string}
  */
-var lengthOfLastWord = function(s) {
-    if (!s.trim()) {
-        return 0;
+var longestCommonPrefix = function(strs) {
+    if (!strs || !strs.length) {
+        return '';
     }
-    var len = 0;
-    for (var i = s.length - 1; i >= 0; i-- ) {
-        if (s[i] != ' ') {
-            len++;
-        } else {
-            if (len > 0) {
-                return len;
+    var longestCommonPrefixStr = function(str1, str2) {
+        var len = Math.min(str1.length, str2.length);
+        for (var i = 0; i < len; i++) {
+            if (str1[i] !== str2[i]) {
+                return i;
             }
         }
+        return i;
     }
-    return len;
+    var comStr = strs[0];
+    var comNum = strs[0].length;
+    for (var i = 1; i < strs.length; i++) {
+        comNum = longestCommonPrefixStr(comStr, strs[i]);
+        if (comNum === 0) {
+            return '';
+        }
+        comStr = comStr.slice(0, comNum);
+    }
+    return comStr;
 };

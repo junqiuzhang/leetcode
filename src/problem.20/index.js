@@ -1,44 +1,41 @@
 /**
- * 数据结构：数组
- * 算法：排序
+ * 数据结构：栈
+ * 算法：栈操作
  */
 /**
- * @param {number[]} nums1
- * @param {number} m
- * @param {number[]} nums2
- * @param {number} n
- * @return {void} Do not return anything, modify nums1 in-place instead.
+ * @param {string} s
+ * @return {boolean}
  */
-var merge = function(nums1, m, nums2, n) {
-    /**
-     * 方案1(失败):
-     * 归并排序：
-     * 将nums1和nums2按照归并排序的方法排列到nums1中，用nums1的富余空间存替换出的nums1元素
-     * 交换比较数字的位置
-     * 方案2:
-     * 归并排序：
-     * 用新nums存归并排序的元素
-     */
-    if (nums1.length == 0) {
-        return nums2;
+var isValid = function(s) {
+    var len = s.length;
+    if (len === 0) {
+        return true;
+    } else if (len % 2 === 1) {
+        return false;
     }
-    if (nums2.length == 0) {
-        return nums1;
+    var Enum = {
+        '(': 0,
+        '[': 1,
+        '{': 2,
+        ')': 3,
+        ']': 4,
+        '}': 5
     }
-    var nums3 = [];
-    var i = 0;
-    var j = 0;
-    for (var k = 0; k < m + n; k++) {
-        if (i >= m || nums1[i] > nums2[j]) {
-            nums3[k] = nums2[j];
-            j++;
-            continue;
+    var stack = [];
+    var i, si, preSi;
+    for (i = 0; i < len; i++) {
+        si = s[i];
+        if (Enum[si] < 3) {
+            stack.push(s[i]);
+        } else {
+            preSi = stack.pop();
+            if (Enum[preSi] + 3 !== Enum[si]) {
+                return false;
+            }
         }
-        nums3[k] = nums1[i];
-        i++;
     }
-    for (var k = 0; k < m + n; k++) {
-        nums1[k] = nums3[k];
-    }
-    return nums3;
+    if (stack.length !== 0) {
+        return false;
+    } 
+    return true;
 };

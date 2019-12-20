@@ -1,47 +1,34 @@
 /**
- * 数据结构：数组
- * 算法：遍历
+ * 数据结构：哈希表
+ * 算法：查找
  */
 /**
- * @param {number[]} nums
+ * @param {string} s
  * @return {number}
  */
-var maxSubArray = function(nums) {
-    if (nums.length == 1) {
-        return nums[0];
-    }
-    if (nums.length == 2) {
-        return Math.max(nums[0], nums[1], nums[0] + nums[1]);
-    }
-    if (nums.length == 3) {
-        return Math.max(nums[0], nums[1], nums[2], nums[0] + nums[1], nums[1] + nums[2], nums[0] + nums[1] + nums[2]);
-    }
-    var i = 0;
-    var j = nums.length - 1;
-    var left = nums[i];
-    var right = nums[j];
-    while (i < j) {
-        if (left < 0 || right < 0) {
-            if (left <= right) {
-                left = 0;
-                i++;
-                left += nums[i];
-            } else {
-                right = 0;
-                j--;
-                right += nums[j];
-            }
+var romanToInt = function(s) {
+    var i = s.length - 1;
+    var num = 0;
+    var numMap = {
+        I: 1,
+        V: 5,
+        X: 10,
+        L: 50,
+        C: 100,
+        D: 500,
+        M: 1000
+    };
+    var pre = 0;
+    var cur = 0;
+    while (i > -1) {
+        cur = numMap[s[i]];
+        if (cur >= pre) {
+            num += cur;            
         } else {
-            if (left <= right) {
-                i++;
-                left += nums[i];
-            } else {
-                j--;
-                right += nums[j];
-            }
+            num -= cur;
         }
-        if (i == j - 1) {
-            return Math.max(left, right, left + right)
-        }
+        pre = cur;
+        i--;
     }
+    return num;
 };

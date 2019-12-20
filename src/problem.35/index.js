@@ -1,31 +1,20 @@
 /**
- * 数据结构：链表
- * 算法：双指针遍历
+ * 数据结构：数组
+ * 算法：遍历
  */
 /**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
+ * @param {number[]} nums
+ * @param {number} target
+ * @return {number}
  */
-
-/**
- * @param {ListNode} head
- * @return {boolean}
- */
-var hasCycle = function(head) {
-    var first = head;
-    var second = head;
-    while (first && first.next && second) {
-        first = first.next.next;
-        second = second.next;
-        if (!first || !second) {
-            return false;
-        }
-        if (first == second) {
-            return true;
+var searchInsert = function(nums, target) {
+    if (!nums.length || nums[0] >= target) {
+        return 0;
+    }
+    for (var i = 1; i < nums.length; i++) {
+        if (nums[i - 1] <= target && nums[i] >= target ) {
+            return i;
         }
     }
-    return false;
+    return nums.length;
 };

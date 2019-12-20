@@ -1,35 +1,41 @@
 /**
- * 数据结构：哈希表
- * 算法：查找
+ * 数据结构：数字
+ * 算法：循环
  */
 /**
- * @param {string} secret
- * @param {string} guess
- * @return {string}
+ * @param {number} n
+ * @return {number}
  */
-var getHint = function(secret, guess) {
-    var A = 0;
-    var B = 0;
-    var map = {};
-    for (var i = 0; i < secret.length; i++) {
-        if (map[secret[i]]) {
-            map[secret[i]]++;
-        } else {
-            map[secret[i]] = 1;
-        }
+var climbStairs = function(n) {
+    if (n < 4) {
+        return n;
     }
-    for (var i = 0; i < guess.length; i++) {
-        if (guess[i] == secret[i]) {
-            map[guess[i]]--;
-            guess = guess.slice(0, i) + '$' + guess.slice(i + 1);
-            A++;
+    var Max = Math.floor(n / 2);
+    var one = 0;
+    var two = 0;
+    var res = 0;
+    var resArr = [];
+    function C_nm(n, m) {
+        if (m == 0 || n == m) {
+            return 1;
         }
-    }
-    for (var i = 0; i < guess.length; i++) {
-        if (map[guess[i]] > 0) {
-            map[guess[i]]--;
-            B++;
+        var fir = resArr[n - 1] ? resArr[n - 1][m - 1] : 0;
+        var sec = resArr[n - 1] ? resArr[n - 1][m] : 0;
+        if (!fir) {
+            fir = C_nm(n - 1, m - 1);
+            resArr[n - 1] = [];
+            resArr[n - 1][m - 1] = fir;
         }
+        if (!sec) {
+            sec = C_nm(n - 1, m);
+            resArr[n - 1] = [];
+            resArr[n - 1][m] = sec;
+        }
+        return fir + sec;
     }
-    return A + 'A' + B + 'B';
-};
+    for (var two = 0; two <= Max; two++) {
+        one = n - 2 * two;
+        res += C_nm(one + two, one > two ? two : one);
+    }
+    return res;
+}
