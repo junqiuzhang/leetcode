@@ -1,4 +1,8 @@
 /**
+ * 数据结构：数组
+ * 算法：递归
+ */
+/**
  * @param {number[]} nums
  * @return {number}
  */

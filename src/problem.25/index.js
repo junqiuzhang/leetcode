@@ -1,4 +1,8 @@
 /**
+ * 数据结构：数组 平衡二叉树
+ * 算法：递归
+ */
+/**
  * Definition for a binary tree node.
  * function TreeNode(val) {
  *     this.val = val;

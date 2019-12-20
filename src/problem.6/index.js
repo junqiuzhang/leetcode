@@ -1,4 +1,8 @@
 /**
+ * 数据结构：栈
+ * 算法：栈操作
+ */
+/**
  * @param {string} s
  * @return {boolean}
  */

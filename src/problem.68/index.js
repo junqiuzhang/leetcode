@@ -1,4 +1,8 @@
 /**
+ * 数据结构：哈希表
+ * 算法：查找
+ */
+/**
  * @param {string} pattern
  * @param {string} str
  * @return {boolean}

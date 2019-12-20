@@ -1,4 +1,8 @@
 /**
+ * 数据结构：哈希表
+ * 算法：遍历
+ */
+/**
  * @param {string} s
  * @param {string} t
  * @return {boolean}

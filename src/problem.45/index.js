@@ -1,4 +1,8 @@
 /**
+ * 数据结构：二进制
+ * 算法：二进制操作
+ */
+/**
  * @param {number} n - a positive integer
  * @return {number}
  */

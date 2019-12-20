@@ -1,4 +1,8 @@
 /**
+ * 数据结构：数字
+ * 算法：循环
+ */
+/**
  * @param {string} a
  * @param {string} b
  * @return {string}

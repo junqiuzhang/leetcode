@@ -1,4 +1,8 @@
 /**
+ * 数据结构：链表
+ * 算法：链表操作
+ */
+/**
  * Definition for singly-linked list.
  * function ListNode(val) {
  *     this.val = val;

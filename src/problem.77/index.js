@@ -1,4 +1,8 @@
 /**
+ * 数据结构：哈希表
+ * 算法：查找
+ */
+/**
  * @param {number[]} nums1
  * @param {number[]} nums2
  * @return {number[]}

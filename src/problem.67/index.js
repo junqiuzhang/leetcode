@@ -1,4 +1,8 @@
 /**
+ * 数据结构：数组
+ * 算法：遍历
+ */
+/**
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */

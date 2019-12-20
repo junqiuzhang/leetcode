@@ -1,4 +1,8 @@
 /**
+ * 数据结构：数字
+ * 算法：二分查找
+ */
+/**
  * Definition for isBadVersion()
  * 
  * @param {integer} version number

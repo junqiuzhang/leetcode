@@ -1,4 +1,8 @@
 /**
+ * 数据结构：数字
+ * 算法：数学
+ */
+/**
  * @param {number} n
  * @return {number}
  */

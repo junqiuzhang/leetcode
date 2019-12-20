@@ -1,4 +1,8 @@
 /**
+ * 数据结构：数组
+ * 算法：遍历
+ */
+/**
  * @param {character[]} s
  * @return {void} Do not return anything, modify s in-place instead.
  */

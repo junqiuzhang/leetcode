@@ -1,9 +1,6 @@
 /**
- * Definition for singly-linked list.
- * function ListNode(val) {
- *     this.val = val;
- *     this.next = null;
- * }
+ * 数据结构：链表
+ * 算法：遍历
  */
 /**
  * @param {ListNode} l1
