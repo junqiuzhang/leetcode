@@ -1,6 +1,6 @@
 /**
- * 数据结构：数组
- * 算法：双指针遍历
+ * 数据结构：字符串 数组
+ * 算法：字符串操作 双指针遍历
  */
 /**
  * @param {character[]} chars
@@ -41,7 +41,7 @@ var compress = function (chars) {
  * @return {number}
  */
 var compress2 = function (chars) {
-  // 双指针 次快
+  // 双指针遍历 次快
   var writeIndex = 0;
   var readIndex = 0;
   var pre = chars[writeIndex];
