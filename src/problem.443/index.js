@@ -7,6 +7,41 @@
  * @return {number}
  */
 var compress = function (chars) {
+  // 字符串操作 最快
+  for (var i = 0; i < chars.length; i++) {
+    if (chars[i + 1] !== chars[i]) {
+      i++;
+      chars.splice(i, 0, '$$$$$$');
+    }
+  }
+  var tempChars = chars.join('').split('$$$$$$').filter(c => c);
+  var tempLength = 0;
+  for (var i = 0; i < tempChars.length; i++) {
+    chars[tempLength] = tempChars[i][0];
+    tempLength++;
+    if (tempChars[i].length > 1) {
+      if (tempChars[i].length < 10) {
+        chars[tempLength] = String(tempChars[i].length);
+        tempLength++;
+      } else {
+        var tempNums = String(tempChars[i].length).split('');
+        for (var j = 0; j < tempNums.length; j++) {
+          chars[tempLength] = tempNums[j];
+          tempLength++;
+        }
+      }
+    }
+  }
+  chars.length = tempLength;
+  return chars.length;
+};
+
+/**
+ * @param {character[]} chars
+ * @return {number}
+ */
+var compress2 = function (chars) {
+  // 双指针 次快
   var writeIndex = 0;
   var readIndex = 0;
   var pre = chars[writeIndex];
@@ -20,35 +55,15 @@ var compress = function (chars) {
       chars[writeIndex] = pre;
       writeIndex++;
       if (num > 1) {
-        if (num >= 10) {
-          /** 
-           * 简化方法
-           * ['12'] => ['1','2']
-          */
-          var tempNumArr = [];
-          tempNumArr = String(num).split('');
-          for (var i = 0; i < tempNumArr.length; i++) {
-            chars[writeIndex] = tempNumArr[i];
-            writeIndex++;
-          }
-          /** 
-           * 通用方法
-           * ['12'] => ['1','2']
-          */
-          // var tempNum = num;
-          // var tempNumArr = [];
-          // while (tempNum >= 1) {
-          //   tempNumArr.push(tempNum % 10);
-          //   tempNum = Math.floor(tempNum / 10);
-          // }
-          // tempNumArr.reverse();
-          // for (var i = 0; i < tempNumArr.length; i++) {
-          //   chars[writeIndex] = String(tempNumArr[i]);
-          //   writeIndex++;
-          // }
-        } else {
+        if (num < 10) {
           chars[writeIndex] = String(num);
           writeIndex++;
+        } else {
+          var tempNums = String(num).split('');
+          for (var i = 0; i < tempNums.length; i++) {
+            chars[writeIndex] = tempNums[i];
+            writeIndex++;
+          }
         }
       }
       pre = cur;
@@ -58,4 +73,4 @@ var compress = function (chars) {
   }
   chars.length = writeIndex;
   return chars.length;
-};
+}
