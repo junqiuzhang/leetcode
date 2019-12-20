@@ -12,26 +12,26 @@ var numberOfBoomerangs = function(points) {
   }
   var total = 0;
   var len = points.length;
-  var distanceMatrix = [];
+  /**
+   * Object -> Map 用时减 50%
+   * Matrix -> null 用时减 25%
+   */
+  // var distanceMatrix = [];
+  // var distanceVector = [];
   for (var i = 0; i < len; i++) {
-    var rowDistanceTotal = {};
-    var distanceVector = [];
+    var rowDistanceTotal = new Map();
     for (var j = 0; j < len; j++) {
       if (i != j) {
-        var distance = distanceMatrix[i] && distanceMatrix[i][j];
-        if (typeof distance !== 'number') {
-          distance = getDistance(points[i], points[j])
-          distanceVector[j] = distance;
-        }
-        if (rowDistanceTotal[distance]) {
-          total = total + rowDistanceTotal[distance] * 2;
-          rowDistanceTotal[distance]++;
+        var distance = getDistance(points[i], points[j])
+        var distanceTotal = rowDistanceTotal.get(distance);
+        if (distanceTotal) {
+          rowDistanceTotal.set(distance, distanceTotal + 1);
+          total = total + distanceTotal * 2;
         } else {
-          rowDistanceTotal[distance] = 1;
+          rowDistanceTotal.set(distance, 1);
         }
       }
     }
-    distanceMatrix[i] = distanceVector;
   }
   return total;
 };
