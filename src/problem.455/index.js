@@ -1,6 +1,6 @@
 /**
  * 数据结构：数组
- * 算法：贪心算法 快速排序
+ * 算法：贪心算法
  */
 /**
  * @param {number[]} g
@@ -8,33 +8,28 @@
  * @return {number}
  */
 var findContentChildren = function(g, s) {
-  function quickSort(arr) {
-    if (arr.length <= 1) {
-      return arr;
+  // 手写快速排序不如自带排序
+  function compare(a, b) {
+    if (a < b) {
+      return -1;
     }
-    let left = [];
-    let right = [];
-    for (let i = 1; i < arr.length; i++) {
-      if (arr[i] > arr[0]) {
-        left.push(arr[i]);
-      } else {
-        right.push(arr[i]);
-      }
+    if (a > b) {
+      return 1;
     }
-    return quickSort(left).concat([arr[0]]).concat(quickSort(right));
+    return 0;
   }
-  const sortG = quickSort(g);
-  const sortS = quickSort(s);
+  g.sort(compare);
+  s.sort(compare);
   let res = 0;
-  let i = 0;
-  let j = 0;
-  while (i < sortG.length) {
-    if (sortS[j] >= sortG[i]) {
+  let i = g.length - 1;
+  let j = s.length - 1;
+  while (i > -1 && j > -1) {
+    if (s[j] >= g[i]) {
       res++;
-      i++;
-      j++;
+      i--;
+      j--;
     } else {
-      i++;
+      i--;
     }
   }
   return res;
