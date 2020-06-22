@@ -30,5 +30,3 @@ var sortArrayByParityII = function(A) {
   }
   return A
 };
-var a = [4,2,5,7]
-console.log(sortArrayByParityII(a));
