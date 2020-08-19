@@ -23,5 +23,3 @@ var numberOfSubarrays = function(nums, k) {
   }
   return res;
 };
-const nums = [2,4,6], k = 1
-console.log(numberOfSubarrays(nums, k))
