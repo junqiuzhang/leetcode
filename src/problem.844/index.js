@@ -17,6 +17,3 @@ var backspaceCompare = function (S, T) {
   }
   return replaceSharp(S) === replaceSharp(T);
 };
-var S = "y#fo##f"
-var T = "y#f#o##f"
-console.log(backspaceCompare(S, T))
