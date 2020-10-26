@@ -44,7 +44,25 @@ function array2tree(arr) {
   tree.right = array2tree(right);
   return tree;
 }
+function quickSort(arr, compare) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+  const left = [];
+  const right = [];
+  const middle = arr[0];
+  for (let i = 1; i < arr.length; i++) {
+    const ele = arr[i];
+    if (compare(ele, middle)) {
+      left.push(ele);
+    } else {
+      right.push(ele);
+    }
+  }
+  return left.concat([middle]).concat(right);
+}
 exports.ListNode = ListNode;
 exports.TreeNode = TreeNode;
 exports.array2tree = array2tree;
 exports.array2list = array2list;
+exports.quickSort = quickSort;
