@@ -59,7 +59,9 @@ function quickSort(arr, compare) {
       right.push(ele);
     }
   }
-  return left.concat([middle]).concat(right);
+  const sortedLeft = quickSort(left, compare);
+  const sortedRight = quickSort(right, compare);
+  return sortedLeft.concat([middle]).concat(sortedRight);
 }
 exports.ListNode = ListNode;
 exports.TreeNode = TreeNode;
