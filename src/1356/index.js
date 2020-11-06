@@ -31,8 +31,15 @@ var sortByBits = function (arr) {
       return false;
     }
   }
+  function hammingWeight(n) {
+    var res = 0;
+    for (var i = 0; i < 32; i++){
+      res += (n >> i) & 1; // 累加
+    }
+    return res;
+  };
   const formattedArr = arr.map(num => {
-    const len = num.toString(2).replace(/0/g, '').length;
+    const len = hammingWeight(num);
     return {
       num,
       len
