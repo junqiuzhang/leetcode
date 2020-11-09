@@ -44,6 +44,7 @@ function array2tree(arr) {
   tree.right = array2tree(right);
   return tree;
 }
+// 快排
 function quickSort(arr, compare) {
   if (arr.length <= 1) {
     return arr;
