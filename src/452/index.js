@@ -11,9 +11,7 @@ var findMinArrowShots = function (points) {
   });
   let count = 1;
   let axis = sortedPoints[0][1];
-  console.log(sortedPoints);
   for (let i = 1; i < sortedPoints.length; i++) {
-    console.log(axis, sortedPoints[i][0]);
     if (axis < sortedPoints[i][0]) {
       count++;
       axis = sortedPoints[i][1];
