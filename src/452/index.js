@@ -3,6 +3,7 @@
  * @return {number}
  */
 var findMinArrowShots = function (points) {
+  // 待证明
   if (points.length === 0) {
     return 0;
   }
