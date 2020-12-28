@@ -9,6 +9,7 @@ var maxProfit = function (prices, fee) {
   } else if (prices.length === 2) {
     return prices[1] - prices[0];
   }
+  // 【基本】递增子列：如果递增子列中的递减子列的差均不超过fee，称之为【基本】递增子列
   const stageArray = [];
   let minPrice = prices[0];
   let maxPrice = prices[0];
