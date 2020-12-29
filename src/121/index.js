@@ -11,7 +11,7 @@ var maxProfit = function(prices) {
         return 0;
     }
     var left = Infinity;
-    var right = -1;
+    var right = -Infinity;
     var max = 0;
     var len = prices.length;
     for (var i = 0; i < len; i++) {
