@@ -12,16 +12,13 @@ var maxProfit = function (prices, fee) {
   let minPrice = prices[0];
   let maxPrice = prices[0];
   for (let i = 1; i < prices.length; i++) {
-    if (prices[i] < maxPrice - fee) {
+    if ((prices[i] < maxPrice - fee) || (prices[i] < minPrice)) {
       if (maxPrice - minPrice > fee) {
         stageArray.push(minPrice, maxPrice);
       }
       minPrice = prices[i];
       maxPrice = prices[i];
     } else if (prices[i] > maxPrice) {
-      maxPrice = prices[i];
-    } else if (prices[i] < minPrice) {
-      minPrice = prices[i];
       maxPrice = prices[i];
     }
   }

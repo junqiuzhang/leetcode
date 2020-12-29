@@ -10,19 +10,19 @@ var maxProfit = function(prices) {
     if (!prices.length) {
         return 0;
     }
-    var left = Infinity;
-    var right = -Infinity;
+    var minPrice = Infinity;
+    var maxPrice = -Infinity;
     var max = 0;
     var len = prices.length;
     for (var i = 0; i < len; i++) {
-        if (prices[i] < left) {
-            left = prices[i];
-            right = prices[i];
-        } else if (prices[i] > right) {
-            right = prices[i];
-        }
-        if (right - left > max) {
-            max = right - left;
+        if (prices[i] < minPrice) {
+            if (maxPrice - minPrice > max) {
+                max = maxPrice - minPrice;
+            }
+            minPrice = prices[i];
+            maxPrice = prices[i];
+        } else if (prices[i] > maxPrice) {
+            maxPrice = prices[i];
         }
     }
     return max;
