@@ -13,18 +13,16 @@ var maxProfit = function(prices) {
     var left = Infinity;
     var right = -1;
     var max = 0;
-    var temp = -1;
     var len = prices.length;
     for (var i = 0; i < len; i++) {
-        temp = prices[i];
-        if (temp < left) {
-            left = temp;
-            right = temp;
-        } else if (temp > right) {
-            right = temp;
-            if (right - left > max) {
-                max = right - left;
-            }
+        if (prices[i] < left) {
+            left = prices[i];
+            right = prices[i];
+        } else if (prices[i] > right) {
+            right = prices[i];
+        }
+        if (right - left > max) {
+            max = right - left;
         }
     }
     return max;
