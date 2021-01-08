@@ -136,9 +136,35 @@ class Heap {
     return [...this.heap];
   }
 }
-exports.ListNode = ListNode;
-exports.TreeNode = TreeNode;
-exports.array2tree = array2tree;
-exports.array2list = array2list;
-exports.quickSort = quickSort;
-exports.Heap = Heap;
+class UnionFind {
+  constructor(ids) {
+    this.idMap = new Map();
+    this.size = ids.length;
+    ids.forEach(id => {
+      this.idMap.set(id, id);
+    })
+  }
+  get = (id) => {
+    let iid = id;
+    while (iid !== this.idMap.get(iid)) {
+      iid = this.idMap.get(iid);
+    }
+    return iid;
+  }
+  set = (id1, id2) => {
+    const iid1 = this.get(id1);
+    const iid2 = this.get(id2);
+    if (iid1 === iid2) return;
+    this.idMap.set(iid1, iid2);
+    this.size--;
+  }
+}
+module.exports = {
+  ListNode,
+  TreeNode,
+  array2tree,
+  array2list,
+  quickSort,
+  Heap,
+  UnionFind
+}
