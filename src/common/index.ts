@@ -160,12 +160,11 @@ class UnionFind<T> {
   elsTree: Map<T, T>;
   elsList: Map<T, T[]>;
   size: number;
-  find = (el: T) => {
-    let elRoot = el;
-    while (elRoot !== this.elsTree.get(elRoot)) {
-      elRoot = this.elsTree.get(elRoot) as T;
+  find = (el: T): T => {
+    if (this.elsTree.get(el) !== el) {
+      this.elsTree.set(el, this.find(this.elsTree.get(el) as T));
     }
-    return elRoot;
+    return this.elsTree.get(el) as T;
   }
   same = (el1: T, el2: T) => {
     const elRoot1 = this.find(el1);
@@ -182,10 +181,11 @@ class UnionFind<T> {
   forEach = (cb: (val: T[]) => any) => {
     this.elsList = new Map<T, T[]>();
     this.elsTree.forEach((val, key) => {
-      let elSet = this.elsList.get(key);
-      if (!elSet) elSet = [];
-      elSet.push(key);
-      this.elsList.set(this.find(key), elSet);
+      const elRoot = this.find(key);
+      let els = this.elsList.get(elRoot);
+      if (!els) els = [];
+      els.push(key);
+      this.elsList.set(elRoot, els);
     });
     this.elsList.forEach((val) => {
       cb(val);

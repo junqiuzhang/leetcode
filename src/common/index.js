@@ -157,11 +157,10 @@ exports.Heap = Heap;
 class UnionFind {
   constructor(els) {
     this.find = el => {
-      let elRoot = el;
-      while (elRoot !== this.elsTree.get(elRoot)) {
-        elRoot = this.elsTree.get(elRoot);
+      if (this.elsTree.get(el) !== el) {
+        this.elsTree.set(el, this.find(this.elsTree.get(el)));
       }
-      return elRoot;
+      return this.elsTree.get(el);
     };
     this.same = (el1, el2) => {
       const elRoot1 = this.find(el1);
@@ -178,10 +177,11 @@ class UnionFind {
     this.forEach = cb => {
       this.elsList = new Map();
       this.elsTree.forEach((val, key) => {
-        let elSet = this.elsList.get(key);
-        if (!elSet) elSet = [];
-        elSet.push(key);
-        this.elsList.set(this.find(key), elSet);
+        const elRoot = this.find(key);
+        let els = this.elsList.get(elRoot);
+        if (!els) els = [];
+        els.push(key);
+        this.elsList.set(elRoot, els);
       });
       this.elsList.forEach(val => {
         cb(val);
