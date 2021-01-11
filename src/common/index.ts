@@ -180,16 +180,13 @@ class UnionFind<T> {
     this.size--;
   }
   forEach = (cb: (val: T[]) => any) => {
-    if (this.elsList.size !== this.size) {
-      const elsList = new Map<T, T[]>();
-      this.elsTree.forEach((val, key) => {
-        let elSet = elsList.get(key);
-        if (!elSet) elSet = [];
-        elSet.push(val);
-        elsList.set(this.find(key), elSet);
-      });
-      this.elsList = elsList;
-    }
+    this.elsList = new Map<T, T[]>();
+    this.elsTree.forEach((val, key) => {
+      let elSet = this.elsList.get(key);
+      if (!elSet) elSet = [];
+      elSet.push(key);
+      this.elsList.set(this.find(key), elSet);
+    });
     this.elsList.forEach((val) => {
       cb(val);
     });
