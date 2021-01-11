@@ -18,7 +18,7 @@ class TreeNode<T> {
   right: TreeNode<T> | null;
 }
 // 数组转链表
-function array2list<T>(arr: Array<T>): ListNode<T> | null {
+function array2list<T>(arr: T[]): ListNode<T> | null {
   if (arr.length == 0 || arr.length == 1 && typeof arr[0] != 'number') {
     return null;
   }
@@ -31,13 +31,13 @@ function array2list<T>(arr: Array<T>): ListNode<T> | null {
   return listNode.next;
 }
 // 数组转二叉树
-function array2tree<T>(arr: Array<T>): TreeNode<T> | null {
+function array2tree<T>(arr: T[]): TreeNode<T> | null {
   if (arr.length == 0 || arr.length == 1 && typeof arr[0] != 'number') {
     return null;
   }
   var tree = new TreeNode<T>();
-  var left = [];
-  var right = [];
+  var left: T[] = [];
+  var right: T[] = [];
   var i = 0;
   var len = 0;
   var fir = -1;
@@ -54,7 +54,7 @@ function array2tree<T>(arr: Array<T>): TreeNode<T> | null {
   return tree;
 }
 // 快排
-function quickSort<T>(arr: Array<T>, compare: (a: T, b: T) => boolean): Array<T> {
+function quickSort<T>(arr: T[], compare: (a: T, b: T) => boolean): Array<T> {
   if (arr.length <= 1) {
     return arr;
   }
@@ -78,7 +78,7 @@ class Heap<T> {
     this.heap = [];
     this.compare = compare;
   }
-  heap: Array<T>;
+  heap: T[];
   compare: (a: T, b: T) => boolean;
   swap(i: number, j: number) {
     let temp = this.heap[i];
@@ -148,7 +148,7 @@ class Heap<T> {
   }
 }
 class UnionFind<T> {
-  constructor(els: Array<T>) {
+  constructor(els: T[]) {
     this.elsTree = new Map();
     this.elsList = new Map();
     els.forEach(el => {
@@ -158,12 +158,12 @@ class UnionFind<T> {
     this.size = els.length;
   }
   elsTree: Map<T, T>;
-  elsList: Map<T, Array<T>>;
+  elsList: Map<T, T[]>;
   size: number;
   find = (el: T) => {
     let elRoot = el;
     while (elRoot !== this.elsTree.get(elRoot)) {
-      elRoot = this.elsTree.get(elRoot);
+      elRoot = this.elsTree.get(elRoot) as T;
     }
     return elRoot;
   }
@@ -179,12 +179,12 @@ class UnionFind<T> {
     this.elsTree.set(elRoot1, elRoot2);
     this.size--;
   }
-  forEach = (cb: (val: Array<T>) => any) => {
+  forEach = (cb: (val: T[]) => any) => {
     if (this.elsList.size !== this.size) {
-      const elsList = new Map<T, Array<T>>();
+      const elsList = new Map<T, T[]>();
       this.elsTree.forEach((val, key) => {
         let elSet = elsList.get(key);
-        if (elSet) elSet = [];
+        if (!elSet) elSet = [];
         elSet.push(val);
         elsList.set(this.find(key), elSet);
       });
