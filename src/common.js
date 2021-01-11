@@ -137,26 +137,52 @@ class Heap {
   }
 }
 class UnionFind {
-  constructor(ids) {
-    this.idMap = new Map();
-    this.size = ids.length;
-    ids.forEach(id => {
-      this.idMap.set(id, id);
-    })
+  /**
+   * @param {Set} els 
+   */
+  constructor(els) {
+    this.elsTree = new Map();
+    this.elsList = new Map();
+    els.forEach(el => {
+      this.elsTree.set(el, el);
+      this.elsList.set(el, new Set());
+    });
+    this.size = els.length;
   }
-  get = (id) => {
-    let iid = id;
-    while (iid !== this.idMap.get(iid)) {
-      iid = this.idMap.get(iid);
+  find = (el) => {
+    let elRoot = el;
+    while (elRoot !== this.elsTree.get(elRoot)) {
+      elRoot = this.elsTree.get(elRoot);
     }
-    return iid;
+    return elRoot;
   }
-  set = (id1, id2) => {
-    const iid1 = this.get(id1);
-    const iid2 = this.get(id2);
-    if (iid1 === iid2) return;
-    this.idMap.set(iid1, iid2);
+  same = (el1, el2) => {
+    const elRoot1 = this.find(el1);
+    const elRoot2 = this.find(el2);
+    return elRoot1 === elRoot2;
+  }
+  union = (el1, el2) => {
+    const elRoot1 = this.find(el1);
+    const elRoot2 = this.find(el2);
+    if (elRoot1 === elRoot2) return;
+    this.elsTree.set(elRoot1, elRoot2);
     this.size--;
+  }
+  forEach = (cb) => {
+    if (this.elsList.size !== this.size) {
+      const elsList = new Map();
+      this.elsTree.forEach((val, key) => {
+        let elSet = elsList.get(key);
+        if (elSet) {
+          elSet = new Set();
+          elsList.set(this.find(key), elSet.add(val));
+        }
+      });
+      this.elsList = elsList;
+    }
+    this.elsList.forEach((val) => {
+      cb(val);
+    });
   }
 }
 module.exports = {
