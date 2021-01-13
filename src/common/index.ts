@@ -152,7 +152,7 @@ class UnionFind<T> {
     this.elsTree = new Map();
     this.size = 0;
     if (typeof param === 'number' && Number.isInteger(param)) {
-      new Array(param).forEach((v, i) => {
+      new Array(param).fill(0).forEach((v, i) => {
         this.elsTree.set(i, i);
       });
       this.size = param;
