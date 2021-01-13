@@ -148,17 +148,23 @@ class Heap<T> {
   }
 }
 class UnionFind<T> {
-  constructor(els: T[]) {
+  constructor(param: number | T[]) {
     this.elsTree = new Map();
-    this.elsList = new Map();
-    els.forEach(el => {
-      this.elsTree.set(el, el);
-      this.elsList.set(el, []);
-    });
-    this.size = els.length;
+    this.size = 0;
+    if (typeof param === 'number' && Number.isInteger(param)) {
+      new Array(param).forEach((v, i) => {
+        this.elsTree.set(i, i);
+      });
+      this.size = param;
+    }
+    if (typeof param === 'object' && Array.isArray(param)) {
+      param.forEach(el => {
+        this.elsTree.set(el, el);
+      });
+      this.size = param.length;
+    }
   }
-  elsTree: Map<T, T>;
-  elsList: Map<T, T[]>;
+  elsTree: Map<number | T, number | T>;
   size: number;
   find = (el: T): T => {
     if (this.elsTree.get(el) !== el) {
@@ -177,19 +183,6 @@ class UnionFind<T> {
     if (elRoot1 === elRoot2) return;
     this.elsTree.set(elRoot1, elRoot2);
     this.size--;
-  }
-  forEach = (cb: (val: T[]) => any) => {
-    this.elsList = new Map<T, T[]>();
-    this.elsTree.forEach((val, key) => {
-      const elRoot = this.find(key);
-      let els = this.elsList.get(elRoot);
-      if (!els) els = [];
-      els.push(key);
-      this.elsList.set(elRoot, els);
-    });
-    this.elsList.forEach((val) => {
-      cb(val);
-    });
   }
 }
 export {
