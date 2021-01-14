@@ -31,11 +31,11 @@ var maxProfit = function (k, prices) {
     stageArray.push(minPrice, maxPrice);
   }
   if (stageArray.length <= 2 * k) {
-    let ret = 0;
+    let res = 0;
     for (let i = 0; i < stageArray.length; i += 2) {
-      ret += stageArray[i + 1] - stageArray[i];
+      res += stageArray[i + 1] - stageArray[i];
     }
-    return ret;
+    return res;
   }
   // haveStock[i][j]表示在第i天持有股票，交易了j次
   // noStock[i][j]表示在第i天不持有股票，交易了j次

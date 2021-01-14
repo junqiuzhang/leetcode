@@ -27,9 +27,9 @@ var maxProfit = function (prices, fee) {
   if (maxPrice - minPrice > fee) {
     stageArray.push(minPrice, maxPrice);
   }
-  let ret = 0;
+  let res = 0;
   for (let i = 0; i < stageArray.length; i += 2) {
-    ret += stageArray[i + 1] - stageArray[i] - fee;
+    res += stageArray[i + 1] - stageArray[i] - fee;
   }
-  return ret;
+  return res;
 };
