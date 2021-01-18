@@ -158,8 +158,8 @@ class UnionFind<T> {
       this.size = param;
     }
     if (typeof param === 'object' && Array.isArray(param)) {
-      param.forEach(el => {
-        this.elsTree.set(el, el);
+      param.forEach((v, i) => {
+        this.elsTree.set(v, v);
       });
       this.size = param.length;
     }
