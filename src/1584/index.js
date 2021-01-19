@@ -7,6 +7,7 @@ function calcDistance(p1, p2) {
   return Math.abs(p1[0] - p2[0]) + Math.abs(p1[1] - p2[1]);
 }
 var minCostConnectPoints = function (points) {
+  // Kruskal算法
   const distance = [];
   for (let i = 0; i < points.length; i++) {
     const point1 = points[i];
@@ -23,6 +24,9 @@ var minCostConnectPoints = function (points) {
     if (!uf.same(dis[0], dis[1])) {
       res += dis[2];
       uf.union(dis[0], dis[1]);
+    }
+    if (uf.size === 1) {
+      return res
     }
   }
   return res;
