@@ -92,20 +92,10 @@ class Heap {
         let tempIndex = fatherIndex;
         let leftChildIndex = fatherIndex * 2;
         let rightChildIndex = fatherIndex * 2 + 1;
-        while (leftChildIndex < this.heap.length || rightChildIndex < this.heap.length) {
-            if (leftChildIndex >= this.heap.length) {
+        while (leftChildIndex < this.heap.length) {
+            tempIndex = leftChildIndex;
+            if (rightChildIndex < this.heap.length && !this.compare(this.heap[leftChildIndex], this.heap[rightChildIndex])) {
                 tempIndex = rightChildIndex;
-            }
-            else if (rightChildIndex >= this.heap.length) {
-                tempIndex = leftChildIndex;
-            }
-            else {
-                if (this.compare(this.heap[leftChildIndex], this.heap[rightChildIndex])) {
-                    tempIndex = leftChildIndex;
-                }
-                else {
-                    tempIndex = rightChildIndex;
-                }
             }
             if (this.compare(this.heap[tempIndex], this.heap[fatherIndex])) {
                 this.swap(tempIndex, fatherIndex);
@@ -143,39 +133,10 @@ class Heap {
         this.shiftDown();
         return head;
     }
-    get(i = 0) {
-        return this.heap[i];
-    }
-    set(i = 0, ele) {
-        this.heap[i] = ele;
-        this.shiftDown();
-    }
-    toArray() {
-        return [...this.heap];
-    }
 }
 exports.Heap = Heap;
 class UnionFind {
     constructor(param) {
-        this.find = (el) => {
-            if (this.elsTree.get(el) !== el) {
-                this.elsTree.set(el, this.find(this.elsTree.get(el)));
-            }
-            return this.elsTree.get(el);
-        };
-        this.same = (el1, el2) => {
-            const elRoot1 = this.find(el1);
-            const elRoot2 = this.find(el2);
-            return elRoot1 === elRoot2;
-        };
-        this.union = (el1, el2) => {
-            const elRoot1 = this.find(el1);
-            const elRoot2 = this.find(el2);
-            if (elRoot1 === elRoot2)
-                return;
-            this.elsTree.set(elRoot1, elRoot2);
-            this.size--;
-        };
         this.elsTree = new Map();
         this.size = 0;
         if (typeof param === 'number' && Number.isInteger(param)) {
@@ -190,6 +151,25 @@ class UnionFind {
             });
             this.size = param.length;
         }
+    }
+    find(el) {
+        if (this.elsTree.get(el) !== el) {
+            this.elsTree.set(el, this.find(this.elsTree.get(el)));
+        }
+        return this.elsTree.get(el);
+    }
+    same(el1, el2) {
+        const elRoot1 = this.find(el1);
+        const elRoot2 = this.find(el2);
+        return elRoot1 === elRoot2;
+    }
+    union(el1, el2) {
+        const elRoot1 = this.find(el1);
+        const elRoot2 = this.find(el2);
+        if (elRoot1 === elRoot2)
+            return;
+        this.elsTree.set(elRoot1, elRoot2);
+        this.size--;
     }
 }
 exports.UnionFind = UnionFind;
