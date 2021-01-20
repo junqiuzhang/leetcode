@@ -124,7 +124,7 @@ class Heap<T> {
   }
   pop() {
     const head = this.heap[0];
-    this.swap(0, this.heap.length);
+    this.swap(0, this.heap.length - 1);
     this.heap = this.heap.slice(0, this.heap.length - 1);
     this.shiftDown();
     return head;
