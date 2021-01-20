@@ -22,9 +22,9 @@ function array2list(arr) {
     if (arr.length == 0 || arr.length == 1 && typeof arr[0] != 'number') {
         return null;
     }
-    var listNode = new ListNode();
-    var node = listNode;
-    for (var i = 0; i < arr.length; i++) {
+    const listNode = new ListNode();
+    let node = listNode;
+    for (let i = 0; i < arr.length; i++) {
         node.next = new ListNode(arr[i]);
         node = node.next;
     }
@@ -36,18 +36,18 @@ function array2tree(arr) {
     if (arr.length == 0 || arr.length == 1 && typeof arr[0] != 'number') {
         return null;
     }
-    var tree = new TreeNode();
-    var left = [];
-    var right = [];
-    var i = 0;
-    var len = 0;
-    var fir = -1;
+    const tree = new TreeNode();
+    let left = [];
+    let right = [];
+    let i = 0;
+    let len = 0;
+    let fir = -1;
     while (fir < arr.length) {
         i++;
         len = Math.pow(2, i);
         fir = len - 1;
-        left = left.concat(arr.slice(len - 1, len * 3 / 2 - 1));
-        right = right.concat(arr.slice(len * 3 / 2 - 1, len * 2 - 1));
+        left = [...left, ...arr.slice(len - 1, len * 3 / 2 - 1)];
+        right = [...right, ...arr.slice(len * 3 / 2 - 1, len * 2 - 1)];
     }
     tree.val = arr[0];
     tree.left = array2tree(left);
@@ -74,7 +74,7 @@ function quickSort(arr, compare) {
     }
     const sortedLeft = quickSort(left, compare);
     const sortedRight = quickSort(right, compare);
-    return sortedLeft.concat([middle]).concat(sortedRight);
+    return [...sortedLeft, middle, ...sortedRight];
 }
 exports.quickSort = quickSort;
 class Heap {
@@ -133,7 +133,7 @@ class Heap {
         }
     }
     push(ele) {
-        this.heap = this.heap.concat([ele]);
+        this.heap = [...this.heap, ele];
         this.shiftUp();
     }
     pop() {
