@@ -30,4 +30,6 @@ declare class UnionFind<T> {
     same(el1: T, el2: T): boolean;
     union(el1: T, el2: T): void;
 }
-export { ListNode, TreeNode, array2tree, array2list, quickSort, Heap, UnionFind };
+declare function A(n1: number, n2: number): number;
+declare function C(n1: number, n2: number): number;
+export { ListNode, TreeNode, array2tree, array2list, quickSort, Heap, UnionFind, A, C, };

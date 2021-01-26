@@ -168,6 +168,17 @@ class UnionFind<T> {
     this.size--;
   }
 }
+// 排列组合A
+function A(n1: number, n2: number): number {
+  if (n1 === 1) {
+    return n2;
+  }
+  return n2 * A(n1 - 1, n2 - 1);
+}
+// 排列组合C
+function C(n1: number, n2: number) {
+  return A(n1, n2) / A(n1, n1);
+}
 export {
   ListNode,
   TreeNode,
@@ -175,5 +186,7 @@ export {
   array2list,
   quickSort,
   Heap,
-  UnionFind
+  UnionFind,
+  A,
+  C,
 }

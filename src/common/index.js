@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.UnionFind = exports.Heap = exports.quickSort = exports.array2list = exports.array2tree = exports.TreeNode = exports.ListNode = void 0;
+exports.C = exports.A = exports.UnionFind = exports.Heap = exports.quickSort = exports.array2list = exports.array2tree = exports.TreeNode = exports.ListNode = void 0;
 // 链表元素
 class ListNode {
     constructor(val) {
@@ -173,3 +173,16 @@ class UnionFind {
     }
 }
 exports.UnionFind = UnionFind;
+// 排列组合A
+function A(n1, n2) {
+    if (n1 === 1) {
+        return n2;
+    }
+    return n2 * A(n1 - 1, n2 - 1);
+}
+exports.A = A;
+// 排列组合C
+function C(n1, n2) {
+    return A(n1, n2) / A(n1, n1);
+}
+exports.C = C;
