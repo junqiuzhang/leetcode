@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.C = exports.A = exports.UnionFind = exports.Heap = exports.quickSort = exports.array2list = exports.array2tree = exports.TreeNode = exports.ListNode = void 0;
+exports.C = exports.A = exports.UnionFind = exports.Heap = exports.quickSort = exports.quickFind = exports.quickFindIndex = exports.array2list = exports.array2tree = exports.TreeNode = exports.ListNode = void 0;
 // 链表元素
 class ListNode {
     constructor(val) {
@@ -19,7 +19,7 @@ class TreeNode {
 exports.TreeNode = TreeNode;
 // 数组转链表
 function array2list(arr) {
-    if (arr.length == 0 || arr.length == 1 && typeof arr[0] != 'number') {
+    if (arr.length == 0 || (arr.length == 1 && typeof arr[0] != "number")) {
         return null;
     }
     const listNode = new ListNode();
@@ -33,7 +33,7 @@ function array2list(arr) {
 exports.array2list = array2list;
 // 数组转二叉树
 function array2tree(arr) {
-    if (arr.length == 0 || arr.length == 1 && typeof arr[0] != 'number') {
+    if (arr.length == 0 || (arr.length == 1 && typeof arr[0] != "number")) {
         return null;
     }
     const tree = new TreeNode();
@@ -46,8 +46,8 @@ function array2tree(arr) {
         i++;
         len = Math.pow(2, i);
         fir = len - 1;
-        left = [...left, ...arr.slice(len - 1, len * 3 / 2 - 1)];
-        right = [...right, ...arr.slice(len * 3 / 2 - 1, len * 2 - 1)];
+        left = [...left, ...arr.slice(len - 1, (len * 3) / 2 - 1)];
+        right = [...right, ...arr.slice((len * 3) / 2 - 1, len * 2 - 1)];
     }
     tree.val = arr[0];
     tree.left = array2tree(left);
@@ -55,6 +55,33 @@ function array2tree(arr) {
     return tree;
 }
 exports.array2tree = array2tree;
+// 二分查找
+function quickFindIndex(array, predicate) {
+    let min = 0;
+    let max = array.length - 1;
+    let mid = Math.floor((min + max) / 2);
+    if (predicate(array[min], min, array))
+        return 0;
+    if (!predicate(array[max], max, array))
+        return -1;
+    while (max - min > 1) {
+        mid = Math.floor((min + max) / 2);
+        if (predicate(array[mid], mid, array))
+            max = mid;
+        else
+            min = mid;
+    }
+    return max;
+}
+exports.quickFindIndex = quickFindIndex;
+// 二分查找
+function quickFind(array, predicate) {
+    const index = quickFindIndex(array, predicate);
+    if (index === -1)
+        return null;
+    return array[index];
+}
+exports.quickFind = quickFind;
 // 快排
 function quickSort(arr, compare) {
     if (arr.length <= 1) {
@@ -94,7 +121,8 @@ class Heap {
         let rightChildIndex = fatherIndex * 2 + 1;
         while (leftChildIndex < this.heap.length) {
             tempIndex = leftChildIndex;
-            if (rightChildIndex < this.heap.length && !this.compare(this.heap[leftChildIndex], this.heap[rightChildIndex])) {
+            if (rightChildIndex < this.heap.length &&
+                !this.compare(this.heap[leftChildIndex], this.heap[rightChildIndex])) {
                 tempIndex = rightChildIndex;
             }
             if (this.compare(this.heap[tempIndex], this.heap[fatherIndex])) {
@@ -139,13 +167,13 @@ class UnionFind {
     constructor(param) {
         this.elsTree = new Map();
         this.size = 0;
-        if (typeof param === 'number' && Number.isInteger(param)) {
+        if (typeof param === "number" && Number.isInteger(param)) {
             new Array(param).fill(0).forEach((v, i) => {
                 this.elsTree.set(i, i);
             });
             this.size = param;
         }
-        if (typeof param === 'object' && Array.isArray(param)) {
+        if (typeof param === "object" && Array.isArray(param)) {
             param.forEach((v, i) => {
                 this.elsTree.set(v, v);
             });

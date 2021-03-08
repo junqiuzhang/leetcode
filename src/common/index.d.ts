@@ -11,6 +11,8 @@ declare class TreeNode<T> {
 }
 declare function array2list<T>(arr: T[]): ListNode<T> | null;
 declare function array2tree<T>(arr: T[]): TreeNode<T> | null;
+declare function quickFindIndex<T>(array: T[], predicate: (value?: T, index?: number, array?: T[]) => boolean): number;
+declare function quickFind<T>(array: T[], predicate: (value?: T, index?: number, array?: T[]) => boolean): T | null;
 declare function quickSort<T>(arr: T[], compare: (a: T, b: T) => boolean): T[];
 declare class Heap<T> {
     constructor(compare: (a: T, b: T) => boolean);
@@ -32,4 +34,4 @@ declare class UnionFind<T> {
 }
 declare function A(n1: number, n2: number): number;
 declare function C(n1: number, n2: number): number;
-export { ListNode, TreeNode, array2tree, array2list, quickSort, Heap, UnionFind, A, C, };
+export { ListNode, TreeNode, array2tree, array2list, quickFindIndex, quickFind, quickSort, Heap, UnionFind, A, C, };

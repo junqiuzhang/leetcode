@@ -3,32 +3,34 @@
  * @param {string[]} words
  * @return {number}
  */
-var numMatchingSubseq = function(s, words) {
-  let res = 0
+function numMatchingSubseq(s, words) {
+  const charMap = new Map();
+  for (let i = 0; i < s.length; i++) {
+    let arr = charMap.get(s[i]);
+    if (!Array.isArray(arr)) {
+      arr = [];
+    }
+    arr.push(i);
+    charMap.set(s[i], arr);
+  }
+  let res = 0;
   for (let i = 0; i < words.length; i++) {
     const word = words[i];
-    if (isMatch(s, word)) {
-      res++
+    if (isMatch(word, charMap)) {
+      res++;
     }
   }
-  return res
-};
-function isMatch(str, reg) {
+  return res;
+}
+function isMatch(reg, map) {
   let cur = 0;
+  const is = (value) => (value >= cur)
   for (let i = 0; i < reg.length; i++) {
-    let flag = false
-    for (let j = cur; j < str.length; j++) {
-      if (str[j] === reg[i]) {
-        cur = j + 1;
-        flag = true
-        break
-      }
-    }
-    if (!flag) {
-      return false
-    } else if (i === reg.length - 1) {
-      return true
-    }
+    let arr = map.get(reg[i])
+    if (!Array.isArray(arr)) return false
+    const index = arr.findIndex(is)
+    if (index === -1) return false
+    cur = arr[index] + 1
   }
-  return false
+  return true;
 }
