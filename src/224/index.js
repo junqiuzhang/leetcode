@@ -13,20 +13,17 @@ function calculate(s) {
   while (matchObj) {
     matchObj = res.match(GroupReg);
     if (matchObj) {
-      console.log(matchObj[0], reduceCalculate(matchObj[0]));
-      res = res.replace(matchObj[0], reduceCalculate(matchObj[0]));
-      console.log(res);
+      res = res.replace(matchObj[0], groupCalculate(matchObj[0]));
     }
   }
-  return reduceCalculate(res);
+  return groupCalculate(res);
 }
 /**
  * @param {string} s
  * @return {number}
  */
-function reduceCalculate(s) {
+function groupCalculate(s) {
   const { numbers, operates } = token(s);
-  console.log(numbers, operates);
   return numbers.reduce((pre, cur, i) => {
     let preNumber = Number(pre);
     let curNumber = Number(cur);
@@ -66,3 +63,5 @@ function operateTransform(o) {
   }
   return operate
 }
+var s = "1-(2+3-(4+(5-(1-(2+4-(5+6))))))"
+console.log(calculate(s));
