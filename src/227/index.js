@@ -7,8 +7,9 @@ const BracketReg = /\(|\)/g;
  * @return {number}
  */
 function calculate(s) {
-  let tokens = tokenize(s);
-  let i = 1;
+  let formattedS = s.replace(SpaceReg, "");
+  let tokens = tokenize(formattedS);
+  let i = 0;
   while (i < tokens.length) {
     if (tokens[i] === "*" || tokens[i] === "/") {
       tokens[i + 1] = calc(tokens[i - 1], tokens[i + 1], tokens[i]);
@@ -18,8 +19,8 @@ function calculate(s) {
     i += 2;
   }
   tokens = tokens.filter((t) => t !== undefined);
-  let pre = tokens[0];
-  let j = 1;
+  let pre = 0;
+  let j = 0;
   while (j < tokens.length) {
     pre = calc(pre, tokens[j + 1], tokens[j]);
     j += 2;
@@ -31,13 +32,16 @@ function calculate(s) {
  * @return {string[]} tokens
  */
 function tokenize(s) {
-  const formattedS = s.replace(BracketReg, "").replace(SpaceReg, "");
-  const numbers = formattedS.split(OperateReg).filter((n) => n);
-  const operates = formattedS.split(NumberReg).filter((o) => o);
+  const formattedS = s.replace(BracketReg, "");
+  let numbers = formattedS.split(OperateReg).filter((n) => n.trim());
+  let operates = formattedS.split(NumberReg).filter((o) => o.trim());
   const tokens = [];
+  if (numbers.length - operates.length === 1) {
+    operates = ["+", ...operates];
+  }
   for (let i = 0; i < numbers.length; i++) {
-    tokens.push(numbers[i]);
     tokens.push(operates[i]);
+    tokens.push(numbers[i]);
   }
   return tokens.filter((t) => t);
 }

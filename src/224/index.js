@@ -62,8 +62,8 @@ function groupCalculate(s) {
  */
 function tokenize(s) {
   const formattedS = s.replace(BracketReg, "");
-  let numbers = formattedS.split(OperateReg).filter((n) => n);
-  let operates = formattedS.split(NumberReg).filter((o) => o);
+  let numbers = formattedS.split(OperateReg).filter((n) => n.trim());
+  let operates = formattedS.split(NumberReg).filter((o) => o.trim());
   const tokens = [];
   if (numbers.length - operates.length === 1) {
     operates = ["+", ...operates];
