@@ -43,6 +43,7 @@ var generateMatrix = function (n) {
 /**
  * @param {number} i
  * @param {number} j
+ * @param {number} n
  * @param {Direction} direction
  * @param {number[][]} matrix
  */

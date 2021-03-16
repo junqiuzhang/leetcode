@@ -25,24 +25,16 @@ var spiralOrder = function (matrix) {
   const JTotal = (matrix[0] && matrix[0].length) || 0;
   const Total = ITotal * JTotal;
   const TraversedSet = new Set();
-  let curDirection = Direction.right;
-  let i = 0,
-    j = 0;
   const res = [];
+  let i = 0;
+  let j = 0;
+  let curDirection = Direction.right;
   while (true) {
     if (typeof matrix[i][j] === "number") {
       res.push(matrix[i][j]);
       TraversedSet.add(`${i},${j}`);
     }
-    const nextI = i + DirectionStepMap[curDirection].i;
-    const nextJ = j + DirectionStepMap[curDirection].j;
-    const isNextTraversed =
-      nextI < 0 ||
-      nextI >= ITotal ||
-      nextJ < 0 ||
-      nextJ >= JTotal ||
-      TraversedSet.has(`${nextI},${nextJ}`);
-    if (isNextTraversed) {
+    if (isNextDisabled(i, j, ITotal, JTotal, curDirection, TraversedSet)) {
       curDirection = DirectionNextMap[curDirection];
     }
     i = i + DirectionStepMap[curDirection].i;
@@ -52,3 +44,22 @@ var spiralOrder = function (matrix) {
     }
   }
 };
+/**
+ * @param {number} i
+ * @param {number} j
+ * @param {number} ITotal
+ * @param {number} JTotal
+ * @param {Direction} direction
+ * @param {Set} TraversedSet
+ */
+function isNextDisabled(i, j, ITotal, JTotal, direction, TraversedSet) {
+  const nextI = i + DirectionStepMap[direction].i;
+  const nextJ = j + DirectionStepMap[direction].j;
+  const isNextDisable =
+    nextI < 0 ||
+    nextI >= ITotal ||
+    nextJ < 0 ||
+    nextJ >= JTotal ||
+    TraversedSet.has(`${nextI},${nextJ}`);
+  return isNextDisable;
+}
