@@ -20,35 +20,40 @@ const DirectionNextMap = {
  * @param {number} n
  * @return {number[][]}
  */
-var generateMatrix = function(n) {
-  const ITotal = matrix.length;
-  const JTotal = (matrix[0] && matrix[0].length) || 0;
-  const Total = ITotal * JTotal;
-  const TraversedSet = new Set();
+var generateMatrix = function (n) {
+  const matrix = new Array(n).fill(0).map(() => new Array(n));
+  const total = n * n + 1;
+  let i = 0;
+  let j = 0;
+  let index = 1;
   let curDirection = Direction.right;
-  let i = 0,
-    j = 0;
-  const res = [];
   while (true) {
-    if (typeof matrix[i][j] === "number") {
-      res.push(matrix[i][j]);
-      TraversedSet.add(`${i},${j}`);
-    }
-    const nextI = i + DirectionStepMap[curDirection].i;
-    const nextJ = j + DirectionStepMap[curDirection].j;
-    const isNextTraversed =
-      nextI < 0 ||
-      nextI >= ITotal ||
-      nextJ < 0 ||
-      nextJ >= JTotal ||
-      TraversedSet.has(`${nextI},${nextJ}`);
-    if (isNextTraversed) {
+    matrix[i][j] = index;
+    index++;
+    if (isNextDisabled(i, j, n, curDirection, matrix)) {
       curDirection = DirectionNextMap[curDirection];
     }
     i = i + DirectionStepMap[curDirection].i;
     j = j + DirectionStepMap[curDirection].j;
-    if (res.length === Total) {
-      return res;
+    if (index === total) {
+      return matrix;
     }
   }
 };
+/**
+ * @param {number} i
+ * @param {number} j
+ * @param {Direction} direction
+ * @param {number[][]} matrix
+ */
+function isNextDisabled(i, j, n, direction, matrix) {
+  const nextI = i + DirectionStepMap[direction].i;
+  const nextJ = j + DirectionStepMap[direction].j;
+  const isNextDisable =
+    nextI < 0 ||
+    nextI >= n ||
+    nextJ < 0 ||
+    nextJ >= n ||
+    typeof matrix[nextI][nextJ] === "number";
+  return isNextDisable;
+}
