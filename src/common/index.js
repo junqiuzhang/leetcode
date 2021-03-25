@@ -3,9 +3,9 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.C = exports.A = exports.UnionFind = exports.Heap = exports.quickSort = exports.quickFind = exports.quickFindIndex = exports.array2list = exports.array2tree = exports.TreeNode = exports.ListNode = void 0;
 // 链表元素
 class ListNode {
-    constructor(val) {
+    constructor(val, next) {
         this.val = val;
-        this.next = null;
+        this.next = next || null;
     }
 }
 exports.ListNode = ListNode;
@@ -22,13 +22,13 @@ function array2list(arr) {
     if (arr.length == 0 || (arr.length == 1 && typeof arr[0] != "number")) {
         return null;
     }
-    const listNode = new ListNode();
-    let node = listNode;
-    for (let i = 0; i < arr.length; i++) {
-        node.next = new ListNode(arr[i]);
-        node = node.next;
+    let list = null;
+    let i = arr.length - 1;
+    while (i > -1) {
+        list = new ListNode(arr[i], list || undefined);
+        i--;
     }
-    return listNode.next;
+    return list;
 }
 exports.array2list = array2list;
 // 数组转二叉树

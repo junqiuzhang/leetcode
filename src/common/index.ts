@@ -1,8 +1,8 @@
 // 链表元素
 class ListNode<T> {
-  constructor(val?: T) {
+  constructor(val?: T, next?: ListNode<T>) {
     this.val = val;
-    this.next = null;
+    this.next = next || null;
   }
   val: any;
   next: ListNode<T> | null;
@@ -22,13 +22,13 @@ function array2list<T>(arr: T[]): ListNode<T> | null {
   if (arr.length == 0 || (arr.length == 1 && typeof arr[0] != "number")) {
     return null;
   }
-  const listNode = new ListNode<T>();
-  let node = listNode;
-  for (let i = 0; i < arr.length; i++) {
-    node.next = new ListNode(arr[i]);
-    node = node.next;
+  let list = null;
+  let i = arr.length - 1;
+  while (i > -1) {
+    list = new ListNode(arr[i], list || undefined);
+    i--;
   }
-  return listNode.next;
+  return list;
 }
 // 数组转二叉树
 function array2tree<T>(arr: T[]): TreeNode<T> | null {
