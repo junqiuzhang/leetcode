@@ -68,3 +68,4 @@ function calc(m, n, o) {
       return 0;
   }
 }
+exports.calculate = calculate
