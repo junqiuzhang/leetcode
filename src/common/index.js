@@ -5,15 +5,16 @@ exports.C = exports.A = exports.UnionFind = exports.Heap = exports.quickSort = e
 class ListNode {
   constructor(val, next) {
     this.val = val;
-    this.next = next || null;
+    this.next = next !== null && next !== void 0 ? next : null;
   }
 }
 exports.ListNode = ListNode;
 // 树元素
 class TreeNode {
-  constructor(val) {
+  constructor(val, left, right) {
     this.val = val;
-    this.left = this.right = null;
+    this.left = left !== null && left !== void 0 ? left : null;
+    this.right = right !== null && right !== void 0 ? right : null;
   }
 }
 exports.TreeNode = TreeNode;
@@ -25,7 +26,10 @@ function array2list(arr) {
   let list = null;
   let i = arr.length - 1;
   while (i > -1) {
-    list = new ListNode(arr[i], list || undefined);
+    list = new ListNode(
+      arr[i],
+      list !== null && list !== void 0 ? list : undefined
+    );
     i--;
   }
   return list;

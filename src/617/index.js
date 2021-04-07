@@ -1,3 +1,4 @@
+const { TreeNode } = require("../common");
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
@@ -11,6 +12,18 @@
  * @param {TreeNode} root2
  * @return {TreeNode}
  */
-var mergeTrees = function(root1, root2) {
-
+var mergeTrees = function (root1, root2) {
+  if (!root1 && !root2) {
+    return null;
+  }
+  if (root1 && !root2) {
+    return root1;
+  }
+  if (!root1 && root2) {
+    return root2;
+  }
+  const tempLeft = mergeTrees(root1.left, root2.left);
+  const tempRight = mergeTrees(root1.right, root2.right);
+  const tempVal = root1.val + root2.val;
+  return new TreeNode(tempVal, tempLeft, tempRight);
 };

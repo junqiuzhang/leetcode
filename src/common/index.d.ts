@@ -4,7 +4,7 @@ declare class ListNode<T> {
   next: ListNode<T> | null;
 }
 declare class TreeNode<T> {
-  constructor(val?: T);
+  constructor(val?: T, left?: TreeNode<T>, right?: TreeNode<T>);
   val: any;
   left: TreeNode<T> | null;
   right: TreeNode<T> | null;

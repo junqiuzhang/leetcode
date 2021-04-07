@@ -2,16 +2,17 @@
 class ListNode<T> {
   constructor(val?: T, next?: ListNode<T>) {
     this.val = val;
-    this.next = next || null;
+    this.next = next ?? null;
   }
   val: any;
   next: ListNode<T> | null;
 }
 // 树元素
 class TreeNode<T> {
-  constructor(val?: T) {
+  constructor(val?: T, left?: TreeNode<T>, right?: TreeNode<T>) {
     this.val = val;
-    this.left = this.right = null;
+    this.left = left ?? null;
+    this.right = right ?? null;
   }
   val: any;
   left: TreeNode<T> | null;
@@ -25,7 +26,7 @@ function array2list<T>(arr: T[]): ListNode<T> | null {
   let list = null;
   let i = arr.length - 1;
   while (i > -1) {
-    list = new ListNode(arr[i], list || undefined);
+    list = new ListNode(arr[i], list ?? undefined);
     i--;
   }
   return list;
