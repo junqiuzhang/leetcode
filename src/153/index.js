@@ -1,6 +1,6 @@
 // 旋转群中旋转n次等价于旋转1次
 // 题目中的旋转n次表示旋转n个位置
-// Math.min最快
+// Math.min时间复杂度最小
 /**
  * @param {number[]} nums
  * @return {number}
@@ -23,3 +23,4 @@ var findMin = function (nums) {
     return findMin(nums.slice(0, middleIndex + 1));
   }
 };
+exports.findMin = findMin;
