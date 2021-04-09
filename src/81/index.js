@@ -27,6 +27,5 @@ var search = function (nums, target) {
     }
     return true;
   });
-  if (num === target) return true;
-  return false;
+  return num === target;
 };
