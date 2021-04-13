@@ -1,6 +1,6 @@
 "use strict";
 Object.defineProperty(exports, "__esModule", { value: true });
-exports.C = exports.A = exports.UnionFind = exports.Heap = exports.quickSort = exports.quickFind = exports.quickFindIndex = exports.array2list = exports.array2tree = exports.TreeNode = exports.ListNode = void 0;
+exports.C = exports.A = exports.UnionFind = exports.Heap = exports.quickSort = exports.quickFind = exports.quickFindIndex = exports.list2array = exports.tree2array = exports.array2list = exports.array2tree = exports.TreeNode = exports.ListNode = void 0;
 // 链表元素
 class ListNode {
   constructor(val, next) {
@@ -35,6 +35,16 @@ function array2list(arr) {
   return list;
 }
 exports.array2list = array2list;
+function list2array(list) {
+  const arr = [];
+  let temp = list;
+  while (temp) {
+    arr.push(temp.val);
+    temp = temp.next;
+  }
+  return arr;
+}
+exports.list2array = list2array;
 // 数组转二叉树
 function array2tree(arr) {
   if (arr.length == 0 || (arr.length == 1 && typeof arr[0] != "number")) {
@@ -59,6 +69,13 @@ function array2tree(arr) {
   return tree;
 }
 exports.array2tree = array2tree;
+function tree2array(root) {
+  if (!root) return [];
+  const left = tree2array(root.left);
+  const right = tree2array(root.right);
+  return [...left, root.val, ...right];
+}
+exports.tree2array = tree2array;
 // 二分查找
 function quickFindIndex(array, predicate) {
   let min = 0;

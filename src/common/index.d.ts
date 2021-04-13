@@ -10,7 +10,9 @@ declare class TreeNode<T> {
   right: TreeNode<T> | null;
 }
 declare function array2list<T>(arr: T[]): ListNode<T> | null;
+declare function list2array<T>(list: ListNode<T> | null): T[];
 declare function array2tree<T>(arr: T[]): TreeNode<T> | null;
+declare function tree2array<T>(root: TreeNode<T> | null): T[];
 declare function quickFindIndex<T>(
   array: T[],
   predicate: (value?: T, index?: number, array?: T[]) => boolean
@@ -45,6 +47,8 @@ export {
   TreeNode,
   array2tree,
   array2list,
+  tree2array,
+  list2array,
   quickFindIndex,
   quickFind,
   quickSort,

@@ -1,3 +1,4 @@
+const {array2tree, tree2array} = require('../common')
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
@@ -11,5 +12,10 @@
  * @return {number}
  */
 var minDiffInBST = function(root) {
-
+  const array = tree2array(root);
+  const diffArray = [];
+  for (let i = 0; i < array.length - 1; i++) {
+    diffArray.push(array[i + 1] - array[i]);
+  }
+  return Math.min(...diffArray);
 };

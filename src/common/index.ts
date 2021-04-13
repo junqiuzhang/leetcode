@@ -31,6 +31,15 @@ function array2list<T>(arr: T[]): ListNode<T> | null {
   }
   return list;
 }
+function list2array<T>(list: ListNode<T> | null): T[] {
+  const arr = [];
+  let temp = list;
+  while (temp) {
+    arr.push(temp.val);
+    temp = temp.next;
+  }
+  return arr;
+}
 // 数组转二叉树
 function array2tree<T>(arr: T[]): TreeNode<T> | null {
   if (arr.length == 0 || (arr.length == 1 && typeof arr[0] != "number")) {
@@ -53,6 +62,12 @@ function array2tree<T>(arr: T[]): TreeNode<T> | null {
   tree.left = array2tree(left);
   tree.right = array2tree(right);
   return tree;
+}
+function tree2array<T>(root: TreeNode<T> | null): T[] {
+  if (!root) return [];
+  const left = tree2array(root.left);
+  const right = tree2array(root.right);
+  return [...left, root.val, ...right];
 }
 // 二分查找
 function quickFindIndex<T>(
@@ -214,6 +229,8 @@ export {
   TreeNode,
   array2tree,
   array2list,
+  tree2array,
+  list2array,
   quickFindIndex,
   quickFind,
   quickSort,
