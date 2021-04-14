@@ -2,7 +2,7 @@ class Trie {
   constructor() {
     this.val = null;
     this.isLeaf = false;
-    this.children = [];
+    this.children = new Map();
   }
   /**
    * Inserts a word into the trie.
@@ -11,14 +11,35 @@ class Trie {
    */
   insert(word) {
     if (!word) return;
-    let child = this.children.find((child) => child.val === word[0]);
+    let child = this.children.get(word[0]);
     if (!child) {
       child = new Trie();
       child.val = word[0];
-      this.children.push(child);
+      this.children.set(word[0], child);
     }
     if (word.length === 1) child.isLeaf = true;
     return child.insert(word.slice(1));
+  }
+  /**
+   * Find a node from the trie.
+   * @param {string} word
+   * @return {Trie}
+   */
+  find(word) {
+    if (!word) return;
+    if (this.val === null) {
+      const child = this.children.get(word[0]);
+      if (child) {
+        return child.find(word);
+      }
+      return;
+    }
+    if (this.val === word) return this;
+    const child = this.children.get(word[1]);
+    if (child) {
+      return child.find(word.slice(1));
+    }
+    return;
   }
   /**
    * Returns if the word is in the trie.
@@ -26,13 +47,8 @@ class Trie {
    * @return {boolean}
    */
   search(word) {
-    if (this.val === null)
-      return !!this.children.find((child) => child.search(word));
-    if (!word) return false;
-    if (this.val !== word[0]) return false;
-    if (word.length === 1) return this.isLeaf;
-    if (word.length !== 1 && this.children.length === 0) return false;
-    return !!this.children.find((child) => child.search(word.slice(1)));
+    const trie = this.find(word);
+    return !!(trie && trie.isLeaf);
   }
   /**
    * Returns if there is any word in the trie that starts with the given prefix.
@@ -40,12 +56,7 @@ class Trie {
    * @return {boolean}
    */
   startsWith(prefix) {
-    if (this.val === null)
-      return !!this.children.find((child) => child.startsWith(prefix));
-    if (!prefix) return true;
-    if (this.val !== prefix[0]) return false;
-    if (prefix.length === 1) return true;
-    if (prefix.length !== 1 && this.children.length === 0) return false;
-    return !!this.children.find((child) => child.startsWith(prefix.slice(1)));
+    const trie = this.find(prefix);
+    return !!trie;
   }
 }
