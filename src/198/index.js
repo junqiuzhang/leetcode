@@ -63,14 +63,9 @@ var rob = function(nums) {
     }
     const RobMaxArray = [nums[0]];
     const NotRobMaxArray = [0];
-    function robMax(nums) {
-        const len = nums.length;
-        if (len >= 2 && (typeof RobMaxArray[len - 2] !== 'number' || typeof NotRobMaxArray[len - 2] !== 'number')) {
-            robMax(nums.slice(0, len - 1))
-        }
-        RobMaxArray[len - 1] = NotRobMaxArray[len - 2] + nums[len - 1];
-        NotRobMaxArray[len - 1] = Math.max(RobMaxArray[len - 2], NotRobMaxArray[len - 2]);
+    for (let i = 1; i < nums.length; i++) {
+        RobMaxArray[i] = NotRobMaxArray[i - 1] + nums[i];
+        NotRobMaxArray[i] = Math.max(RobMaxArray[i - 1], NotRobMaxArray[i - 1]);
     }
-    robMax(nums)
     return Math.max(RobMaxArray[len - 1], NotRobMaxArray[len - 1]);
 };
