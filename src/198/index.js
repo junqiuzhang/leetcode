@@ -53,13 +53,10 @@
  * @param {number[]} nums
  * @return {number}
  */
-var rob = function(nums) {
+var rob = function (nums) {
     const len = nums.length;
     if (len == 0) {
         return 0;
-    }
-    if (len == 1) {
-        return nums[0];
     }
     const RobMaxArray = [nums[0]];
     const NotRobMaxArray = [0];
