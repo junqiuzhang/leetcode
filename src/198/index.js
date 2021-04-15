@@ -60,7 +60,7 @@ var rob = function (nums) {
     }
     const RobMaxArray = [nums[0]];
     const NotRobMaxArray = [0];
-    for (let i = 1; i < nums.length; i++) {
+    for (let i = 1; i < len; i++) {
         RobMaxArray[i] = NotRobMaxArray[i - 1] + nums[i];
         NotRobMaxArray[i] = Math.max(RobMaxArray[i - 1], NotRobMaxArray[i - 1]);
     }
