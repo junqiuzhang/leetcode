@@ -55,7 +55,7 @@
  */
 var rob = function (nums) {
     const len = nums.length;
-    if (len == 0) {
+    if (len === 0) {
         return 0;
     }
     const RobMaxArray = [nums[0]];
