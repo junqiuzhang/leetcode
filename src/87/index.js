@@ -36,7 +36,6 @@ var isScramble = function (s1, s2) {
     }
     const tempS1 = s1.slice(i1, j1);
     const tempS2 = s2.slice(i2, j2);
-    console.log(tempS1, tempS2);
     if (tempS1 === tempS2) {
       setScrambleMap(i1, j1, i2, j2, true);
       return true;
