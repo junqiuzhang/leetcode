@@ -18,10 +18,10 @@
 var isScramble = function (s1, s2) {
   const isScrambleMap = new Map();
   function getScrambleMap(i1, j1, i2, j2) {
-    return isScrambleMap.get(`${i1},${j1},${i2},${j2}`)
+    return isScrambleMap.get(`${i1},${j1},${i2},${j2}`);
   }
   function setScrambleMap(i1, j1, i2, j2, bool) {
-    isScrambleMap.set(`${i1},${j1},${i2},${j2}`, bool)
+    isScrambleMap.set(`${i1},${j1},${i2},${j2}`, bool);
   }
   /**
    * @param {number} i1
@@ -31,11 +31,14 @@ var isScramble = function (s1, s2) {
    * @return {boolean}
    */
   function loopScramble(i1, j1, i2, j2) {
-    if (typeof getScrambleMap(i1, j1, i2, j2) === 'boolean') {
-      return getScrambleMap(i1, j1, i2, j2);
-    }
     const tempS1 = s1.slice(i1, j1);
     const tempS2 = s2.slice(i2, j2);
+    if (typeof getScrambleMap(i1, j1, i2, j2) === "boolean") {
+      return getScrambleMap(i1, j1, i2, j2);
+    }
+    if (tempS1.split("").sort().join("") !== tempS2.split("").sort().join("")) {
+      return false;
+    }
     if (tempS1 === tempS2) {
       setScrambleMap(i1, j1, i2, j2, true);
       return true;
@@ -44,12 +47,18 @@ var isScramble = function (s1, s2) {
       setScrambleMap(i1, j1, i2, j2, true);
       return true;
     }
-    for (let index = 1; index < (j1 - i1); index++) {
-      if (loopScramble(i1, i1 + index, i2, i2 + index) && loopScramble(i1 + index, j1, i2 + index, j2)) {
+    for (let index = 1; index < j1 - i1; index++) {
+      if (
+        loopScramble(i1, i1 + index, i2, i2 + index) &&
+        loopScramble(i1 + index, j1, i2 + index, j2)
+      ) {
         setScrambleMap(i1, j1, i2, j2, true);
         return true;
       }
-      if (loopScramble(i1, i1 + index, j2 - index, j2) && loopScramble(i1 + index, j1, i2, j2 - index)) {
+      if (
+        loopScramble(i1, i1 + index, j2 - index, j2) &&
+        loopScramble(i1 + index, j1, i2, j2 - index)
+      ) {
         setScrambleMap(i1, j1, i2, j2, true);
         return true;
       }
