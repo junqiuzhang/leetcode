@@ -213,12 +213,29 @@ class UnionFind<T> {
     this.size--;
   }
 }
+function proxyMatrix<T>(matrix: T[][]) {
+  return new Proxy(matrix, {
+    get: (target: T[][], p: number) => {
+      if (typeof target[p] === 'undefined') {
+        target[p] = []
+      }
+      return target[p];
+    }
+  })
+}
+const cacheMatrix = proxyMatrix<number>([[]]);
 // 排列组合A
 function A(n1: number, n2: number): number {
-  if (n1 === 1) {
-    return n2;
+  if (n1 === 0) {
+    cacheMatrix[n1][n2] = 1;
   }
-  return n2 * A(n1 - 1, n2 - 1);
+  if (n1 === 1) {
+    cacheMatrix[n1][n2] = n2;
+  }
+  if (typeof cacheMatrix[n1][n2] === 'undefined') {
+    cacheMatrix[n1][n2] = n2 * A(n1 - 1, n2 - 1);
+  }
+  return cacheMatrix[n1][n2];
 }
 // 排列组合C
 function C(n1: number, n2: number) {
