@@ -1,17 +1,16 @@
-var RecentCounter = function() {
-
-};
-
-/** 
- * @param {number} t
- * @return {number}
- */
-RecentCounter.prototype.ping = function(t) {
-
-};
-
-/**
- * Your RecentCounter object will be instantiated and called as such:
- * var obj = new RecentCounter()
- * var param_1 = obj.ping(t)
- */
+class RecentCounter {
+  constructor() {
+    this.requests = [];
+  }
+  /**
+   * @param {number} t
+   * @return {number}
+   */
+  ping(t) {
+    const min = t - 3000;
+    const max = t;
+    this.requests.push(t);
+    this.requests = this.requests.filter((req) => req >= min && req <= max);
+    return this.requests.length;
+  }
+}
