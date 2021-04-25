@@ -23,26 +23,17 @@ function array2list(arr) {
   if (arr.length == 0 || (arr.length == 1 && typeof arr[0] != "number")) {
     return null;
   }
-  let list = null;
-  let i = arr.length - 1;
-  while (i > -1) {
-    list = new ListNode(
-      arr[i],
-      list !== null && list !== void 0 ? list : undefined
-    );
-    i--;
-  }
+  const list = new ListNode(arr[0]);
+  list.next = array2list(arr.slice(1));
   return list;
 }
 exports.array2list = array2list;
 function list2array(list) {
-  const arr = [];
-  let temp = list;
-  while (temp) {
-    arr.push(temp.val);
-    temp = temp.next;
-  }
-  return arr;
+  if (!list) return [];
+  const next = list2array(
+    list === null || list === void 0 ? void 0 : list.next
+  );
+  return [list.val, ...next];
 }
 exports.list2array = list2array;
 // 数组转二叉树
@@ -218,10 +209,10 @@ exports.UnionFind = UnionFind;
 function proxyMatrix(matrix) {
   return new Proxy(matrix, {
     get: (target, p) => {
-      if (typeof target[p] === "undefined") {
-        target[p] = [];
+      if (typeof target[Number(p)] === "undefined") {
+        target[Number(p)] = [];
       }
-      return target[p];
+      return target[Number(p)];
     },
   });
 }

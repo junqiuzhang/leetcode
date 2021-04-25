@@ -36,4 +36,3 @@ const increasingBST = (root) => {
 var a = [5, 3, 6, 2, 4, null, 8, 1, null, null, null, 7, 9];
 var root = array2tree(a);
 console.log(JSON.stringify(root));
-console.log(JSON.stringify(increasingBST(root)));

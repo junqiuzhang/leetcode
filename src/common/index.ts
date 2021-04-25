@@ -23,22 +23,14 @@ function array2list<T>(arr: T[]): ListNode<T> | null {
   if (arr.length == 0 || (arr.length == 1 && typeof arr[0] != "number")) {
     return null;
   }
-  let list = null;
-  let i = arr.length - 1;
-  while (i > -1) {
-    list = new ListNode(arr[i], list ?? undefined);
-    i--;
-  }
+  const list = new ListNode(arr[0]);
+  list.next = array2list(arr.slice(1));
   return list;
 }
 function list2array<T>(list: ListNode<T> | null): T[] {
-  const arr = [];
-  let temp = list;
-  while (temp) {
-    arr.push(temp.val);
-    temp = temp.next;
-  }
-  return arr;
+  if (!list) return [];
+  const next = list2array(list?.next);
+  return [list.val, ...next];
 }
 // 数组转二叉树
 function array2tree<T>(arr: T[]): TreeNode<T> | null {
@@ -215,13 +207,13 @@ class UnionFind<T> {
 }
 function proxyMatrix<T>(matrix: T[][]) {
   return new Proxy(matrix, {
-    get: (target: T[][], p: number) => {
-      if (typeof target[p] === 'undefined') {
-        target[p] = []
+    get: (target, p) => {
+      if (typeof target[Number(p)] === "undefined") {
+        target[Number(p)] = [];
       }
-      return target[p];
-    }
-  })
+      return target[Number(p)];
+    },
+  });
 }
 const cacheMatrix = proxyMatrix<number>([[]]);
 // 排列组合A
@@ -232,7 +224,7 @@ function A(n1: number, n2: number): number {
   if (n1 === 1) {
     cacheMatrix[n1][n2] = n2;
   }
-  if (typeof cacheMatrix[n1][n2] === 'undefined') {
+  if (typeof cacheMatrix[n1][n2] === "undefined") {
     cacheMatrix[n1][n2] = n2 * A(n1 - 1, n2 - 1);
   }
   return cacheMatrix[n1][n2];
