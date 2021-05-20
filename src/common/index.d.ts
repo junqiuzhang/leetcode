@@ -22,16 +22,6 @@ declare function quickFind<T>(
   predicate: (value?: T, index?: number, array?: T[]) => boolean
 ): T | null;
 declare function quickSort<T>(arr: T[], compare: (a: T, b: T) => boolean): T[];
-declare class Heap<T> {
-  constructor(compare: (a: T, b: T) => boolean);
-  heap: T[];
-  compare: (a: T, b: T) => boolean;
-  swap(i: number, j: number): void;
-  shiftDown(): void;
-  shiftUp(): void;
-  push(ele: T): void;
-  pop(): T;
-}
 declare class UnionFind<T> {
   constructor(param: number | T[]);
   elsTree: Map<number | T, number | T>;
@@ -52,7 +42,6 @@ export {
   quickFindIndex,
   quickFind,
   quickSort,
-  Heap,
   UnionFind,
   A,
   C,

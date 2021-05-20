@@ -107,66 +107,6 @@ function quickSort<T>(arr: T[], compare: (a: T, b: T) => boolean): T[] {
   const sortedRight = quickSort(right, compare);
   return [...sortedLeft, middle, ...sortedRight];
 }
-class Heap<T> {
-  constructor(compare: (a: T, b: T) => boolean) {
-    this.heap = [];
-    this.compare = compare;
-  }
-  heap: T[];
-  compare: (a: T, b: T) => boolean;
-  swap(i: number, j: number) {
-    let temp = this.heap[i];
-    this.heap[i] = this.heap[j];
-    this.heap[j] = temp;
-  }
-  shiftDown() {
-    let fatherIndex = 0;
-    let tempIndex = fatherIndex;
-    let leftChildIndex = fatherIndex * 2;
-    let rightChildIndex = fatherIndex * 2 + 1;
-    while (leftChildIndex < this.heap.length) {
-      tempIndex = leftChildIndex;
-      if (
-        rightChildIndex < this.heap.length &&
-        !this.compare(this.heap[leftChildIndex], this.heap[rightChildIndex])
-      ) {
-        tempIndex = rightChildIndex;
-      }
-      if (this.compare(this.heap[tempIndex], this.heap[fatherIndex])) {
-        this.swap(tempIndex, fatherIndex);
-        fatherIndex = tempIndex;
-        leftChildIndex = fatherIndex * 2;
-        rightChildIndex = fatherIndex * 2 + 1;
-      } else {
-        break;
-      }
-    }
-  }
-  shiftUp() {
-    let fatherIndex = 0;
-    let childIndex = this.heap.length - 1;
-    while (childIndex > 0) {
-      fatherIndex = Math.floor(childIndex / 2);
-      if (this.compare(this.heap[childIndex], this.heap[fatherIndex])) {
-        this.swap(childIndex, fatherIndex);
-        childIndex = fatherIndex;
-      } else {
-        break;
-      }
-    }
-  }
-  push(ele: T) {
-    this.heap = [...this.heap, ele];
-    this.shiftUp();
-  }
-  pop() {
-    const head = this.heap[0];
-    this.swap(0, this.heap.length - 1);
-    this.heap = this.heap.slice(0, this.heap.length - 1);
-    this.shiftDown();
-    return head;
-  }
-}
 class UnionFind<T> {
   constructor(param: number | T[]) {
     this.elsTree = new Map();
@@ -207,17 +147,17 @@ class UnionFind<T> {
 }
 function proxyMatrix<T>(matrix: T[][]) {
   return new Proxy(matrix, {
-    get: (target, p) => {
-      if (typeof target[Number(p)] === "undefined") {
-        target[Number(p)] = [];
+    get: (target, property) => {
+      if (typeof target[Number(property)] === "undefined") {
+        target[Number(property)] = [];
       }
-      return target[Number(p)];
+      return target[Number(property)];
     },
   });
 }
-const cacheMatrix = proxyMatrix<number>([[]]);
 // 排列组合A
 function A(n1: number, n2: number): number {
+  const cacheMatrix = proxyMatrix<number>([[]]);
   if (n1 === 0) {
     cacheMatrix[n1][n2] = 1;
   }
@@ -243,7 +183,6 @@ export {
   quickFindIndex,
   quickFind,
   quickSort,
-  Heap,
   UnionFind,
   A,
   C,
