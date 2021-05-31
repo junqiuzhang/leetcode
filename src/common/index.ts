@@ -145,33 +145,26 @@ class UnionFind<T> {
     this.size--;
   }
 }
-function proxyMatrix<T>(matrix: T[][]) {
-  return new Proxy(matrix, {
-    get: (target, property) => {
-      if (typeof target[Number(property)] === "undefined") {
-        target[Number(property)] = [];
-      }
-      return target[Number(property)];
-    },
-  });
-}
+const cache: number[][] = [];
 // 排列组合A
-function A(n1: number, n2: number): number {
-  const cacheMatrix = proxyMatrix<number>([[]]);
-  if (n1 === 0) {
-    cacheMatrix[n1][n2] = 1;
+function A(m: number, n: number): number {
+  if (!cache[m]) {
+    cache[m] = [];
   }
-  if (n1 === 1) {
-    cacheMatrix[n1][n2] = n2;
+  if (m === 0) {
+    cache[m][n] = 1;
   }
-  if (typeof cacheMatrix[n1][n2] === "undefined") {
-    cacheMatrix[n1][n2] = n2 * A(n1 - 1, n2 - 1);
+  if (m === 1) {
+    cache[m][n] = n;
   }
-  return cacheMatrix[n1][n2];
+  if (typeof cache[m][n] !== "number") {
+    cache[m][n] = n * A(m - 1, n - 1);
+  }
+  return cache[m][n];
 }
 // 排列组合C
-function C(n1: number, n2: number) {
-  return A(n1, n2) / A(n1, n1);
+function C(m: number, n: number) {
+  return A(m, n) / A(m, m);
 }
 export {
   ListNode,

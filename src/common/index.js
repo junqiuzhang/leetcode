@@ -159,33 +159,26 @@ class UnionFind {
   }
 }
 exports.UnionFind = UnionFind;
-function proxyMatrix(matrix) {
-  return new Proxy(matrix, {
-    get: (target, property) => {
-      if (typeof target[Number(property)] === "undefined") {
-        target[Number(property)] = [];
-      }
-      return target[Number(property)];
-    },
-  });
-}
+const cache = [];
 // 排列组合A
-function A(n1, n2) {
-  const cacheMatrix = proxyMatrix([[]]);
-  if (n1 === 0) {
-    cacheMatrix[n1][n2] = 1;
+function A(m, n) {
+  if (!cache[m]) {
+    cache[m] = [];
   }
-  if (n1 === 1) {
-    cacheMatrix[n1][n2] = n2;
+  if (m === 0) {
+    cache[m][n] = 1;
   }
-  if (typeof cacheMatrix[n1][n2] === "undefined") {
-    cacheMatrix[n1][n2] = n2 * A(n1 - 1, n2 - 1);
+  if (m === 1) {
+    cache[m][n] = n;
   }
-  return cacheMatrix[n1][n2];
+  if (typeof cache[m][n] !== "number") {
+    cache[m][n] = n * A(m - 1, n - 1);
+  }
+  return cache[m][n];
 }
 exports.A = A;
 // 排列组合C
-function C(n1, n2) {
-  return A(n1, n2) / A(n1, n1);
+function C(m, n) {
+  return A(m, n) / A(m, m);
 }
 exports.C = C;

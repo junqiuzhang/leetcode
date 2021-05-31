@@ -1,8 +1,9 @@
+const {C} = require('../common')
 /**
  * @param {number} m
  * @param {number} n
  * @return {number}
  */
- var uniquePaths = function(m, n) {
-
+function uniquePaths(m, n) {
+  return C(m - 1, m + n  - 2);
 };

@@ -30,8 +30,8 @@ declare class UnionFind<T> {
   same(el1: T, el2: T): boolean;
   union(el1: T, el2: T): void;
 }
-declare function A(n1: number, n2: number): number;
-declare function C(n1: number, n2: number): number;
+declare function A(m: number, n: number): number;
+declare function C(m: number, n: number): number;
 export {
   ListNode,
   TreeNode,
