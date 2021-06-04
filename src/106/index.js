@@ -1,3 +1,4 @@
+const {TreeNode} = require('../common')
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
@@ -12,5 +13,17 @@
  * @return {TreeNode}
  */
 function buildTree(inorder, postorder) {
-
+  if (inorder.length === 0 || postorder.length === 0) {
+    return null;
+  }
+  const rootVal = postorder[postorder.length - 1];
+  const root = new TreeNode(rootVal);
+  const rootIndex = inorder.indexOf(rootVal);
+  const leftInorder = inorder.slice(0, rootIndex);
+  const rightInorder = inorder.slice(rootIndex + 1);
+  const leftPostorder = postorder.slice(0, rootIndex);
+  const rightPostorder = postorder.slice(rootIndex, postorder.length - 1);
+  root.left = buildTree(leftInorder, leftPostorder);
+  root.right = buildTree(rightInorder, rightPostorder);
+  return root;
 };
