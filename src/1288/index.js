@@ -3,25 +3,27 @@
  * @return {number}
  */
 function removeCoveredIntervals(intervals) {
-  let num = intervals.length;
-  for (let i = 0; i < intervals.length; i++) {
-    for (let j = i + 1; j < intervals.length; j++) {
-      const interval1 = intervals[i];
-      const interval2 = intervals[j];
-      if (interval1[0] <= interval2[0] && interval1[1] >= interval2[1]) {
-        intervals.splice(j, 1);
-        j--;
-        num--;
-        continue;
+  const sortedIntervals = intervals.sort((a, b) => {
+    if (a[0] < b[0]) {
+      return -1;
+    } else if (a[0] > b[0]) {
+      return 1;
+    } else {
+      if (a[1] > b[1]) {
+        return -1;
+      } else {
+        return 1;
       }
-      if (interval1[0] >= interval2[0] && interval1[1] <= interval2[1]) {
-        intervals.splice(i, 1);
-        i--;
-        num--;
-        break;
-      }
+    }
+  });
+  let num = 1;
+  let interval1 = sortedIntervals[0];
+  for (let i = 0; i < sortedIntervals.length - 1; i++) {
+    const interval2 = sortedIntervals[i + 1];
+    if (interval1[1] < interval2[1]) {
+      num++;
+      interval1 = sortedIntervals[i + 1];
     }
   }
   return num;
 }
-
