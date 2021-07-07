@@ -6,7 +6,7 @@
  * @param {number} n
  * @return {boolean}
  */
-var isPowerOfTwo = function(n) {
+function isPowerOfTwo(n) {
     if (n <= 0) {
         return false;
     }
@@ -19,3 +19,4 @@ var isPowerOfTwo = function(n) {
     }
     return true;
 };
+exports.isPowerOfTwo = isPowerOfTwo;
