@@ -145,22 +145,22 @@ class UnionFind<T> {
     this.size--;
   }
 }
-const cache: number[][] = [];
 // 排列组合A
 function A(m: number, n: number): number {
-  if (!cache[m]) {
-    cache[m] = [];
+  if (m > n) {
+    throw new Error("m 不能大于 n");
   }
   if (m === 0) {
-    cache[m][n] = 1;
+    return 1;
   }
   if (m === 1) {
-    cache[m][n] = n;
+    return n;
   }
-  if (typeof cache[m][n] !== "number") {
-    cache[m][n] = n * A(m - 1, n - 1);
+  let num = 1;
+  for (let i = 0; i < m; i++) {
+    num = num * (n - i);
   }
-  return cache[m][n];
+  return num;
 }
 // 排列组合C
 function C(m: number, n: number) {

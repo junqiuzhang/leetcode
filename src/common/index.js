@@ -159,22 +159,22 @@ class UnionFind {
   }
 }
 exports.UnionFind = UnionFind;
-const cache = [];
 // 排列组合A
 function A(m, n) {
-  if (!cache[m]) {
-    cache[m] = [];
+  if (m > n) {
+    throw new Error("m 不能大于 n");
   }
   if (m === 0) {
-    cache[m][n] = 1;
+    return 1;
   }
   if (m === 1) {
-    cache[m][n] = n;
+    return n;
   }
-  if (typeof cache[m][n] !== "number") {
-    cache[m][n] = n * A(m - 1, n - 1);
+  let num = 1;
+  for (let i = 0; i < m; i++) {
+    num = num * (n - i);
   }
-  return cache[m][n];
+  return num;
 }
 exports.A = A;
 // 排列组合C
