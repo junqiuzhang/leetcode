@@ -2,28 +2,61 @@
  * @param {number[][]} buildings
  * @return {number[][]}
  */
- function getSkyline(buildings) {
-  const sortedBuildings = buildings.sort((a, b) => a[2] - b[2])
-  const buildingsHeight = [];
-  for (let i = 0; i < sortedBuildings.length; i++) {
-    const building = sortedBuildings[i];
-    for (let j = building[0]; j <= building[1]; j++) {
-      buildingsHeight[j] = building[2];
+function getSkyline(buildings) {
+  function getSections(buildings) {
+    let pointSet = new Set();
+    buildings.forEach((building) => {
+      pointSet.add(building[0]);
+      pointSet.add(building[1]);
+    });
+    let pointArray = [];
+    pointSet.forEach((point) => {
+      pointArray.push(point);
+    });
+    pointArray = pointArray.sort((a, b) => a - b);
+    let sections = [];
+    for (let i = 0; i < pointArray.length - 1; i++) {
+      const section = [pointArray[i], pointArray[i + 1]];
+      sections[i] = section;
     }
+    return sections;
   }
-  buildingsHeight[-1] = 0;
-  buildingsHeight[buildingsHeight.length] = 0;
-  const skyline = [];
-  for (let i = -1; i < buildingsHeight.length - 1; i++) {
-    const curHeight = buildingsHeight[i] || 0;
-    const nextHeight = buildingsHeight[i + 1] || 0;
-    if (curHeight !== nextHeight) {
-      if (nextHeight > curHeight) {
-        skyline.push([i + 1, nextHeight]);
+  function getHeights(sections) {
+    let newBuildings = [];
+    for (let i = 0; i < sections.length; i++) {
+      const section = sections[i];
+      let height = 0;
+      for (let j = 0; j < buildings.length; j++) {
+        const building = buildings[j];
+        if (building[0] <= section[0] && building[1] >= section[1]) {
+          height = Math.max(height, building[2]);
+        }
+      }
+      newBuildings.push([...section, height]);
+    }
+    return newBuildings;
+  }
+  function merge(buildings) {
+    const newBuildings = [buildings[0]];
+    for (let i = 1; i < buildings.length; i++) {
+      const building1 = newBuildings[newBuildings.length - 1];
+      const building2 = buildings[i];
+      if (building1[2] === building2[2] && building1[1] === building2[0]) {
+        building1[1] = building2[1];
       } else {
-        skyline.push([i, nextHeight]);
+        newBuildings.push(building2);
       }
     }
+    return newBuildings;
   }
+  const sections = getSections(buildings);
+  const heightSections = getHeights(sections);
+  const mergedSections = merge(heightSections);
+  const skyline = [];
+  for (let i = 0; i < mergedSections.length; i++) {
+    const section = mergedSections[i];
+    skyline.push([section[0], section[2]]);
+  }
+  skyline.push([mergedSections[mergedSections.length - 1][1], 0]);
   return skyline;
-};
+}
