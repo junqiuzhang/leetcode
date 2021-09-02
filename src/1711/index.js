@@ -1,10 +1,10 @@
 const { C } = require('../common');
+const MAX_NUMBER = Math.pow(10, 9) + 7;
 /**
  * @param {number[]} deliciousness
  * @return {number}
  */
 function countPairs(deliciousness) {
-  const mod = Math.pow(10, 9) + 7;
   const hashMap = {};
   for (let i = 0; i < deliciousness.length; i++) {
     const num = deliciousness[i];
@@ -25,12 +25,12 @@ function countPairs(deliciousness) {
       if (num1 > num2) break;
       if (hashMap[num2]) {
         if (num1 === num2 && hashMap[num2].length >= 2) {
-          res += C(2, hashMap[num2].length) % mod;
+          res += C(2, hashMap[num2].length) % MAX_NUMBER;
         } else if (num1 < num2) {
-          res += (hashMap[num1].length * hashMap[num2].length) % mod;
+          res += (hashMap[num1].length * hashMap[num2].length) % MAX_NUMBER;
         }
       }
     }
   }
-  return res % mod;
+  return res % MAX_NUMBER;
 };
