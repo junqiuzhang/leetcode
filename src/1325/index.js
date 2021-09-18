@@ -1,3 +1,4 @@
+const { TreeNode, array2tree, tree2array } = require("../common");
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {
@@ -12,5 +13,26 @@
  * @return {TreeNode}
  */
 function removeLeafNodes(root, target) {
-
-};
+  /**
+   * @param {TreeNode} current
+   * @param {TreeNode} parent
+   */
+  function remove(current, parent) {
+    if (current.left) {
+      remove(current.left, current);
+    }
+    if (current.right) {
+      remove(current.right, current);
+    }
+    if (current.val === target && !current.left && !current.right) {
+      if (parent.left === current) {
+        parent.left = null;
+      } else if (parent.right === current) {
+        parent.right = null;
+      }
+    }
+  }
+  const parent = new TreeNode(0, root);
+  remove(root, parent);
+  return parent.left;
+}
