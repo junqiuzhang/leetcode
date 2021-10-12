@@ -6,6 +6,8 @@
 .DS_Store
 */.idea/
 .idea/
+*/.vscode
+.vscode
 gradlew
 gradlew.bat
 unused.txt
