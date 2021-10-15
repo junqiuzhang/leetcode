@@ -1,36 +1,51 @@
-/**
- * 数据结构：数字
- * 算法：循环
- */
+// /**
+//  * 42.04% 32.32%
+//  * @param {number} n
+//  * @return {string}
+//  */
+// function countAndSay(n) {
+//   if (n == 1) {
+//     return "1";
+//   }
+//   let str = "1";
+//   for (let i = 1; i < n; i++) {
+//     let nextStr = "";
+//     let num = str[0];
+//     let count = 0;
+//     for (let j = 0; j <= str.length; j++) {
+//       if (str[j] != num) {
+//         nextStr += count + num;
+//         num = str[j];
+//         count = 0;
+//       }
+//       count++;
+//     }
+//     str = nextStr;
+//   }
+//   return str;
+// }
+const cache = [, "1"];
 /**
  * @param {number} n
  * @return {string}
  */
-var countAndSay = function(n) {
-    if (n == 1) {
-        return '1';
+function countAndSay(n) {
+  if (cache[n]) {
+    return cache[n];
+  }
+  let str = countAndSay(n - 1);
+  let nextStr = "";
+  let num = str[0];
+  let count = 0;
+  for (let j = 0; j <= str.length; j++) {
+    if (str[j] != num) {
+      nextStr += count + num;
+      num = str[j];
+      count = 0;
     }
-    var suf = n % 2 == 0 ? '11' : '21';
-    if (n <= 3) {
-        return suf;
-    }
-    function iteration(str) {
-        var newStr = '';
-        var num = 1;
-        var pre = str[0];
-        for (var i = 1; i <= str.length; i++) {
-            if (str[i] != pre) {
-                newStr += '' + num + pre;
-                pre = str[i];
-                num = 0;
-            }
-            num++;
-        }
-        return newStr;
-    }
-    var str = '21';
-    for (var i = 0; i < n - 3; i++) {
-        str = iteration(str);
-    }
-    return str;
-};
+    count++;
+  }
+  str = nextStr;
+  cache[n] = str;
+  return cache[n];
+}
