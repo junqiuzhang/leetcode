@@ -3,23 +3,19 @@
  * @return {boolean}
  */
 var isValid = function (s) {
-  const stack = [];
-  let pushChar, popChar;
+  let count = 0;
   for (let i = 0; i < s.length; i++) {
-    pushChar = s[i];
-    if (pushChar === "(") {
-      stack.push(pushChar);
-    } else if (pushChar === ")") {
-      popChar = stack.pop();
-      if (popChar !== "(") {
+    let char = s[i];
+    if (char === "(") {
+      count++;
+    } else if (char === ")") {
+      count--;
+      if (count < 0) {
         return false;
       }
     }
   }
-  if (stack.length !== 0) {
-    return false;
-  }
-  return true;
+  return count === 0;
 };
 /**
  * @param {string[]} strs
@@ -29,8 +25,10 @@ function generateSubStr(strs) {
   const subStrSet = new Set();
   strs.forEach((s) => {
     for (let i = 0; i < s.length; i++) {
-      const subStr = s.slice(0, i) + s.slice(i + 1);
-      subStrSet.add(subStr);
+      if (s[i] === "(" || s[i] === ")") {
+        const subStr = s.slice(0, i) + s.slice(i + 1);
+        subStrSet.add(subStr);
+      }
     }
   });
   const subStrs = [];
@@ -46,13 +44,13 @@ function removeInvalidParentheses(s) {
   let subStrArr = [s];
   let invalidStrArr = [];
   while (invalidStrArr.length === 0) {
+    subStrArr = generateSubStr(subStrArr);
     for (let i = 0; i < subStrArr.length; i++) {
       const subStr = subStrArr[i];
       if (isValid(subStr)) {
         invalidStrArr.push(subStr);
       }
     }
-    subStrArr = generateSubStr(subStrArr);
   }
   return invalidStrArr;
 }
