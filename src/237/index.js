@@ -1,8 +1,4 @@
 /**
- * 数据结构：链表
- * 算法：查找
- */
-/**
  * Definition for singly-linked list.
  * function ListNode(val) {
  *     this.val = val;
@@ -13,8 +9,7 @@
  * @param {ListNode} node
  * @return {void} Do not return anything, modify node in-place instead.
  */
-var deleteNode = function(node) {
-    node.val = node.next.val;
-    node.next = node.next.next;
+var deleteNode = function (node) {
+  node.val = node.next.val;
+  node.next = node.next.next;
 };
-
