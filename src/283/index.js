@@ -1,34 +1,38 @@
 /**
- * 数据结构：数组
- * 算法：遍历
- */
-/**
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-var moveZeroes = function(nums) {
-    // 函数式方法
-    // return nums.filter(n => n != 0).concat(nums.filter(n => n == 0));
+function moveZeroes(nums) {
+  // 函数式方法
+  // return nums.filter(n => n != 0).concat(nums.filter(n => n == 0));
 
-    // 过程式方法
-    // posArr: nums中0的位置
-    var posArr = [];
-    for (var i = 0; i < nums.length; i++) {
-        if (nums[i] == 0) {
-            posArr.push(i);
-        }
+  // 统计+移动
+  // const posArr = [];
+  // for (let i = 0; i < nums.length; i++) {
+  //   if (nums[i] == 0) {
+  //     posArr.push(i);
+  //   }
+  // }
+  // let pos = 0;
+  // for (let i = 0; i < nums.length; i++) {
+  //   if (i > posArr[pos + 1]) {
+  //     pos++;
+  //   }
+  //   if (nums[i] != 0 && i > posArr[pos]) {
+  //     nums[i - pos - 1] = nums[i];
+  //   }
+  // }
+  // for (let i = nums.length - posArr.length; i < nums.length; i++) {
+  //   nums[i] = 0;
+  // }
+  // return nums;
+
+  // 指针
+  for (let i = nums.length - 1; i >= 0; i--) {
+    if (nums[i] === 0) {
+      nums.splice(i, 1);
+      nums.push(0);
     }
-    var pos = 0;
-    for (var i = 0; i < nums.length; i++) {
-        if (i > posArr[pos + 1]) {
-            pos++;
-        }
-        if (nums[i] != 0 && i > posArr[pos]) {
-            nums[i - pos - 1] = nums[i];
-        }
-    }
-    for (var i = nums.length - posArr.length; i < nums.length; i++) {
-        nums[i] = 0;
-    }
-    return nums;
-};
+  }
+  return nums;
+}
