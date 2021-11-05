@@ -1,19 +1,3 @@
-"use strict";
-Object.defineProperty(exports, "__esModule", { value: true });
-exports.C =
-  exports.A =
-  exports.UnionFind =
-  exports.quickSort2 =
-  exports.quickSort =
-  exports.quickFind =
-  exports.quickFindIndex =
-  exports.list2array =
-  exports.tree2array =
-  exports.array2list =
-  exports.array2tree =
-  exports.TreeNode =
-  exports.ListNode =
-    void 0;
 // 链表元素
 class ListNode {
   constructor(val, next) {
