@@ -10,8 +10,6 @@
 .vscode
 gradlew
 gradlew.bat
-unused.txt
-test.js
 
 # Log Files
 *.log
