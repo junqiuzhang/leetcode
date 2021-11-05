@@ -6,21 +6,17 @@
  * @return {number}
  */
 var findMin = function (nums) {
-  const middleIndex = Math.floor(nums.length / 2);
-  const first = nums[0];
-  const last = nums[nums.length - 1];
-  const middle = nums[middleIndex];
-  if (nums.length === 0) {
-    return Infinity;
-  } else if (nums.length === 1) {
-    return first;
-  } else if (nums.length === 2) {
-    return first < last ? first : last;
+  let left = 0;
+  let right = nums.length - 1;
+  let middle = Math.floor((left + right) / 2);
+  while (right - left > 1) {
+    middle = Math.floor((left + right) / 2);
+    if (nums[middle] < nums[right]) {
+      right = middle;
+    } else {
+      left = middle;
+    }
   }
-  if (middle > last) {
-    return findMin(nums.slice(middleIndex));
-  } else {
-    return findMin(nums.slice(0, middleIndex + 1));
-  }
+  return Math.min(nums[left], nums[right]);
 };
 exports.findMin = findMin;
