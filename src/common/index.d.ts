@@ -21,7 +21,11 @@ declare function quickFind<T>(
   array: T[],
   predicate: (value?: T, index?: number, array?: T[]) => boolean
 ): T | null;
-declare function quickSort<T>(arr: T[], compare: (a: T, b: T) => boolean): T[];
+declare function quickSort<T>(arr: T[], compare: (a: T, b: T) => number): T[];
+declare function quickSort2<T>(
+  arr: T[],
+  compare: (i: number, j: number) => number
+): T[];
 declare class UnionFind<T> {
   constructor(param: number | T[]);
   elsTree: Map<number | T, number | T>;
@@ -42,6 +46,7 @@ export {
   quickFindIndex,
   quickFind,
   quickSort,
+  quickSort2,
   UnionFind,
   A,
   C,

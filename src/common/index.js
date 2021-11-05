@@ -3,6 +3,7 @@ Object.defineProperty(exports, "__esModule", { value: true });
 exports.C =
   exports.A =
   exports.UnionFind =
+  exports.quickSort2 =
   exports.quickSort =
   exports.quickFind =
   exports.quickFindIndex =
@@ -101,7 +102,7 @@ function quickFind(array, predicate) {
   return array[index];
 }
 exports.quickFind = quickFind;
-// 快排
+// 快排-递归实现
 function quickSort(arr, compare) {
   if (arr.length <= 1) {
     return arr;
@@ -111,7 +112,7 @@ function quickSort(arr, compare) {
   const middle = arr[0];
   for (let i = 1; i < arr.length; i++) {
     const ele = arr[i];
-    if (compare(ele, middle)) {
+    if (compare(ele, middle) <= 0) {
       left.push(ele);
     } else {
       right.push(ele);
@@ -122,6 +123,32 @@ function quickSort(arr, compare) {
   return [...sortedLeft, middle, ...sortedRight];
 }
 exports.quickSort = quickSort;
+// 快排-非递归实现
+function quickSort2(arr, compare) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+  let left = 0;
+  let right = arr.length - 1;
+  let pivot = right;
+  const stack = [left, right];
+  while (stack.length > 0) {
+    right = stack.pop();
+    left = stack.pop();
+    if (left >= right) continue;
+    pivot = right;
+    let i = left;
+    for (let j = left; j <= right; j++) {
+      if (compare(j, pivot) <= 0) {
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+        i++;
+      }
+    }
+    stack.push(left, i - 2, i, right);
+  }
+  return arr;
+}
+exports.quickSort2 = quickSort2;
 class UnionFind {
   constructor(param) {
     this.elsTree = new Map();

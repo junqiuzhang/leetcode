@@ -87,8 +87,8 @@ function quickFind<T>(
   if (index === -1) return null;
   return array[index];
 }
-// 快排
-function quickSort<T>(arr: T[], compare: (a: T, b: T) => boolean): T[] {
+// 快排-递归实现
+function quickSort<T>(arr: T[], compare: (a: T, b: T) => number): T[] {
   if (arr.length <= 1) {
     return arr;
   }
@@ -97,7 +97,7 @@ function quickSort<T>(arr: T[], compare: (a: T, b: T) => boolean): T[] {
   const middle = arr[0];
   for (let i = 1; i < arr.length; i++) {
     const ele = arr[i];
-    if (compare(ele, middle)) {
+    if (compare(ele, middle) <= 0) {
       left.push(ele);
     } else {
       right.push(ele);
@@ -106,6 +106,31 @@ function quickSort<T>(arr: T[], compare: (a: T, b: T) => boolean): T[] {
   const sortedLeft = quickSort(left, compare);
   const sortedRight = quickSort(right, compare);
   return [...sortedLeft, middle, ...sortedRight];
+}
+// 快排-非递归实现
+function quickSort2<T>(arr: T[], compare: (i: number, j: number) => number) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+  let left = 0;
+  let right = arr.length - 1;
+  let pivot = right;
+  const stack = [left, right];
+  while (stack.length > 0) {
+    right = stack.pop() as number;
+    left = stack.pop() as number;
+    if (left >= right) continue;
+    pivot = right;
+    let i = left;
+    for (let j = left; j <= right; j++) {
+      if (compare(j, pivot) <= 0) {
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+        i++;
+      }
+    }
+    stack.push(left, i - 2, i, right);
+  }
+  return arr;
 }
 class UnionFind<T> {
   constructor(param: number | T[]) {
@@ -176,6 +201,7 @@ export {
   quickFindIndex,
   quickFind,
   quickSort,
+  quickSort2,
   UnionFind,
   A,
   C,
