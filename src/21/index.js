@@ -4,28 +4,28 @@
  * @return {ListNode}
  */
 function mergeTwoLists(l1, l2) {
-  var mergedList = new ListNode(null);
-  var mergedListHead = mergedList;
+  var head = new ListNode(null);
+  var cur = head;
   var list1 = l1;
   var list2 = l2;
-  while (mergedList && (list1 || list2)) {
+  while (cur && (list1 || list2)) {
     if (!list1) {
-      mergedList.next = list2;
+      cur.next = list2;
       break;
     }
     if (!list2) {
-      mergedList.next = list1;
+      cur.next = list1;
       break;
     }
     if (list1.val < list2.val) {
-      mergedList.next = list1;
+      cur.next = list1;
       list1 = list1.next;
     } else {
-      mergedList.next = list2;
+      cur.next = list2;
       list2 = list2.next;
     }
-    mergedList = mergedList.next;
+    cur = cur.next;
   }
-  return mergedListHead.next;
+  return head.next;
 }
 exports.mergeTwoLists = mergeTwoLists;
