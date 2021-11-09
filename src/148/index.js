@@ -1,4 +1,3 @@
-const { ListNode, array2list } = require("../common");
 /**
  * Definition for singly-linked list.
  * function ListNode(val, next) {
