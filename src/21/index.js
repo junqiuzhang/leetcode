@@ -4,10 +4,10 @@
  * @return {ListNode}
  */
 function mergeTwoLists(l1, l2) {
-  var head = new ListNode(null);
-  var cur = head;
-  var list1 = l1;
-  var list2 = l2;
+  let head = new ListNode(null);
+  let cur = head;
+  let list1 = l1;
+  let list2 = l2;
   while (cur && (list1 || list2)) {
     if (!list1) {
       cur.next = list2;
