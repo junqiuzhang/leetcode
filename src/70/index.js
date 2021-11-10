@@ -45,7 +45,7 @@
 //  * @return {number}
 //  */
 // function climbStairs(n) {
-//   if (cache[n]) {
+//   if (typeof cache[n] === 'number') {
 //     return cache[n];
 //   }
 //   cache[n] = climbStairs(n - 1) + climbStairs(n - 2);
