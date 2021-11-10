@@ -1,22 +1,37 @@
+// /**
+//  * 动态规划，自顶向下
+//  * 41.25% 16.83%
+//  * @param {number[]} cost cost[i]为离开当前台阶的花费
+//  * @return {number}
+//  */
+// function minCostClimbingStairs(cost) {
+//   // 离开第 i 层时的最小花费
+//   const cache = [0, 0];
+//   function minCost(n) {
+//     if (typeof cache[n] === "number") {
+//       return cache[n];
+//     }
+//     cache[n] = Math.min(
+//       minCost(n - 1) + cost[n - 1],
+//       minCost(n - 2) + cost[n - 2]
+//     );
+//     return cache[n];
+//   }
+//   // 离开第 cost.length 层 === 到达楼顶
+//   return minCost(cost.length);
+// }
 /**
- * @param {number[]} cost
+ * 动态规划，自底向上
+ * 41.25% 86.56%
+ * @param {number[]} cost cost[i]为离开当前台阶的花费
  * @return {number}
  */
-var minCostClimbingStairs = function (cost) {
-  const costMap = new Map();
-  function minCost(cost) {
-    if (cost.length <= 1) {
-      return 0;
-    }
-    if (cost.length === 2) {
-      const res = Math.min(cost[0], cost[1]);
-      return res;
-    }
-    let cost1 = costMap.get(cost.length - 1) || minCost(cost.slice(0, cost.length - 1));;
-    let cost2 = costMap.get(cost.length - 2) || minCost(cost.slice(0, cost.length - 2));
-    let res = Math.min(cost1 + cost[cost.length - 1], cost2 + cost[cost.length - 2]);
-    costMap.set(cost.length, res);
-    return res;
+function minCostClimbingStairs(cost) {
+  // 离开第 i 层时的最小花费
+  const cache = [0, 0];
+  for (let i = 2; i <= cost.length; i++) {
+    cache[i] = Math.min(cache[i - 1] + cost[i - 1], cache[i - 2] + cost[i - 2]);
   }
-  return minCost(cost);;
-};
+  // 离开第 cost.length 层 === 到达楼顶
+  return cache[cost.length];
+}
