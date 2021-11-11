@@ -1,3 +1,35 @@
+// /**
+//  * 动态规划
+//  * 11.31% 12.05%
+//  * @param {number[]} coins
+//  * @param {number} amount
+//  * @return {number}
+//  */
+// function coinChange(coins, amount) {
+//   // 凑成金额 i 所需的最少硬币数
+//   const cache = [0];
+//   function calcCoinNumber(amount) {
+//     if (typeof cache[amount] === "number") {
+//       return cache[amount];
+//     }
+//     if (amount < 0) {
+//       return Infinity;
+//     }
+//     let min = Infinity;
+//     for (let j = 0; j < coins.length; j++) {
+//       let preAmount = amount - coins[j];
+//       let preNumber = calcCoinNumber(preAmount);
+//       if (preNumber < min) {
+//         min = preNumber;
+//       }
+//     }
+//     cache[amount] = min + 1;
+//     return cache[amount];
+//   }
+//   const num = calcCoinNumber(amount);
+//   return num !== Infinity ? num : -1;
+// }
+
 /**
  * 动态规划
  * 16.17% 5.09%
