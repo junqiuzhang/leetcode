@@ -1,20 +1,25 @@
 /**
- * 数据结构：数组
- * 算法：遍历
- */
-/**
  * @param {number[]} nums
  * @param {number} target
  * @return {number}
  */
-var searchInsert = function(nums, target) {
-    if (!nums.length || nums[0] >= target) {
-        return 0;
+function searchInsert(nums, target) {
+  let left = 0;
+  let right = nums.length - 1;
+  let mid = 0;
+  while (right - left > 1) {
+    mid = Math.floor((left + right) / 2);
+    if (nums[mid] < target) {
+      left = mid;
+    } else {
+      right = mid;
     }
-    for (var i = 1; i < nums.length; i++) {
-        if (nums[i - 1] <= target && nums[i] >= target ) {
-            return i;
-        }
-    }
-    return nums.length;
-};
+  }
+  if (nums[left] >= target) {
+    return left;
+  }
+  if (nums[right] < target) {
+    return right + 1;
+  }
+  return right;
+}
