@@ -1,26 +1,3 @@
-function quickSort(arr, compare, start, end) {
-  if (arr.length <= 1) {
-    return arr;
-  }
-  let left = start;
-  let right = end;
-  let pivot = right;
-  const stack = [left, right];
-  while (stack.length > 0) {
-    right = stack.pop();
-    left = stack.pop();
-    if (left >= right) continue;
-    pivot = right;
-    let i = left;
-    for (let j = left; j <= right; j++) {
-      if (compare(j, pivot) <= 0) {
-        [arr[i], arr[j]] = [arr[j], arr[i]];
-        i++;
-      }
-    }
-    stack.push(left, i - 2, i, right);
-  }
-}
 /**
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
