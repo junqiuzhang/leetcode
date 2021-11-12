@@ -1,41 +1,63 @@
+function quickSort(arr, compare, start, end) {
+  if (arr.length <= 1) {
+    return arr;
+  }
+  let left = start;
+  let right = end;
+  let pivot = right;
+  const stack = [left, right];
+  while (stack.length > 0) {
+    right = stack.pop();
+    left = stack.pop();
+    if (left >= right) continue;
+    pivot = right;
+    let i = left;
+    for (let j = left; j <= right; j++) {
+      if (compare(j, pivot) <= 0) {
+        [arr[i], arr[j]] = [arr[j], arr[i]];
+        i++;
+      }
+    }
+    stack.push(left, i - 2, i, right);
+  }
+}
 /**
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-var nextPermutation = function (nums) {
-  let exchangeIndex1 = -1;
-  let exchangeIndex2 = -1;
-  let minMax = Infinity;
-  // 找到交换的两个元素
-  for (let i = nums.length - 1; i > -1; i--) {
-    const num1 = nums[i];
-    exchangeIndex2 = -1;
-    for (let j = i; j < nums.length; j++) {
-      const num2 = nums[j];
-      if (num2 > num1 && num2 < minMax) {
-        exchangeIndex2 = j;
-        minMax = nums[exchangeIndex2];
-      }
-    }
-    if (exchangeIndex2 !== -1) {
-      exchangeIndex1 = i;
+function nextPermutation(nums) {
+  const len = nums.length;
+  // 从右向左，找到 i < i + 1 的第一个元素位置 index
+  let index = -1;
+  for (let i = len - 2; i >= 0; i--) {
+    if (nums[i] < nums[i + 1]) {
+      index = i;
       break;
     }
   }
-  if (exchangeIndex1 === -1) {
-    return nums.reverse();
+  // 找到 index 右边最小的元素位置 minIndex
+  let min = Infinity;
+  let minIndex = -1;
+  for (let j = index + 1; j < len; j++) {
+    if (nums[j] <= min && nums[j] > nums[index]) {
+      min = nums[j];
+      minIndex = j;
+    }
   }
-  // 交换
-  const temp = nums[exchangeIndex1];
-  nums[exchangeIndex1] = nums[exchangeIndex2];
-  nums[exchangeIndex2] = temp;
-  // 排序的子数组
-  const tempNums = nums.splice(exchangeIndex1 + 1, nums.length);
-  // 交换元素后的元素重新排列
-  tempNums.sort((a, b) => (a - b));
-  // 拼接排序的子数组
-  for (let i = 0; i < tempNums.length; i++) {
-    const num = tempNums[i];
-    nums.push(num);
+  if (index !== -1) {
+    // 交换 minIndex 元素和 index 元素
+    [nums[index], nums[minIndex]] = [nums[minIndex], nums[index]];
+    console.log(nums, index);
+    // 将 index 右边的元素倒序
+    let left = index + 1;
+    let right = len - 1;
+    while (left < right) {
+      [nums[left], nums[right]] = [nums[right], nums[left]];
+      left++;
+      right--;
+    }
+    return;
   }
-};
+  nums.reverse();
+  return;
+}
