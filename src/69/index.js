@@ -1,31 +1,24 @@
 /**
- * 数据结构：数字
- * 算法：循环
- */
-/**
  * @param {number} x
  * @return {number}
  */
-var mySqrt = function(x) {
-    if (x <= 1) {
-        return x;
+function mySqrt(x) {
+  if (x <= 1) {
+    return x;
+  }
+  let min = 1;
+  let max = x;
+  let ans = 1;
+  while (min < max - 1) {
+    console.log(min, max);
+    ans = min + Math.floor((max - min) / 2);
+    if (ans * ans < x) {
+      min = ans;
+    } else if (ans * ans > x) {
+      max = ans;
+    } else {
+      return ans;
     }
-    var bin = x.toString(2);
-    var Max = Math.ceil(Math.pow(2, bin.length - 1))
-    var sub = Max;
-    var sup = 0;
-    var res = Math.round((sub + sup) / 2);
-    for (var i = 0; i < Max; i++) {
-        if (res * res <= x && (res + 1) * (res + 1) > x) {
-            return res
-        }
-        if (res * res > x) {
-            sub = res;
-            res = Math.floor((sub + sup) / 2);
-            continue;
-        }
-        sup = res;
-        res = Math.floor((sub + sup) / 2);
-    }
-    return res;
-};
+  }
+  return min;
+}
