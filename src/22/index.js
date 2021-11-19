@@ -1,35 +1,24 @@
 /**
- * 插入括号的三种情况：
- * 1. 插入到字符串左侧
- * 2. 插入到字符串右侧
- * 3. 插入到字符串两侧
- * @param {string} str
- * @param {Set<string>} set
- * @return {Set<string>}
- */
-function insertBracket(str, set) {
-  set.add(`${str}()`);
-  set.add(`(${str})`);
-  set.add(`()${str}`);
-  return set;
-}
-/**
- * 排序规则不明
  * @param {number} n
  * @return {string[]}
  */
 function generateParenthesis(n) {
-  let set = new Set([""]);
-  for (let i = 0; i < n; i++) {
-    let nSet = new Set();
-    set.forEach((str) => {
-      insertBracket(str, nSet);
-    });
-    set = nSet;
+  const ans = [];
+  function generate(s, open, close) {
+    if (s.length === n * 2) {
+      ans.push(s);
+    }
+    if (open < n) {
+      s += "(";
+      generate(s, open + 1, close);
+      s = s.slice(0, s.length - 1);
+    }
+    if (close < open) {
+      s += ")";
+      generate(s, open, close + 1);
+      s = s.slice(0, s.length - 1);
+    }
   }
-  const res = [];
-  set.forEach((str) => {
-    res.push(str);
-  });
-  return res;
+  generate("", 0, 0);
+  return ans;
 }
