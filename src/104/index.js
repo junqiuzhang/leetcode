@@ -1,7 +1,4 @@
-/**
- * 数据结构：二叉树
- * 算法：递归遍历
- */
+const { array2tree } = require("../common");
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -13,12 +10,9 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var maxDepth = function(root) {
-    if (!root) {
-        return 0;
-    }
-    if (!root.left && !root.right) {
-        return 1;
-    }
-    return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
-};
+function maxDepth(root) {
+  if (!root) {
+    return 0;
+  }
+  return 1 + Math.max(maxDepth(root.left), maxDepth(root.right));
+}

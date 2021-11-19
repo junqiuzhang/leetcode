@@ -193,3 +193,65 @@ function C(m, n) {
   return A(m, n) / A(m, m);
 }
 exports.C = C;
+/**
+ * 前序遍历
+ * @param {TreeNode} root
+ * @return {number}
+ */
+function preOrderTraverse(root, traverse) {
+  const stack = [];
+  let cur = root;
+  let tmp = root;
+  while (cur || stack.length > 0) {
+    while (cur) {
+      traverse(cur.val);
+      stack.push(cur);
+      cur = cur.left;
+    }
+    tmp = stack.pop();
+    cur = tmp.right;
+  }
+}
+exports.preOrderTraverse = preOrderTraverse;
+/**
+ * 中序遍历
+ * @param {TreeNode} root
+ * @return {number}
+ */
+function inOrderTraverse(root, traverse) {
+  const stack = [];
+  let cur = root;
+  let tmp = root;
+  while (cur || stack.length > 0) {
+    while (cur) {
+      stack.push(cur);
+      cur = cur.left;
+    }
+    tmp = stack.pop();
+    traverse(tmp.val);
+    cur = tmp.right;
+  }
+}
+exports.inOrderTraverse = inOrderTraverse;
+/**
+ * 后序遍历
+ * @param {TreeNode} root
+ * @return {number}
+ */
+function postOrderTraverse(root, traverse) {
+  const stack = [];
+  const res = [];
+  let cur = root;
+  let tmp = root;
+  while (cur || stack.length > 0) {
+    while (cur) {
+      res.push(cur);
+      stack.push(cur);
+      cur = cur.right;
+    }
+    tmp = stack.pop();
+    cur = tmp.left;
+  }
+  res.reverse().forEach((tmp) => traverse(tmp.val));
+}
+exports.postOrderTraverse = postOrderTraverse;
