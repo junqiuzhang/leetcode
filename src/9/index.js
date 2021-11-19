@@ -1,18 +1,14 @@
 /**
- * 数据结构：数组
- * 算法：遍历
- */
-/**
  * @param {number} x
  * @return {boolean}
  */
-var isPalindrome = function(x) {
-    if (x < 0) return false;
-    var res = 0;
-    var temp = x;
-    while (temp) {
-        res = res * 10 + temp % 10;
-        temp = parseInt(temp / 10);
-    }
-    return res == x;
-};
+function isPalindrome(x) {
+  if (x < 0) return false;
+  let ans = 0;
+  let tmp = x;
+  while (tmp) {
+    ans = ans * 10 + (tmp % 10);
+    tmp = parseInt(tmp / 10);
+  }
+  return ans == x;
+}
