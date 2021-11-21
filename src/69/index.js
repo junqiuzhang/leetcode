@@ -10,7 +10,6 @@ function mySqrt(x) {
   let max = x;
   let ans = 1;
   while (min < max - 1) {
-    console.log(min, max);
     ans = min + Math.floor((max - min) / 2);
     if (ans * ans < x) {
       min = ans;
