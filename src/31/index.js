@@ -24,7 +24,6 @@ function nextPermutation(nums) {
   if (index !== -1) {
     // 交换 minIndex 元素和 index 元素
     [nums[index], nums[minIndex]] = [nums[minIndex], nums[index]];
-    console.log(nums, index);
     // 将 index 右边的元素倒序
     let left = index + 1;
     let right = len - 1;
