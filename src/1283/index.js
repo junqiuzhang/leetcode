@@ -28,7 +28,6 @@ function smallestDivisor(nums, threshold) {
     return left;
   }
   while (right - left > 1) {
-    console.log(left, right);
     mid = Math.ceil((left + right) / 2);
     if (sum(nums, mid) <= threshold) {
       right = mid;
