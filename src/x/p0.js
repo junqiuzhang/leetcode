@@ -31,5 +31,3 @@ function mySort(arr, charSortArr) {
     startIndex = myMove(arr, char, startIndex);
   }
 }
-var a = ["a", "c", "b", "b", "c", "c", "a", "b", "c", "a", "b"];
-console.log(mySort(a, ["b", "c", "a"]), a);
