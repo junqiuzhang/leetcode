@@ -1,6 +1,6 @@
 class UnionFind {
   constructor(size) {
-    this.arr = new Array(size).fill(0).map((o, i) => i + 1);
+    this.arr = new Array(size).fill(0).map((o, i) => i);
     this.size = size;
   }
   get(i) {
