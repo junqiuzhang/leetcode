@@ -25,7 +25,7 @@ function multiOneBit(x, y) {
   }
   if (c > 0) {
     ans += c;
-  }
+  }g
   return ans;
 }
 function multi(x, y) {
@@ -35,5 +35,3 @@ function multi(x, y) {
   }
   return ans;
 }
-
-console.log(add("11", "3"));
