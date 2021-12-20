@@ -3,16 +3,10 @@
  * @param {number[]} heaters
  * @return {number}
  */
-var findRadius = function (houses, heaters) {
-  function compare(a, b) {
-    if (a < b) {
-      return -1;
-    }
-    if (a > b) {
-      return 1;
-    }
-    return 0;
-  }
+function findRadius(houses, heaters) {
+  const compare = (a, b) => {
+    return a - b;
+  };
   houses.sort(compare);
   heaters.sort(compare);
   let maxDis = 0;
@@ -41,4 +35,4 @@ var findRadius = function (houses, heaters) {
     }
   }
   return maxDis;
-};
+}
