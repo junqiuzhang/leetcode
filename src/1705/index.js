@@ -40,10 +40,8 @@ function eatenApples(apples, days) {
   let queue = [];
   let total = 0;
   while (day < maxDay || queue.length > 0) {
-    console.log(queue, "today", day);
     queue = gain(queue, day, maxDay);
     total = eat(queue, total);
-    console.log(queue, "total", total);
     day++;
   }
   return total;
