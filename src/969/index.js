@@ -1,40 +1,34 @@
 /**
  * @param {number[]} arr 
- * @param {number} i 
+ * @param {number} k 
  */
-function pancakeFlips(arr, i) {
-  if (i < 0 || i > arr.length - 1) return;
-  const len = Math.floor(i / 2);
+function pancakeFlips(arr, k) {
+  if (k < 0 || k > arr.length) return;
+  const len = Math.floor((k - 1) / 2);
   for (let j = 0; j <= len; j++) {
-    [arr[j], arr[i - j]] = [arr[i - j], arr[j]];
+    [arr[j], arr[k - j - 1]] = [arr[k - j - 1], arr[j]];
   }
 }
 /**
- * 从1到n逐个拼接
  * @param {number[]} arr
  * @return {number[]}
  */
 function pancakeSort(arr) {
   const ans = [];
-  let i = 1;
-  while (i < arr.length) {
-    console.log(i, arr);
-    let curIndex = arr.findIndex(n => n === i);
-    let nextIndex = arr.findIndex(n => n === i + 1);
-    if (curIndex === nextIndex - 1) {
-      i++;
-      continue;
+  let num = arr.length;
+  while (num > 1) {
+    let index = arr.indexOf(num);
+    if (index + 1 !== num) {
+      if (index !== 0) {
+        pancakeFlips(arr, index + 1);
+        ans.push(index + 1);
+      }
+      if (num !== 1) {
+        pancakeFlips(arr, num);
+        ans.push(num);
+      }
     }
-    if (curIndex !== 0) {
-      pancakeFlips(arr, curIndex);
-      ans.push(curIndex + 1);
-    }
-    nextIndex = arr.findIndex(n => n === i + 1);
-    if (nextIndex !== 1) {
-      pancakeFlips(arr, nextIndex - 1);
-      ans.push(nextIndex);
-    }
-    i++;
+    num--;
   }
   return ans;
 };
