@@ -3,7 +3,8 @@ class Bank {
   * @param {number[]} balance
   */
   constructor(balance) {
-
+    balance.splice(0, 0, 0);
+    this.balance = balance;
   };
   /** 
    * @param {number} account1 
@@ -12,7 +13,15 @@ class Bank {
    * @return {boolean}
    */
   transfer(account1, account2, money) {
-  
+    if (account1 >= this.balance.length || account2 >= this.balance.length) {
+      return false;
+    }
+    if (this.balance[account1] < money) {
+      return false;
+    }
+    this.balance[account1] -= money;
+    this.balance[account2] += money;
+    return true;
   };
   
   /** 
@@ -21,7 +30,11 @@ class Bank {
    * @return {boolean}
    */
   deposit(account, money) {
-  
+    if (account >= this.balance.length) {
+      return false;
+    }
+    this.balance[account] += money;
+    return true;
   };
   
   /** 
@@ -30,7 +43,14 @@ class Bank {
    * @return {boolean}
    */
   withdraw(account, money) {
-  
+    if (account >= this.balance.length) {
+      return false;
+    }
+    if (this.balance[account] < money) {
+      return false;
+    }
+    this.balance[account] -= money;
+    return true;
   };
 }
 
