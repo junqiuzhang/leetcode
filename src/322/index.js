@@ -9,7 +9,7 @@
 //   // 凑成金额 i 所需的最少硬币数
 //   const cache = [0];
 //   function calcCoinNumber(amount) {
-//     if (typeof cache[amount] === "number") {
+//     if (typeof cache[amount] === 'number') {
 //       return cache[amount];
 //     }
 //     if (amount < 0) {

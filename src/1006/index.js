@@ -1,11 +1,11 @@
-const { calculate } = require("../227");
-const OperateArray = ["*", "/", "+", "-"];
+import calculate from '../227/index.js';
+const OperateArray = ['*', '/', '+', '-'];
 /**
  * @param {number} N
  * @return {number}
  */
 var clumsy = function (N) {
-  let str = "";
+  let str = '';
   for (let i = 0; i < N; i++) {
     str += N - i;
     str += OperateArray[i % 4];

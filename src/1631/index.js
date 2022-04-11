@@ -1,4 +1,4 @@
-const { UnionFind } = require("../common");
+import { UnionFind } from '../utils/index.js';
 // /**
 //  * 二分查找+dfs
 //  * @param {number[][]} heights

@@ -7,11 +7,11 @@ const BracketReg = /\(|\)/g;
  * @return {number}
  */
 function calculate(s) {
-  let formattedS = s.replace(SpaceReg, "");
+  let formattedS = s.replace(SpaceReg, '');
   let tokens = tokenize(formattedS);
   let i = 0;
   while (i < tokens.length) {
-    if (tokens[i] === "*" || tokens[i] === "/") {
+    if (tokens[i] === '*' || tokens[i] === '/') {
       tokens[i + 1] = calc(tokens[i - 1], tokens[i + 1], tokens[i]);
       tokens[i] = undefined;
       tokens[i - 1] = undefined;
@@ -32,12 +32,12 @@ function calculate(s) {
  * @return {string[]} tokens
  */
 function tokenize(s) {
-  const formattedS = s.replace(BracketReg, "");
+  const formattedS = s.replace(BracketReg, '');
   let numbers = formattedS.split(OperateReg).filter((n) => n.trim());
   let operates = formattedS.split(NumberReg).filter((o) => o.trim());
   const tokens = [];
   if (numbers.length - operates.length === 1) {
-    operates = ["+", ...operates];
+    operates = ['+', ...operates];
   }
   for (let i = 0; i < numbers.length; i++) {
     tokens.push(operates[i]);
@@ -56,16 +56,16 @@ function calc(m, n, o) {
   const intM = parseInt(m);
   const intN = parseInt(n);
   switch (o) {
-    case "+":
+    case '+':
       return intM + intN;
-    case "-":
+    case '-':
       return intM - intN;
-    case "*":
+    case '*':
       return Math.floor(intM * intN);
-    case "/":
+    case '/':
       return Math.floor(intM / intN);
     default:
       return 0;
   }
 }
-exports.calculate = calculate
+export default calculate;

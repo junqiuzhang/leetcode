@@ -5,11 +5,11 @@
 //  */
 // function countAndSay(n) {
 //   if (n == 1) {
-//     return "1";
+//     return '1';
 //   }
-//   let str = "1";
+//   let str = '1';
 //   for (let i = 1; i < n; i++) {
-//     let nextStr = "";
+//     let nextStr = '';
 //     let num = str[0];
 //     let count = 0;
 //     for (let j = 0; j <= str.length; j++) {
@@ -24,7 +24,7 @@
 //   }
 //   return str;
 // }
-const cache = [, "1"];
+const cache = [, '1'];
 /**
  * @param {number} n
  * @return {string}
@@ -34,7 +34,7 @@ function countAndSay(n) {
     return cache[n];
   }
   let str = countAndSay(n - 1);
-  let nextStr = "";
+  let nextStr = '';
   let num = str[0];
   let count = 0;
   for (let j = 0; j <= str.length; j++) {

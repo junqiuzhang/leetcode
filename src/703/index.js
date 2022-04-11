@@ -120,4 +120,4 @@ function KthSmallest(k, nums) {
  * var param_1 = obj.push(val)
  */
 
-exports.KthHeap = KthHeap;
+export default KthHeap;

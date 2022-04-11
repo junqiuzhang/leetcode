@@ -19,4 +19,4 @@ function isPowerOfTwo(n) {
     }
     return true;
 };
-exports.isPowerOfTwo = isPowerOfTwo;
+export default isPowerOfTwo;

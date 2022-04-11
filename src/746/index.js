@@ -8,7 +8,7 @@
 //   // 离开第 i 层时的最小花费
 //   const cache = [0, 0];
 //   function minCost(n) {
-//     if (typeof cache[n] === "number") {
+//     if (typeof cache[n] === 'number') {
 //       return cache[n];
 //     }
 //     cache[n] = Math.min(

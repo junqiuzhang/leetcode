@@ -24,14 +24,14 @@ function landNumber(matrix) {
   const n = matrix[0].length;
   function getMatrix(i, j) {
     if (i < 0 || i >= m || j < 0 || j >= n) {
-      return "0";
+      return '0';
     }
     return matrix[i][j];
   }
   let len = 0;
   for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < matrix[i].length; j++) {
-      if (matrix[i][j] === "1") {
+      if (matrix[i][j] === '1') {
         len++;
         matrix[i][j] = len;
       }
@@ -40,17 +40,17 @@ function landNumber(matrix) {
   const uf = new UnionFind(len);
   for (let i = 0; i < matrix.length; i++) {
     for (let j = 0; j < matrix[i].length; j++) {
-      if (matrix[i][j] !== "0") {
-        if (getMatrix(i - 1, j) !== "0") {
+      if (matrix[i][j] !== '0') {
+        if (getMatrix(i - 1, j) !== '0') {
           uf.union(matrix[i][j], matrix[i - 1][j]);
         }
-        if (getMatrix(i, j - 1) !== "0") {
+        if (getMatrix(i, j - 1) !== '0') {
           uf.union(matrix[i][j], matrix[i][j - 1]);
         }
-        if (getMatrix(i + 1, j) !== "0") {
+        if (getMatrix(i + 1, j) !== '0') {
           uf.union(matrix[i][j], matrix[i + 1][j]);
         }
-        if (getMatrix(i, j + 1) !== "0") {
+        if (getMatrix(i, j + 1) !== '0') {
           uf.union(matrix[i][j], matrix[i][j + 1]);
         }
       }

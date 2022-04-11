@@ -5,9 +5,9 @@
  */
 function removeKdigits(num, k) {
   if (num.length === k) {
-    return "0";
+    return '0';
   }
-  const numArray = num.slice(k - num.length).split("");
+  const numArray = num.slice(k - num.length).split('');
   let left = -1;
   for (let i = 0; i < num.length - k; i++) {
     let min = numArray[i];
@@ -21,5 +21,5 @@ function removeKdigits(num, k) {
     numArray[i] = min;
     left = minIndex;
   }
-  return numArray.join("").replace(/^0*/, "") || "0";
+  return numArray.join('').replace(/^0*/, '') || '0';
 }

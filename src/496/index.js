@@ -21,7 +21,7 @@ var nextGreaterElement = function(nums1, nums2) {
         break;
       }
     }
-    if (typeof res[i] !== "number") {
+    if (typeof res[i] !== 'number') {
       res.push(-1)
     }
   }

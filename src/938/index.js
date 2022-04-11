@@ -1,4 +1,3 @@
-const { array2tree } = require("../common");
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {

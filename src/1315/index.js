@@ -1,4 +1,4 @@
-const { TreeNode, array2tree } = require("../common");
+import { TreeNode } from '../utils/index.js';
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {

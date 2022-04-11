@@ -20,4 +20,4 @@ var findWords = function(words) {
     return true;
   })
 };
-console.log(findWords(["Hello","Alaska","Dad","Peace"]));
+console.log(findWords(['Hello', 'Alaska', 'Dad', 'Peace']));

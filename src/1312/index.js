@@ -10,7 +10,7 @@ function minInsertions(s) {
    */
   function minInsertRecursion(i, j) {
     if (i >= j) return 0;
-    if (typeof cache[i][j] === "number") return cache[i][j];
+    if (typeof cache[i][j] === 'number') return cache[i][j];
     if (s[i] !== s[j]) {
       const min1 = minInsertRecursion(i + 1, j);
       const min2 = minInsertRecursion(i, j - 1);

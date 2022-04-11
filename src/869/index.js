@@ -6,10 +6,10 @@ const MAX_NUMBER = Math.pow(10, 9);
 function getTrait(n) {
   return n
     .toString()
-    .split("")
+    .split('')
     .map((i) => Number(i))
     .sort((a, b) => a - b)
-    .join("");
+    .join('');
 }
 /**
  * @param {number} n

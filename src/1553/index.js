@@ -6,7 +6,7 @@
 // function minDays(n) {
 //   const cache = [0, 1];
 //   function calcMinDays(num) {
-//     if (typeof cache[num] === "number") {
+//     if (typeof cache[num] === 'number') {
 //       return cache[num];
 //     }
 //     let isThr = num % 3 === 0;
@@ -34,7 +34,7 @@
 //   const cache2 = [0];
 //   const cache3 = [0];
 //   function get(array, index) {
-//     if (typeof array[index] === "number") {
+//     if (typeof array[index] === 'number') {
 //       return array[index];
 //     }
 //     return Infinity;
@@ -114,7 +114,7 @@
 function minDays(n) {
   const cache = [0, 1, 2, 2];
   function calcMinDays(num) {
-    if (typeof cache[num] === "number") {
+    if (typeof cache[num] === 'number') {
       return cache[num];
     }
     let case2 = calcMinDays(Math.floor(num / 2)) + num % 2;

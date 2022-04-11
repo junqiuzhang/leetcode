@@ -26,7 +26,7 @@ function isConcatenatedWord(word, words) {
  * @return {string[]}
  */
 function findAllConcatenatedWordsInADict(words) {
-  words = words.filter((w) => w !== "").sort((a, b) => b.length - a.length);
+  words = words.filter((w) => w !== '').sort((a, b) => b.length - a.length);
   const ans = [];
   for (let i = 0; i < words.length; i++) {
     const word = words[i];

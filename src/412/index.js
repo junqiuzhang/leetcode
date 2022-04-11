@@ -1,5 +1,5 @@
-const fizz = "Fizz";
-const buzz = "Buzz";
+const fizz = 'Fizz';
+const buzz = 'Buzz';
 /**
  * @param {number} n
  * @return {string[]}
@@ -7,14 +7,14 @@ const buzz = "Buzz";
 function fizzBuzz(n) {
   const res = [];
   for (let i = 0; i < n; i++) {
-    let cur = "";
+    let cur = '';
     if ((i + 1) % 3 === 0) {
       cur += fizz;
     }
     if ((i + 1) % 5 === 0) {
       cur += buzz;
     }
-    if (cur === "") {
+    if (cur === '') {
       cur = `${i + 1}`;
     }
     res.push(cur);

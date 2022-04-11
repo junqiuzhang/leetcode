@@ -31,7 +31,7 @@ class SnapshotArray {
   get(index, snap_id) {
     let val = null;
     let snapId = snap_id;
-    while (typeof val !== "number") {
+    while (typeof val !== 'number') {
       if (!this.store[snapId]) {
         this.store[snapId] = [];
       }

@@ -8,5 +8,5 @@ function restoreString(s, indices) {
   for (let i = 0; i < s.length; i++) {
     restoreS[indices[i]] = s[i];
   }
-  return restoreS.join("");
+  return restoreS.join('');
 };

@@ -1,41 +1,37 @@
 // 链表元素
-class ListNode {
+export class ListNode {
   constructor(val, next) {
     this.val = val;
     this.next = next !== null && next !== void 0 ? next : null;
   }
 }
-exports.ListNode = ListNode;
 // 树元素
-class TreeNode {
+export class TreeNode {
   constructor(val, left, right) {
     this.val = val;
     this.left = left !== null && left !== void 0 ? left : null;
     this.right = right !== null && right !== void 0 ? right : null;
   }
 }
-exports.TreeNode = TreeNode;
 // 数组转链表
-function array2list(arr) {
-  if (arr.length == 0 || (arr.length == 1 && typeof arr[0] != "number")) {
+export function array2list(arr) {
+  if (arr.length == 0 || (arr.length == 1 && typeof arr[0] != 'number')) {
     return null;
   }
   const list = new ListNode(arr[0]);
   list.next = array2list(arr.slice(1));
   return list;
 }
-exports.array2list = array2list;
-function list2array(list) {
+export function list2array(list) {
   if (!list) return [];
   const next = list2array(
     list === null || list === void 0 ? void 0 : list.next
   );
   return [list.val, ...next];
 }
-exports.list2array = list2array;
 // 数组转二叉树
-function array2tree(arr) {
-  if (arr.length == 0 || (arr.length == 1 && typeof arr[0] != "number")) {
+export function array2tree(arr) {
+  if (arr.length == 0 || (arr.length == 1 && typeof arr[0] != 'number')) {
     return null;
   }
   const tree = new TreeNode();
@@ -56,16 +52,14 @@ function array2tree(arr) {
   tree.right = array2tree(right);
   return tree;
 }
-exports.array2tree = array2tree;
-function tree2array(root) {
+export function tree2array(root) {
   if (!root) return [];
   const left = tree2array(root.left);
   const right = tree2array(root.right);
   return [...left, root.val, ...right];
 }
-exports.tree2array = tree2array;
 // 二分查找
-function quickFindIndex(array, predicate) {
+export function quickFindIndex(array, predicate) {
   let min = 0;
   let max = array.length - 1;
   let mid = Math.floor((min + max) / 2);
@@ -78,16 +72,14 @@ function quickFindIndex(array, predicate) {
   }
   return max;
 }
-exports.quickFindIndex = quickFindIndex;
 // 二分查找
-function quickFind(array, predicate) {
+export function quickFind(array, predicate) {
   const index = quickFindIndex(array, predicate);
   if (index === -1) return null;
   return array[index];
 }
-exports.quickFind = quickFind;
 // 快排-递归实现
-function quickSort(arr, compare) {
+export function quickSort(arr, compare) {
   if (arr.length <= 1) {
     return arr;
   }
@@ -106,9 +98,8 @@ function quickSort(arr, compare) {
   const sortedRight = quickSort(right, compare);
   return [...sortedLeft, middle, ...sortedRight];
 }
-exports.quickSort = quickSort;
 // 快排-非递归实现
-function quickSort2(arr, compare) {
+export function quickSort2(arr, compare) {
   if (arr.length <= 1) {
     return arr;
   }
@@ -132,18 +123,17 @@ function quickSort2(arr, compare) {
   }
   return arr;
 }
-exports.quickSort2 = quickSort2;
-class UnionFind {
+export class UnionFind {
   constructor(param) {
     this.elsTree = new Map();
     this.size = 0;
-    if (typeof param === "number" && Number.isInteger(param)) {
+    if (typeof param === 'number' && Number.isInteger(param)) {
       new Array(param).fill(0).forEach((v, i) => {
         this.elsTree.set(i, i);
       });
       this.size = param;
     }
-    if (typeof param === "object" && Array.isArray(param)) {
+    if (typeof param === 'object' && Array.isArray(param)) {
       param.forEach((v, i) => {
         this.elsTree.set(v, v);
       });
@@ -169,11 +159,10 @@ class UnionFind {
     this.size--;
   }
 }
-exports.UnionFind = UnionFind;
 // 排列组合A
-function A(m, n) {
+export function A(m, n) {
   if (m > n) {
-    throw new Error("m 不能大于 n");
+    throw new Error('m 不能大于 n');
   }
   if (m === 0) {
     return 1;
@@ -187,18 +176,16 @@ function A(m, n) {
   }
   return num;
 }
-exports.A = A;
 // 排列组合C
-function C(m, n) {
+export function C(m, n) {
   return A(m, n) / A(m, m);
 }
-exports.C = C;
 /**
  * 前序遍历
  * @param {TreeNode} root
  * @return {number}
  */
-function preOrderTraverse(root, traverse) {
+export function preOrderTraverse(root, traverse) {
   const stack = [];
   let cur = root;
   let tmp = root;
@@ -212,13 +199,12 @@ function preOrderTraverse(root, traverse) {
     cur = tmp.right;
   }
 }
-exports.preOrderTraverse = preOrderTraverse;
 /**
  * 中序遍历
  * @param {TreeNode} root
  * @return {number}
  */
-function inOrderTraverse(root, traverse) {
+export function inOrderTraverse(root, traverse) {
   const stack = [];
   let cur = root;
   let tmp = root;
@@ -232,13 +218,12 @@ function inOrderTraverse(root, traverse) {
     cur = tmp.right;
   }
 }
-exports.inOrderTraverse = inOrderTraverse;
 /**
  * 后序遍历
  * @param {TreeNode} root
  * @return {number}
  */
-function postOrderTraverse(root, traverse) {
+export function postOrderTraverse(root, traverse) {
   const stack = [];
   const res = [];
   let cur = root;
@@ -254,4 +239,3 @@ function postOrderTraverse(root, traverse) {
   }
   res.reverse().forEach((tmp) => traverse(tmp.val));
 }
-exports.postOrderTraverse = postOrderTraverse;

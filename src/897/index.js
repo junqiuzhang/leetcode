@@ -1,4 +1,3 @@
-const { array2tree } = require("../common");
 /**
  * @param {TreeNode} root
  * @return {TreeNode}

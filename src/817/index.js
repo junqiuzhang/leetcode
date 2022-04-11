@@ -1,4 +1,4 @@
-const { ListNode, array2list } = require("../common");
+import { ListNode } from '../utils/index.js';
 /**
  * Definition for singly-linked list.
  * function ListNode(val, next) {

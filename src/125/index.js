@@ -6,7 +6,7 @@ var isPalindrome = function (s) {
   if (s.length <= 1) {
     return true;
   }
-  var str = s.replace(/[^0-9a-zA-Z]+/g, "").toLocaleLowerCase();
+  var str = s.replace(/[^0-9a-zA-Z]+/g, '').toLocaleLowerCase();
   var left = 0;
   var right = str.length - 1;
   while (left <= right) {
@@ -18,4 +18,4 @@ var isPalindrome = function (s) {
   }
   return true;
 };
-exports.isPalindrome = isPalindrome;
+export default isPalindrome;

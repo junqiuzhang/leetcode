@@ -1,4 +1,4 @@
-const { KthHeap } = require("../703");
+import KthHeap from '../703/index.js';
 /**
  * @param {string[]} words
  * @param {number} k

@@ -62,14 +62,14 @@ function tictactoe(moves) {
       sum += num;
     }
     if (sum === 3) {
-      return "A";
+      return 'A';
     } else if (sum === -3) {
-      return "B";
+      return 'B';
     }
   }
   if (moves.length === 9) {
-    return "Draw";
+    return 'Draw';
   } else {
-    return "Pending";
+    return 'Pending';
   }
 }

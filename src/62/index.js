@@ -1,4 +1,4 @@
-const {C} = require('../common')
+import { C } from '../utils/index.js';
 /**
  * @param {number} m
  * @param {number} n

@@ -27,4 +27,4 @@ var findMin = function (nums) {
   }
   return Math.min(nums[left], nums[right]);
 };
-exports.findMin = findMin;
+export default findMin;

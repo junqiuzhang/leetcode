@@ -28,4 +28,4 @@ function mergeTwoLists(l1, l2) {
   }
   return head.next;
 }
-exports.mergeTwoLists = mergeTwoLists;
+export default mergeTwoLists;

@@ -1,4 +1,4 @@
-const { C } = require('../common');
+import { C } from '../utils/index.js';
 const MAX_NUMBER = Math.pow(10, 9) + 7;
 /**
  * @param {number[]} deliciousness

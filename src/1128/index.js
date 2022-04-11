@@ -1,4 +1,4 @@
-const { A, C } = require('../common');
+import { C } from '../utils/index.js';
 function getKey(domino) {
   return domino[0] > domino[1] ? `${domino[0]},${domino[1]}` : `${domino[1]},${domino[0]}`;
 }

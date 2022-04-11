@@ -9,5 +9,5 @@ function kthLarge(nums, k) {
       }
     }
   }
-  return typeof nums[k - 1] !== "number" ? -1 : nums[k - 1];
+  return typeof nums[k - 1] !== 'number' ? -1 : nums[k - 1];
 }

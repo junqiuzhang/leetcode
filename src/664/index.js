@@ -9,7 +9,7 @@
 function strangePrinter(s) {
   const dp = new Array(s.length).fill(0).map((i) => new Array(s.length));
   function calculate(i, j) {
-    if (typeof dp[i][j] === "number") {
+    if (typeof dp[i][j] === 'number') {
       return dp[i][j];
     }
     if (j - i < 1) {

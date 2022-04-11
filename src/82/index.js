@@ -1,4 +1,4 @@
-const { array2list, ListNode } = require("../common");
+import { array2list, ListNode } from '../utils/index.js';
 /**
  * @param {string | Array<T>} items
  * @return {[string | Array<T>, string | T]}

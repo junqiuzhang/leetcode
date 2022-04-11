@@ -1,4 +1,4 @@
-const { UnionFind } = require('../common');
+import { UnionFind } from '../utils/index.js';
 /**
  * @param {number[][]} stones
  * @return {number}
