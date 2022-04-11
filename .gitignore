@@ -16,6 +16,8 @@ gradlew.bat
 *.*~
 ~*.*
 
+node_modules/
+
 /dist
 
 lib/
