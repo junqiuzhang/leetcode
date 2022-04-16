@@ -1,35 +1,37 @@
-const NUMBER_REGEXP = /\d+/;
+const NUMBER_REGEXP = /^\d+$/;
 /**
- * @param {string} n 
- * @param {number} i 
+ * @param {string} n
+ * @param {number} i
  */
 function getNumber(n, i) {
-  if (typeof n[i] === 'string') {
+  if (typeof n[i] === "string") {
     return Number(n[i]);
   }
   return 0;
 }
-/**
- * @param {string} n 
- */
-function checkNumber(n) {
-  if (!NUMBER_REGEXP.test(n)) {
-    throw new Error(`Error: ${n} is not a number`)
-  }
+function checkNumber(func) {
+  return function (...args) {
+    for (let i = 0; i < args.length; i++) {
+      const arg = args[i];
+      if (!NUMBER_REGEXP.test(arg)) {
+        throw new Error(`Error: ${arg} is not a number`);
+      }
+    }
+    return func(...args);
+  };
 }
 /**
- * @param {string} x 
- * @param {string} y 
+ * @param {string} x
+ * @param {string} y
  * @returns {string}
  */
-function add(x, y) {
-  checkNumber(x);
-  checkNumber(y);
-  let ans = '';
+const add = checkNumber((x, y) => {
+  let ans = "";
   let car = 0;
   const len = Math.max(x.length, y.length);
   for (let i = 0; i < len; i++) {
-    const cur = getNumber(x, x.length - i - 1) + getNumber(y, y.length - i - 1) + car;
+    const cur =
+      getNumber(x, x.length - i - 1) + getNumber(y, y.length - i - 1) + car;
     ans = (cur % 10) + ans;
     car = Math.floor(cur / 10);
   }
@@ -37,16 +39,16 @@ function add(x, y) {
     ans = car + ans;
   }
   return ans;
-}
+});
 /**
- * @param {string} x 
- * @param {string} y 
+ * @param {string} x
+ * @param {string} y
  * @returns {string}
  */
-function multi(x, y) {
+const multi = checkNumber((x, y) => {
   checkNumber(x);
   checkNumber(y);
-  let ans = '';
+  let ans = "";
   let car = 0;
   for (let i = 0; i < x.length; i++) {
     const cur = getNumber(x, x.length - i - 1) * getNumber(y, 0) + car;
@@ -57,25 +59,21 @@ function multi(x, y) {
     ans = car + ans;
   }
   return ans;
-}
+});
 /**
- * @param {string} x 
- * @param {string} y 
+ * @param {string} x
+ * @param {string} y
  * @returns {string}
  */
-function multiply(x, y) {
+const multiply = checkNumber((x, y) => {
   checkNumber(x);
   checkNumber(y);
-  let ans = '0';
+  let ans = "0";
   for (let i = 0; i < y.length; i++) {
     const pro = multi(x, y[y.length - i - 1]);
-    const tmp = pro + new Array(i).fill(0).join('');
+    const tmp = pro + new Array(i).fill(0).join("");
     ans = add(ans, tmp);
   }
   return ans;
-}
-export {
-  add,
-  multi,
-  multiply,
-}
+});
+export { add, multi, multiply };
