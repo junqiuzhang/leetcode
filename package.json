@@ -13,5 +13,8 @@
   "bugs": {
     "url": "https://github.com/junqiuzhang/leetcode/issues"
   },
-  "homepage": "https://github.com/junqiuzhang/leetcode#readme"
+  "homepage": "https://github.com/junqiuzhang/leetcode#readme",
+  "devDependencies": {
+    "lodash-es": "^4.17.21"
+  }
 }
