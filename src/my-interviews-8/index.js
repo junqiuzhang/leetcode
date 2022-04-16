@@ -1,37 +1,81 @@
+const NUMBER_REGEXP = /\d+/;
+/**
+ * @param {string} n 
+ * @param {number} i 
+ */
+function getNumber(n, i) {
+  if (typeof n[i] === 'string') {
+    return Number(n[i]);
+  }
+  return 0;
+}
+/**
+ * @param {string} n 
+ */
+function checkNumber(n) {
+  if (!NUMBER_REGEXP.test(n)) {
+    throw new Error(`Error: ${n} is not a number`)
+  }
+}
+/**
+ * @param {string} x 
+ * @param {string} y 
+ * @returns {string}
+ */
 function add(x, y) {
+  checkNumber(x);
+  checkNumber(y);
   let ans = '';
-  let c = 0;
-  let i;
+  let car = 0;
   const len = Math.max(x.length, y.length);
-  x = new Array(len - x.length).fill('0').join('') + x;
-  y = new Array(len - y.length).fill('0').join('') + y;
-  for (i = 0; i < len; i++) {
-    const cur = Number(x[x.length - i - 1]) + Number(y[y.length - i - 1]) + c;
+  for (let i = 0; i < len; i++) {
+    const cur = getNumber(x, x.length - i - 1) + getNumber(y, y.length - i - 1) + car;
     ans = (cur % 10) + ans;
-    c = Math.floor(cur / 10);
+    car = Math.floor(cur / 10);
   }
-  if (c > 0) {
-    ans = c + ans;
+  if (car > 0) {
+    ans = car + ans;
   }
   return ans;
 }
-function multiOneBit(x, y) {
-  let ans = '';
-  let c = 0;
-  for (let i = x.length - 1; i >= 0; i--) {
-    const cur = Number(x[i]) * Number(y) + c;
-    ans = (cur % 10) + ans;
-    c = Math.floor(cur / 10);
-  }
-  if (c > 0) {
-    ans += c;
-  }g
-  return ans;
-}
+/**
+ * @param {string} x 
+ * @param {string} y 
+ * @returns {string}
+ */
 function multi(x, y) {
-  let ans = '0';
-  for (let i = y.length - 1; i >= 0; i--) {
-    ans = add(ans, multiOneBit(x, y[i]));
+  checkNumber(x);
+  checkNumber(y);
+  let ans = '';
+  let car = 0;
+  for (let i = 0; i < x.length; i++) {
+    const cur = getNumber(x, x.length - i - 1) * getNumber(y, 0) + car;
+    ans = (cur % 10) + ans;
+    car = Math.floor(cur / 10);
+  }
+  if (car > 0) {
+    ans = car + ans;
   }
   return ans;
+}
+/**
+ * @param {string} x 
+ * @param {string} y 
+ * @returns {string}
+ */
+function multiply(x, y) {
+  checkNumber(x);
+  checkNumber(y);
+  let ans = '0';
+  for (let i = 0; i < y.length; i++) {
+    const pro = multi(x, y[y.length - i - 1]);
+    const tmp = pro + new Array(i).fill(0).join('');
+    ans = add(ans, tmp);
+  }
+  return ans;
+}
+export {
+  add,
+  multi,
+  multiply,
 }

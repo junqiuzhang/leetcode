@@ -18,7 +18,7 @@ export function expect(actualValue) {
         console.log(`Test passed`);
         return;
       }
-      console.log(`Test failed: ${actualValue} is not equal to ${expectedValue}`);
+      console.error(`Test failed: ${actualValue} is not equal to ${expectedValue}`);
       return;
     }
   }
