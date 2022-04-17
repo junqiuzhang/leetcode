@@ -4,7 +4,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Test",
+      "name": "Test one",
       "skipFiles": ["<node_internals>/**"],
       "cmd": "node",
       "args": ["${file}"]
