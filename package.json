@@ -3,7 +3,9 @@
   "version": "1.0.0",
   "description": "leetcode problems",
   "type": "module",
-  "scripts": {},
+  "scripts": {
+    "test": "node ./scripts/test-parallel.js"
+  },
   "repository": {
     "type": "git",
     "url": "git+https://github.com/junqiuzhang/leetcode.git"

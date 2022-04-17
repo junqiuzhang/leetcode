@@ -3,6 +3,10 @@ import { parentPort } from "worker_threads";
 import { isObject, isEqual } from "lodash-es";
 
 let testCount = 0;
+let passedTestCount = 0;
+let failedTestCount = 0;
+let failedTestDetails = [];
+
 function log(info) {
   parentPort.postMessage(info);
 }
@@ -31,18 +35,26 @@ export function expect(func, ...args) {
   return {
     toBe: (expectedValue) => {
       if (isSameValue(actualValue, expectedValue)) {
-        log(`Test passed`);
+        passedTestCount++;
         return;
       }
-      log(`Test failed: ${actualValue} is not equal to ${expectedValue}`);
+      failedTestCount++;
+      failedTestDetails.push(
+        `${actualValue} is not equal to ${expectedValue}
+        arguments: ${args}`
+      );
       return;
     },
     toErr: (expectedError) => {
       if (isSameError(actualError, expectedError)) {
-        log(`Test passed`);
+        passedTestCount++;
         return;
       }
-      log(`Test failed: ${actualValue} is not equal to ${expectedValue}`);
+      failedTestCount++;
+      failedTestDetails.push(
+        `${actualValue} is not equal to ${expectedValue}
+        arguments: ${args}`
+      );
       return;
     },
   };
@@ -50,9 +62,22 @@ export function expect(func, ...args) {
 
 export function it(name, callback) {
   testCount = 0;
-  log(`Test problem: ${name}`);
+  passedTestCount = 0;
+  failedTestCount = 0;
+  failedTestDetails = [];
   const start = performance.now();
   callback();
   const end = performance.now();
-  log(`Test latency: ${((end - start) / testCount).toFixed(2)} ms`);
+  log(
+    `Test problem: ${name}
+Test latency: ${((end - start) / testCount).toFixed(2)} ms
+    ${passedTestCount} tests passed
+    ${failedTestCount} tests failed
+    ${
+      failedTestCount > 0
+        ? `Details:
+        ${failedTestDetails.map((detail) => detail)}`
+        : ``
+    }`
+  );
 }
