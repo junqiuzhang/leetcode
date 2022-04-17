@@ -22,6 +22,7 @@ export function array2list(arr) {
   list.next = array2list(arr.slice(1));
   return list;
 }
+// 链表转数组
 export function list2array(list) {
   if (!list) return [];
   const next = list2array(
@@ -52,6 +53,7 @@ export function array2tree(arr) {
   tree.right = array2tree(right);
   return tree;
 }
+// 二叉树转数组
 export function tree2array(root) {
   if (!root) return [];
   const left = tree2array(root.left);
@@ -123,6 +125,7 @@ export function quickSort2(arr, compare) {
   }
   return arr;
 }
+// 并查集
 export class UnionFind {
   constructor(param) {
     this.elsTree = new Map();
