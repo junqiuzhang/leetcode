@@ -1,4 +1,4 @@
-import { it, expect } from "../test/index.js";
+import { it, expect } from "../../test/index.js";
 import { add, multi, multiply } from "./index.js";
 it("my-interview-8: add", () => {
   expect(add, "0", "0").toBe("0");

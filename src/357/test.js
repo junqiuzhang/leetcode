@@ -1,4 +1,4 @@
-import { it, expect } from "../test/index.js";
+import { it, expect } from "../../test/index.js";
 import countNumbersWithUniqueDigits from "./index.js";
 it("357", () => {
   expect(countNumbersWithUniqueDigits, 0).toBe(1);
