@@ -1,5 +1,5 @@
-import { it, expect } from "../../test/index.js";
-import { add, multi, multiply } from "./index.js";
+import { it, expect } from "../common/index.js";
+import { add, multi, multiply } from "../../src/my-coding-interviews-8/index.js";
 it("my-coding-interviews-8: add", () => {
   expect(add, "0", "0").toBe("0");
   expect(add, "1", "1").toBe("2");
