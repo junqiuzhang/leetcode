@@ -5,13 +5,25 @@
       "type": "node",
       "request": "launch",
       "name": "Test",
-      "skipFiles": [
-        "<node_internals>/**"
-      ],
+      "skipFiles": ["<node_internals>/**"],
       "cmd": "node",
-      "args": [
-        "${file}"
-      ]
+      "args": ["${file}"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Test all in parallel",
+      "skipFiles": ["<node_internals>/**"],
+      "cmd": "node",
+      "args": ["scripts/test-parallel.js"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Test all in serial",
+      "skipFiles": ["<node_internals>/**"],
+      "cmd": "node",
+      "args": ["scripts/test-serial.js"]
     }
   ]
 }

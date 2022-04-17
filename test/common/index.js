@@ -8,7 +8,10 @@ let failedTestCount = 0;
 let failedTestDetails = [];
 
 function log(info) {
-  parentPort.postMessage(info);
+  if (parentPort) {
+    return parentPort.postMessage(info);
+  }
+  return console.log(info);
 }
 function isSameValue(actualValue, expectedValue) {
   if (isObject(actualValue) && isObject(expectedValue)) {
