@@ -4,15 +4,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Test one",
-      "skipFiles": ["<node_internals>/**"],
-      "cmd": "node",
-      "args": ["${file}"]
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Test all in parallel",
+      "name": "Parallel testing",
       "skipFiles": ["<node_internals>/**"],
       "cmd": "node",
       "args": ["scripts/test-parallel.js"]
@@ -20,7 +12,7 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Test all in serial",
+      "name": "Serial testing",
       "skipFiles": ["<node_internals>/**"],
       "cmd": "node",
       "args": ["scripts/test-serial.js"]
