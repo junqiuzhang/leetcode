@@ -1,4 +1,4 @@
-import { ListNode } from '../utils/index.js';
+import { ListNode } from '../common/index.js';
 /**
  * Definition for singly-linked list.
  * function ListNode(val, next) {

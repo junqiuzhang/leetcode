@@ -1,4 +1,4 @@
-import { quickSort2 } from '../utils/index';
+import { quickSort2 } from '../common/index';
 /**
  * @param {string} str1
  * @param {string} str2

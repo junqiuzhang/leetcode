@@ -1,4 +1,4 @@
-import { UnionFind } from '../utils/index.js';
+import { UnionFind } from '../common/index.js';
 /**
  * @param {string[][]} accounts
  * @return {string[][]}

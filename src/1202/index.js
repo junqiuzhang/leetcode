@@ -1,4 +1,4 @@
-import { UnionFind } from '../utils/index.js';
+import { UnionFind } from '../common/index.js';
 /**
  * @param {string} s
  * @param {number[][]} pairs

@@ -1,4 +1,4 @@
-import { TreeNode } from '../utils/index.js';
+import { TreeNode } from '../common/index.js';
 /**
  * Definition for a binary tree node.
  * function TreeNode(val, left, right) {

@@ -1,4 +1,4 @@
-import { C } from '../utils/index.js';
+import { C } from '../common/index.js';
 const MAX_NUMBER = Math.pow(10, 9) + 7;
 /**
  * @param {number[]} deliciousness
