@@ -1,8 +1,11 @@
 import { performance } from "perf_hooks";
+import { parentPort } from "worker_threads";
 import { isObject, isEqual } from "lodash-es";
 
 let testCount = 0;
-
+function log(info) {
+  parentPort.postMessage(info);
+}
 function isSameValue(actualValue, expectedValue) {
   if (isObject(actualValue) && isObject(expectedValue)) {
     return isEqual(actualValue, expectedValue);
@@ -28,22 +31,18 @@ export function expect(func, ...args) {
   return {
     toBe: (expectedValue) => {
       if (isSameValue(actualValue, expectedValue)) {
-        console.log(`Test passed`);
+        log(`Test passed`);
         return;
       }
-      console.error(
-        `Test failed: ${actualValue} is not equal to ${expectedValue}`
-      );
+      log(`Test failed: ${actualValue} is not equal to ${expectedValue}`);
       return;
     },
     toErr: (expectedError) => {
       if (isSameError(actualError, expectedError)) {
-        console.log(`Test passed`);
+        log(`Test passed`);
         return;
       }
-      console.error(
-        `Test failed: ${actualValue} is not equal to ${expectedValue}`
-      );
+      log(`Test failed: ${actualValue} is not equal to ${expectedValue}`);
       return;
     },
   };
@@ -51,9 +50,9 @@ export function expect(func, ...args) {
 
 export function it(name, callback) {
   testCount = 0;
-  console.log(`Test Suite: ${name}`);
+  log(`Test problem: ${name}`);
   const start = performance.now();
   callback();
   const end = performance.now();
-  console.log(`Test latency: ${((end - start) / testCount).toFixed(2)} ms`);
+  log(`Test latency: ${((end - start) / testCount).toFixed(2)} ms`);
 }
