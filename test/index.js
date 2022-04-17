@@ -36,7 +36,7 @@ export function expect(func, ...args) {
       );
       return;
     },
-    toError: (expectedError) => {
+    toErr: (expectedError) => {
       if (isSameError(actualError, expectedError)) {
         console.log(`Test passed`);
         return;
