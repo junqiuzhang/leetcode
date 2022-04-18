@@ -4,8 +4,7 @@
   "description": "leetcode problems",
   "type": "module",
   "scripts": {
-    "test-parallel": "node scripts/test-parallel.js",
-    "test-serial": "node scripts/test-serial.js"
+    "test": "node scripts/test/index.js"
   },
   "repository": {
     "type": "git",
