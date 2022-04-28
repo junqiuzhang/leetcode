@@ -1,18 +1,12 @@
 import { performance } from "perf_hooks";
-import { parentPort } from "worker_threads";
 import { isObject, isEqual } from "lodash-es";
+import log from "./log.js";
 
 let testCount = 0;
 let passedTestCount = 0;
 let failedTestCount = 0;
 let failedTestDetails = [];
 
-function log(info) {
-  if (parentPort) {
-    return parentPort.postMessage(info);
-  }
-  return console.log(info);
-}
 function isSameValue(actualValue, expectedValue) {
   if (isObject(actualValue) && isObject(expectedValue)) {
     return isEqual(actualValue, expectedValue);
