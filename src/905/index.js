@@ -7,11 +7,8 @@
 function findIndex(nums, index, condition) {
   const len = nums.length;
   let i = index;
-  while (!condition(nums[i]) && i < len) {
+  while (i < len && !condition(nums[i])) {
     i++;
-  }
-  if (!condition(nums[i])) {
-    return -1;
   }
   return i;
 }
@@ -34,13 +31,13 @@ function findOddIndex(nums, index) {
  * @return {number[]}
  */
 function sortArrayByParity(nums) {
-  let evenIndex = 0;
   let oddIndex = 0;
+  let evenIndex = 0;
   const len = nums.length;
   while (evenIndex < len) {
-    evenIndex = findEvenIndex(nums, 0);
-    oddIndex = findOddIndex(nums, Math.max(evenIndex, oddIndex));
     [nums[evenIndex], nums[oddIndex]] = [nums[oddIndex], nums[evenIndex]];
+    oddIndex = findOddIndex(nums, oddIndex);
+    evenIndex = findEvenIndex(nums, Math.max(oddIndex, evenIndex));
   }
   return nums;
 }
