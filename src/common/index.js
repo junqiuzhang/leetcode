@@ -56,18 +56,24 @@ export function list2array(list) {
 export function array2tree(arr) {
   if (!(arr instanceof Array)) throw new Error("Type Error");
   if (arr.length === 0) return null;
+  if (arr.every((item) => item === null)) return null;
   const tree = new TreeNode();
   let left = [];
   let right = [];
-  let i = 0;
-  let len = 0;
-  let fir = -1;
-  while (fir < arr.length) {
-    i++;
-    len = Math.pow(2, i);
-    fir = len - 1;
-    left = [...left, ...arr.slice(len - 1, (len * 3) / 2 - 1)];
-    right = [...right, ...arr.slice((len * 3) / 2 - 1, len * 2 - 1)];
+  let min = 1;
+  let max = 2;
+  let mid = 0;
+  for (let i = 1; i < arr.length; i++) {
+    if (i + 1 >= max) {
+      min *= 2;
+      max *= 2;
+      mid = (min + max) / 2;
+    }
+    if (i + 1 < mid) {
+      left.push(arr[i]);
+    } else {
+      right.push(arr[i]);
+    }
   }
   tree.val = arr[0];
   tree.left = array2tree(left);
