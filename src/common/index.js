@@ -1,40 +1,61 @@
-// 链表元素
+/**
+ * 链表
+ */
 export class ListNode {
+  /**
+   * @param {any} val
+   * @param {ListNode | null | undefined} next
+   */
   constructor(val, next) {
     this.val = val;
-    this.next = next !== null && next !== void 0 ? next : null;
+    this.next = next;
   }
 }
-// 树元素
+/**
+ * 二叉树
+ */
 export class TreeNode {
+  /**
+   * @param {any} val
+   * @param {TreeNode | null | undefined} left
+   * @param {TreeNode | null | undefined} right
+   */
   constructor(val, left, right) {
     this.val = val;
     this.left = left !== null && left !== void 0 ? left : null;
     this.right = right !== null && right !== void 0 ? right : null;
   }
 }
-// 数组转链表
+/**
+ * 数组转链表
+ * @param {any[]} arr
+ * @returns {ListNode}
+ */
 export function array2list(arr) {
-  if (arr.length == 0 || (arr.length == 1 && typeof arr[0] != 'number')) {
-    return null;
-  }
+  if (!(arr instanceof Array)) throw new Error("Type Error");
+  if (arr.length === 0) return null;
   const list = new ListNode(arr[0]);
   list.next = array2list(arr.slice(1));
   return list;
 }
-// 链表转数组
+/**
+ * 链表转数组
+ * @param {ListNode}
+ * @returns {any[]}
+ */
 export function list2array(list) {
-  if (!list) return [];
-  const next = list2array(
-    list === null || list === void 0 ? void 0 : list.next
-  );
+  if (!(list instanceof ListNode)) throw new Error("Type Error");
+  const next = list2array(list.next);
   return [list.val, ...next];
 }
-// 数组转二叉树
+/**
+ * 数组转二叉树
+ * @param {any[]} arr
+ * @returns {TreeNode}
+ */
 export function array2tree(arr) {
-  if (arr.length == 0 || (arr.length == 1 && typeof arr[0] != 'number')) {
-    return null;
-  }
+  if (!(arr instanceof Array)) throw new Error("Type Error");
+  if (arr.length === 0) return null;
   const tree = new TreeNode();
   let left = [];
   let right = [];
@@ -53,38 +74,56 @@ export function array2tree(arr) {
   tree.right = array2tree(right);
   return tree;
 }
-// 二叉树转数组
+/**
+ * 二叉树转数组
+ * @param {TreeNode} root
+ * @returns {any[]}
+ */
 export function tree2array(root) {
-  if (!root) return [];
+  if (!(root instanceof TreeNode)) throw new Error("Type Error");
   const left = tree2array(root.left);
   const right = tree2array(root.right);
   return [...left, root.val, ...right];
 }
-// 二分查找
-export function quickFindIndex(array, predicate) {
+/**
+ * 二分查找索引
+ * @param {any[]} arr
+ * @param {(val: any, index: number, array: any[]) => boolean)} predicate
+ * @returns {any[]}
+ */
+export function quickFindIndex(arr, predicate) {
+  if (!(arr instanceof Array)) throw new Error("Type Error");
   let min = 0;
-  let max = array.length - 1;
+  let max = arr.length - 1;
   let mid = Math.floor((min + max) / 2);
-  if (predicate(array[min], min, array)) return 0;
-  if (!predicate(array[max], max, array)) return -1;
+  if (predicate(arr[min], min, arr)) return 0;
+  if (!predicate(arr[max], max, arr)) return -1;
   while (max - min > 1) {
     mid = Math.floor((min + max) / 2);
-    if (predicate(array[mid], mid, array)) max = mid;
+    if (predicate(arr[mid], mid, arr)) max = mid;
     else min = mid;
   }
   return max;
 }
-// 二分查找
+/**
+ * 二分查找值
+ * @param {any[]} array
+ * @param {(val: any, index: number, array: any[]) => boolean)} predicate
+ * @returns {any[]}
+ */
 export function quickFind(array, predicate) {
   const index = quickFindIndex(array, predicate);
   if (index === -1) return null;
   return array[index];
 }
-// 快排-递归实现
+/**
+ * 快排-递归实现
+ * @param {any[]} arr
+ * @param {((val1: any, val2: any) => boolean)} compare
+ * @returns {any[]}
+ */
 export function quickSort(arr, compare) {
-  if (arr.length <= 1) {
-    return arr;
-  }
+  if (arr.length <= 1) return arr;
   const left = [];
   const right = [];
   const middle = arr[0];
@@ -100,11 +139,14 @@ export function quickSort(arr, compare) {
   const sortedRight = quickSort(right, compare);
   return [...sortedLeft, middle, ...sortedRight];
 }
-// 快排-非递归实现
+/**
+ * 快排-非递归实现
+ * @param {any[]} arr
+ * @param {((val1: any, val2: any) => boolean)} compare
+ * @returns {any[]}
+ */
 export function quickSort2(arr, compare) {
-  if (arr.length <= 1) {
-    return arr;
-  }
+  if (arr.length <= 1) return arr;
   let left = 0;
   let right = arr.length - 1;
   let pivot = right;
@@ -125,18 +167,20 @@ export function quickSort2(arr, compare) {
   }
   return arr;
 }
-// 并查集
+/**
+ * 并查集
+ */
 export class UnionFind {
   constructor(param) {
     this.elsTree = new Map();
     this.size = 0;
-    if (typeof param === 'number' && Number.isInteger(param)) {
+    if (typeof param === "number" && Number.isInteger(param)) {
       new Array(param).fill(0).forEach((v, i) => {
         this.elsTree.set(i, i);
       });
       this.size = param;
     }
-    if (typeof param === 'object' && Array.isArray(param)) {
+    if (typeof param === "object" && Array.isArray(param)) {
       param.forEach((v, i) => {
         this.elsTree.set(v, v);
       });
@@ -162,31 +206,34 @@ export class UnionFind {
     this.size--;
   }
 }
-// 排列组合A
+/**
+ * 排列组合A
+ * @param {number} m
+ * @param {number} n
+ * @returns {number}
+ */
 export function A(m, n) {
-  if (m > n) {
-    throw new Error('m 不能大于 n');
-  }
-  if (m === 0) {
-    return 1;
-  }
-  if (m === 1) {
-    return n;
-  }
+  if (m > n) throw new Error("m 不能大于 n");
+  if (m === 0) return 1;
+  if (m === 1) return n;
   let num = 1;
   for (let i = 0; i < m; i++) {
     num = num * (n - i);
   }
   return num;
 }
-// 排列组合C
+/**
+ * 排列组合C
+ * @param {number} m
+ * @param {number} n
+ * @returns {number}
+ */
 export function C(m, n) {
   return A(m, n) / A(m, m);
 }
 /**
  * 前序遍历
  * @param {TreeNode} root
- * @return {number}
  */
 export function preOrderTraverse(root, traverse) {
   const stack = [];
@@ -205,7 +252,6 @@ export function preOrderTraverse(root, traverse) {
 /**
  * 中序遍历
  * @param {TreeNode} root
- * @return {number}
  */
 export function inOrderTraverse(root, traverse) {
   const stack = [];
@@ -224,7 +270,6 @@ export function inOrderTraverse(root, traverse) {
 /**
  * 后序遍历
  * @param {TreeNode} root
- * @return {number}
  */
 export function postOrderTraverse(root, traverse) {
   const stack = [];
