@@ -32,7 +32,7 @@ export class TreeNode {
  * @returns {ListNode}
  */
 export function array2list(arr) {
-  if (!(arr instanceof Array)) throw new Error("Type Error");
+  if (!Array.isArray(arr)) throw new Error("Type Error");
   if (arr.length === 0) return null;
   const list = new ListNode(arr[0]);
   list.next = array2list(arr.slice(1));
@@ -44,7 +44,7 @@ export function array2list(arr) {
  * @returns {any[]}
  */
 export function list2array(list) {
-  if (!(list instanceof ListNode)) throw new Error("Type Error");
+  if (!list) return [];
   const next = list2array(list.next);
   return [list.val, ...next];
 }
@@ -54,7 +54,7 @@ export function list2array(list) {
  * @returns {TreeNode}
  */
 export function array2tree(arr) {
-  if (!(arr instanceof Array)) throw new Error("Type Error");
+  if (!Array.isArray(arr)) throw new Error("Type Error");
   if (arr.length === 0) return null;
   if (arr.every((item) => item === null)) return null;
   const tree = new TreeNode();
@@ -86,7 +86,7 @@ export function array2tree(arr) {
  * @returns {any[]}
  */
 export function tree2array(root) {
-  if (!(root instanceof TreeNode)) throw new Error("Type Error");
+  if (!root) return [];
   const left = tree2array(root.left);
   const right = tree2array(root.right);
   return [...left, root.val, ...right];
@@ -154,7 +154,7 @@ export function postOrderTraverse(root, traverse) {
  * @returns {any[]}
  */
 export function quickFindIndex(arr, predicate) {
-  if (!(arr instanceof Array)) throw new Error("Type Error");
+  if (!Array.isArray(arr)) throw new Error("Type Error");
   let min = 0;
   let max = arr.length - 1;
   let mid = Math.floor((min + max) / 2);
