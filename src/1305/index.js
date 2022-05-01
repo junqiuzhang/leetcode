@@ -1,49 +1,26 @@
-/**
- * @typedef Tree
- * @type {object}
- * @property {number} val
- * @property {Tree} left
- * @property {Tree} right
- *
- * @param {Tree} root
- * @returns {number[]}
- */
-function binarySearchTree2sortArray(root) {
-  if (!root) {
-    return [];
-  }
-  if (!root.left && !root.right) {
-    return [root.val];
-  }
-  const left = binarySearchTree2sortArray(root.left);
-  const right = binarySearchTree2sortArray(root.right);
-  return [...left, root.val, ...right];
-}
+import { tree2array } from "../common/index.js";
 /**
  * @param {TreeNode} root1
  * @param {TreeNode} root2
  * @return {number[]}
  */
 function getAllElements(root1, root2) {
+  const arr1 = tree2array(root1);
+  const arr2 = tree2array(root2);
+  const len1 = arr1.length;
+  const len2 = arr2.length;
   let ans = [];
-  const array1 = binarySearchTree2sortArray(root1);
-  const array2 = binarySearchTree2sortArray(root2);
   let i = 0;
   let j = 0;
-  while (i < array1.length && j < array2.length) {
-    if (array1[i] < array2[j]) {
-      ans.push(array1[i]);
+  while (i < len1 || j < len2) {
+    if (arr1[i] < arr2[j] || j >= len2) {
+      ans.push(arr1[i]);
       i++;
     } else {
-      ans.push(array2[j]);
+      ans.push(arr2[j]);
       j++;
     }
   }
-  if (i < array1.length) {
-    ans = [...ans, ...array1.slice(i)];
-  } else if (j < array2.length) {
-    ans = [...ans, ...array2.slice(j)];
-  }
   return ans;
 }
-export { binarySearchTree2sortArray, getAllElements as default };
+export default getAllElements;
