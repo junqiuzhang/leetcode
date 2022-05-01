@@ -92,6 +92,62 @@ export function tree2array(root) {
   return [...left, root.val, ...right];
 }
 /**
+ * 前序遍历
+ * @param {TreeNode} root
+ */
+export function preOrderTraverse(root, traverse) {
+  const stack = [];
+  let cur = root;
+  let tmp = root;
+  while (cur || stack.length > 0) {
+    while (cur) {
+      traverse(cur.val);
+      stack.push(cur);
+      cur = cur.left;
+    }
+    tmp = stack.pop();
+    cur = tmp.right;
+  }
+}
+/**
+ * 中序遍历
+ * @param {TreeNode} root
+ */
+export function inOrderTraverse(root, traverse) {
+  const stack = [];
+  let cur = root;
+  let tmp = root;
+  while (cur || stack.length > 0) {
+    while (cur) {
+      stack.push(cur);
+      cur = cur.left;
+    }
+    tmp = stack.pop();
+    traverse(tmp.val);
+    cur = tmp.right;
+  }
+}
+/**
+ * 后序遍历
+ * @param {TreeNode} root
+ */
+export function postOrderTraverse(root, traverse) {
+  const stack = [];
+  const res = [];
+  let cur = root;
+  let tmp = root;
+  while (cur || stack.length > 0) {
+    while (cur) {
+      res.push(cur);
+      stack.push(cur);
+      cur = cur.right;
+    }
+    tmp = stack.pop();
+    cur = tmp.left;
+  }
+  res.reverse().forEach((tmp) => traverse(tmp.val));
+}
+/**
  * 二分查找索引
  * @param {any[]} arr
  * @param {(val: any, index: number, array: any[]) => boolean)} predicate
@@ -236,60 +292,4 @@ export function A(m, n) {
  */
 export function C(m, n) {
   return A(m, n) / A(m, m);
-}
-/**
- * 前序遍历
- * @param {TreeNode} root
- */
-export function preOrderTraverse(root, traverse) {
-  const stack = [];
-  let cur = root;
-  let tmp = root;
-  while (cur || stack.length > 0) {
-    while (cur) {
-      traverse(cur.val);
-      stack.push(cur);
-      cur = cur.left;
-    }
-    tmp = stack.pop();
-    cur = tmp.right;
-  }
-}
-/**
- * 中序遍历
- * @param {TreeNode} root
- */
-export function inOrderTraverse(root, traverse) {
-  const stack = [];
-  let cur = root;
-  let tmp = root;
-  while (cur || stack.length > 0) {
-    while (cur) {
-      stack.push(cur);
-      cur = cur.left;
-    }
-    tmp = stack.pop();
-    traverse(tmp.val);
-    cur = tmp.right;
-  }
-}
-/**
- * 后序遍历
- * @param {TreeNode} root
- */
-export function postOrderTraverse(root, traverse) {
-  const stack = [];
-  const res = [];
-  let cur = root;
-  let tmp = root;
-  while (cur || stack.length > 0) {
-    while (cur) {
-      res.push(cur);
-      stack.push(cur);
-      cur = cur.right;
-    }
-    tmp = stack.pop();
-    cur = tmp.left;
-  }
-  res.reverse().forEach((tmp) => traverse(tmp.val));
 }
