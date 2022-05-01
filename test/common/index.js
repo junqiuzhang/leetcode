@@ -1,12 +1,20 @@
 import { performance } from "perf_hooks";
-import { isObject, isEqual } from "lodash-es";
+import { isObject, isEqual, toString } from "lodash-es";
 import log from "./log.js";
 
 let testCount = 0;
 let passedTestCount = 0;
 let failedTestCount = 0;
 let failedTestDetails = [];
-
+function stringify(param) {
+  let str;
+  try {
+    str = JSON.stringify(param);
+  } catch (error) {
+    str = toString(param);
+  }
+  return str;
+}
 function isSameValue(actualValue, expectedValue) {
   if (isObject(actualValue) && isObject(expectedValue)) {
     return isEqual(actualValue, expectedValue);
@@ -37,8 +45,10 @@ export function expect(func, ...args) {
       }
       failedTestCount++;
       failedTestDetails.push(
-        `${actualValue} is not equal to ${expectedValue}
-        arguments: ${args}`
+        `${stringify(actualValue)} is not equal to ${stringify(expectedValue)}
+        arguments: ${stringify(args)}
+        error detail: ${stringify(actualError)}
+        `
       );
       return;
     },
@@ -49,8 +59,10 @@ export function expect(func, ...args) {
       }
       failedTestCount++;
       failedTestDetails.push(
-        `${actualValue} is not equal to ${expectedValue}
-        arguments: ${args}`
+        `${stringify(actualValue)} is not equal to ${stringify(expectedValue)}
+        arguments: ${stringify(args)}
+        error detail: ${stringify(actualError)}
+        `
       );
       return;
     },
