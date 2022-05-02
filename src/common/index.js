@@ -6,7 +6,7 @@ export class ListNode {
    * @param {any} val
    * @param {ListNode | null | undefined} next
    */
-  constructor(val, next) {
+  constructor(val = null, next = null) {
     this.val = val;
     this.next = next;
   }
@@ -20,10 +20,10 @@ export class TreeNode {
    * @param {TreeNode | null | undefined} left
    * @param {TreeNode | null | undefined} right
    */
-  constructor(val, left, right) {
+  constructor(val = null, left = null, right = null) {
     this.val = val;
-    this.left = left !== null && left !== void 0 ? left : null;
-    this.right = right !== null && right !== void 0 ? right : null;
+    this.left = left;
+    this.right = right;
   }
 }
 /**
@@ -56,28 +56,23 @@ export function list2array(list) {
 export function array2tree(arr) {
   if (!Array.isArray(arr)) throw new Error("Type Error");
   if (arr.length === 0) return null;
-  if (arr.every((item) => item === null)) return null;
-  const tree = new TreeNode();
-  let left = [];
-  let right = [];
-  let min = 1;
-  let max = 2;
-  let mid = 0;
+  const tree = new TreeNode(arr[0]);
+  let nodes = [tree];
   for (let i = 1; i < arr.length; i++) {
-    if (i + 1 >= max) {
-      min *= 2;
-      max *= 2;
-      mid = (min + max) / 2;
+    const item = arr[i];
+    let child = null;
+    if (item !== undefined && item !== null) {
+      child = new TreeNode(item);
+      if ((i & 1) === 1) {
+        const parent = nodes[(i - 1) / 2];
+        parent.left = child;
+      } else {
+        const parent = nodes[(i - 2) / 2];
+        parent.right = child;
+      }
     }
-    if (i + 1 < mid) {
-      left.push(arr[i]);
-    } else {
-      right.push(arr[i]);
-    }
+    nodes.push(child);
   }
-  tree.val = arr[0];
-  tree.left = array2tree(left);
-  tree.right = array2tree(right);
   return tree;
 }
 /**
