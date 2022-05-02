@@ -35,7 +35,13 @@ export function array2list(arr) {
   if (!Array.isArray(arr)) throw new Error("Type Error");
   if (arr.length === 0) return null;
   const list = new ListNode(arr[0]);
-  list.next = array2list(arr.slice(1));
+  let node = list;
+  for (let i = 0; i < arr.length; i++) {
+    const item = arr[i];
+    const next = new ListNode(item);
+    node.next = next;
+    node = node.next;
+  }
   return list;
 }
 /**
@@ -60,18 +66,18 @@ export function array2tree(arr) {
   let nodes = [tree];
   for (let i = 1; i < arr.length; i++) {
     const item = arr[i];
-    let child = null;
-    if (item !== undefined && item !== null) {
-      child = new TreeNode(item);
+    let next = null;
+    if (item !== null) {
+      next = new TreeNode(item);
       if ((i & 1) === 1) {
-        const parent = nodes[(i - 1) / 2];
-        parent.left = child;
+        const node = nodes[(i - 1) / 2];
+        node.left = next;
       } else {
-        const parent = nodes[(i - 2) / 2];
-        parent.right = child;
+        const node = nodes[(i - 2) / 2];
+        node.right = next;
       }
     }
-    nodes.push(child);
+    nodes.push(next);
   }
   return tree;
 }
