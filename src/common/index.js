@@ -62,12 +62,12 @@ export function list2array(list) {
 export function array2tree(arr) {
   if (!Array.isArray(arr)) throw new Error("Type Error");
   if (arr.length === 0) return null;
-  const tree = new TreeNode(arr[0]);
-  let nodes = [tree];
+  const root = new TreeNode(arr[0]);
+  const nodes = [root];
   for (let i = 1; i < arr.length; i++) {
     const item = arr[i];
     let next = null;
-    if (item !== null) {
+    if (item) {
       next = new TreeNode(item);
       if ((i & 1) === 1) {
         const node = nodes[(i - 1) / 2];
@@ -79,7 +79,7 @@ export function array2tree(arr) {
     }
     nodes.push(next);
   }
-  return tree;
+  return root;
 }
 /**
  * 二叉树转数组
@@ -88,9 +88,27 @@ export function array2tree(arr) {
  */
 export function tree2array(root) {
   if (!root) return [];
-  const left = tree2array(root.left);
-  const right = tree2array(root.right);
-  return [...left, root.val, ...right];
+  const arr = [];
+  const nodes = [root];
+  let index = 1;
+  while (nodes.length > index - 1) {
+    for (let i = index - 1; i < nodes.length; i++) {
+      const node = nodes[i];
+      let next = null;
+      if (node) {
+        next = node.val;
+        if (node.left) {
+          nodes[(i + 1) * 2 - 1] = node.left;
+        }
+        if (node.right) {
+          nodes[(i + 1) * 2] = node.right;
+        }
+      }
+      arr[i] = next;
+    }
+    index = index * 2;
+  }
+  return arr;
 }
 /**
  * 前序遍历

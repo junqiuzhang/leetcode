@@ -1,3 +1,4 @@
+import { tree2array, array2tree } from "../../src/common/index.js";
 /**
  * Definition for a binary tree node.
  * function TreeNode(val) {
@@ -13,8 +14,11 @@
  * @return {string}
  */
 function serialize(root) {
-    
-};
+  if (!root) return "[]";
+  return `[${tree2array(root)
+    .map((n) => (n === null ? "null" : new String(n)))
+    .join(",")}]`;
+}
 
 /**
  * Decodes your encoded data to tree.
@@ -23,10 +27,18 @@ function serialize(root) {
  * @return {TreeNode}
  */
 function deserialize(data) {
-    
-};
+  if (data === "[]") return null;
+  return array2tree(
+    data
+      .substring(1, data.length - 1)
+      .split(",")
+      .map((s) => (s === "null" ? null : new Number(s)))
+  );
+}
 
 /**
  * Your functions will be called as such:
  * deserialize(serialize(root));
  */
+
+export { serialize, deserialize };
