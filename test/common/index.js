@@ -85,7 +85,7 @@ Test latency: ${((end - start) / testCount).toFixed(2)} ms
     ${
       failedTestCount > 0
         ? `Details:
-        ${failedTestDetails.map((detail) => detail)}`
+        ${failedTestDetails.map((detail) => detail).join("")}`
         : ``
     }`
   );
