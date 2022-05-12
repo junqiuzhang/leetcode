@@ -1,12 +1,21 @@
-import { tree2array } from "../common/index.js";
+/**
+ * @param {TreeNode} root
+ * @returns {any[]}
+ */
+function binaryTree2array(root) {
+  if (!root) return [];
+  const left = binaryTree2array(root.left);
+  const right = binaryTree2array(root.right);
+  return [...left, root.val, ...right];
+}
 /**
  * @param {TreeNode} root1
  * @param {TreeNode} root2
  * @return {number[]}
  */
 function getAllElements(root1, root2) {
-  const arr1 = tree2array(root1);
-  const arr2 = tree2array(root2);
+  const arr1 = binaryTree2array(root1);
+  const arr2 = binaryTree2array(root2);
   const len1 = arr1.length;
   const len2 = arr2.length;
   let ans = [];
