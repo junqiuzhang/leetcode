@@ -1,10 +1,11 @@
+import { isNull, isUndefined, isInteger, isArray, isEmpty } from "lodash-es";
 /**
  * 链表
  */
 export class ListNode {
   /**
    * @param {any} val
-   * @param {ListNode | null | undefined} next
+   * @param {ListNode | undefined} next
    */
   constructor(val = null, next = null) {
     this.val = val;
@@ -17,8 +18,8 @@ export class ListNode {
 export class TreeNode {
   /**
    * @param {any} val
-   * @param {TreeNode | null | undefined} left
-   * @param {TreeNode | null | undefined} right
+   * @param {TreeNode | undefined} left
+   * @param {TreeNode | undefined} right
    */
   constructor(val = null, left = null, right = null) {
     this.val = val;
@@ -32,8 +33,8 @@ export class TreeNode {
  * @returns {ListNode}
  */
 export function array2list(arr) {
-  if (!Array.isArray(arr)) throw new Error("Type Error");
-  if (arr.length === 0) return null;
+  if (!isArray(arr)) throw new Error("Type Error");
+  if (isEmpty(arr)) return null;
   const list = new ListNode(arr[0]);
   let node = list;
   for (let i = 0; i < arr.length; i++) {
@@ -60,14 +61,14 @@ export function list2array(list) {
  * @returns {TreeNode}
  */
 export function array2tree(arr) {
-  if (!Array.isArray(arr)) throw new Error("Type Error");
-  if (arr.length === 0) return null;
+  if (!isArray(arr)) throw new Error("Type Error");
+  if (isEmpty(arr)) return null;
   const root = new TreeNode(arr[0]);
   const nodes = [root];
   for (let i = 1; i < arr.length; i++) {
     const item = arr[i];
     let next = null;
-    if (item) {
+    if (!isNull(item) && !isUndefined(item)) {
       next = new TreeNode(item);
       if ((i & 1) === 1) {
         const node = nodes[(i - 1) / 2];
@@ -95,7 +96,7 @@ export function tree2array(root) {
     for (let i = index - 1; i < nodes.length; i++) {
       const node = nodes[i];
       let next = null;
-      if (node) {
+      if (!isNull(node) && !isUndefined(node)) {
         next = node.val;
         if (node.left) {
           nodes[(i + 1) * 2 - 1] = node.left;
@@ -113,6 +114,7 @@ export function tree2array(root) {
 /**
  * 前序遍历
  * @param {TreeNode} root
+ * @param {(val: any) => boolean)} traverse
  */
 export function preOrderTraverse(root, traverse) {
   const stack = [];
@@ -131,6 +133,7 @@ export function preOrderTraverse(root, traverse) {
 /**
  * 中序遍历
  * @param {TreeNode} root
+ * @param {(val: any) => boolean)} traverse
  */
 export function inOrderTraverse(root, traverse) {
   const stack = [];
@@ -149,6 +152,7 @@ export function inOrderTraverse(root, traverse) {
 /**
  * 后序遍历
  * @param {TreeNode} root
+ * @param {(val: any) => boolean)} traverse
  */
 export function postOrderTraverse(root, traverse) {
   const stack = [];
@@ -170,10 +174,11 @@ export function postOrderTraverse(root, traverse) {
  * 二分查找索引
  * @param {any[]} arr
  * @param {(val: any, index: number, array: any[]) => boolean)} predicate
- * @returns {any[]}
+ * @returns {number}
  */
 export function quickFindIndex(arr, predicate) {
-  if (!Array.isArray(arr)) throw new Error("Type Error");
+  if (!isArray(arr)) throw new Error("Type Error");
+  if (isEmpty(arr)) return -1;
   let min = 0;
   let max = arr.length - 1;
   let mid = Math.floor((min + max) / 2);
@@ -190,7 +195,7 @@ export function quickFindIndex(arr, predicate) {
  * 二分查找值
  * @param {any[]} array
  * @param {(val: any, index: number, array: any[]) => boolean)} predicate
- * @returns {any[]}
+ * @returns {any}
  */
 export function quickFind(array, predicate) {
   const index = quickFindIndex(array, predicate);
@@ -255,13 +260,13 @@ export class UnionFind {
   constructor(param) {
     this.elsTree = new Map();
     this.size = 0;
-    if (typeof param === "number" && Number.isInteger(param)) {
+    if (isInteger(param)) {
       new Array(param).fill(0).forEach((v, i) => {
         this.elsTree.set(i, i);
       });
       this.size = param;
     }
-    if (typeof param === "object" && Array.isArray(param)) {
+    if (isArray(param)) {
       param.forEach((v, i) => {
         this.elsTree.set(v, v);
       });
