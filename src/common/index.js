@@ -77,7 +77,7 @@ export function array2tree(arr) {
         node.right = next;
       }
     }
-    nodes.push(next);
+    nodes[i] = next;
   }
   return root;
 }
