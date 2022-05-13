@@ -67,16 +67,17 @@ export function it(name, callback) {
   testCount = 0;
   passedTestCount = 0;
   failedTestInfo = [];
+  console.log(`Problem ${name} start`);
   const start = performance.now();
   callback();
   const end = performance.now();
   console.log(
-    `Test problem: ${name}
-Test latency: ${((end - start) / testCount).toFixed(2)} ms
-    ${passedTestCount} tests passed
-    ${failedTestInfo.length} tests failed`
+    `    ${passedTestCount} tests passed
+    ${failedTestInfo.length} tests failed
+    average ${((end - start) / testCount).toFixed(2)} ms`
   );
   if (failedTestInfo.length > 0) {
     failedTestInfo.map((info) => console.error(`Error: ${info}`));
   }
+  console.log(`Problem ${name} end`);
 }
