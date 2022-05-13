@@ -1,11 +1,9 @@
 import { performance } from "perf_hooks";
 import { isObject, isEqual, toString } from "lodash-es";
-import log from "./log.js";
 
 let testCount = 0;
 let passedTestCount = 0;
-let failedTestCount = 0;
-let failedTestDetails = [];
+let failedTestInfo = [];
 function stringify(param) {
   let str;
   try {
@@ -43,12 +41,10 @@ export function expect(func, ...args) {
         passedTestCount++;
         return;
       }
-      failedTestCount++;
-      failedTestDetails.push(
+      failedTestInfo.push(
         `${stringify(actualValue)} is not equal to ${stringify(expectedValue)}
         arguments: ${stringify(args)}
-        error detail: ${stringify(actualError)}
-        `
+        error detail: ${stringify(actualError)}`
       );
       return;
     },
@@ -57,12 +53,10 @@ export function expect(func, ...args) {
         passedTestCount++;
         return;
       }
-      failedTestCount++;
-      failedTestDetails.push(
+      failedTestInfo.push(
         `${stringify(actualValue)} is not equal to ${stringify(expectedValue)}
         arguments: ${stringify(args)}
-        error detail: ${stringify(actualError)}
-        `
+        error detail: ${stringify(actualError)}`
       );
       return;
     },
@@ -72,21 +66,17 @@ export function expect(func, ...args) {
 export function it(name, callback) {
   testCount = 0;
   passedTestCount = 0;
-  failedTestCount = 0;
-  failedTestDetails = [];
+  failedTestInfo = [];
   const start = performance.now();
   callback();
   const end = performance.now();
-  log(
+  console.log(
     `Test problem: ${name}
 Test latency: ${((end - start) / testCount).toFixed(2)} ms
     ${passedTestCount} tests passed
-    ${failedTestCount} tests failed
-    ${
-      failedTestCount > 0
-        ? `Details:
-        ${failedTestDetails.map((detail) => detail).join("")}`
-        : ``
-    }`
+    ${failedTestInfo.length} tests failed`
   );
+  if (failedTestInfo.length > 0) {
+    failedTestInfo.map((info) => console.error(`Error: ${info}`));
+  }
 }
