@@ -1,2 +1,2 @@
-import "./polyfill.js";
-import './main-thread.js';
+import "../../libs/console/polyfill.js";
+import "./main-thread.js";

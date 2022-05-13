@@ -1,4 +1,4 @@
-import { it, expect } from "../common/index.js";
+import { it, expect } from "../../libs/test/index.js";
 import { array2tree } from "../../src/common/index.js";
 import { serialize, deserialize } from "../../src/449/index.js";
 it("449: serialize", () => {

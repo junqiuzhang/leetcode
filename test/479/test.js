@@ -1,4 +1,4 @@
-import { it, expect } from "../common/index.js";
+import { it, expect } from "../../libs/test/index.js";
 import { largestPalindrome } from "../../src/479/index.js";
 it("479", () => {
   expect(largestPalindrome, 1).toBe(9);

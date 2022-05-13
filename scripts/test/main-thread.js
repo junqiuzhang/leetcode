@@ -1,7 +1,6 @@
 import { cpus } from "os";
 import { readdir } from "fs/promises";
 import { Worker } from "worker_threads";
-import { CONSOLE_TYPE_TO_METHOD } from "./constants.js";
 
 const TEST_GROUP_NUMBER = cpus().length;
 const tests = await readdir("test");
@@ -16,10 +15,6 @@ testGroups.forEach(async (testGroup) => {
   const worker = new Worker(`./scripts/test/worker-thread.js`, {
     workerData: testGroup,
   });
-  worker.on("message", (msg) => {
-    const type = msg[0];
-    const info = msg.slice(1);
-    CONSOLE_TYPE_TO_METHOD[type](info);
-  });
+  worker.on("message", (msg) => console.log(msg));
   worker.on("error", (msg) => console.error(msg));
 });

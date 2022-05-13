@@ -1,4 +1,4 @@
-import { it, expect } from "../common/index.js";
+import { it, expect } from "../../libs/test/index.js";
 import { sortArrayByParity } from "../../src/905/index.js";
 it("905", () => {
   expect(sortArrayByParity, [0]).toBe([0]);

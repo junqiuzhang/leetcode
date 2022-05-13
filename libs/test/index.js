@@ -54,7 +54,7 @@ export function expect(func, ...args) {
         return;
       }
       failedTestInfo.push(
-        `${stringify(actualValue)} is not equal to ${stringify(expectedValue)}
+        `${stringify(actualError)} is not equal to ${stringify(expectedError)}
         arguments: ${stringify(args)}
         error detail: ${stringify(actualError)}`
       );
@@ -67,7 +67,7 @@ export function it(name, callback) {
   testCount = 0;
   passedTestCount = 0;
   failedTestInfo = [];
-  console.log(`Problem ${name} start`);
+  console.log(`Problem ${name}`);
   const start = performance.now();
   callback();
   const end = performance.now();
@@ -79,5 +79,4 @@ export function it(name, callback) {
   if (failedTestInfo.length > 0) {
     failedTestInfo.map((info) => console.error(`Error: ${info}`));
   }
-  console.log(`Problem ${name} end`);
 }

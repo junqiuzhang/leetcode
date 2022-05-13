@@ -14,7 +14,7 @@ function checkNumber(func) {
     for (let i = 0; i < args.length; i++) {
       const arg = args[i];
       if (!NUMBER_REGEXP.test(arg)) {
-        throw new Error(`Error: arguments must be a positive number`);
+        throw new Error(`Error: arguments must be a positive number!`);
       }
     }
     return func(...args);

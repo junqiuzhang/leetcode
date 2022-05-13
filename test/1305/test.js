@@ -1,4 +1,4 @@
-import { it, expect } from "../common/index.js";
+import { it, expect } from "../../libs/test/index.js";
 import { array2tree } from "../../src/common/index.js";
 import { getAllElements } from "../../src/1305/index.js";
 it("1305", () => {
