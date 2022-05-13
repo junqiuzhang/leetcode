@@ -3,23 +3,27 @@ import { readFile } from "fs/promises";
 
 const readme = await readFile("README.md", { encoding: "utf-8" });
 const lines = readme.split(EOL);
-const listIndex = lines.findIndex((line) => line === "-- | -- | -- | --");
-const listLines = lines.slice(listIndex + 1);
-const percentageTexts = listLines.map((line) => line.split(" | ").slice(2));
-const percentageValues = percentageTexts.map((texts) =>
-  texts.map((text) => parseFloat(text))
+const tableStartIndex = lines.findIndex((line) => line === "-- | -- | -- | --");
+const table = lines.slice(tableStartIndex + 1).map((line) => line.split("|"));
+const percentageTable = table.map((row) =>
+  row.slice(2).map((text) => parseFloat(text))
 );
-const timeComplexityPercentages = percentageValues
-  .map((values) => values[0])
-  .filter((value) => value);
-const spaceComplexityPercentages = percentageValues
-  .map((values) => values[1])
-  .filter((value) => value);
+const transposePercentageTable = percentageTable.reduce(
+  (pre, cur) => [
+    [...pre[0], cur[0]],
+    [...pre[1], cur[1]],
+  ],
+  [[], []]
+);
+const [timeComplexityPercentages, spaceComplexityPercentages] =
+  transposePercentageTable.map((percentages) =>
+    percentages.filter((percentage) => percentage)
+  );
 const averageTimeComplexityPercentage =
-  timeComplexityPercentages.reduce((ave, cur) => ave + cur) /
+  timeComplexityPercentages.reduce((ave, cur) => ave + cur, 0) /
   timeComplexityPercentages.length;
 const averageSpaceComplexityPercentage =
-  spaceComplexityPercentages.reduce((ave, cur) => ave + cur) /
+  spaceComplexityPercentages.reduce((ave, cur) => ave + cur, 0) /
   spaceComplexityPercentages.length;
 console.log(
   `Average time complexity percentage: `,
