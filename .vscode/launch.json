@@ -8,6 +8,14 @@
       "skipFiles": ["<node_internals>/**"],
       "cmd": "node",
       "args": ["scripts/test/index.js"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Analysis",
+      "skipFiles": ["<node_internals>/**"],
+      "cmd": "node",
+      "args": ["scripts/analysis/index.js"]
     }
   ]
 }

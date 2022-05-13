@@ -4,7 +4,8 @@
   "description": "leetcode problems",
   "type": "module",
   "scripts": {
-    "test": "node scripts/test/index.js"
+    "test": "node scripts/test/index.js",
+    "analysis": "node scripts/analysis/index.js"
   },
   "repository": {
     "type": "git",
