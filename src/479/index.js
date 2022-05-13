@@ -7,4 +7,4 @@ function largestPalindrome(n) {
   return ansArr[n];
 };
 
-export default largestPalindrome;
+export { largestPalindrome };

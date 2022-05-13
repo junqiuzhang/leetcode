@@ -41,4 +41,4 @@ function sortArrayByParity(nums) {
   }
   return nums;
 }
-export default sortArrayByParity;
+export { findIndex, findEvenIndex, findOddIndex, sortArrayByParity };

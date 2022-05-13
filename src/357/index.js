@@ -16,6 +16,5 @@ function countNumbersWithUniqueDigits(n) {
     temp--;
   }
   return count + countNumbersWithUniqueDigits(n - 1);
-};
-
-export default countNumbersWithUniqueDigits;
+}
+export { countNumbersWithUniqueDigits };

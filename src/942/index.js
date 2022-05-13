@@ -18,4 +18,4 @@ function diStringMatch(s) {
   ans.push(min);
   return ans;
 }
-export default diStringMatch;
+export { diStringMatch };

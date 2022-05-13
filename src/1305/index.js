@@ -2,10 +2,10 @@
  * @param {TreeNode} root
  * @returns {any[]}
  */
-function binaryTree2array(root) {
+function binaryTree2sortArray(root) {
   if (!root) return [];
-  const left = binaryTree2array(root.left);
-  const right = binaryTree2array(root.right);
+  const left = binaryTree2sortArray(root.left);
+  const right = binaryTree2sortArray(root.right);
   return [...left, root.val, ...right];
 }
 /**
@@ -14,8 +14,8 @@ function binaryTree2array(root) {
  * @return {number[]}
  */
 function getAllElements(root1, root2) {
-  const arr1 = binaryTree2array(root1);
-  const arr2 = binaryTree2array(root2);
+  const arr1 = binaryTree2sortArray(root1);
+  const arr2 = binaryTree2sortArray(root2);
   const len1 = arr1.length;
   const len2 = arr2.length;
   let ans = [];
@@ -32,4 +32,4 @@ function getAllElements(root1, root2) {
   }
   return ans;
 }
-export default getAllElements;
+export { binaryTree2sortArray, getAllElements };
