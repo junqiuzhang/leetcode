@@ -20,7 +20,7 @@ const transposeMatrix = (matrix) =>
 const getLast2Row = (matrix) => matrix.slice(matrix.length - 2, matrix.length);
 const filterValidNumber = (matrix) =>
   matrix.map((row) => row.filter((item) => isNumber(item) && !isNaN(item)));
-const calculateAverage = (matrix) =>
+const calculateNumberAverage = (matrix) =>
   matrix.map((row) => row.reduce((pre, cur) => pre + cur) / row.length);
 const toFixed2Digit = (arr) => arr.map((item) => item.toFixed(2));
 
@@ -34,7 +34,7 @@ const toFixed2Digit = (arr) => arr.map((item) => item.toFixed(2));
     transposeMatrix,
     getLast2Row,
     filterValidNumber,
-    calculateAverage,
+    calculateNumberAverage,
     toFixed2Digit
   )(readmeText);
 
