@@ -26,10 +26,12 @@ const averageSpaceComplexityPercentage =
   spaceComplexityPercentages.reduce((ave, cur) => ave + cur, 0) /
   spaceComplexityPercentages.length;
 console.log(
-  `Average time complexity percentage: `,
-  averageTimeComplexityPercentage
+  `Average time complexity percentage: ${averageTimeComplexityPercentage.toFixed(
+    2
+  )}%`
 );
 console.log(
-  `Average space complexity percentage: `,
-  averageSpaceComplexityPercentage
+  `Average space complexity percentage: ${averageSpaceComplexityPercentage.toFixed(
+    2
+  )}%`
 );
