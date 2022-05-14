@@ -1,6 +1,7 @@
 import { EOL } from "os";
 import { readFile } from "fs/promises";
 import { isNumber, flow } from "lodash-es";
+
 const sliceTableText = (readmeText) => readmeText.split(`## 题目${EOL}`)[1];
 const text2Table = (text) => {
   const rows = text.split(EOL);
