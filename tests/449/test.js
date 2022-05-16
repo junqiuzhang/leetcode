@@ -1,6 +1,6 @@
 import { it, expect } from "../../libs/test/index.js";
-import { array2tree } from "../../src/common/index.js";
-import { serialize, deserialize } from "../../src/449/index.js";
+import { array2tree } from "../../problems/common/index.js";
+import { serialize, deserialize } from "../../problems/449/index.js";
 it("449: serialize", () => {
   expect(serialize, array2tree([])).toBe("[]");
   expect(serialize, array2tree([2, 1, 3])).toBe("[2,1,3]");
