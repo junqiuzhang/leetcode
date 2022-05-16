@@ -2,7 +2,7 @@ import { EOL } from "os";
 import { readFile } from "fs/promises";
 import { isNumber, flow } from "lodash-es";
 
-const sliceTableText = (readmeText) => readmeText.split(`## 题目${EOL}`)[1];
+const sliceText = (readmeText) => readmeText.split(`## 题目${EOL}`)[1];
 const text2Table = (text) => {
   const rows = text.split(EOL);
   const header = rows[0].split("|");
@@ -22,12 +22,12 @@ const filterValidNumber = (matrix) =>
   matrix.map((row) => row.filter((item) => isNumber(item) && !isNaN(item)));
 const calculateNumberAverage = (matrix) =>
   matrix.map((row) => row.reduce((pre, cur) => pre + cur) / row.length);
-const toFixed2Digit = (arr) => arr.map((item) => item.toFixed(2));
+const getFirst2Digit = (arr) => arr.map((item) => item.toFixed(2));
 
 (async () => {
   const readmeText = await readFile("README.md", { encoding: "utf-8" });
   const [timeComplexity, spaceComplexity] = flow(
-    sliceTableText,
+    sliceText,
     text2Table,
     getTableBody,
     table2Matrix,
@@ -35,7 +35,7 @@ const toFixed2Digit = (arr) => arr.map((item) => item.toFixed(2));
     getLast2Row,
     filterValidNumber,
     calculateNumberAverage,
-    toFixed2Digit
+    getFirst2Digit
   )(readmeText);
 
   console.log(`Average time complexity percentage: ${timeComplexity}%`);
