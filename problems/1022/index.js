@@ -8,25 +8,18 @@ import { TreeNode } from "../common/index.js";
  * }
  */
 /**
- * 9.58% 5.39%
+ * 9.58% 10.78%
  * @param {TreeNode} root
  * @return {number}
  */
 export const sumRootToLeaf = (root) => {
-  const sumEachRootToLeaf = (root) => {
+  const sumEachRootToLeaf = (root, pre) => {
     if (!root) return [];
-    if (!root.left && !root.right) return [`${root.val}`];
-    let left = [];
-    if (root.left) {
-      left = sumEachRootToLeaf(root.left).map((str) => `${root.val}${str}`);
-    }
-    let right = [];
-    if (root.right) {
-      right = sumEachRootToLeaf(root.right).map((str) => `${root.val}${str}`);
-    }
+    const val = (pre << 1) + root.val;
+    if (!root.left && !root.right) return [val];
+    const left = sumEachRootToLeaf(root.left, val);
+    const right = sumEachRootToLeaf(root.right, val);
     return [...left, ...right];
   };
-  return sumEachRootToLeaf(root)
-    .map((str) => parseInt(str, 2))
-    .reduce((sum, num) => sum + num);
+  return sumEachRootToLeaf(root).reduce((sum, num) => sum + num);
 };
