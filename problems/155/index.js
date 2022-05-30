@@ -1,49 +1,51 @@
 /**
  * initialize your data structure here.
  */
-const MinStack = () => {
+class MinStack {
+  constructor() {
     this.stack = [];
     this.min = Infinity;
-};
+  }
 
-/** 
- * @param {number} x
- * @return {void}
- */
-MinStack.prototype.push = function(x) {
+  /**
+   * @param {number} x
+   * @return {void}
+   */
+  push(x) {
     this.stack.push(x);
-    if (typeof this.min !== 'number' || x < this.min) {
-        this.min = x;
+    if (typeof this.min !== "number" || x < this.min) {
+      this.min = x;
     }
-};
+  }
 
-/**
- * @return {void}
- */
-MinStack.prototype.pop = function() {
+  /**
+   * @return {void}
+   */
+  pop() {
     if (this.min == this.stack[this.stack.length - 1]) {
-        this.stack.pop();
-        this.min = Math.min(...this.stack);
+      this.stack.pop();
+      this.min = Math.min(...this.stack);
     } else {
-        this.stack.pop();
+      this.stack.pop();
     }
-};
+  }
 
-/**
- * @return {number}
- */
-MinStack.prototype.top = function() {
+  /**
+   * @return {number}
+   */
+  top() {
     return this.stack[this.stack.length - 1];
-};
+  }
+
+  /**
+   * @return {number}
+   */
+  getMin() {
+    return this.min;
+  }
+}
 
 /**
- * @return {number}
- */
-MinStack.prototype.getMin = function() {
-    return this.min;
-};
-
-/** 
  * Your MinStack object will be instantiated and called as such:
  * var obj = new MinStack()
  * obj.push(x)
