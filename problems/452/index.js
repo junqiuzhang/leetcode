@@ -2,7 +2,7 @@
  * @param {number[][]} points
  * @return {number}
  */
-var findMinArrowShots = function (points) {
+const findMinArrowShots = (points) => {
   /** 
    * 证明：
    * 显然，最优解集合中必包含一个最优解由区间端点组成

@@ -7,7 +7,7 @@
  * @param {string} t
  * @return {character}
  */
-var findTheDifference = function(s, t) {
+const findTheDifference = (s, t) => {
     var temp = [];
     var i = 0;
     for (i = 0; i < t.length; i++) {

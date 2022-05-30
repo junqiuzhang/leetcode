@@ -13,7 +13,7 @@
  * @param {TreeNode} root
  * @return {boolean}
  */
-var isBalanced = function(root) {
+const isBalanced = (root) => {
     if (!root) {
         return true;
     }

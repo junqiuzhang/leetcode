@@ -6,7 +6,7 @@
  * @param {number} area
  * @return {number[]}
  */
-var constructRectangle = function(area) {
+const constructRectangle = (area) => {
   let middle = Math.floor(Math.sqrt(area))
   if (area % 2 === 0 && middle % 2 !== 0) {
     middle++

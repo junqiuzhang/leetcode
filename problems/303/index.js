@@ -1,7 +1,7 @@
 /**
  * @param {number[]} nums
  */
-var NumArray = function(nums) {
+const NumArray = (nums) => {
     this.len = nums.length;
     this.map = { '-1': 0 };
     var sum = 0;

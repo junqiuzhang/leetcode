@@ -2,7 +2,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-var maximumProduct = function(nums) {
+const maximumProduct = (nums) => {
   const posNums = [];
   const negNums = [];
   for (let i = 0; i < nums.length; i++) {

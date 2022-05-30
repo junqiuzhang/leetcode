@@ -2,7 +2,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-var findPeakElement = function(nums) {
+const findPeakElement = (nums) => {
   let left = 0;
   let right = nums.length - 1;
   let step = Math.floor((right - left) / 3);

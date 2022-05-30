@@ -6,7 +6,7 @@
  * @param {string} s
  * @return {number}
  */
-var romanToInt = function(s) {
+const romanToInt = (s) => {
     var i = s.length - 1;
     var num = 0;
     var numMap = {

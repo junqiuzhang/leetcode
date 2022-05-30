@@ -6,7 +6,7 @@
  * @param {number} num
  * @return {boolean}
  */
-var isUgly = function(num) {
+const isUgly = (num) => {
   var temp = num;
   if (temp == 0) return false;
   while (!(temp % 2) || !(temp % 3) || !(temp % 5)) {

@@ -1,7 +1,7 @@
 /**
  * Initialize your data structure here.
  */
-var MyStack = function() {
+const MyStack = () => {
     this.stack = [];
 };
 

@@ -6,7 +6,7 @@
  * @param {number} n
  * @return {boolean}
  */
-var isHappy = function(n) {
+const isHappy = (n) => {
     var map = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81];
     var cantMap = [true,,true,,true,true,,,true];
     var temp = n;

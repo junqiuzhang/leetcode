@@ -2,7 +2,7 @@
  * @param {number[]} nums
  * @return {number[]}
  */
-var smallerNumbersThanCurrent = function (nums) {
+const smallerNumbersThanCurrent = (nums) => {
   const numsCount = [];
   const setNumsCount = (i, c) => {
     const count = numsCount[i];

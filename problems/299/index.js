@@ -7,7 +7,7 @@
  * @param {string} guess
  * @return {string}
  */
-var getHint = function(secret, guess) {
+const getHint = (secret, guess) => {
     var A = 0;
     var B = 0;
     var map = {};

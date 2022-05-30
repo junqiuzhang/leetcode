@@ -9,7 +9,7 @@
  * @param {TreeNode} root
  * @return {string[]}
  */
-var binaryTreePaths = function(root) {
+const binaryTreePaths = (root) => {
     if (!root) {
         return [];
     }

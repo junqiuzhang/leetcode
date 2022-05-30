@@ -3,7 +3,7 @@
  * @param {string} typed
  * @return {boolean}
  */
-var isLongPressedName = function(name, typed) {
+const isLongPressedName = (name, typed) => {
   const nameArr = string2array(name);
   const typedArr = string2array(typed);
   const string2array = (str) => {

@@ -57,7 +57,7 @@ const findNeighborIndex = (A, value) => {
  * @param {number[][]} A
  * @return {number}
  */
-var shortestBridge = function (A) {
+const shortestBridge = (A) => {
   const visited = new Array(A.length).fill(0).map(i => []);
   const firstIndexArray = findNeighborIndex(A, 1);
   firstIndexArray.forEach(([i, j]) => {

@@ -6,7 +6,7 @@
  * @param {string} s
  * @return {string}
  */
-var reverseVowels = function(s) {
+const reverseVowels = (s) => {
     var map = {
         'a': true,
         'e': true,

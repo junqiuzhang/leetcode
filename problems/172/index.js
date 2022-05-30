@@ -6,7 +6,7 @@
  * @param {number} n
  * @return {number}
  */
-var trailingZeroes = function(n) {
+const trailingZeroes = (n) => {
     var res = 0;
     var temp = n;
     while (temp >= 5) {

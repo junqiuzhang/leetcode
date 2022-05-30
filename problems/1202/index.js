@@ -4,7 +4,7 @@ import { UnionFind } from '../common/index.js';
  * @param {number[][]} pairs
  * @return {string}
  */
-var smallestStringWithSwaps = function (s, pairs) {
+const smallestStringWithSwaps = (s, pairs) => {
   /**
    * 证明：
    * 若2个字符可交换，则可视为连通

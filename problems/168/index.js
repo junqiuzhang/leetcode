@@ -6,7 +6,7 @@
  * @param {number} n
  * @return {string}
  */
-var convertToTitle = function(n) {
+const convertToTitle = (n) => {
     var res = '';
     var temp = n;
     var code = 0;

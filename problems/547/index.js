@@ -3,7 +3,7 @@ import { UnionFind } from '../common/index.js';
  * @param {number[][]} isConnected
  * @return {number}
  */
-var findCircleNum = function (isConnected) {
+const findCircleNum = (isConnected) => {
   const uf = new UnionFind(isConnected.length);
   for (let i = 0; i < isConnected.length; i++) {
     const city = isConnected[i];

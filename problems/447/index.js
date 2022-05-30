@@ -6,7 +6,7 @@
  * @param {number[][]} points
  * @return {number}
  */
-var numberOfBoomerangs = function(points) {
+const numberOfBoomerangs = (points) => {
   const getDistance = (point1, point2) => {
     return (point1[0] - point2[0]) * (point1[0] - point2[0]) + (point1[1] - point2[1]) * (point1[1] - point2[1]);
   }

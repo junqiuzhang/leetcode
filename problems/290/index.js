@@ -7,7 +7,7 @@
  * @param {string} str
  * @return {boolean}
  */
-var wordPattern = function(pattern, str) {
+const wordPattern = (pattern, str) => {
     var map = {};
     var revMap = {};
     var patArr = pattern.split('');

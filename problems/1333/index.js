@@ -5,7 +5,7 @@
  * @param {number} maxDistance
  * @return {number[]}
  */
-var filterRestaurants = function(restaurants, veganFriendly, maxPrice, maxDistance) {
+const filterRestaurants = (restaurants, veganFriendly, maxPrice, maxDistance) => {
   return restaurants
     .filter(rest => {
       return !veganFriendly || rest[2] === veganFriendly;

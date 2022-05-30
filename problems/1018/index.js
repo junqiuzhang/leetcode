@@ -2,7 +2,7 @@
  * @param {number[]} A
  * @return {boolean[]}
  */
-var prefixesDivBy5 = function (A) {
+const prefixesDivBy5 = (A) => {
   const res = [];
   let num = 0;
   for (let i = 0; i < A.length; i++) {

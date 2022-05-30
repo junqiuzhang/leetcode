@@ -9,7 +9,7 @@
  * @param {ListNode} head
  * @return {void} Do not return anything, modify head in-place instead.
  */
-var reorderList = function (head) {
+const reorderList = (head) => {
   if (!head) {
     return head;
   }

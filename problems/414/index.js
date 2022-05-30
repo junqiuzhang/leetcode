@@ -6,7 +6,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-var thirdMax = function (nums) {
+const thirdMax = (nums) => {
     var maxNums = [-Infinity, -Infinity, -Infinity];
     const changeMaxNums = (n) => {
         if (n > maxNums[0]) {

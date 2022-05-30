@@ -2,7 +2,7 @@
  * @param {string} S
  * @return {string}
  */
-var reorganizeString = function (S) {
+const reorganizeString = (S) => {
   const charMap = new Map();
   for (let i = 0; i < S.length; i++) {
     const char = S[i];

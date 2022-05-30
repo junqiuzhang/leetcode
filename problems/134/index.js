@@ -3,7 +3,7 @@
  * @param {number[]} cost
  * @return {number}
  */
-var canCompleteCircuit = function (gas, cost) {
+const canCompleteCircuit = (gas, cost) => {
   /**
    * a_1 + a_2 + ... + a_n >= 0
    * => 存在 i 使得 a_i >= 0, a_i + a_i+1 >= 0, ..., a_i + a_i+1 + a_i+2 + ... + a_n + a_1 + ... + a_i-1 >= 0

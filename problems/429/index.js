@@ -10,7 +10,7 @@
  * @param {Node} root
  * @return {number[][]}
  */
-var levelOrder = function (root) {
+const levelOrder = (root) => {
   if (!root) {
     return [];
   }

@@ -7,7 +7,7 @@
  * @param {number[]} nums2
  * @return {number[]}
  */
-var intersection = function(nums1, nums2) {
+const intersection = (nums1, nums2) => {
     var map = {};
     var i;
     var len1 = nums1.length;

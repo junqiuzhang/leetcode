@@ -3,6 +3,6 @@
  * @param {number} target
  * @return {number[]}
  */
-var searchRange = function(nums, target) {
+const searchRange = (nums, target) => {
   return [nums.indexOf(target), nums.lastIndexOf(target)]
 };

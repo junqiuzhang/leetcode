@@ -7,7 +7,7 @@
  * @param {string} t
  * @return {boolean}
  */
-var isSubsequence = function(s, t) {
+const isSubsequence = (s, t) => {
     if (s.length === 0) {
         return true;
     }

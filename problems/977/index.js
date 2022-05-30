@@ -2,6 +2,6 @@
  * @param {number[]} A
  * @return {number[]}
  */
-var sortedSquares = function(A) {
+const sortedSquares = (A) => {
   return A.map(item => item * item).sort((a, b) => a - b);
 };

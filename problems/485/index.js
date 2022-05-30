@@ -6,7 +6,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-var findMaxConsecutiveOnes = function (nums) {
+const findMaxConsecutiveOnes = (nums) => {
   /**
    * 函数式
    * 22.60%  

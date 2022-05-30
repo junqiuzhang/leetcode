@@ -7,7 +7,7 @@
  * @param {number[]} s
  * @return {number}
  */
-var findContentChildren = function(g, s) {
+const findContentChildren = (g, s) => {
   // 手写快速排序不如自带排序
   const compare = (a, b) => {
     if (a < b) {

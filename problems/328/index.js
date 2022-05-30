@@ -9,7 +9,7 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var oddEvenList = function (head) {
+const oddEvenList = (head) => {
   if (!head) {
     return head;
   }

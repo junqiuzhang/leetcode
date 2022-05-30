@@ -6,7 +6,7 @@
  * @param {number[]} digits
  * @return {number[]}
  */
-var plusOne = function(digits) {
+const plusOne = (digits) => {
     digits[digits.length - 1]++;
     for (var i = digits.length - 2; i >= 0; i--) {
         if (digits[i + 1] > 9) {

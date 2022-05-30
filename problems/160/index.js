@@ -15,7 +15,7 @@
  * @param {ListNode} headB
  * @return {ListNode}
  */
-var getIntersectionNode = function(headA, headB) {
+const getIntersectionNode = (headA, headB) => {
     var map = {};
     var temp = headB;
     while (temp) {

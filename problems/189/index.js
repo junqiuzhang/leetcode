@@ -7,7 +7,7 @@
  * @param {number} k
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-var rotate = function(nums, k) {
+const rotate = (nums, k) => {
     var len = nums.length;
     var i = len;
     var first = len;

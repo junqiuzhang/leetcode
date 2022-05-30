@@ -6,7 +6,7 @@
  * @param {string[]} words
  * @return {string[]}
  */
-var findWords = function(words) {
+const findWords = (words) => {
   const row1 = new Set(['q', 'w', 'e', 'r', 't', 'y', 'u', 'i', 'o', 'p'])
   const row2 = new Set(['a', 's', 'd', 'f', 'g', 'h', 'j', 'k', 'l'])
   return words.filter(word => {

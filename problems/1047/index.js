@@ -2,7 +2,7 @@
  * @param {string} S
  * @return {string}
  */
-var removeDuplicates = function (S) {
+const removeDuplicates = (S) => {
   if (S.length <= 1) {
     return S
   }

@@ -20,7 +20,7 @@ const DirectionNextMap = {
  * @param {number[][]} matrix
  * @return {number[]}
  */
-var spiralOrder = function (matrix) {
+const spiralOrder = (matrix) => {
   const ITotal = matrix.length;
   const JTotal = (matrix[0] && matrix[0].length) || 0;
   const Total = ITotal * JTotal;

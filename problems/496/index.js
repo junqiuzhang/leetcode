@@ -7,7 +7,7 @@
  * @param {number[]} nums2
  * @return {number[]}
  */
-var nextGreaterElement = function(nums1, nums2) {
+const nextGreaterElement = (nums1, nums2) => {
   const nums2Map = new Map()
   for (let i = 0; i < nums2.length; i++) {
     nums2Map.set(nums2[i], i)

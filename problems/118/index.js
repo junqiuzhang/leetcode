@@ -6,7 +6,7 @@
  * @param {number} numRows
  * @return {number[][]}
  */
-var generate = function(numRows) {
+const generate = (numRows) => {
     if (numRows === 0) {
         return [];
     }

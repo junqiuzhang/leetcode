@@ -6,7 +6,7 @@
  * @param {number[]} nums
  * @return {number[]}
  */
-var findDisappearedNumbers = function (nums) {
+const findDisappearedNumbers = (nums) => {
   const changeNums = (num) => {
     if (typeof num !== 'number') {
       return;

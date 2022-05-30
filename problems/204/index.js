@@ -6,7 +6,7 @@
  * @param {number} n
  * @return {number}
  */
-var countPrimes = function(n) {
+const countPrimes = (n) => {
     if (n < 2) {
         return 0;
     }

@@ -2,7 +2,7 @@
  * @param {string[]} strs
  * @return {string[][]}
  */
-var groupAnagrams = function (strs) {
+const groupAnagrams = (strs) => {
   const getCharCodeCountKey = (s) => {
     const charCodeCountArray = [];
     for (let i = 0; i < s.length; i++) {

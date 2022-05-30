@@ -13,7 +13,7 @@
  * @param {ListNode} head
  * @return {boolean}
  */
-var isPalindrome = function(head) {
+const isPalindrome = (head) => {
     if (!head || !head.next) {
       return true;
     }

@@ -13,7 +13,7 @@
  * @param {TreeNode} root
  * @return {TreeNode}
  */
-var invertTree = function(root) {
+const invertTree = (root) => {
     if (!root) {
         return null;
     }

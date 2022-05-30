@@ -6,7 +6,7 @@
  * @param {number[][]} grid
  * @return {number}
  */
-var islandPerimeter = function(grid) {
+const islandPerimeter = (grid) => {
   if (!grid.length || !grid[0].length) {
     return 0;
   }

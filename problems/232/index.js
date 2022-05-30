@@ -1,7 +1,7 @@
 /**
  * Initialize your data structure here.
  */
-var MyQueue = function() {
+const MyQueue = () => {
     this.stack = [];
 };
 

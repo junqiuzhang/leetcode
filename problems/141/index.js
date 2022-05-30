@@ -14,7 +14,7 @@
  * @param {ListNode} head
  * @return {boolean}
  */
-var hasCycle = function(head) {
+const hasCycle = (head) => {
     var first = head;
     var second = head;
     while (first && first.next && second) {

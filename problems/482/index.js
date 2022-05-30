@@ -7,7 +7,7 @@
  * @param {number} K
  * @return {string}
  */
-var licenseKeyFormatting = function(S, K) {
+const licenseKeyFormatting = (S, K) => {
   let str = S.split('-').join('');
   let res = '';
   for (let i = str.length; i > 0; i -= K) {

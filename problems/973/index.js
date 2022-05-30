@@ -3,7 +3,7 @@
  * @param {number} K
  * @return {number[][]}
  */
-var kClosest = function (points, K) {
+const kClosest = (points, K) => {
   const calcDistance = (point) => {
     return point[0] * point[0] + point[1] * point[1];
   }

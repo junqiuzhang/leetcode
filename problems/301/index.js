@@ -2,7 +2,7 @@
  * @param {string} s
  * @return {boolean}
  */
-var isValid = function (s) {
+const isValid = (s) => {
   let count = 0;
   for (let i = 0; i < s.length; i++) {
     let char = s[i];

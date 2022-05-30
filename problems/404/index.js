@@ -13,7 +13,7 @@
  * @param {TreeNode} root
  * @return {number}
  */
-var sumOfLeftLeaves = function(root) {
+const sumOfLeftLeaves = (root) => {
     if (!root) {
         return 0;
     }

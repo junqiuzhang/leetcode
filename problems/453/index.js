@@ -6,7 +6,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-var minMoves = function(nums) {
+const minMoves = (nums) => {
   var min = Infinity;
   var sum = 0;
   var len = nums.length;

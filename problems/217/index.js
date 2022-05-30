@@ -6,7 +6,7 @@
  * @param {number[]} nums
  * @return {boolean}
  */
-var containsDuplicate = function(nums) {
+const containsDuplicate = (nums) => {
     var len = nums.length;
     var numberMap = {};
     var temp;

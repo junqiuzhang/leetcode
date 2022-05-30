@@ -3,7 +3,7 @@
  * @param {string} T
  * @return {boolean}
  */
-var backspaceCompare = function (S, T) {
+const backspaceCompare = (S, T) => {
   const replaceSharp = (str) => {
     while (true) {
       temp = str.replace(/[^#]?#/, '');

@@ -7,7 +7,7 @@
  * @param {string} t
  * @return {boolean}
  */
-var isIsomorphic = function(s, t) {
+const isIsomorphic = (s, t) => {
     if (!s && !t) {
         return true;
     }

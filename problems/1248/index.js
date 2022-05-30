@@ -3,7 +3,7 @@
  * @param {number} k
  * @return {number}
  */
-var numberOfSubarrays = function(nums, k) {
+const numberOfSubarrays = (nums, k) => {
   const odds = [];
   odds.push(-1);
   for (let i = 0; i < nums.length; i++) {

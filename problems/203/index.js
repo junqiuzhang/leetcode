@@ -14,7 +14,7 @@
  * @param {number} val
  * @return {ListNode}
  */
-var removeElements = function(head, val) {
+const removeElements = (head, val) => {
     if (!head) {
         return null;
     }

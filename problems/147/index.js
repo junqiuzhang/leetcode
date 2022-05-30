@@ -9,7 +9,7 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var insertionSortList = function (head) {
+const insertionSortList = (head) => {
   if (!head) {
     return head;
   }

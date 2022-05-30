@@ -4,7 +4,7 @@ const OperateArray = ['*', '/', '+', '-'];
  * @param {number} N
  * @return {number}
  */
-var clumsy = function (N) {
+const clumsy = (N) => {
   let str = '';
   for (let i = 0; i < N; i++) {
     str += N - i;

@@ -13,7 +13,7 @@ const getValue = (pairsMap, domino) => {
  * @param {number[][]} dominoes
  * @return {number}
  */
-var numEquivDominoPairs = function(dominoes) {
+const numEquivDominoPairs = (dominoes) => {
   const pairsMap = new Map();
   for (let i = 0; i < dominoes.length; i++) {
     const domino = dominoes[i];

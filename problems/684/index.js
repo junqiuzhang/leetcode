@@ -3,7 +3,7 @@ import { UnionFind } from '../common/index.js';
  * @param {number[][]} edges
  * @return {number[]}
  */
-var findRedundantConnection = function (edges) {
+const findRedundantConnection = (edges) => {
   const points = new Set();
   for (let i = 0; i < edges.length; i++) {
     const edge = edges[i];

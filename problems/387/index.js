@@ -6,7 +6,7 @@
  * @param {string} s
  * @return {number}
  */
-var firstUniqChar = function(s) {
+const firstUniqChar = (s) => {
     var temp = {};
     var len = s.length;
     for (var i = 0; i < len; i++) {

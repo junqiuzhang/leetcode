@@ -6,6 +6,6 @@
  * @param {number} n
  * @return {boolean}
  */
-var canWinNim = function(n) {
+const canWinNim = (n) => {
     return !!(n % 4);
 };

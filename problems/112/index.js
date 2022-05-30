@@ -14,7 +14,7 @@
  * @param {number} sum
  * @return {boolean}
  */
-var hasPathSum = function(root, sum) {
+const hasPathSum = (root, sum) => {
     if (!root) {
         return false;
     }

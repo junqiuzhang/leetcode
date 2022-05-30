@@ -13,7 +13,7 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var deleteDuplicates = function(head) {
+const deleteDuplicates = (head) => {
     if (!head) {
         return null;
     }

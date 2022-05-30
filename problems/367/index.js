@@ -6,7 +6,7 @@
  * @param {number} num
  * @return {boolean}
  */
-var isPerfectSquare = function(num) {
+const isPerfectSquare = (num) => {
     var map = [true, true, false, false, true, true, true, false, false, true]
     if (!map[num % 10]) {
         return map[num % 10];

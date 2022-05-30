@@ -6,7 +6,7 @@
 //  * @param {number[]} nums
 //  * @return {number}
 //  */
-// var rob = function(nums) {
+// const rob = (nums) => {
 //     if (nums.length == 0) {
 //         return 0;
 //     }
@@ -53,7 +53,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-var rob = function (nums) {
+const rob = (nums) => {
     const len = nums.length;
     if (len === 0) {
         return 0;

@@ -6,7 +6,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-var singleNumber = function(nums) {
+const singleNumber = (nums) => {
     var res = 0;
     var len = nums.length;
     for (let i = 0; i < len; i++) {

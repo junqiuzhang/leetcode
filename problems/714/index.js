@@ -3,7 +3,7 @@
  * @param {number} fee
  * @return {number}
  */
-var maxProfit = function (prices, fee) {
+const maxProfit = (prices, fee) => {
   if (prices.length === 1) {
     return 0;
   }

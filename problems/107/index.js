@@ -13,7 +13,7 @@
  * @param {TreeNode} root
  * @return {number[][]}
  */
-var levelOrderBottom = function(root) {
+const levelOrderBottom = (root) => {
     if (!root) {
         return [];
     }

@@ -6,7 +6,7 @@
  * @param {character[]} chars
  * @return {number}
  */
-var compress = function (chars) {
+const compress = (chars) => {
   // 字符串操作 最快
   for (var i = 0; i < chars.length; i++) {
     if (chars[i + 1] !== chars[i]) {
@@ -40,7 +40,7 @@ var compress = function (chars) {
  * @param {character[]} chars
  * @return {number}
  */
-var compress2 = function (chars) {
+const compress2 = (chars) => {
   // 双指针遍历 次快
   var writeIndex = 0;
   var readIndex = 0;

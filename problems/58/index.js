@@ -6,7 +6,7 @@
  * @param {string} s
  * @return {number}
  */
-var lengthOfLastWord = function(s) {
+const lengthOfLastWord = (s) => {
     if (!s.trim()) {
         return 0;
     }

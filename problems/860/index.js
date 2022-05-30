@@ -5,7 +5,7 @@
  * @param {number[]} bills
  * @return {boolean}
  */
-var lemonadeChange = function(bills) {
+const lemonadeChange = (bills) => {
   const cash = [] // 5, 10, 20
   cash[5] = 0
   cash[10] = 0

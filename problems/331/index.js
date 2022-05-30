@@ -3,7 +3,7 @@ const MinimumTreeReg = /\d+,#,#/;
  * @param {string} preorder
  * @return {boolean}
  */
-var isValidSerialization = function (preorder) {
+const isValidSerialization = (preorder) => {
   // 递归化简
   let tree = preorder;
   if (tree === '#') return true;

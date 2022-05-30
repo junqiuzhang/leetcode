@@ -5,7 +5,7 @@
  * @param {number[]} D
  * @return {number}
  */
-var fourSumCount = function (A, B, C, D) {
+const fourSumCount = (A, B, C, D) => {
   const getSumMap = (A, B) => {
     const ABSumMap = new Map();
     let a;

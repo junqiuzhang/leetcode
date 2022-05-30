@@ -11,7 +11,7 @@ import { array2tree, tree2array } from '../common/index.js';
  * @param {TreeNode} root
  * @return {number}
  */
-var minDiffInBST = function(root) {
+const minDiffInBST = (root) => {
   const array = tree2array(root);
   const diffArray = [];
   for (let i = 0; i < array.length - 1; i++) {

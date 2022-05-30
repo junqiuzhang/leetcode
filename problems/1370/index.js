@@ -2,7 +2,7 @@
  * @param {string} s
  * @return {string}
  */
-var sortString = function (s) {
+const sortString = (s) => {
   const charCountArray = [];
   const aCharCode = 'a'.charCodeAt();
   for (let i = 0; i < s.length; i++) {

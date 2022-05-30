@@ -6,7 +6,7 @@
  * @param {number} rowIndex
  * @return {number[]}
  */
-var getRow = function(rowIndex) {
+const getRow = (rowIndex) => {
     if (rowIndex === 0) {
         return [1];
     }

@@ -14,7 +14,7 @@
  * @param {TreeNode} q
  * @return {boolean}
  */
-var isSameTree = function(p, q) {
+const isSameTree = (p, q) => {
     if (!p || !q) {
         return p === q;
     }

@@ -6,7 +6,7 @@
 const calcDistance = (p1, p2) => {
   return Math.abs(p1[0] - p2[0]) + Math.abs(p1[1] - p2[1]);
 }
-var minCostConnectPoints = function (points) {
+const minCostConnectPoints = (points) => {
   // Prim算法
   const connectedSet = new Array(points.length).fill(false);
   let connectedNumber = 0;

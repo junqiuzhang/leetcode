@@ -2,7 +2,7 @@
  * @param {number[]} arr
  * @return {number[]}
  */
-var sortByBits = function (arr) {
+const sortByBits = (arr) => {
   const quickSort = (arr, compare) => {
     if (arr.length <= 1) {
       return arr;

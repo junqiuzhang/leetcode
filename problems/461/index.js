@@ -3,7 +3,7 @@
  * @param {number} y
  * @return {number}
  */
-var hammingDistance = function(x, y) {
+const hammingDistance = (x, y) => {
   let xXORy = x ^ y;
   let temp;
   let res = 0;

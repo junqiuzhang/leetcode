@@ -7,7 +7,7 @@
  * @param {number} k
  * @return {boolean}
  */
-var containsNearbyDuplicate = function(nums, k) {
+const containsNearbyDuplicate = (nums, k) => {
     var len = nums.length;
     var numberMap = {};
     var temp;

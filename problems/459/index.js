@@ -6,7 +6,7 @@
  * @param {string} s
  * @return {boolean}
  */
-var repeatedSubstringPattern = function(s) {
+const repeatedSubstringPattern = (s) => {
   if (s.length <= 1) {
     return false;
   }

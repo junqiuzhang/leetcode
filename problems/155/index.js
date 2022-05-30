@@ -1,7 +1,7 @@
 /**
  * initialize your data structure here.
  */
-var MinStack = function() {
+const MinStack = () => {
     this.stack = [];
     this.min = Infinity;
 };

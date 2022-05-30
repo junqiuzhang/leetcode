@@ -2,7 +2,7 @@
  * @param {string} S
  * @return {number[]}
  */
-var partitionLabels = function(S) {
+const partitionLabels = (S) => {
   const charMap = new Map();
   for (let i = 0; i < S.length; i++) {
     const char = S[i];

@@ -6,7 +6,7 @@
  * @param {number[]} prices
  * @return {number}
  */
-var maxProfit = function(prices) {
+const maxProfit = (prices) => {
     if (!prices.length) {
         return 0;
     }

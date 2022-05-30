@@ -6,7 +6,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-var missingNumber = function(nums) {
+const missingNumber = (nums) => {
     var max = 0;
     var sum = 0;
     for (var i = 0; i < nums.length; i++) {

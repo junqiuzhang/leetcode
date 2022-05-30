@@ -2,7 +2,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-var maximumGap = function (nums) {
+const maximumGap = (nums) => {
   if (nums.length < 2) {
     return 0;
   }

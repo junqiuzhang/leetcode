@@ -6,7 +6,7 @@
  * @param {string} s
  * @return {number}
  */
-var countSegments = function(s) {
+const countSegments = (s) => {
     if (s.trim().length === 0) {
         return 0;
     }

@@ -3,7 +3,7 @@ import { UnionFind } from '../common/index.js';
  * @param {string[][]} accounts
  * @return {string[][]}
  */
-var accountsMerge = function(accounts) {
+const accountsMerge = (accounts) => {
   const emails = [];
   const ids = [];
   for (let i = 0; i < accounts.length; i++) {

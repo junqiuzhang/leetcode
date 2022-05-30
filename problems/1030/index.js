@@ -5,7 +5,7 @@
  * @param {number} c0
  * @return {number[][]}
  */
-var allCellsDistOrder = function (R, C, r0, c0) {
+const allCellsDistOrder = (R, C, r0, c0) => {
   const cells = [];
   const len = R + C;
   const check = (x, y) => {

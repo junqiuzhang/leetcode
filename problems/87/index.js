@@ -15,7 +15,7 @@
  * @param {string} s2
  * @return {boolean}
  */
-var isScramble = function (s1, s2) {
+const isScramble = (s1, s2) => {
   const isScrambleMap = new Map();
   const getScrambleMap = (i1, j1, i2, j2) => {
     return isScrambleMap.get(`${i1},${j1},${i2},${j2}`);

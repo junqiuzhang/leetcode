@@ -6,7 +6,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-var majorityElement = function(nums) {
+const majorityElement = (nums) => {
     var map = {};
     var len = nums.length;
     var tempNum = 0;

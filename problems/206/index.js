@@ -13,7 +13,7 @@
  * @param {ListNode} head
  * @return {ListNode}
  */
-var reverseList = function(head) {
+const reverseList = (head) => {
     if (!head) {
         return null;
     }

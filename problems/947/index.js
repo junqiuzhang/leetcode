@@ -3,7 +3,7 @@ import { UnionFind } from '../common/index.js';
  * @param {number[][]} stones
  * @return {number}
  */
-var removeStones = function (stones) {
+const removeStones = (stones) => {
   /*
    * 定义：一个元素覆盖与它同一行或同一列的元素
    * 问题等价于：求覆盖集合所有元素的最小集合
