@@ -14,17 +14,18 @@ import { TreeNode } from "../common/index.js";
 export const sumRootToLeaf = (root) => {
   let sum = 0;
   const sumEachRootToLeaf = (root, pre) => {
-    if (!root) {
-      return;
-    }
     const val = (pre << 1) + root.val;
     if (!root.left && !root.right) {
       sum += val;
       return;
     }
-    sumEachRootToLeaf(root.left, val);
-    sumEachRootToLeaf(root.right, val);
+    if (root.left) {
+      sumEachRootToLeaf(root.left, val);
+    }
+    if (root.right) {
+      sumEachRootToLeaf(root.right, val);
+    }
   };
-  sumEachRootToLeaf(root);
+  sumEachRootToLeaf(root, 0);
   return sum;
 };
