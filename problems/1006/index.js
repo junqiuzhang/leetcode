@@ -1,4 +1,4 @@
-import calculate from '../227/index.js';
+import { calculate } from '../227/index.js';
 const OperateArray = ['*', '/', '+', '-'];
 /**
  * @param {number} N
