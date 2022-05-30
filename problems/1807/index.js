@@ -3,7 +3,7 @@
  * @param {string[][]} knowledge
  * @return {string}
  */
-function evaluate(s, knowledge) {
+const evaluate = (s, knowledge) => {
   const dicMap = new Map();
   for (let i = 0; i < knowledge.length; i++) {
     const [key, value] = knowledge[i];

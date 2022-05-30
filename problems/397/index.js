@@ -2,7 +2,7 @@
  * @param {number} n
  * @return {number}
  */
-function integerReplacement(n) {
+const integerReplacement = (n) => {
   if (n === 1) {
     return 0;
   }

@@ -6,7 +6,7 @@ const bracketsReg = /\(([a-zA-Z0-9]+)\)([0-9]+)/;
  * @param {string} stringStream
  * @return {Array<Array<string>>}
  */
-function token(stringStream) {
+const token = (stringStream) => {
   const eleFirstReg = /[A-Z]/;
   const eleRestReg = /[a-z]/;
   const countReg = /[0-9]/;
@@ -43,7 +43,7 @@ function token(stringStream) {
  * @param {number} multiple
  * @return {object}
  */
-function multiply(tokenStream, multiple) {
+const multiply = (tokenStream, multiple) => {
   for (let i = 0; i < tokenStream.length; i++) {
     tokenStream[i][1] = parseInt(tokenStream[i][1]) * multiple;
   }
@@ -53,7 +53,7 @@ function multiply(tokenStream, multiple) {
  * @param {Array<Array<string>>} tokenStream
  * @return {object}
  */
-function getCountFromTokenStream(tokenStream) {
+const getCountFromTokenStream = (tokenStream) => {
   let countObj = {};
   for (let i = 0; i < tokenStream.length; i++) {
     const token = tokenStream[i];
@@ -69,7 +69,7 @@ function getCountFromTokenStream(tokenStream) {
  * @param {Array<string>} eleArr
  * @return {string}
  */
-function getFormulaFormCount(countObj, eleArr) {
+const getFormulaFormCount = (countObj, eleArr) => {
   let resFormula = '';
   for (let i = 0; i < eleArr.length; i++) {
     const ele = eleArr[i];
@@ -84,7 +84,7 @@ function getFormulaFormCount(countObj, eleArr) {
  * @param {string} formula
  * @return {string}
  */
-function countOfAtoms(formula) {
+const countOfAtoms = (formula) => {
   while (true) {
     const execArr = bracketsReg.exec(formula);
     if (execArr) {

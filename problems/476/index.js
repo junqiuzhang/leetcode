@@ -4,7 +4,7 @@
  * @param {number} num
  * @return {number}
  */
-function findComplement(num) {
+const findComplement = (num) => {
   let dig = Math.floor(Math.log2(num));
   let exp = Math.pow(2, dig + 1);
   return exp - num - 1;
@@ -15,7 +15,7 @@ function findComplement(num) {
  * @param {number} num
  * @return {number}
  */
-function findComplement(num) {
+const findComplement = (num) => {
   let n = 1;
   while(n < num){
     n = (n << 1) + 1;

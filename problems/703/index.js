@@ -102,13 +102,13 @@ export class KthHeap {
   }
 }
 
-export function KthLargest(k, nums) {
+export const KthLargest = (k, nums) => {
   kHp = new KthHeap({ k, items: nums, compare: (a, b) => a > b });
   kHp.add = kHp.push;
   return kHp;
 }
 
-export function KthSmallest(k, nums) {
+export const KthSmallest = (k, nums) => {
   const kHp = new KthHeap({ k, items: nums, compare: (a, b) => a < b });
   kHp.add = kHp.push;
   return this;

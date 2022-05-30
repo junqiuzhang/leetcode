@@ -4,7 +4,7 @@
  */
 /**
  * Definition for a binary tree node.
- * function TreeNode(val) {
+ * const TreeNode = (val) => {
  *     this.val = val;
  *     this.left = this.right = null;
  * }
@@ -16,7 +16,7 @@
  */
 // 总路径和
 // var pathSum = function(root, sum) {
-//     function calcSum(r) {
+//     const calcSum = (r) => {
 //         if (!r) {
 //             return [];
 //         }
@@ -67,7 +67,7 @@
 // 部分路径和（递归）
 var pathSum = function(root, sum) {
     var total = 0;
-    function calcSum(r, n) {
+    const calcSum = (r, n) => {
         if (r) {
             if (r.val == n) {
                 total++;
@@ -80,7 +80,7 @@ var pathSum = function(root, sum) {
             }
         }
     }
-    function loopRoot(r) {
+    const loopRoot = (r) => {
         if (r) {
             calcSum(r, sum);
             if (r.left) {

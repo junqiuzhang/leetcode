@@ -3,7 +3,7 @@
  * @param {string[]} words
  * @return {number}
  */
-function numMatchingSubseq(s, words) {
+const numMatchingSubseq = (s, words) => {
   const charMap = new Map();
   for (let i = 0; i < s.length; i++) {
     let arr = charMap.get(s[i]);
@@ -22,7 +22,7 @@ function numMatchingSubseq(s, words) {
   }
   return res;
 }
-function isMatch(reg, map) {
+const isMatch = (reg, map) => {
   let cur = 0;
   const is = (value) => (value >= cur)
   for (let i = 0; i < reg.length; i++) {

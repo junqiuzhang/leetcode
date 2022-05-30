@@ -2,7 +2,7 @@
  * @param {number} x
  * @return {number}
  */
-function reverse(x) {
+const reverse = (x) => {
   const sign = Math.sign(x);
   let ans = 0;
   let tmp = Math.abs(x);

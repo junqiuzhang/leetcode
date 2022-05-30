@@ -3,7 +3,7 @@
  * @param {string} char
  * @return {boolean}
  */
-function isWin(board, char) {
+const isWin = (board, char) => {
   let win = true;
   for (let i = 0; i < 3; i++) {
     if (board[i][i] !== char) {
@@ -52,7 +52,7 @@ function isWin(board, char) {
  * @param {string[]} board
  * @return {boolean}
  */
-function validTicTacToe(board) {
+const validTicTacToe = (board) => {
   let [totalX, totalO] = [0, 0];
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {

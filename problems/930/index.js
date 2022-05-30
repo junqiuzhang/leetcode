@@ -10,7 +10,7 @@
  * @param {number} goal
  * @return {number}
  */
-function numSubarraysWithSum(nums, goal) {
+const numSubarraysWithSum = (nums, goal) => {
   const indexArray = [];
   for (let i = 0; i < nums.length; i++) {
     if (nums[i] === 1) {

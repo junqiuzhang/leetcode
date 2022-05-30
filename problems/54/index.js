@@ -52,7 +52,7 @@ var spiralOrder = function (matrix) {
  * @param {Direction} direction
  * @param {Set} TraversedSet
  */
-function isNextDisabled(i, j, ITotal, JTotal, direction, TraversedSet) {
+const isNextDisabled = (i, j, ITotal, JTotal, direction, TraversedSet) => {
   const nextI = i + DirectionStepMap[direction].i;
   const nextJ = j + DirectionStepMap[direction].j;
   const isNextDisable =

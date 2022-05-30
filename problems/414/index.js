@@ -8,7 +8,7 @@
  */
 var thirdMax = function (nums) {
     var maxNums = [-Infinity, -Infinity, -Infinity];
-    function changeMaxNums(n) {
+    const changeMaxNums = (n) => {
         if (n > maxNums[0]) {
             maxNums[2] = maxNums[1];
             maxNums[1] = maxNums[0];

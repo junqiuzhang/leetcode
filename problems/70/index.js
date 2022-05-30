@@ -6,7 +6,7 @@
 //  * @param {number} n
 //  * @return {number}
 //  */
-// function climbStairs(n) {
+// const climbStairs = (n) => {
 //   if (typeof cache[n] === 'number') {
 //     return cache[n];
 //   }
@@ -20,7 +20,7 @@
  * @param {number} n
  * @return {number}
  */
-function climbStairs(n) {
+const climbStairs = (n) => {
   // 到达第 i 层时的方法数
   const cache = [0, 1, 2];
   for (let i = 3; i <= n; i++) {

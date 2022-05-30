@@ -14,7 +14,7 @@
 //         return nums[0];
 //     }
 //     var temp = [];
-//     function getMax(arr) {
+//     const getMax = (arr) => {
 //         var len = arr.length;
 //         if (len == 2) {
 //             if (arr[0] > arr[1]) {

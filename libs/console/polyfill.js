@@ -2,7 +2,7 @@ import { isMainThread } from "worker_threads";
 import { CONSOLE_METHOD_TO_TYPE } from "./constants.js";
 import { postMessage, printMessage } from "./index.js";
 
-function consoleDecorator(method) {
+const consoleDecorator = (method) => {
   if (typeof method !== "function")
     throw new Error("Error: arguments must be a function!");
   return (...messages) => {

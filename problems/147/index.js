@@ -1,6 +1,6 @@
 /**
  * Definition for singly-linked list.
- * function ListNode(val) {
+ * const ListNode = (val) => {
  *     this.val = val;
  *     this.next = null;
  * }
@@ -13,7 +13,7 @@ var insertionSortList = function (head) {
   if (!head) {
     return head;
   }
-  function insert(node, sortedNode) {
+  const insert = (node, sortedNode) => {
     let temp = sortedNode;
     if (node.val <= temp.val) {
       sortedNode = node;

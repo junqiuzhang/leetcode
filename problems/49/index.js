@@ -3,7 +3,7 @@
  * @return {string[][]}
  */
 var groupAnagrams = function (strs) {
-  function getCharCodeCountKey(s) {
+  const getCharCodeCountKey = (s) => {
     const charCodeCountArray = [];
     for (let i = 0; i < s.length; i++) {
       if (charCodeCountArray[s[i].charCodeAt() - 97]) {

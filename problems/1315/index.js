@@ -1,7 +1,7 @@
 import { TreeNode } from '../common/index.js';
 /**
  * Definition for a binary tree node.
- * function TreeNode(val, left, right) {
+ * const TreeNode = (val, left, right) => {
  *     this.val = (val===undefined ? 0 : val)
  *     this.left = (left===undefined ? null : left)
  *     this.right = (right===undefined ? null : right)
@@ -11,9 +11,9 @@ import { TreeNode } from '../common/index.js';
  * @param {TreeNode} root
  * @return {number}
  */
-function sumEvenGrandparent(root) {
+const sumEvenGrandparent = (root) => {
   let sum = 0;
-  function sumNode(root, parent, grandParent) {
+  const sumNode = (root, parent, grandParent) => {
     if (!root) return;
     if (!parent) return;
     if (!grandParent) return;

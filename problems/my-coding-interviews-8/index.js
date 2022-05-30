@@ -3,13 +3,13 @@ const NUMBER_REGEXP = /^\d+$/;
  * @param {string} n
  * @param {number} i
  */
-function getNumber(n, i) {
+const getNumber = (n, i) => {
   if (typeof n[i] === "string") {
     return Number(n[i]);
   }
   return 0;
 }
-function checkNumber(func) {
+const checkNumber = (func) => {
   return function (...args) {
     for (let i = 0; i < args.length; i++) {
       const arg = args[i];

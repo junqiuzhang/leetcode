@@ -4,7 +4,7 @@ const buzz = 'Buzz';
  * @param {number} n
  * @return {string[]}
  */
-function fizzBuzz(n) {
+const fizzBuzz = (n) => {
   const res = [];
   for (let i = 0; i < n; i++) {
     let cur = '';

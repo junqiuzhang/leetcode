@@ -4,7 +4,7 @@ const MAX_NUMBER = Math.pow(10, 9) + 7;
  * @param {number[]} nums2
  * @return {number}
  */
-function minAbsoluteSumDiff(nums1, nums2) {
+const minAbsoluteSumDiff = (nums1, nums2) => {
   const numIndex = [];
   let sum = 0;
   for (let i = 0; i < nums1.length; i++) {

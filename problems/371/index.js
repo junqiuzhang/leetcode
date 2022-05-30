@@ -3,7 +3,7 @@
 //  * @param {number} b
 //  * @return {number}
 //  */
-// function getSum(a, b) {
+// const getSum = (a, b) => {
 //   let sum = 0;
 //   let bitA = 0;
 //   let bitB = 0;
@@ -27,7 +27,7 @@
  * @param {number} b
  * @return {number}
  */
-function getSum(a, b) {
+const getSum = (a, b) => {
   while (b != 0) {
     const c = (a & b) << 1;
     a = a ^ b;

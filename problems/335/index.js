@@ -2,7 +2,7 @@
  * @param {number[]} distance
  * @param {number} i
  */
-function getDistance(distance, i) {
+const getDistance = (distance, i) => {
   if (i < 0 || i >= distance.length) {
     return 0;
   }
@@ -12,7 +12,7 @@ function getDistance(distance, i) {
  * @param {number[]} distance
  * @return {boolean}
  */
-function isSelfCrossing(distance) {
+const isSelfCrossing = (distance) => {
   for (let i = 0; i < distance.length; i++) {
     if (i > 2) {
       console.log(i, distance[i]);

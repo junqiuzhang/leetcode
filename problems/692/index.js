@@ -4,7 +4,7 @@ import KthHeap from '../703/index.js';
  * @param {number} k
  * @return {string[]}
  */
-function topKFrequent(words, k) {
+const topKFrequent = (words, k) => {
   const freMap = new Map();
   for (let i = 0; i < words.length; i++) {
     let fre = freMap.get(words[i]);

@@ -2,7 +2,7 @@
  * @param {number[]} citations
  * @return {number}
  */
-function hIndex(citations) {
+const hIndex = (citations) => {
   const sortedCitations = citations.sort((a, b) => a - b);
   const len = sortedCitations.length;
   let min = 0;

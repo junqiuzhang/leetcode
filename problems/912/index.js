@@ -2,7 +2,7 @@
 //  * @param {number[]} nums
 //  * @return {number[]}
 //  */
-// function sortArray(nums) {
+// const sortArray = (nums) => {
 //   return nums.sort((a, b) => {
 //     return a - b;
 //   })
@@ -11,7 +11,7 @@
  * @param {number[]} nums
  * @return {number[]}
  */
-function sortArray(nums) {
+const sortArray = (nums) => {
   if (nums.length <= 1) {
     return nums;
   }

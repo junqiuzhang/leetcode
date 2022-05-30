@@ -1,6 +1,6 @@
 /**
  * Definition for singly-linked list.
- * function ListNode(val, next) {
+ * const ListNode = (val, next) => {
  *     this.val = (val===undefined ? 0 : val)
  *     this.next = (next===undefined ? null : next)
  * }
@@ -9,7 +9,7 @@
  * @param {ListNode} head
  * @return {number}
  */
-function getLength(head) {
+const getLength = (head) => {
   let cur = head;
   let i = 0;
   while (cur) {
@@ -22,7 +22,7 @@ function getLength(head) {
  * @param {ListNode} head
  * @return {ListNode[]}
  */
-function cut(head, length) {
+const cut = (head, length) => {
   let cur = head;
   let restList = null;
   let i = 1;
@@ -41,7 +41,7 @@ function cut(head, length) {
  * @param {ListNode} head2
  * @return {ListNode}
  */
-function merge(head1, head2) {
+const merge = (head1, head2) => {
   let nHead = new ListNode(null);
   let cur = nHead;
   let cur1 = head1;
@@ -70,7 +70,7 @@ function merge(head1, head2) {
  * @param {ListNode} head
  * @return {ListNode}
  */
-function sortList(head) {
+const sortList = (head) => {
   let length = getLength(head);
   let nHead = new ListNode(null);
   nHead.next = head;

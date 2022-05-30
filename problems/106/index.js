@@ -1,7 +1,7 @@
 import { TreeNode } from '../common/index.js';
 /**
  * Definition for a binary tree node.
- * function TreeNode(val, left, right) {
+ * const TreeNode = (val, left, right) => {
  *     this.val = (val===undefined ? 0 : val)
  *     this.left = (left===undefined ? null : left)
  *     this.right = (right===undefined ? null : right)
@@ -12,7 +12,7 @@ import { TreeNode } from '../common/index.js';
  * @param {number[]} postorder
  * @return {TreeNode}
  */
-function buildTree(inorder, postorder) {
+const buildTree = (inorder, postorder) => {
   if (inorder.length === 0 || postorder.length === 0) {
     return null;
   }

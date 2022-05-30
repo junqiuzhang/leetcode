@@ -4,10 +4,10 @@
  * @return {number[][]}
  */
 var kClosest = function (points, K) {
-  function calcDistance(point) {
+  const calcDistance = (point) => {
     return point[0] * point[0] + point[1] * point[1];
   }
-  function compare(a, b) {
+  const compare = (a, b) => {
     return a.distance - b.distance;
   }
   const formattedPoints = points.map(point => ({ point, distance: calcDistance(point) }));

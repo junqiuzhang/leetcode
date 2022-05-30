@@ -2,7 +2,7 @@
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-function moveZeroes(nums) {
+const moveZeroes = (nums) => {
   // 函数式方法
   // return nums.filter(n => n != 0).concat(nums.filter(n => n == 0));
 

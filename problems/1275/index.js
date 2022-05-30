@@ -44,7 +44,7 @@ const winMatrix = [
  * @param {number[][]} moves
  * @return {string}
  */
-function tictactoe(moves) {
+const tictactoe = (moves) => {
   const chessboard = new Array(3).fill(0).map((i) => new Array(3).fill(0));
   for (let i = 0; i < moves.length; i++) {
     if (i % 2) {

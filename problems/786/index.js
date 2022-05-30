@@ -1,4 +1,4 @@
-function compare(frac1, frac2) {
+const compare = (frac1, frac2) => {
   if (frac1.value > frac2.value) {
     return 1;
   }
@@ -104,7 +104,7 @@ class MaxHeap {
  * @param {number} k
  * @return {number[]}
  */
-function kthSmallestPrimeFraction(arr, k) {
+const kthSmallestPrimeFraction = (arr, k) => {
   const maxHeap = new MaxHeap(k, compare);
   for (let i = 0; i < arr.length; i++) {
     const n1 = arr[i];

@@ -3,7 +3,7 @@
  * @param {string} b
  * @return {string}
  */
-function addBinary(a, b) {
+const addBinary = (a, b) => {
   let i = a.length - 1;
   let j = b.length - 1;
   let c = 0;

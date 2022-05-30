@@ -3,7 +3,7 @@
  * @param {number} div
  * @return {number}
  */
-function sum(nums, div) {
+const sum = (nums, div) => {
   let sum = 0;
   for (let i = 0; i < nums.length; i++) {
     sum += Math.ceil(nums[i] / div);
@@ -15,7 +15,7 @@ function sum(nums, div) {
  * @param {number} threshold
  * @return {number}
  */
-function smallestDivisor(nums, threshold) {
+const smallestDivisor = (nums, threshold) => {
   let left = 1;
   let right = 1;
   let mid = 1;

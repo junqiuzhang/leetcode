@@ -4,7 +4,7 @@ const MAX_NUMBER = Math.pow(10, 9) + 7;
  * @param {number[]} deliciousness
  * @return {number}
  */
-function countPairs(deliciousness) {
+const countPairs = (deliciousness) => {
   const hashMap = {};
   for (let i = 0; i < deliciousness.length; i++) {
     const num = deliciousness[i];

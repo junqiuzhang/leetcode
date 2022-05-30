@@ -1,6 +1,6 @@
 /**
  * Definition for a binary tree node.
- * function TreeNode(val) {
+ * const TreeNode = (val) => {
  *     this.val = val;
  *     this.left = this.right = null;
  * }
@@ -19,7 +19,7 @@ var countNodes = function (root) {
     h++;
     t = t.left;
   }
-  function getLeafNode(root, height, index) {
+  const getLeafNode = (root, height, index) => {
     let temp = root;
     for (let i = 0; i < height - 1; i++) {
       const isRight = index >> (height - i - 2) & 1;

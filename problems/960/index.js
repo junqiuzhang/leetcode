@@ -2,7 +2,7 @@
  * @param {string[]} strs
  * @return {number}
  */
-function minDeletionSize(strs) {
+const minDeletionSize = (strs) => {
   if (strs.length === 0) return 0;
   const len = strs.length;
   const subLen = strs[0].length;

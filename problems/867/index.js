@@ -2,7 +2,7 @@
  * @param {number[][]} matrix
  * @return {number[][]}
  */
-function transpose(matrix) {
+const transpose = (matrix) => {
   const transMatrix = new Array(matrix[0].length)
     .fill(0)
     .map((i) => new Array(matrix.length));

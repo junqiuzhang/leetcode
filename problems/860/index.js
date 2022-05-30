@@ -19,7 +19,7 @@ var lemonadeChange = function(bills) {
   }
   return true
 };
-function payBack(pay, cash) {
+const payBack = (pay, cash) => {
   if (pay === 20) {
     if (cash[5] > 0 && cash[10] > 0) {
       cash[5]--

@@ -6,9 +6,9 @@
  * @param {string} s
  * @return {number}
  */
-function strangePrinter(s) {
+const strangePrinter = (s) => {
   const dp = new Array(s.length).fill(0).map((i) => new Array(s.length));
-  function calculate(i, j) {
+  const calculate = (i, j) => {
     if (typeof dp[i][j] === 'number') {
       return dp[i][j];
     }

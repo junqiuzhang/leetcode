@@ -4,7 +4,7 @@
  * @param {number} num
  * @return {string} 
  */
-function shiftLetter(letter, num) {
+const shiftLetter = (letter, num) => {
   const index = letter.charCodeAt(0);
   return String.fromCharCode((index + num - 97) % 26 + 97)
 }
@@ -13,7 +13,7 @@ function shiftLetter(letter, num) {
  * @param {number[]} shifts
  * @return {string}
  */
-function shiftingLetters(s, shifts) {
+const shiftingLetters = (s, shifts) => {
   let res = '';
   let sum = 0;
   for (let i = shifts.length - 1; i > -1; i--) {

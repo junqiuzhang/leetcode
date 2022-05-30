@@ -4,7 +4,7 @@
  * @param {number} len
  * @return {boolean}
  */
-function isDupSubstring(s, i, len) {
+const isDupSubstring = (s, i, len) => {
   return (
     s.indexOf(s.substring(i, i + len)) !==
     s.lastIndexOf(s.substring(i, i + len))
@@ -16,7 +16,7 @@ function isDupSubstring(s, i, len) {
  * @param {number} len
  * @return {number}
  */
-function findLongestDupSubstringLength(s, i, len) {
+const findLongestDupSubstringLength = (s, i, len) => {
   // 二分查找最长重复子串长度
   let left = len;
   let right = s.length - i;
@@ -38,7 +38,7 @@ function findLongestDupSubstringLength(s, i, len) {
  * @param {string} s
  * @return {string}
  */
-function longestDupSubstring(s) {
+const longestDupSubstring = (s) => {
   let maxLen = 0;
   let start = 0;
   let end = 0;

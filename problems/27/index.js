@@ -3,7 +3,7 @@
  * @param {number} val
  * @return {number}
  */
-function removeElement(nums, val) {
+const removeElement = (nums, val) => {
   let i = 0;
   let len = nums.length;
   for (let j = 0; j < nums.length; j++) {

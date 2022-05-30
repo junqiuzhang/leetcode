@@ -3,7 +3,7 @@
 //  * @param {number} target
 //  * @return {boolean}
 //  */
-// function searchMatrix(matrix, target) {
+// const searchMatrix = (matrix, target) => {
 //   const array = matrix.reduce((pre, cur) => pre.concat(cur))
 //   return array.includes(target)
 // };
@@ -12,7 +12,7 @@
  * @param {number} target
  * @return {boolean}
  */
-function searchMatrix(matrix, target) {
+const searchMatrix = (matrix, target) => {
   const rows = matrix.length;
   const columns = matrix[0].length;
   let min = 0;

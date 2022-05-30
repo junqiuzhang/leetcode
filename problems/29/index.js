@@ -5,7 +5,7 @@ const MIN_NUMBER = -Math.pow(2, 31);
  * @param {number} divisor
  * @return {number}
  */
-function divide(dividend, divisor) {
+const divide = (dividend, divisor) => {
   let res = Math.exp(
     Math.log(Math.abs(dividend)) - Math.log(Math.abs(divisor))
   );

@@ -2,7 +2,7 @@
  * @param {string} s
  * @return {string}
  */
-function longestPalindrome(s) {
+const longestPalindrome = (s) => {
   let maxLength = 0;
   let maxLeft = 0;
   let maxRight = 0;

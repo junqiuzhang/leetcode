@@ -6,7 +6,7 @@
  * @return {number}
  */
 var fourSumCount = function (A, B, C, D) {
-  function getSumMap(A, B) {
+  const getSumMap = (A, B) => {
     const ABSumMap = new Map();
     let a;
     let b;

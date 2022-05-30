@@ -4,7 +4,7 @@
  */
 /**
  * Definition for a binary tree node.
- * function TreeNode(val) {
+ * const TreeNode = (val) => {
  *     this.val = val;
  *     this.left = this.right = null;
  * }
@@ -17,7 +17,7 @@ var isBalanced = function(root) {
     if (!root) {
         return true;
     }
-    function getDepth(r) {
+    const getDepth = (r) => {
         if (!r) {
             return 1;
         }

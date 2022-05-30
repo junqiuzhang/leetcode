@@ -2,13 +2,13 @@
  * @param {string} s
  * @return {number}
  */
-function minInsertions(s) {
+const minInsertions = (s) => {
   const cache = new Array(s.length).fill(0).map(() => new Array(s.length));
   /**
    * @param {string} s
    * @return {number}
    */
-  function minInsertRecursion(i, j) {
+  const minInsertRecursion = (i, j) => {
     if (i >= j) return 0;
     if (typeof cache[i][j] === 'number') return cache[i][j];
     if (s[i] !== s[j]) {

@@ -1,6 +1,6 @@
 /**
  * Definition for a binary tree node.
- * function TreeNode(val) {
+ * const TreeNode = (val) => {
  *     this.val = val;
  *     this.left = this.right = null;
  * }
@@ -9,7 +9,7 @@
  * @param {TreeNode} root
  * @return {number}
  */
-function maxDepth(root) {
+const maxDepth = (root) => {
   if (!root) {
     return 0;
   }
@@ -19,7 +19,7 @@ function maxDepth(root) {
  * @param {TreeNode} root
  * @return {number}
  */
-function maxDepth(root) {
+const maxDepth = (root) => {
   if (!root) {
     return 0;
   }

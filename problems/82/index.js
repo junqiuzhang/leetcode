@@ -3,7 +3,7 @@ import { array2list, ListNode } from '../common/index.js';
  * @param {string | Array<T>} items
  * @return {[string | Array<T>, string | T]}
  */
-function removeDuplicates(items) {
+const removeDuplicates = (items) => {
   if (items.length <= 1) {
     return [items, items[0]];
   }
@@ -26,7 +26,7 @@ function removeDuplicates(items) {
 }
 /**
  * Definition for singly-linked list.
- * function ListNode(val, next) {
+ * const ListNode = (val, next) => {
  *     this.val = (val===undefined ? 0 : val)
  *     this.next = (next===undefined ? null : next)
  * }
@@ -35,7 +35,7 @@ function removeDuplicates(items) {
  * @param {ListNode} head
  * @return {ListNode}
  */
-function deleteDuplicates(head) {
+const deleteDuplicates = (head) => {
   const arr = [];
   while (head) {
     arr.push(head.val);

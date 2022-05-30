@@ -2,7 +2,7 @@
  * @param {number[]} candyType
  * @return {number}
  */
-function distributeCandies(candyType) {
+const distributeCandies = (candyType) => {
   const candySet = new Set();
   for (let i = 0; i < candyType.length; i++) {
     const candy = candyType[i];

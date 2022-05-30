@@ -2,7 +2,7 @@
  * @param {number[]} nums
  * @return {void} Do not return anything, modify nums in-place instead.
  */
-function nextPermutation(nums) {
+const nextPermutation = (nums) => {
   const len = nums.length;
   // 从右向左，找到 i < i + 1 的第一个元素位置 index
   let index = -1;

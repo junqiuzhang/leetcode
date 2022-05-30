@@ -1,4 +1,4 @@
-function quickSort(nums) {
+const quickSort = (nums) => {
   if (nums.length <= 1) {
     return nums;
   }
@@ -19,7 +19,7 @@ function quickSort(nums) {
   right = quickSort(right);
   return [...left, p, ...right];
 }
-function quickSort(nums) {
+const quickSort = (nums) => {
   if (nums.length <= 1) {
     return nums;
   }

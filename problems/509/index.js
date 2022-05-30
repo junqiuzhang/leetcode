@@ -3,7 +3,7 @@
 //  * @param {number} n
 //  * @return {number}
 //  */
-// function fib(n) {
+// const fib = (n) => {
 //   if (typeof cache[n] === 'number') {
 //     return cache[n];
 //   }
@@ -15,7 +15,7 @@
 //  * @param {number} n
 //  * @return {number}
 //  */
-// function fib(n) {
+// const fib = (n) => {
 //   if (n === 0) {
 //     return 0;
 //   }
@@ -41,6 +41,6 @@ const cache = new Int32Array([
  * @param {number} n
  * @return {number}
  */
-function fib(n) {
+const fib = (n) => {
   return cache[n];
 }

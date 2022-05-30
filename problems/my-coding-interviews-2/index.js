@@ -1,4 +1,4 @@
-function kthLarge(nums, k) {
+const kthLarge = (nums, k) => {
   for (let i = 0; i < k; i++) {
     for (let j = i + 1; j < nums.length; j++) {
       if (nums[j] > nums[i]) {

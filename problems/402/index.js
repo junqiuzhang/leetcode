@@ -3,7 +3,7 @@
  * @param {number} k
  * @return {string}
  */
-function removeKdigits(num, k) {
+const removeKdigits = (num, k) => {
   if (num.length === k) {
     return '0';
   }

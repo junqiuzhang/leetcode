@@ -4,12 +4,12 @@ import { UnionFind } from '../common/index.js';
 //  * @param {number[][]} heights
 //  * @return {number}
 //  */
-// function minimumEffortPath(heights) {
+// const minimumEffortPath = (heights) => {
 //   const m = heights.length;
 //   const n = heights[0].length;
-//   function check(cost) {
+//   const check = (cost) => {
 //     const visited = new Array(m).fill(0).map(() => new Array(n));
-//     function dfs(i, j) {
+//     const dfs = (i, j) => {
 //       if (i === m - 1 && j === n - 1) {
 //         return true;
 //       }
@@ -68,7 +68,7 @@ import { UnionFind } from '../common/index.js';
  * @param {number[][]} heights
  * @return {number}
  */
-function minimumEffortPath(heights) {
+const minimumEffortPath = (heights) => {
   const m = heights.length;
   const n = heights[0].length;
   const edges = [];

@@ -13,7 +13,7 @@ const StartPoints = [
  * @param {character[][]} board
  * @return {boolean}
  */
-function isValidSudoku(board) {
+const isValidSudoku = (board) => {
   for (let i = 0; i < 9; i++) {
     const numSet = new Set();
     for (let j = 0; j < 9; j++) {

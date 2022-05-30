@@ -4,7 +4,7 @@
  */
 var smallerNumbersThanCurrent = function (nums) {
   const numsCount = [];
-  function setNumsCount(i, c) {
+  const setNumsCount = (i, c) => {
     const count = numsCount[i];
     if (typeof count === 'number') {
       numsCount[i] = count + c;
@@ -12,7 +12,7 @@ var smallerNumbersThanCurrent = function (nums) {
       numsCount[i] = c;
     }
   }
-  function quickCount(arr) {
+  const quickCount = (arr) => {
     if (arr.length == 0) {
       return;
     }

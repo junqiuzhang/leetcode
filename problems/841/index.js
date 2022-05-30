@@ -2,7 +2,7 @@
  * @param {number[][]} rooms
  * @return {boolean}
  */
-function canVisitAllRooms(rooms) {
+const canVisitAllRooms = (rooms) => {
   let visitedRooms = new Set();
   let keys = [0];
   while (keys.length > 0) {

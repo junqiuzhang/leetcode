@@ -2,7 +2,7 @@
  * @param {string} s
  * @return {number}
  */
-function maxPower(s) {
+const maxPower = (s) => {
   let maxCount = 1;
   let curCount = 1;
   let preChar = 'pre';

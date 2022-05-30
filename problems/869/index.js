@@ -3,7 +3,7 @@ const MAX_NUMBER = Math.pow(10, 9);
  * @param {number} n
  * @return {string}
  */
-function getTrait(n) {
+const getTrait = (n) => {
   return n
     .toString()
     .split('')
@@ -15,7 +15,7 @@ function getTrait(n) {
  * @param {number} n
  * @return {boolean}
  */
-function reorderedPowerOf2(n) {
+const reorderedPowerOf2 = (n) => {
   let p = 1;
   let traitN = getTrait(n);
   while (p <= MAX_NUMBER) {

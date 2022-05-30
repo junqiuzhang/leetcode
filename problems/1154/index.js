@@ -2,7 +2,7 @@
  * @param {string} date
  * @return {number}
  */
-function dayOfYear(date) {
+const dayOfYear = (date) => {
   const dateObj = new Date(date);
   const day = dateObj.getTime() / (1000 * 60 * 60 * 24);
   dateObj.setDate(1);

@@ -2,7 +2,7 @@
  * @param {number[]} arr
  * @return {number}
  */
-function maximumElementAfterDecrementingAndRearranging(arr) {
+const maximumElementAfterDecrementingAndRearranging = (arr) => {
   arr.sort((a, b) => a - b);
   arr[0] = 1;
   for (let i = 1; i < arr.length; i++) {

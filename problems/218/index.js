@@ -2,8 +2,8 @@
  * @param {number[][]} buildings
  * @return {number[][]}
  */
-function getSkyline(buildings) {
-  function getSections(buildings) {
+const getSkyline = (buildings) => {
+  const getSections = (buildings) => {
     let pointSet = new Set();
     buildings.forEach((building) => {
       pointSet.add(building[0]);
@@ -21,7 +21,7 @@ function getSkyline(buildings) {
     }
     return sections;
   }
-  function getHeights(sections) {
+  const getHeights = (sections) => {
     let newBuildings = [];
     for (let i = 0; i < sections.length; i++) {
       const section = sections[i];
@@ -36,7 +36,7 @@ function getSkyline(buildings) {
     }
     return newBuildings;
   }
-  function merge(buildings) {
+  const merge = (buildings) => {
     const newBuildings = [buildings[0]];
     for (let i = 1; i < buildings.length; i++) {
       const building1 = newBuildings[newBuildings.length - 1];

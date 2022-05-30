@@ -4,7 +4,7 @@
  * @param {string} char
  * @param {number} index
  */
-function myMove(arr, char, index) {
+const myMove = (arr, char, index) => {
   let j = index;
   for (let i = index; i < arr.length; i++) {
     // 与指定字符相同则交换位置
@@ -20,7 +20,7 @@ function myMove(arr, char, index) {
  * @param {string[]} arr 待排序数组
  * @param {string[]} charSortArr 输出的数组中的字符顺序
  */
-function mySort(arr, charSortArr) {
+const mySort = (arr, charSortArr) => {
   if (arr.length <= 1) {
     return arr;
   }

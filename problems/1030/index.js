@@ -8,7 +8,7 @@
 var allCellsDistOrder = function (R, C, r0, c0) {
   const cells = [];
   const len = R + C;
-  function check(x, y) {
+  const check = (x, y) => {
     if (x >= 0 && x < R && y >= 0 && y < C) {
       return true;
     }

@@ -3,7 +3,7 @@
 //   3   11
 //  / \ / \
 // 1  4 9  13
-function find(root, num) {
+const find = (root, num) => {
   let down = null;
   let up = null;
   let cur = root;

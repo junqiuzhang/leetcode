@@ -2,7 +2,7 @@
  * @param {number} x
  * @return {boolean}
  */
-function isPalindrome(x) {
+const isPalindrome = (x) => {
   if (x < 0) return false;
   let ans = 0;
   let tmp = x;

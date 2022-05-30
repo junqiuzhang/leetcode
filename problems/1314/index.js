@@ -4,7 +4,7 @@
  * @param {number} j
  * @return {number}
  */
-function getMatrixDefault(mat, i, j) {
+const getMatrixDefault = (mat, i, j) => {
   const rows = mat.length;
   const columns = mat[0].length;
   if (i < 0 || i >= rows || j < 0 || j >= columns) {
@@ -18,7 +18,7 @@ function getMatrixDefault(mat, i, j) {
  * @param {number} j
  * @return {number}
  */
-function getMatrixClosest(mat, i, j) {
+const getMatrixClosest = (mat, i, j) => {
   const rows = mat.length;
   const columns = mat[0].length;
   if (i < 0 || j < 0) {
@@ -37,7 +37,7 @@ function getMatrixClosest(mat, i, j) {
  * @param {number} k
  * @return {number[][]}
  */
-function matrixBlockSum(mat, k) {
+const matrixBlockSum = (mat, k) => {
   const rows = mat.length;
   const columns = mat[0].length;
   const prefixMat = new Array(rows).fill(0).map((i) => new Array(columns));

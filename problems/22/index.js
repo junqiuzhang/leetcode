@@ -2,9 +2,9 @@
  * @param {number} n
  * @return {string[]}
  */
-function generateParenthesis(n) {
+const generateParenthesis = (n) => {
   const ans = [];
-  function generate(s, open, close) {
+  const generate = (s, open, close) => {
     if (s.length === n * 2) {
       ans.push(s);
     }

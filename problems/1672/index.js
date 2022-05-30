@@ -2,7 +2,7 @@
  * @param {number[][]} accounts
  * @return {number}
  */
-function maximumWealth(accounts) {
+const maximumWealth = (accounts) => {
   let maxWealth = 0;
   for (let i = 0; i < accounts.length; i++) {
     const account = accounts[i];

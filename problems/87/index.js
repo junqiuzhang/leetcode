@@ -17,10 +17,10 @@
  */
 var isScramble = function (s1, s2) {
   const isScrambleMap = new Map();
-  function getScrambleMap(i1, j1, i2, j2) {
+  const getScrambleMap = (i1, j1, i2, j2) => {
     return isScrambleMap.get(`${i1},${j1},${i2},${j2}`);
   }
-  function setScrambleMap(i1, j1, i2, j2, bool) {
+  const setScrambleMap = (i1, j1, i2, j2, bool) => {
     isScrambleMap.set(`${i1},${j1},${i2},${j2}`, bool);
   }
   /**
@@ -30,7 +30,7 @@ var isScramble = function (s1, s2) {
    * @param {number} j2
    * @return {boolean}
    */
-  function loopScramble(i1, j1, i2, j2) {
+  const loopScramble = (i1, j1, i2, j2) => {
     const tempS1 = s1.slice(i1, j1);
     const tempS2 = s2.slice(i2, j2);
     if (typeof getScrambleMap(i1, j1, i2, j2) === 'boolean') {

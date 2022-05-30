@@ -3,7 +3,7 @@
  * @param {number[]} heaters
  * @return {number}
  */
-function findRadius(houses, heaters) {
+const findRadius = (houses, heaters) => {
   const compare = (a, b) => {
     return a - b;
   };

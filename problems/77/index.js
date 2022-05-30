@@ -3,7 +3,7 @@
 //  * @param {number} k
 //  * @return {number[][]}
 //  */
-// function combine(n, k) {
+// const combine = (n, k) => {
 //   if (k === 0) {
 //     return [];
 //   }
@@ -26,7 +26,7 @@
  * @param {number} k
  * @return {number[][]}
  */
-function combine(n, k) {
+const combine = (n, k) => {
   if (k === 0) {
     return [];
   }

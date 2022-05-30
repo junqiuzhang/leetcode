@@ -4,7 +4,7 @@
  */
 /**
  * Definition for a binary tree node.
- * function TreeNode(val) {
+ * const TreeNode = (val) => {
  *     this.val = val;
  *     this.left = this.right = null;
  * }
@@ -18,7 +18,7 @@ var levelOrderBottom = function(root) {
         return [];
     }
     var nums = [];
-    function lob(tree, nums, depth) {
+    const lob = (tree, nums, depth) => {
         if (!nums[depth] || typeof nums[depth].length !== 'number') {
             nums[depth] = [];
         }

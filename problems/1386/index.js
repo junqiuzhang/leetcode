@@ -5,7 +5,7 @@
  * @param {number[]} seat
  * @return {number}
  */
-function seat2status(seat) {
+const seat2status = (seat) => {
   const digit = Math.floor(seat[1] / 2) - 1;
   if (digit < 0 || digit > 3) return 0;
   return 1 << digit;
@@ -14,7 +14,7 @@ function seat2status(seat) {
  * @param {number} status
  * @return {number}
  */
-function status2num(status) {
+const status2num = (status) => {
   if ([0].includes(status)) {
     return 0;
   } else if ([1, 2, 4, 8, 3, 9, 12].includes(status)) {
@@ -28,7 +28,7 @@ function status2num(status) {
  * @param {number[][]} reservedSeats
  * @return {number}
  */
-function maxNumberOfFamilies(n, reservedSeats) {
+const maxNumberOfFamilies = (n, reservedSeats) => {
   reservedSeats.sort((a, b) => a[0] - b[0]);
   let num = 2 * n;
   let preRow = 0;

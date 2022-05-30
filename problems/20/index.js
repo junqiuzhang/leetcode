@@ -10,7 +10,7 @@ const CharNumMap = {
  * @param {string} s
  * @return {boolean}
  */
-function isValid(s) {
+const isValid = (s) => {
   const len = s.length;
   if (len === 0) {
     return true;

@@ -3,7 +3,7 @@
 //  * @param {number} n
 //  * @return {string}
 //  */
-// function countAndSay(n) {
+// const countAndSay = (n) => {
 //   if (n == 1) {
 //     return '1';
 //   }
@@ -29,7 +29,7 @@ const cache = [, '1'];
  * @param {number} n
  * @return {string}
  */
-function countAndSay(n) {
+const countAndSay = (n) => {
   if (cache[n]) {
     return cache[n];
   }

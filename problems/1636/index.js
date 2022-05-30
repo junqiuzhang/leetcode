@@ -2,7 +2,7 @@
  * @param {number[]} nums
  * @return {number[]}
  */
-function frequencySort(nums) {
+const frequencySort = (nums) => {
   const freMap = new Map();
   for (let i = 0; i < nums.length; i++) {
     const num = nums[i];

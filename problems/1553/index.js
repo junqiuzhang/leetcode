@@ -3,9 +3,9 @@
 //  * @param {number} n
 //  * @return {number}
 //  */
-// function minDays(n) {
+// const minDays = (n) => {
 //   const cache = [0, 1];
-//   function calcMinDays(num) {
+//   const calcMinDays = (num) => {
 //     if (typeof cache[num] === 'number') {
 //       return cache[num];
 //     }
@@ -29,11 +29,11 @@
 //  * @param {number} n
 //  * @return {number}
 //  */
-// function minDays(n) {
+// const minDays = (n) => {
 //   const cache1 = [0, 1];
 //   const cache2 = [0];
 //   const cache3 = [0];
-//   function get(array, index) {
+//   const get = (array, index) => {
 //     if (typeof array[index] === 'number') {
 //       return array[index];
 //     }
@@ -70,7 +70,7 @@
 //  * @param {number} n
 //  * @return {number}
 //  */
-// function minDays(n) {
+// const minDays = (n) => {
 //   // [n, 0], n代表当前数字，0代表已遍历的分支
 //   const stack = [[n, 0]];
 //   let minCount = Infinity;
@@ -111,9 +111,9 @@
  * @param {number} n
  * @return {number}
  */
-function minDays(n) {
+const minDays = (n) => {
   const cache = [0, 1, 2, 2];
-  function calcMinDays(num) {
+  const calcMinDays = (num) => {
     if (typeof cache[num] === 'number') {
       return cache[num];
     }

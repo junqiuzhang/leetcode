@@ -4,7 +4,7 @@
  * @return {boolean}
  */
 var backspaceCompare = function (S, T) {
-  function replaceSharp(str) {
+  const replaceSharp = (str) => {
     while (true) {
       temp = str.replace(/[^#]?#/, '');
       if (temp === str) {

@@ -2,7 +2,7 @@
  * @param {string} target
  * @return {number}
  */
-function minFlips(target) {
+const minFlips = (target) => {
   let flips = 0;
   let pre = '0';
   let cur = '0';

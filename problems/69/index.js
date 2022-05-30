@@ -2,7 +2,7 @@
  * @param {number} x
  * @return {number}
  */
-function mySqrt(x) {
+const mySqrt = (x) => {
   if (x <= 1) {
     return x;
   }

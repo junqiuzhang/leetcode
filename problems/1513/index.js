@@ -3,7 +3,7 @@ const MAX_NUMBER = Math.pow(10, 9) + 7;
  * @param {string} s
  * @return {number}
  */
-function numSub(s) {
+const numSub = (s) => {
   const lengthArray = [];
   let preIsOne = false;
   let preLength = 0;

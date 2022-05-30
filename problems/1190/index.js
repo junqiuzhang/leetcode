@@ -2,7 +2,7 @@
  * @param {string} s
  * @return {string}
  */
-function reverseParentheses(s) {
+const reverseParentheses = (s) => {
   const re = /\(([a-z]*)\)/
   let temp = s;
   while (temp.includes('(')) {

@@ -4,7 +4,7 @@
  */
 /**
  * Definition for a binary tree node.
- * function TreeNode(val) {
+ * const TreeNode = (val) => {
  *     this.val = val;
  *     this.left = this.right = null;
  * }
@@ -14,7 +14,7 @@
  * @return {boolean}
  */
 var isSymmetric = function(root) {
-    function isSym(p, q) {
+    const isSym = (p, q) => {
         if (!p || !q) {
             return p === q;
         }

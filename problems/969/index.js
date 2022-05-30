@@ -2,7 +2,7 @@
  * @param {number[]} arr 
  * @param {number} k 
  */
-function pancakeFlips(arr, k) {
+const pancakeFlips = (arr, k) => {
   if (k < 0 || k > arr.length) return;
   const len = Math.floor((k - 1) / 2);
   for (let j = 0; j <= len; j++) {
@@ -13,7 +13,7 @@ function pancakeFlips(arr, k) {
  * @param {number[]} arr
  * @return {number[]}
  */
-function pancakeSort(arr) {
+const pancakeSort = (arr) => {
   const ans = [];
   let num = arr.length;
   while (num > 1) {

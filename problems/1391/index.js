@@ -61,7 +61,7 @@ const FormPathToMap = {
  * @param {number} j
  * @return {boolean}
  */
-function getVisited(visited, i, j) {
+const getVisited = (visited, i, j) => {
   if (i < 0 || i >= visited.length) {
     return true;
   }
@@ -76,7 +76,7 @@ function getVisited(visited, i, j) {
  * @param {number} j
  * @return {number[]}
  */
-function getIndex(to, i, j) {
+const getIndex = (to, i, j) => {
   return [i + ToIndexMap[to][0], j + ToIndexMap[to][1]];
 }
 /**
@@ -85,7 +85,7 @@ function getIndex(to, i, j) {
  * @param {number} j
  * @return {Path[keyof Path] | undefined}
  */
-function getPath(grid, i, j) {
+const getPath = (grid, i, j) => {
   if (i < 0 || i >= grid.length) {
     return;
   }
@@ -98,7 +98,7 @@ function getPath(grid, i, j) {
  * @param {Direction[keyof Direction]} to
  * @return {Direction[keyof Direction]}
  */
-function getFrom(to) {
+const getFrom = (to) => {
   return ToFromMap[to];
 }
 /**
@@ -106,14 +106,14 @@ function getFrom(to) {
  * @param {Path[keyof Path]} path
  * @return {Direction[keyof Direction]}
  */
-function getTo(from, path) {
+const getTo = (from, path) => {
   return FormPathToMap[from][path];
 }
 /**
  * @param {number[][]} grid
  * @return {boolean}
  */
-function hasValidPath(grid) {
+const hasValidPath = (grid) => {
   const [m, n] = [grid.length - 1, grid[0].length - 1];
   let [i, j] = [0, 0];
   let curPath = getPath(grid, i, j);

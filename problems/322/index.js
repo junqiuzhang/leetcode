@@ -5,10 +5,10 @@
 //  * @param {number} amount
 //  * @return {number}
 //  */
-// function coinChange(coins, amount) {
+// const coinChange = (coins, amount) => {
 //   // 凑成金额 i 所需的最少硬币数
 //   const cache = [0];
-//   function calcCoinNumber(amount) {
+//   const calcCoinNumber = (amount) => {
 //     if (typeof cache[amount] === 'number') {
 //       return cache[amount];
 //     }
@@ -37,7 +37,7 @@
  * @param {number} amount
  * @return {number}
  */
-function coinChange(coins, amount) {
+const coinChange = (coins, amount) => {
   // 凑成金额 i 所需的最少硬币数
   const cache = [0];
   for (let i = 1; i <= amount; i++) {

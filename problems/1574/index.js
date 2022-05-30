@@ -2,7 +2,7 @@
  * @param {number[]} arr
  * @return {number}
  */
-function findLengthOfShortestSubarray(arr) {
+const findLengthOfShortestSubarray = (arr) => {
   let startLeft = -1;
   let startRight = -1;
   for (let i = 0; i < arr.length; i++) {

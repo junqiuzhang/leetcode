@@ -4,7 +4,7 @@
  * @param {number} repeatCount
  * @return {number}
  */
-function isRepeatedStringSubstring(a, b, repeatCount) {
+const isRepeatedStringSubstring = (a, b, repeatCount) => {
   const repeatStr = new Array(repeatCount).fill(a).join('');
   return repeatStr.includes(b);
 }
@@ -13,7 +13,7 @@ function isRepeatedStringSubstring(a, b, repeatCount) {
  * @param {string} b
  * @return {number}
  */
-function repeatedStringMatch(a, b) {
+const repeatedStringMatch = (a, b) => {
   if (a.includes(b)) return 1;
   let left = 1;
   let right = Math.ceil(b.length / a.length) + 1;

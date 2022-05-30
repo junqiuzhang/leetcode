@@ -3,7 +3,7 @@
  * @return {number[]}
  */
 var sortByBits = function (arr) {
-  function quickSort(arr, compare) {
+  const quickSort = (arr, compare) => {
     if (arr.length <= 1) {
       return arr;
     }
@@ -22,7 +22,7 @@ var sortByBits = function (arr) {
     const sortedRight = quickSort(right, compare);
     return sortedLeft.concat([middle]).concat(sortedRight);
   }
-  function compare(a, b) {
+  const compare = (a, b) => {
     if (a.len < b.len) {
       return true;
     } else if (a.len === b.len && a.num < b.num) {
@@ -31,7 +31,7 @@ var sortByBits = function (arr) {
       return false;
     }
   }
-  function hammingWeight(n) {
+  const hammingWeight = (n) => {
     var res = 0;
     for (var i = 0; i < 32; i++){
       res += (n >> i) & 1; // 累加

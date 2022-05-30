@@ -3,7 +3,7 @@
  * @param {number} k
  * @return {number}
  */
-function chalkReplacer(chalk, k) {
+const chalkReplacer = (chalk, k) => {
   const len = chalk.length;
   const sum = chalk.reduce((p, c) => p + c);
   let r = k % sum;

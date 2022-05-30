@@ -2,7 +2,7 @@
  * @param {number[]} citations
  * @return {number}
  */
-function hIndex(citations) {
+const hIndex = (citations) => {
   const len = citations.length;
   let min = 0;
   let max = len;

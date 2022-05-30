@@ -6,7 +6,7 @@
 //    8
 //  9   2
 
-function isSame(aRoot, bRoot) {
+const isSame = (aRoot, bRoot) => {
   if (bRoot === null) {
     return true;
   }
@@ -18,7 +18,7 @@ function isSame(aRoot, bRoot) {
   }
   return false;
 }
-function isSubTree(aRoot, bRoot) {
+const isSubTree = (aRoot, bRoot) => {
   if (isSame(aRoot, bRoot)) {
     return true;
   }

@@ -21,7 +21,7 @@ var isValid = function (s) {
  * @param {string[]} strs
  * @return {string[]}
  */
-function generateSubStr(strs) {
+const generateSubStr = (strs) => {
   const subStrSet = new Set();
   strs.forEach((s) => {
     for (let i = 0; i < s.length; i++) {
@@ -39,7 +39,7 @@ function generateSubStr(strs) {
  * @param {string} s
  * @return {string[]}
  */
-function removeInvalidParentheses(s) {
+const removeInvalidParentheses = (s) => {
   if (isValid(s)) return [s];
   let subStrArr = [s];
   let invalidStrArr = [];

@@ -3,7 +3,7 @@
  * @param {number[]} prices
  * @return {number}
  */
-function maxProfit(k, prices) {
+const maxProfit = (k, prices) => {
   if (k < 1) {
     return 0;
   }

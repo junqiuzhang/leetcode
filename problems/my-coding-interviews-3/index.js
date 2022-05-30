@@ -19,10 +19,10 @@ class UnionFind {
     this.size--;
   }
 }
-function landNumber(matrix) {
+const landNumber = (matrix) => {
   const m = matrix.length;
   const n = matrix[0].length;
-  function getMatrix(i, j) {
+  const getMatrix = (i, j) => {
     if (i < 0 || i >= m || j < 0 || j >= n) {
       return '0';
     }

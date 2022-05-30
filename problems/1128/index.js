@@ -1,8 +1,8 @@
 import { C } from '../common/index.js';
-function getKey(domino) {
+const getKey = (domino) => {
   return domino[0] > domino[1] ? `${domino[0]},${domino[1]}` : `${domino[1]},${domino[0]}`;
 }
-function getValue(pairsMap, domino) {
+const getValue = (pairsMap, domino) => {
   const value = pairsMap.get(getKey(domino));
   if (value !== undefined) {
     return value

@@ -4,7 +4,7 @@
  * @param {number} k
  * @return {number}
  */
-function getKthElement(nums1, nums2, k) {
+const getKthElement = (nums1, nums2, k) => {
   const length1 = nums1.length;
   const length2 = nums2.length;
   let index1 = 0;
@@ -40,7 +40,7 @@ function getKthElement(nums1, nums2, k) {
  * @param {number[]} nums2
  * @return {number}
  */
-function findMedianSortedArrays(nums1, nums2) {
+const findMedianSortedArrays = (nums1, nums2) => {
   const totalLength = nums1.length + nums2.length;
   if (totalLength % 2 === 1) {
     const midIndex = Math.floor(totalLength / 2);

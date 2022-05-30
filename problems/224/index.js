@@ -7,7 +7,7 @@ const GroupReg = /(\([\d\+\-\s]*\))/g;
  * @param {string} s
  * @return {number}
  */
-function calculate(s) {
+const calculate = (s) => {
   let formattedS = s.replace(SpaceReg, '');
   let matchObj = formattedS.match(GroupReg);
   while (matchObj) {
@@ -36,7 +36,7 @@ function calculate(s) {
  * @param {string} s
  * @return {number}
  */
-function groupCalculate(s) {
+const groupCalculate = (s) => {
   let tokens = tokenize(s);
   let i = 1;
   while (i < tokens.length) {
@@ -60,7 +60,7 @@ function groupCalculate(s) {
  * @param {string} s
  * @return {string[]} tokens
  */
-function tokenize(s) {
+const tokenize = (s) => {
   const formattedS = s.replace(BracketReg, '');
   let numbers = formattedS.split(OperateReg).filter((n) => n.trim());
   let operates = formattedS.split(NumberReg).filter((o) => o.trim());
@@ -81,7 +81,7 @@ function tokenize(s) {
  * @param {'+' | '-' | '*' | '/'} o
  * @return {number}
  */
-function calc(m, n, o) {
+const calc = (m, n, o) => {
   const intM = parseInt(m);
   const intN = parseInt(n);
   switch (o) {

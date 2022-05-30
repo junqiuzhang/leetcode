@@ -1,6 +1,6 @@
 /**
  * Definition for a binary tree node.
- * function TreeNode(val, left, right) {
+ * const TreeNode = (val, left, right) => {
  *     this.val = (val===undefined ? 0 : val)
  *     this.left = (left===undefined ? null : left)
  *     this.right = (right===undefined ? null : right)
@@ -10,8 +10,8 @@
  * @param {TreeNode} root
  * @return {number}
  */
-function sumNumbers(root) {
-  function getNumbers(root, prefix) {
+const sumNumbers = (root) => {
+  const getNumbers = (root, prefix) => {
     const curNumber = prefix + root.val;
     if (!root.left && !root.right) {
       return [curNumber];

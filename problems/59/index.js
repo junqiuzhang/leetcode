@@ -47,7 +47,7 @@ var generateMatrix = function (n) {
  * @param {Direction} direction
  * @param {number[][]} matrix
  */
-function isNextDisabled(i, j, n, direction, matrix) {
+const isNextDisabled = (i, j, n, direction, matrix) => {
   const nextI = i + DirectionStepMap[direction].i;
   const nextJ = j + DirectionStepMap[direction].j;
   const isNextDisable =

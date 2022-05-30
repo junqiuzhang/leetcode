@@ -7,7 +7,7 @@
  * @return {number[]}
  */
 var findDisappearedNumbers = function (nums) {
-  function changeNums(num) {
+  const changeNums = (num) => {
     if (typeof num !== 'number') {
       return;
     }

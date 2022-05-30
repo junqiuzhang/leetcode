@@ -4,7 +4,7 @@
  */
 /**
  * Definition for a binary tree node.
- * function TreeNode(val) {
+ * const TreeNode = (val) => {
  *     this.val = val;
  *     this.left = this.right = null;
  * }
@@ -20,7 +20,7 @@ var minDepth = function(root) {
     if (!root.left && !root.right) {
         return 1;
     }
-    function getMinDepth(r) {
+    const getMinDepth = (r) => {
         if (!r.left && !r.right) {
             return 1;
         }

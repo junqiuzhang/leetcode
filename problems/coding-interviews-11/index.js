@@ -2,7 +2,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-function minArray(nums) {
+const minArray = (nums) => {
   let left = 0;
   let right = nums.length - 1;
   let middle = Math.floor((left + right) / 2);

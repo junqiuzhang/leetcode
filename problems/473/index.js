@@ -2,12 +2,12 @@
  * @param {number[]} matchsticks
  * @return {boolean}
  */
-function makesquare(matchsticks) {
+const makesquare = (matchsticks) => {
   const len = matchsticks.length;
   const sum = matchsticks.reduce((pre, cur) => pre + cur);
   if (sum % 4) return false;
   const sideSum = [0, 0, 0, 0];
-  function dfs(i) {
+  const dfs = (i) => {
     if (i === len && sideSum.every((val) => val === sum / 4)) return true;
     const cur = matchsticks[i] || 0;
     for (let j = 0; j < 4; j++) {

@@ -2,7 +2,7 @@
  * @param {Node} head
  * @return {number}
  */
-function getIndex(head) {
+const getIndex = (head) => {
   if (!head) return -1;
   let i = 0;
   while (head) {
@@ -15,7 +15,7 @@ function getIndex(head) {
  * @param {Node} head
  * @return {number}
  */
-function getNode(head, index) {
+const getNode = (head, index) => {
   if (index === -1) return null;
   let i = 0;
   while (head) {
@@ -31,7 +31,7 @@ function getNode(head, index) {
  * @param {Node} head
  * @return {Node}
  */
-function copyRandomList(head) {
+const copyRandomList = (head) => {
   let newHead = new Node();
   let newTemp = newHead;
   let temp = head;

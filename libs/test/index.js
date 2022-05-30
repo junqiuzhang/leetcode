@@ -4,7 +4,7 @@ import { isObject, isEqual, toString } from "lodash-es";
 let testCount = 0;
 let passedTestCount = 0;
 let failedTestInfo = [];
-function stringify(param) {
+const stringify = (param) => {
   let str;
   try {
     str = JSON.stringify(param);
@@ -13,20 +13,20 @@ function stringify(param) {
   }
   return str;
 }
-function isSameValue(actualValue, expectedValue) {
+const isSameValue = (actualValue, expectedValue) => {
   if (isObject(actualValue) && isObject(expectedValue)) {
     return isEqual(actualValue, expectedValue);
   }
   return actualValue === expectedValue;
 }
-function isSameError(actualError, expectedError) {
+const isSameError = (actualError, expectedError) => {
   if (isObject(actualError) && isObject(expectedError)) {
     return actualError.message === expectedError.message;
   }
   return actualError === expectedError;
 }
 
-export function expect(func, ...args) {
+export const expect = (func, ...args) => {
   testCount++;
   let actualValue;
   let actualError;
@@ -63,7 +63,7 @@ export function expect(func, ...args) {
   };
 }
 
-export function it(name, callback) {
+export const it = (name, callback) => {
   testCount = 0;
   passedTestCount = 0;
   failedTestInfo = [];

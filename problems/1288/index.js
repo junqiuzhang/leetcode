@@ -2,7 +2,7 @@
  * @param {number[][]} intervals
  * @return {number}
  */
-function removeCoveredIntervals(intervals) {
+const removeCoveredIntervals = (intervals) => {
   const sortedIntervals = intervals.sort((a, b) => {
     if (a[0] < b[0]) {
       return -1;

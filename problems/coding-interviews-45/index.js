@@ -4,7 +4,7 @@ import { quickSort2 } from '../common/index';
  * @param {string} str2
  * @return {number}
  */
-function compare(str1, str2) {
+const compare = (str1, str2) => {
   str1 = str1.replace(/^\s*/, '');
   str2 = str2.replace(/^\s*/, '');
   if (str1.length > str2.length) {
@@ -18,7 +18,7 @@ function compare(str1, str2) {
  * @param {number[]} nums
  * @return {string}
  */
-function minNumber(nums) {
+const minNumber = (nums) => {
   const strs = nums.map((n) => `${n}`);
   return quickSort2(strs, (i, j) => {
     const a = strs[i] + strs[j];

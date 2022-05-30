@@ -1,7 +1,7 @@
 import { tree2array, array2tree } from "../../problems/common/index.js";
 /**
  * Definition for a binary tree node.
- * function TreeNode(val) {
+ * const TreeNode = (val) => {
  *     this.val = val;
  *     this.left = this.right = null;
  * }

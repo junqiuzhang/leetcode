@@ -1,4 +1,4 @@
-function IP2Int(ip) {
+const IP2Int = (ip) => {
   const reg = /^\d{0,3}\.\d{0,3}\.\d{0,3}\.\d{0,3}$/;
   if (!reg.test(ip)) {
     throw new Error('not a ip address');

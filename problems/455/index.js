@@ -9,7 +9,7 @@
  */
 var findContentChildren = function(g, s) {
   // 手写快速排序不如自带排序
-  function compare(a, b) {
+  const compare = (a, b) => {
     if (a < b) {
       return -1;
     }

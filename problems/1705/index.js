@@ -3,14 +3,14 @@
  * @param {number[]} days
  * @return {number}
  */
-function eatenApples(apples, days) {
+const eatenApples = (apples, days) => {
   /**
    * @param {number[][]} queue
    * @param {number} day
    * @param {number} maxDay
    * @return {number}
    */
-  function gain(queue, day, maxDay) {
+  const gain = (queue, day, maxDay) => {
     const newItem = [day + days[day], apples[day]];
     if (day < maxDay) {
       let index = queue.findIndex((item) => newItem[0] < item[0]);
@@ -28,7 +28,7 @@ function eatenApples(apples, days) {
    * @param {number} total
    * @return {number}
    */
-  function eat(queue, total) {
+  const eat = (queue, total) => {
     if (queue[0]) {
       queue[0][1]--;
       return total + 1;

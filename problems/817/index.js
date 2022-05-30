@@ -1,7 +1,7 @@
 import { ListNode } from '../common/index.js';
 /**
  * Definition for singly-linked list.
- * function ListNode(val, next) {
+ * const ListNode = (val, next) => {
  *     this.val = (val===undefined ? 0 : val)
  *     this.next = (next===undefined ? null : next)
  * }
@@ -11,7 +11,7 @@ import { ListNode } from '../common/index.js';
  * @param {number[]} nums
  * @return {number}
  */
-function numComponents(head, nums) {
+const numComponents = (head, nums) => {
   const numSet = new Set();
   let componentNum = 0;
   let temp = head;

@@ -2,12 +2,12 @@
  * @param {string} s
  * @return {number}
  */
-function lengthOfLongestSubstring(s) {
+const lengthOfLongestSubstring = (s) => {
   const len = s.length;
   let i = 0;
   let j = 0;
   let maxLength = 0;
-  function update() {
+  const update = () => {
     if (j - i + 1 > maxLength) {
       maxLength = j - i + 1;
     }

@@ -5,7 +5,7 @@ const STATUS = {
 };
 /**
  * Definition for a binary tree node.
- * function TreeNode(val) {
+ * const TreeNode = (val) => {
  *     this.val = val;
  *     this.left = this.right = null;
  * }
@@ -14,7 +14,7 @@ const STATUS = {
  * @param {TreeNode} root
  * @return {number}
  */
-function minCameraCover(root) {
+const minCameraCover = (root) => {
   if (!root.left && !root.right) {
     return 1;
   }
@@ -22,7 +22,7 @@ function minCameraCover(root) {
    * @param {TreeNode} root
    * @return {number[]}
    */
-  function minCamera(root) {
+  const minCamera = (root) => {
     if (!root) {
       return [0, STATUS.covered];
     }

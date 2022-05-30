@@ -3,16 +3,16 @@
  * @param {number} numExchange
  * @return {number}
  */
-function numWaterBottles(numBottles, numExchange) {
+const numWaterBottles = (numBottles, numExchange) => {
   let total = 0;
   let wines = numBottles;
   let bottles = 0;
-  function drink() {
+  const drink = () => {
     total += wines;
     bottles += wines;
     wines = 0;
   }
-  function exchange() {
+  const exchange = () => {
     wines = Math.floor(bottles / numExchange);
     bottles = bottles % numExchange;
   }
@@ -27,7 +27,7 @@ function numWaterBottles(numBottles, numExchange) {
  * @param {number} numExchange
  * @return {number}
  */
-function numWaterBottles(numBottles, numExchange) {
+const numWaterBottles = (numBottles, numExchange) => {
   return numBottles >= numExchange
     ? (numBottles - numExchange) / (numExchange - 1) + 1 + numBottles
     : numBottles;

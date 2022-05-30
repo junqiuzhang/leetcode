@@ -3,7 +3,7 @@
  * @param {number[][]} points
  * @return {number}
  */
-function calcDistance(p1, p2) {
+const calcDistance = (p1, p2) => {
   return Math.abs(p1[0] - p2[0]) + Math.abs(p1[1] - p2[1]);
 }
 var minCostConnectPoints = function (points) {
@@ -12,7 +12,7 @@ var minCostConnectPoints = function (points) {
   let connectedNumber = 0;
   const distance = new Array(points.length).fill(false);
   // 计算未连通点集的权重
-  function calcUnconnectedDistance(index) {
+  const calcUnconnectedDistance = (index) => {
     for (let i = 0; i < connectedSet.length; i++) {
       if (!connectedSet[i]) {
         const dis = calcDistance(points[index], points[i]);
@@ -23,7 +23,7 @@ var minCostConnectPoints = function (points) {
     }
   }
   // 找到未连通点集中权重最小的
-  function findMinUnconnectedDistance() {
+  const findMinUnconnectedDistance = () => {
     let minDis = Number.MAX_VALUE;
     let minDisIndex = -1;
     for (let i = 0; i < connectedSet.length; i++) {

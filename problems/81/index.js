@@ -4,7 +4,7 @@
  * @param {number} target
  * @return {boolean}
  */
-function search(nums, target) {
+const search = (nums, target) => {
   let left = 0;
   let right = nums.length - 1;
   let mid = 0;

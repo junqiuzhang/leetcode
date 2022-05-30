@@ -3,7 +3,7 @@
  * @param {number} n
  * @return {number}
  */
-function myPow(x, n) {
+const myPow = (x, n) => {
   // 循环
   if (x === 0) return 0;
   if (n < 0) {
@@ -22,7 +22,7 @@ function myPow(x, n) {
   // 递归
   // if (x === 0) return 0;
   // const cache = [];
-  // function calc(x, n) {
+  // const calc = (x, n) => {
   //   if (cache[n]) {
   //     return cache[n];
   //   }

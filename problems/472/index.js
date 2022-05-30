@@ -4,8 +4,8 @@
  * @param {string[]} words
  * @return {string[]}
  */
-function isConcatenatedWord(word, words) {
-  function dfs(index) {
+const isConcatenatedWord = (word, words) => {
+  const dfs = (index) => {
     if (index === word.length) {
       return true;
     }
@@ -25,7 +25,7 @@ function isConcatenatedWord(word, words) {
  * @param {string[]} words
  * @return {string[]}
  */
-function findAllConcatenatedWordsInADict(words) {
+const findAllConcatenatedWordsInADict = (words) => {
   words = words.filter((w) => w !== '').sort((a, b) => b.length - a.length);
   const ans = [];
   for (let i = 0; i < words.length; i++) {

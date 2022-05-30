@@ -1,7 +1,7 @@
 import { TreeNode } from '../common/index.js';
 /**
  * Definition for a binary tree node.
- * function TreeNode(val, left, right) {
+ * const TreeNode = (val, left, right) => {
  *     this.val = (val===undefined ? 0 : val)
  *     this.left = (left===undefined ? null : left)
  *     this.right = (right===undefined ? null : right)
@@ -12,12 +12,12 @@ import { TreeNode } from '../common/index.js';
  * @param {number} target
  * @return {TreeNode}
  */
-function removeLeafNodes(root, target) {
+const removeLeafNodes = (root, target) => {
   /**
    * @param {TreeNode} current
    * @param {TreeNode} parent
    */
-  function remove(current, parent) {
+  const remove = (current, parent) => {
     if (current.left) {
       remove(current.left, current);
     }

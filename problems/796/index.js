@@ -3,7 +3,7 @@
  * @param {string} goal
  * @return {boolean}
  */
-function rotateString(s, goal) {
+const rotateString = (s, goal) => {
   if (s.length !== goal.length) {
     return false;
   }

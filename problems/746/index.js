@@ -4,10 +4,10 @@
 //  * @param {number[]} cost cost[i]为离开当前台阶的花费
 //  * @return {number}
 //  */
-// function minCostClimbingStairs(cost) {
+// const minCostClimbingStairs = (cost) => {
 //   // 离开第 i 层时的最小花费
 //   const cache = [0, 0];
-//   function minCost(n) {
+//   const minCost = (n) => {
 //     if (typeof cache[n] === 'number') {
 //       return cache[n];
 //     }
@@ -26,7 +26,7 @@
  * @param {number[]} cost cost[i]为离开当前台阶的花费
  * @return {number}
  */
-function minCostClimbingStairs(cost) {
+const minCostClimbingStairs = (cost) => {
   // 离开第 i 层时的最小花费
   const cache = [0, 0];
   for (let i = 2; i <= cost.length; i++) {

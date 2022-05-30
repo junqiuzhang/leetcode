@@ -6,7 +6,7 @@
 var isLongPressedName = function(name, typed) {
   const nameArr = string2array(name);
   const typedArr = string2array(typed);
-  function string2array(str) {
+  const string2array = (str) => {
     const arr = [];
     let preChar = '';
     let preCount = 1;

@@ -3,7 +3,7 @@
  * @param {number} k
  * @return {number}
  */
-function subarraySum(nums, k) {
+const subarraySum = (nums, k) => {
   const preSumMap = new Map();
   let sum = 0;
   let res = 0;

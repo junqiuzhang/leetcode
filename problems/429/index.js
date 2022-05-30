@@ -1,6 +1,6 @@
 /**
  * // Definition for a Node.
- * function Node(val,children) {
+ * const Node = (val,children) => {
  *    this.val = val;
  *    this.children = children;
  * };

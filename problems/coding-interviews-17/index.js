@@ -2,7 +2,7 @@
  * @param {number} n
  * @return {number[]}
  */
-function printNumbers(n) {
+const printNumbers = (n) => {
   // let res = [];
   // let max = Math.pow(10, n);
   // for (let i = 1; i < max; i++) {

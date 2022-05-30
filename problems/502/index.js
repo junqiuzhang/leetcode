@@ -6,7 +6,7 @@
  * @param {number[]} capital
  * @return {number}
  */
-function findMaximizedCapital(k, w, profits, capital) {
+const findMaximizedCapital = (k, w, profits, capital) => {
   // 如果资金充足，就直接投资赚钱最多的k个项目
   if (capital.every((c) => w >= c)) {
     return (

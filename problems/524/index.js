@@ -2,7 +2,7 @@
  * @param {string} s1
  * @param {string} s2
  */
-function isContain(s1, s2) {
+const isContain = (s1, s2) => {
   let i = 0;
   let j = 0;
   while (i < s1.length && j < s2.length) {
@@ -20,7 +20,7 @@ function isContain(s1, s2) {
  * @param {string[]} dictionary
  * @return {string}
  */
-function findLongestWord(s, dictionary) {
+const findLongestWord = (s, dictionary) => {
   dictionary.sort((word1, word2) => {
     if (word2.length - word1.length !== 0) {
       return word2.length - word1.length;

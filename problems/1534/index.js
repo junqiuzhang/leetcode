@@ -5,7 +5,7 @@
  * @param {number} c
  * @return {number}
  */
-function countGoodTriplets(arr, a, b, c) {
+const countGoodTriplets = (arr, a, b, c) => {
   let count = 0;
   for (let i = 0; i < arr.length; i++) {
     for (let j = i + 1; j < arr.length; j++) {
