@@ -10,7 +10,7 @@ const getNumber = (n, i) => {
   return 0;
 }
 const checkNumber = (func) => {
-  return function (...args) {
+  return (...args) => {
     for (let i = 0; i < args.length; i++) {
       const arg = args[i];
       if (!NUMBER_REGEXP.test(arg)) {

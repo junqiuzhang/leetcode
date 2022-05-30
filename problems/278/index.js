@@ -21,7 +21,7 @@ const solution = (isBadVersion) => {
      * @param {integer} n Total versions
      * @return {integer} The first bad version
      */
-    return function(n) {
+    return (n) => {
         if (isBadVersion(1)) return 1;
         var min = 1;
         var max = n;
