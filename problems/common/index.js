@@ -32,7 +32,7 @@ export class TreeNode {
  * @param {any[]} arr
  * @returns {ListNode}
  */
-export function array2list(arr) {
+export const array2list = (arr) => {
   if (!isArray(arr)) throw new Error("Type Error");
   if (isEmpty(arr)) return null;
   const list = new ListNode(arr[0]);
@@ -44,23 +44,23 @@ export function array2list(arr) {
     node = node.next;
   }
   return list;
-}
+};
 /**
  * 链表转数组
  * @param {ListNode}
  * @returns {any[]}
  */
-export function list2array(list) {
+export const list2array = (list) => {
   if (!list) return [];
   const next = list2array(list.next);
   return [list.val, ...next];
-}
+};
 /**
  * 数组转二叉树
  * @param {any[]} arr
  * @returns {TreeNode}
  */
-export function array2tree(arr) {
+export const array2tree = (arr) => {
   if (!isArray(arr)) throw new Error("Type Error");
   if (isEmpty(arr)) return null;
   const root = new TreeNode(arr[0]);
@@ -81,13 +81,13 @@ export function array2tree(arr) {
     nodes[i] = next;
   }
   return root;
-}
+};
 /**
  * 二叉树转数组
  * @param {TreeNode} root
  * @returns {any[]}
  */
-export function tree2array(root) {
+export const tree2array = (root) => {
   if (!root) return [];
   const arr = [];
   const nodes = [root];
@@ -110,13 +110,13 @@ export function tree2array(root) {
     index = index * 2;
   }
   return arr;
-}
+};
 /**
  * 前序遍历
  * @param {TreeNode} root
  * @param {(val: any) => boolean)} traverse
  */
-export function preOrderTraverse(root, traverse) {
+export const preOrderTraverse = (root, traverse) => {
   const stack = [];
   let cur = root;
   let tmp = root;
@@ -129,13 +129,13 @@ export function preOrderTraverse(root, traverse) {
     tmp = stack.pop();
     cur = tmp.right;
   }
-}
+};
 /**
  * 中序遍历
  * @param {TreeNode} root
  * @param {(val: any) => boolean)} traverse
  */
-export function inOrderTraverse(root, traverse) {
+export const inOrderTraverse = (root, traverse) => {
   const stack = [];
   let cur = root;
   let tmp = root;
@@ -148,13 +148,13 @@ export function inOrderTraverse(root, traverse) {
     traverse(tmp.val);
     cur = tmp.right;
   }
-}
+};
 /**
  * 后序遍历
  * @param {TreeNode} root
  * @param {(val: any) => boolean)} traverse
  */
-export function postOrderTraverse(root, traverse) {
+export const postOrderTraverse = (root, traverse) => {
   const stack = [];
   const res = [];
   let cur = root;
@@ -169,14 +169,14 @@ export function postOrderTraverse(root, traverse) {
     cur = tmp.left;
   }
   res.reverse().forEach((tmp) => traverse(tmp.val));
-}
+};
 /**
  * 二分查找索引
  * @param {any[]} arr
  * @param {(val: any, index: number, array: any[]) => boolean)} predicate
  * @returns {number}
  */
-export function quickFindIndex(arr, predicate) {
+export const quickFindIndex = (arr, predicate) => {
   if (!isArray(arr)) throw new Error("Type Error");
   if (isEmpty(arr)) return -1;
   let min = 0;
@@ -190,25 +190,25 @@ export function quickFindIndex(arr, predicate) {
     else min = mid;
   }
   return max;
-}
+};
 /**
  * 二分查找值
  * @param {any[]} array
  * @param {(val: any, index: number, array: any[]) => boolean)} predicate
  * @returns {any}
  */
-export function quickFind(array, predicate) {
+export const quickFind = (array, predicate) => {
   const index = quickFindIndex(array, predicate);
   if (index === -1) return null;
   return array[index];
-}
+};
 /**
  * 快排-递归实现
  * @param {any[]} arr
  * @param {((val1: any, val2: any) => boolean)} compare
  * @returns {any[]}
  */
-export function quickSort(arr, compare) {
+export const quickSort = (arr, compare) => {
   if (arr.length <= 1) return arr;
   const left = [];
   const right = [];
@@ -224,14 +224,14 @@ export function quickSort(arr, compare) {
   const sortedLeft = quickSort(left, compare);
   const sortedRight = quickSort(right, compare);
   return [...sortedLeft, middle, ...sortedRight];
-}
+};
 /**
  * 快排-非递归实现
  * @param {any[]} arr
  * @param {((val1: any, val2: any) => boolean)} compare
  * @returns {any[]}
  */
-export function quickSort2(arr, compare) {
+export const quickSort2 = (arr, compare) => {
   if (arr.length <= 1) return arr;
   let left = 0;
   let right = arr.length - 1;
@@ -252,7 +252,7 @@ export function quickSort2(arr, compare) {
     stack.push(left, i - 2, i, right);
   }
   return arr;
-}
+};
 /**
  * 并查集
  */
@@ -298,7 +298,7 @@ export class UnionFind {
  * @param {number} n
  * @returns {number}
  */
-export function A(m, n) {
+export const A = (m, n) => {
   if (m > n) throw new Error("m 不能大于 n");
   if (m === 0) return 1;
   if (m === 1) return n;
@@ -307,13 +307,13 @@ export function A(m, n) {
     num = num * (n - i);
   }
   return num;
-}
+};
 /**
  * 排列组合C
  * @param {number} m
  * @param {number} n
  * @returns {number}
  */
-export function C(m, n) {
+export const C = (m, n) => {
   return A(m, n) / A(m, m);
-}
+};

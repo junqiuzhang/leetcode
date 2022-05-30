@@ -3,7 +3,7 @@
  * @param {ListNode} l2
  * @return {ListNode}
  */
-function mergeTwoLists(l1, l2) {
+export const mergeTwoLists = (l1, l2) => {
   let head = new ListNode(null);
   let cur = head;
   let list1 = l1;
@@ -27,5 +27,4 @@ function mergeTwoLists(l1, l2) {
     cur = cur.next;
   }
   return head.next;
-}
-export default mergeTwoLists;
+};

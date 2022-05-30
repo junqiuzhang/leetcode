@@ -9,7 +9,7 @@
  * @param {TreeNode} root
  * @return {number[]}
  */
-function levelOrder(root) {
+export const levelOrder = (root) => {
   if (!root) return [];
   const arr = [];
   let nodes = [root];
@@ -28,5 +28,4 @@ function levelOrder(root) {
     nodes = nextNodes;
   }
   return arr;
-}
-export { levelOrder };
+};

@@ -6,17 +6,16 @@
  * @param {number} n
  * @return {boolean}
  */
-function isPowerOfTwo(n) {
-    if (n <= 0) {
-        return false;
+export const isPowerOfTwo = (n) => {
+  if (n <= 0) {
+    return false;
+  }
+  var sum = 0;
+  for (var i = 0; i < 32; i++) {
+    sum += (n >> i) & 1;
+    if (sum > 1) {
+      return false;
     }
-    var sum = 0;
-    for (var i = 0; i < 32; i++) {
-        sum += (n >> i) & 1;
-        if (sum > 1) {
-            return false;
-        }
-    }
-    return true;
+  }
+  return true;
 };
-export default isPowerOfTwo;

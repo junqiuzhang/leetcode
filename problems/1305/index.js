@@ -2,18 +2,18 @@
  * @param {TreeNode} root
  * @returns {any[]}
  */
-function binaryTree2sortArray(root) {
+export const binaryTree2sortArray = (root) => {
   if (!root) return [];
   const left = binaryTree2sortArray(root.left);
   const right = binaryTree2sortArray(root.right);
   return [...left, root.val, ...right];
-}
+};
 /**
  * @param {TreeNode} root1
  * @param {TreeNode} root2
  * @return {number[]}
  */
-function getAllElements(root1, root2) {
+export const getAllElements = (root1, root2) => {
   const arr1 = binaryTree2sortArray(root1);
   const arr2 = binaryTree2sortArray(root2);
   const len1 = arr1.length;
@@ -31,5 +31,4 @@ function getAllElements(root1, root2) {
     }
   }
   return ans;
-}
-export { binaryTree2sortArray, getAllElements };
+};

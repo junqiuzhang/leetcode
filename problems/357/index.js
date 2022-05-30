@@ -2,7 +2,7 @@
  * @param {number} n
  * @return {number}
  */
-function countNumbersWithUniqueDigits(n) {
+export const countNumbersWithUniqueDigits = (n) => {
   if (n === 0) {
     return 1;
   }
@@ -16,5 +16,4 @@ function countNumbersWithUniqueDigits(n) {
     temp--;
   }
   return count + countNumbersWithUniqueDigits(n - 1);
-}
-export { countNumbersWithUniqueDigits };
+};

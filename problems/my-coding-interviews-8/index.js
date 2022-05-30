@@ -25,7 +25,7 @@ function checkNumber(func) {
  * @param {string} y
  * @returns {string}
  */
-const add = checkNumber((x, y) => {
+export const add = checkNumber((x, y) => {
   let ans = "";
   let car = 0;
   const len = Math.max(x.length, y.length);
@@ -45,7 +45,7 @@ const add = checkNumber((x, y) => {
  * @param {string} y
  * @returns {string}
  */
-const multi = checkNumber((x, y) => {
+export const multi = checkNumber((x, y) => {
   checkNumber(x);
   checkNumber(y);
   let ans = "";
@@ -65,7 +65,7 @@ const multi = checkNumber((x, y) => {
  * @param {string} y
  * @returns {string}
  */
-const multiply = checkNumber((x, y) => {
+export const multiply = checkNumber((x, y) => {
   checkNumber(x);
   checkNumber(y);
   let ans = "0";
@@ -76,4 +76,3 @@ const multiply = checkNumber((x, y) => {
   }
   return ans;
 });
-export { add, multi, multiply };

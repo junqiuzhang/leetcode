@@ -1,7 +1,7 @@
 /**
  * 标签：堆
  */
-class KthHeap {
+export class KthHeap {
   constructor({ k, items, compare }) {
     this.heap = [];
     this.k = k;
@@ -102,13 +102,13 @@ class KthHeap {
   }
 }
 
-function KthLargest(k, nums) {
+export function KthLargest(k, nums) {
   kHp = new KthHeap({ k, items: nums, compare: (a, b) => a > b });
   kHp.add = kHp.push;
   return kHp;
 }
 
-function KthSmallest(k, nums) {
+export function KthSmallest(k, nums) {
   const kHp = new KthHeap({ k, items: nums, compare: (a, b) => a < b });
   kHp.add = kHp.push;
   return this;
@@ -119,5 +119,3 @@ function KthSmallest(k, nums) {
  * var obj = new KthLargest(k, nums)
  * var param_1 = obj.push(val)
  */
-
-export default KthHeap;

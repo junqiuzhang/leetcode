@@ -2,7 +2,7 @@
  * @param {string} s
  * @return {number[]}
  */
-function diStringMatch(s) {
+export const diStringMatch = (s) => {
   let min = 0;
   let max = s.length;
   const ans = [];
@@ -17,5 +17,4 @@ function diStringMatch(s) {
   }
   ans.push(min);
   return ans;
-}
-export { diStringMatch };
+};

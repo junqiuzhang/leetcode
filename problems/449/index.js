@@ -13,12 +13,12 @@ import { tree2array, array2tree } from "../../problems/common/index.js";
  * @param {TreeNode} root
  * @return {string}
  */
-function serialize(root) {
+export const serialize = (root) => {
   if (!root) return "[]";
   return `[${tree2array(root)
     .map((n) => (n === null ? "null" : new String(n)))
     .join(",")}]`;
-}
+};
 
 /**
  * Decodes your encoded data to tree.
@@ -26,7 +26,7 @@ function serialize(root) {
  * @param {string} data
  * @return {TreeNode}
  */
-function deserialize(data) {
+export const deserialize = (data) => {
   if (data === "[]") return null;
   return array2tree(
     data
@@ -34,11 +34,9 @@ function deserialize(data) {
       .split(",")
       .map((s) => (s === "null" ? null : new Number(s)))
   );
-}
+};
 
 /**
  * Your functions will be called as such:
  * deserialize(serialize(root));
  */
-
-export { serialize, deserialize };

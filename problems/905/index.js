@@ -4,33 +4,33 @@
  * @param {number} index
  * @param {(value: number) => boolean} condition
  */
-function findIndex(nums, index, condition) {
+export const findIndex = (nums, index, condition) => {
   const len = nums.length;
   let i = index;
   while (i < len && !condition(nums[i])) {
     i++;
   }
   return i;
-}
+};
 /**
  * @param {number[]} nums
  * @param {number} index
  */
-function findEvenIndex(nums, index) {
+export const findEvenIndex = (nums, index) => {
   return findIndex(nums, index, (num) => !(num & 1));
-}
+};
 /**
  * @param {number[]} nums
  * @param {number} index
  */
-function findOddIndex(nums, index) {
+export const findOddIndex = (nums, index) => {
   return findIndex(nums, index, (num) => num & 1);
-}
+};
 /**
  * @param {number[]} nums
  * @return {number[]}
  */
-function sortArrayByParity(nums) {
+export const sortArrayByParity = (nums) => {
   let oddIndex = 0;
   let evenIndex = 0;
   const len = nums.length;
@@ -40,5 +40,4 @@ function sortArrayByParity(nums) {
     evenIndex = findEvenIndex(nums, Math.max(oddIndex, evenIndex));
   }
   return nums;
-}
-export { findIndex, findEvenIndex, findOddIndex, sortArrayByParity };
+};

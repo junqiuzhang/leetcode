@@ -5,7 +5,7 @@
  * @param {number[]} nums
  * @return {number}
  */
-var findMin = function (nums) {
+export const findMin = (nums) => {
   let left = 0;
   let right = nums.length - 1;
   let middle = Math.floor((left + right) / 2);
@@ -19,4 +19,3 @@ var findMin = function (nums) {
   }
   return Math.min(nums[left], nums[right]);
 };
-export default findMin;
