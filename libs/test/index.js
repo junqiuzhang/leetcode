@@ -12,19 +12,19 @@ const stringify = (param) => {
     str = toString(param);
   }
   return str;
-}
+};
 const isSameValue = (actualValue, expectedValue) => {
   if (isObject(actualValue) && isObject(expectedValue)) {
     return isEqual(actualValue, expectedValue);
   }
   return actualValue === expectedValue;
-}
+};
 const isSameError = (actualError, expectedError) => {
   if (isObject(actualError) && isObject(expectedError)) {
     return actualError.message === expectedError.message;
   }
   return actualError === expectedError;
-}
+};
 
 export const expect = (func, ...args) => {
   testCount++;
@@ -61,22 +61,24 @@ export const expect = (func, ...args) => {
       return;
     },
   };
-}
+};
 
 export const it = (name, callback) => {
   testCount = 0;
   passedTestCount = 0;
   failedTestInfo = [];
-  console.log(`Problem ${name}`);
   const start = performance.now();
   callback();
   const end = performance.now();
   console.log(
-    `    ${passedTestCount} tests passed
+    `Problem ${name}
+    ${passedTestCount} tests passed
     ${failedTestInfo.length} tests failed
-    average ${((end - start) / testCount).toFixed(2)} ms`
+    average ${((end - start) / testCount).toFixed(2)} ms
+    ${
+      failedTestInfo.length > 0
+        ? failedTestInfo.map((info) => `Error: ${info}`).join("\n    ")
+        : ``
+    }`
   );
-  if (failedTestInfo.length > 0) {
-    failedTestInfo.map((info) => console.error(`Error: ${info}`));
-  }
-}
+};
