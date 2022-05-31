@@ -8,7 +8,7 @@
  */
 const plusOne = (digits) => {
     digits[digits.length - 1]++;
-    for (var i = digits.length - 2; i >= 0; i--) {
+    for (let i = digits.length - 2; i >= 0; i--) {
         if (digits[i + 1] > 9) {
             digits[i + 1] = 0;
             digits[i]++;

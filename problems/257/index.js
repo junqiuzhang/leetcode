@@ -16,11 +16,11 @@ const binaryTreePaths = (root) => {
     if (!root.left && !root.right) {
         return [root.val.toString()];
     }
-    var res = [];
-    var cur = root;
-    var stack = [];
-    var leftState = false;
-    var rightState = false;
+    let res = [];
+    let cur = root;
+    let stack = [];
+    let leftState = false;
+    let rightState = false;
     do {
         leftState = cur.left && !cur.left.visit;
         rightState = cur.right && !cur.right.visit;

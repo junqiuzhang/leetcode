@@ -25,10 +25,10 @@ const merge = (nums1, m, nums2, n) => {
     if (nums2.length == 0) {
         return nums1;
     }
-    var nums3 = [];
-    var i = 0;
-    var j = 0;
-    for (var k = 0; k < m + n; k++) {
+    let nums3 = [];
+    let i = 0;
+    let j = 0;
+    for (let k = 0; k < m + n; k++) {
         if (i >= m || nums1[i] > nums2[j]) {
             nums3[k] = nums2[j];
             j++;
@@ -37,7 +37,7 @@ const merge = (nums1, m, nums2, n) => {
         nums3[k] = nums1[i];
         i++;
     }
-    for (var k = 0; k < m + n; k++) {
+    for (let k = 0; k < m + n; k++) {
         nums1[k] = nums3[k];
     }
     return nums3;

@@ -21,17 +21,17 @@ const isPalindrome = (head) => {
       return head.val == head.next.val;
     } 
     // 获得链表长度
-    var len = 0;
-    var temp = head;
+    let len = 0;
+    let temp = head;
     while (temp) {
         temp = temp.next;
         len++;
     }
     // 翻转前半部分链表
-    var before = head;
+    let before = head;
     temp = head.next;
-    var next = head.next.next;
-    var i = 0;
+    let next = head.next.next;
+    let i = 0;
     head.next = null;
     while (temp && i < len/2 - 1) {
         next = temp && temp.next;

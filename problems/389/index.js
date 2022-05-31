@@ -8,8 +8,8 @@
  * @return {character}
  */
 const findTheDifference = (s, t) => {
-    var temp = [];
-    var i = 0;
+    let temp = [];
+    let i = 0;
     for (i = 0; i < t.length; i++) {
         if (typeof temp[t[i].charCodeAt() - 97] == 'number') {
             temp[t[i].charCodeAt() - 97]++;

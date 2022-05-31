@@ -11,10 +11,10 @@ const isIsomorphic = (s, t) => {
     if (!s && !t) {
         return true;
     }
-    var S2T = {};
-    var T2S = {};
-    var tempS, tempT;
-    for (var i = 0; i < s.length; i++) {
+    let S2T = {};
+    let T2S = {};
+    let tempS, tempT;
+    for (let i = 0; i < s.length; i++) {
         tempS = s[i];
         tempT = t[i];
         if (!S2T[tempS] && !T2S[tempT]) {

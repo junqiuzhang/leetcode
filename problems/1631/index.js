@@ -94,5 +94,5 @@ const minimumEffortPath = (heights) => {
   }
   return 0;
 }
-var heights = [[1,2,2],[3,8,2],[5,3,5]]
+let heights = [[1,2,2],[3,8,2],[5,3,5]]
 console.log(minimumEffortPath(heights));

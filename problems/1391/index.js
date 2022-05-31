@@ -141,11 +141,11 @@ const hasValidPath = (grid) => {
   }
   return false;
 }
-// var grid = [[2,4,3],[6,5,2]]; // true
-// var grid = [[1,2,1],[1,2,1]] // false
-// var grid = [[1,1,2]] // false
-// var grid = [[1,1,1,1,1,1,3]] // true
-// var grid = [[2],[2],[2],[2],[2],[2],[6]] // true
-// var grid = [[4, 1],[6, 1]]; // true
-// var grid = [[1]] // true
-// var grid = [[2, 6]]; // false
+// let grid = [[2,4,3],[6,5,2]]; // true
+// let grid = [[1,2,1],[1,2,1]] // false
+// let grid = [[1,1,2]] // false
+// let grid = [[1,1,1,1,1,1,3]] // true
+// let grid = [[2],[2],[2],[2],[2],[2],[6]] // true
+// let grid = [[4, 1],[6, 1]]; // true
+// let grid = [[1]] // true
+// let grid = [[2, 6]]; // false

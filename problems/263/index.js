@@ -7,7 +7,7 @@
  * @return {boolean}
  */
 const isUgly = (num) => {
-  var temp = num;
+  let temp = num;
   if (temp == 0) return false;
   while (!(temp % 2) || !(temp % 3) || !(temp % 5)) {
       if (!(temp % 2)) temp = temp / 2;

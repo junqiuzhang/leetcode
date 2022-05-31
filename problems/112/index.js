@@ -21,11 +21,11 @@ const hasPathSum = (root, sum) => {
     if (!root.left && !root.right) {
         return root.val == sum;
     }
-    var cur = root;
-    var tempSum = 0;
-    var stack = [];
-    var leftState = false;
-    var rightState = false;
+    let cur = root;
+    let tempSum = 0;
+    let stack = [];
+    let leftState = false;
+    let rightState = false;
     do {
         leftState = cur.left && !cur.left.visit;
         rightState = cur.right && !cur.right.visit;

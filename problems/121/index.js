@@ -10,11 +10,11 @@ const maxProfit = (prices) => {
     if (!prices.length) {
         return 0;
     }
-    var minPrice = Infinity;
-    var maxPrice = -Infinity;
-    var max = 0;
-    var len = prices.length;
-    for (var i = 0; i < len; i++) {
+    let minPrice = Infinity;
+    let maxPrice = -Infinity;
+    let max = 0;
+    let len = prices.length;
+    for (let i = 0; i < len; i++) {
         if (prices[i] < minPrice) {
             if (maxPrice - minPrice > max) {
                 max = maxPrice - minPrice;

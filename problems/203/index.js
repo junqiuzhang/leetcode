@@ -18,11 +18,11 @@ const removeElements = (head, val) => {
     if (!head) {
         return null;
     }
-    var before = {
+    let before = {
         val: Infinity,
         next: head
     };
-    var temp = head;
+    let temp = head;
     while (temp) {
         if (temp.val == val) {
             if (temp == head) {

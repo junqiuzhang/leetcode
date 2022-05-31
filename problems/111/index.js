@@ -24,16 +24,16 @@ const minDepth = (root) => {
         if (!r.left && !r.right) {
             return 1;
         }
-        var leftDepth = Infinity;
+        let leftDepth = Infinity;
         if (r.left && typeof r.left.val === 'number') {
             leftDepth = getMinDepth(r.left);
         }
-        var rightDepth = Infinity;
+        let rightDepth = Infinity;
         if (r.right && typeof r.right.val === 'number') {
             rightDepth = getMinDepth(r.right);
         }
         return Math.min(leftDepth, rightDepth) + 1;
     }
-    var rootDepth = getMinDepth(root);
+    let rootDepth = getMinDepth(root);
     return rootDepth;
 };

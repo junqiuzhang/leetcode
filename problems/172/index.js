@@ -7,8 +7,8 @@
  * @return {number}
  */
 const trailingZeroes = (n) => {
-    var res = 0;
-    var temp = n;
+    let res = 0;
+    let temp = n;
     while (temp >= 5) {
         res += Math.floor(temp / 5);
         temp /= 5;

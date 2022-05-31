@@ -7,9 +7,9 @@
  * @return {number}
  */
 const minMoves = (nums) => {
-  var min = Infinity;
-  var sum = 0;
-  var len = nums.length;
+  let min = Infinity;
+  let sum = 0;
+  let len = nums.length;
   for (let i = 0; i < len; i++) {
     sum += nums[i];
     if (nums[i] < min) {

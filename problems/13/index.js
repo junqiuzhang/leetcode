@@ -7,9 +7,9 @@
  * @return {number}
  */
 const romanToInt = (s) => {
-    var i = s.length - 1;
-    var num = 0;
-    var numMap = {
+    let i = s.length - 1;
+    let num = 0;
+    let numMap = {
         I: 1,
         V: 5,
         X: 10,
@@ -18,8 +18,8 @@ const romanToInt = (s) => {
         D: 500,
         M: 1000
     };
-    var pre = 0;
-    var cur = 0;
+    let pre = 0;
+    let cur = 0;
     while (i > -1) {
         cur = numMap[s[i]];
         if (cur >= pre) {

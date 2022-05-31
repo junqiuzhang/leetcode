@@ -15,9 +15,9 @@ const lowestCommonAncestor = (root, p, q) => {
   if (!root || !p || !q) {
     return root;
   }
-  var res = root;
-  var pPosition = Math.sign(p.val - res.val);
-  var qPosition = Math.sign(q.val - res.val);
+  let res = root;
+  let pPosition = Math.sign(p.val - res.val);
+  let qPosition = Math.sign(q.val - res.val);
   while (pPosition == qPosition) {
     if (pPosition == -1) {
       res = res.left;

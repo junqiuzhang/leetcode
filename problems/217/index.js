@@ -7,9 +7,9 @@
  * @return {boolean}
  */
 const containsDuplicate = (nums) => {
-    var len = nums.length;
-    var numberMap = {};
-    var temp;
+    let len = nums.length;
+    let numberMap = {};
+    let temp;
     for (i = 0; i < len; i++) {
         temp = nums[i];
         if (numberMap[`${temp}`]) {

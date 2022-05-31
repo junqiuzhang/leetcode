@@ -8,12 +8,12 @@
  * @return {void} Do not return anything, modify nums in-place instead.
  */
 const rotate = (nums, k) => {
-    var len = nums.length;
-    var i = len;
-    var first = len;
-    var count = 0;
-    var temp = 0;
-    var tempI = len;
+    let len = nums.length;
+    let i = len;
+    let first = len;
+    let count = 0;
+    let temp = 0;
+    let tempI = len;
     do {
         first = --i;
         temp = nums[i];

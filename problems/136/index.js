@@ -7,8 +7,8 @@
  * @return {number}
  */
 const singleNumber = (nums) => {
-    var res = 0;
-    var len = nums.length;
+    let res = 0;
+    let len = nums.length;
     for (let i = 0; i < len; i++) {
         res = res ^ nums[i];
     }

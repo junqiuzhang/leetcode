@@ -7,10 +7,10 @@
  * @return {number}
  */
 const majorityElement = (nums) => {
-    var map = {};
-    var len = nums.length;
-    var tempNum = 0;
-    for (var i = 0; i < len; i++) {
+    let map = {};
+    let len = nums.length;
+    let tempNum = 0;
+    for (let i = 0; i < len; i++) {
         tempNum = nums[i];
         if (!map[tempNum]) {
             map[tempNum] = 1;

@@ -7,11 +7,11 @@
  * @return {boolean}
  */
 const isHappy = (n) => {
-    var map = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81];
-    var cantMap = [true,,true,,true,true,,,true];
-    var temp = n;
-    var num = 0;
-    var sum = 0;
+    let map = [0, 1, 4, 9, 16, 25, 36, 49, 64, 81];
+    let cantMap = [true,,true,,true,true,,,true];
+    let temp = n;
+    let num = 0;
+    let sum = 0;
     while (!cantMap[temp]) {
         sum = 0;
         while (temp >= 1) {

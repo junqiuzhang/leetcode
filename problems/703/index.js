@@ -116,6 +116,6 @@ export const KthSmallest = (k, nums) => {
 
 /**
  * Your KthLargest object will be instantiated and called as such:
- * var obj = new KthLargest(k, nums)
- * var param_1 = obj.push(val)
+ * let obj = new KthLargest(k, nums)
+ * let param_1 = obj.push(val)
  */

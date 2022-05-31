@@ -7,9 +7,9 @@
  * @return {number}
  */
 const missingNumber = (nums) => {
-    var max = 0;
-    var sum = 0;
-    for (var i = 0; i < nums.length; i++) {
+    let max = 0;
+    let sum = 0;
+    for (let i = 0; i < nums.length; i++) {
         if (nums[i] > max) {
             max = nums[i];
         }

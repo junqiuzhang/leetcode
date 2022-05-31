@@ -8,15 +8,15 @@
  */
 const compress = (chars) => {
   // 字符串操作 最快
-  for (var i = 0; i < chars.length; i++) {
+  for (let i = 0; i < chars.length; i++) {
     if (chars[i + 1] !== chars[i]) {
       i++;
       chars.splice(i, 0, '$$$$$$');
     }
   }
-  var tempChars = chars.join('').split('$$$$$$').filter(c => c);
-  var tempLength = 0;
-  for (var i = 0; i < tempChars.length; i++) {
+  let tempChars = chars.join('').split('$$$$$$').filter(c => c);
+  let tempLength = 0;
+  for (let i = 0; i < tempChars.length; i++) {
     chars[tempLength] = tempChars[i][0];
     tempLength++;
     if (tempChars[i].length > 1) {
@@ -24,8 +24,8 @@ const compress = (chars) => {
         chars[tempLength] = String(tempChars[i].length);
         tempLength++;
       } else {
-        var tempNums = String(tempChars[i].length).split('');
-        for (var j = 0; j < tempNums.length; j++) {
+        let tempNums = String(tempChars[i].length).split('');
+        for (let j = 0; j < tempNums.length; j++) {
           chars[tempLength] = tempNums[j];
           tempLength++;
         }
@@ -42,11 +42,11 @@ const compress = (chars) => {
  */
 const compress2 = (chars) => {
   // 双指针遍历 次快
-  var writeIndex = 0;
-  var readIndex = 0;
-  var pre = chars[writeIndex];
-  var cur = chars[readIndex];
-  var num = 0;
+  let writeIndex = 0;
+  let readIndex = 0;
+  let pre = chars[writeIndex];
+  let cur = chars[readIndex];
+  let num = 0;
   while (readIndex <= chars.length) {
     cur = chars[readIndex];
     if (pre === cur) {
@@ -59,8 +59,8 @@ const compress2 = (chars) => {
           chars[writeIndex] = String(num);
           writeIndex++;
         } else {
-          var tempNums = String(num).split('');
-          for (var i = 0; i < tempNums.length; i++) {
+          let tempNums = String(num).split('');
+          for (let i = 0; i < tempNums.length; i++) {
             chars[writeIndex] = tempNums[i];
             writeIndex++;
           }

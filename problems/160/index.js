@@ -16,8 +16,8 @@
  * @return {ListNode}
  */
 const getIntersectionNode = (headA, headB) => {
-    var map = {};
-    var temp = headB;
+    let map = {};
+    let temp = headB;
     while (temp) {
         map[temp.val] = temp;
         temp = temp.next;

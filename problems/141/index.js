@@ -15,8 +15,8 @@
  * @return {boolean}
  */
 const hasCycle = (head) => {
-    var first = head;
-    var second = head;
+    let first = head;
+    let second = head;
     while (first && first.next && second) {
         first = first.next.next;
         second = second.next;

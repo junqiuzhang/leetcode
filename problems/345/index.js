@@ -7,7 +7,7 @@
  * @return {string}
  */
 const reverseVowels = (s) => {
-    var map = {
+    let map = {
         'a': true,
         'e': true,
         'i': true,
@@ -19,10 +19,10 @@ const reverseVowels = (s) => {
         'O': true,
         'U': true,
     }
-    var allArr = s.split('');
-    var vowelsArr = [];
-    var i = 0;
-    var len = allArr.length;
+    let allArr = s.split('');
+    let vowelsArr = [];
+    let i = 0;
+    let len = allArr.length;
     while (i < allArr.length) {
         if (map[allArr[i]]) {
             vowelsArr.push({ key: i, value: allArr[i] })

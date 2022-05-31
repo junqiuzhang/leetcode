@@ -29,13 +29,13 @@
 // };
 // 部分路径和（循环），叶子节点两个子节点均为null，两个子节点使stack pop两次，使sum - val两次，有问题
 // const pathSum = (root, sum) => {
-//     var Stack = [];
-//     var LoopStack = [];
-//     var Sum = 0;
-//     var LoopSum = 0;
-//     var Cur = root;
-//     var LoopCur = Cur;
-//     var total = 0;
+//     let Stack = [];
+//     let LoopStack = [];
+//     let Sum = 0;
+//     let LoopSum = 0;
+//     let Cur = root;
+//     let LoopCur = Cur;
+//     let total = 0;
 //     do {
 //         LoopStack = [];
 //         LoopSum = 0;
@@ -66,7 +66,7 @@
 // };
 // 部分路径和（递归）
 const pathSum = (root, sum) => {
-    var total = 0;
+    let total = 0;
     const calcSum = (r, n) => {
         if (r) {
             if (r.val == n) {

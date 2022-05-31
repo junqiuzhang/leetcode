@@ -20,9 +20,9 @@ const reverseList = (head) => {
     if (!head.next) {
         return head;
     }
-    var before = head;
-    var temp = head.next;
-    var next = head.next.next;
+    let before = head;
+    let temp = head.next;
+    let next = head.next.next;
     head.next = null;
     while (temp) {
         next = temp && temp.next;

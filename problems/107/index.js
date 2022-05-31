@@ -17,7 +17,7 @@ const levelOrderBottom = (root) => {
     if (!root) {
         return [];
     }
-    var nums = [];
+    let nums = [];
     const lob = (tree, nums, depth) => {
         if (!nums[depth] || typeof nums[depth].length !== 'number') {
             nums[depth] = [];

@@ -10,10 +10,10 @@ const countPrimes = (n) => {
     if (n < 2) {
         return 0;
     }
-    var num = [];
-    var sum = 0;
-    var primes = 2;
-    var i, j;
+    let num = [];
+    let sum = 0;
+    let primes = 2;
+    let i, j;
     while (primes < n) {
         sum++;
         for (i = primes; i < n; i += primes) {

@@ -13,9 +13,9 @@
 //     if (nums.length == 1) {
 //         return nums[0];
 //     }
-//     var temp = [];
+//     let temp = [];
 //     const getMax = (arr) => {
-//         var len = arr.length;
+//         let len = arr.length;
 //         if (len == 2) {
 //             if (arr[0] > arr[1]) {
 //                 temp[2] = arr[0];
@@ -32,12 +32,12 @@
 //             temp[2] = arr[1];
 //             return arr[1];
 //         }
-//         var diff1Max = temp[len - 1];
+//         let diff1Max = temp[len - 1];
 //         if (typeof diff1Max !== 'number') {
 //             temp[len - 1] = getMax(arr.slice(0, len - 1));
 //             diff1Max = temp[len - 1];
 //         }
-//         var diff2Max = temp[len - 2];
+//         let diff2Max = temp[len - 2];
 //         if (typeof diff2Max !== 'number') {
 //             temp[len - 2] = getMax(arr.slice(0, len - 2));
 //             diff2Max = temp[len - 2];

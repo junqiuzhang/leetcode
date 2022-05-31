@@ -23,9 +23,9 @@ const solution = (isBadVersion) => {
      */
     return (n) => {
         if (isBadVersion(1)) return 1;
-        var min = 1;
-        var max = n;
-        var mid = 0;
+        let min = 1;
+        let max = n;
+        let mid = 0;
         while (max - min > 1) {
             mid = Math.floor((min + max) / 2);
             if (isBadVersion(mid)) {

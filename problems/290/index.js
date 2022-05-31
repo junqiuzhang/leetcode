@@ -8,12 +8,12 @@
  * @return {boolean}
  */
 const wordPattern = (pattern, str) => {
-    var map = {};
-    var revMap = {};
-    var patArr = pattern.split('');
-    var strArr = str.split(' ');
+    let map = {};
+    let revMap = {};
+    let patArr = pattern.split('');
+    let strArr = str.split(' ');
     if (patArr.length != strArr.length) return false;
-    for (var i = 0; i < patArr.length; i++) {
+    for (let i = 0; i < patArr.length; i++) {
         if (!map[patArr[i]] && !revMap[strArr[i]]) {
             map[patArr[i]] = strArr[i];
             revMap[strArr[i]] = patArr[i];

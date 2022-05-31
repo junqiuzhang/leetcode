@@ -8,11 +8,11 @@
  * @return {number[]}
  */
 const intersection = (nums1, nums2) => {
-    var map = {};
-    var i;
-    var len1 = nums1.length;
-    var len2 = nums2.length;
-    var res = [];
+    let map = {};
+    let i;
+    let len1 = nums1.length;
+    let len2 = nums2.length;
+    let res = [];
     for (i = 0; i < len1; i++) {
         map[nums1[i]] = 1;
     }

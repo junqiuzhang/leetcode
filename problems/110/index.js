@@ -21,11 +21,11 @@ const isBalanced = (root) => {
         if (!r) {
             return 1;
         }
-        var leftDepth = getDepth(r.left);
+        let leftDepth = getDepth(r.left);
         if (!leftDepth) {
             return 0;
         }
-        var rightDepth = getDepth(r.right);
+        let rightDepth = getDepth(r.right);
         if (!rightDepth) {
             return 0;
         }
@@ -34,6 +34,6 @@ const isBalanced = (root) => {
         }
         return Math.max(leftDepth, rightDepth) + 1;
     }
-    var rootDepth = getDepth(root);
+    let rootDepth = getDepth(root);
     return !!rootDepth;
 };
