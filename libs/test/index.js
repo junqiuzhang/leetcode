@@ -42,7 +42,9 @@ export const expect = (func, ...args) => {
         return;
       }
       failedTestInfo.push(
-        `${stringify(actualValue)} is not equal to ${stringify(expectedValue)}
+        `
+        ${stringify(actualValue)} is not equal to
+        ${stringify(expectedValue)}
         arguments: ${stringify(args)}
         error detail: ${stringify(actualError)}`
       );
@@ -54,7 +56,9 @@ export const expect = (func, ...args) => {
         return;
       }
       failedTestInfo.push(
-        `${stringify(actualError)} is not equal to ${stringify(expectedError)}
+        `
+        ${stringify(actualError)} is not equal to
+        ${stringify(expectedError)}
         arguments: ${stringify(args)}
         error detail: ${stringify(actualError)}`
       );
