@@ -4,7 +4,9 @@
  * @return {number}
  */
 const maxUncrossedLines = (nums1, nums2) => {
-  const matrix = new Array(nums1.length).fill(0).map(i => new Array(nums2.length));
+  const matrix = new Array(nums1.length)
+    .fill(0)
+    .map((i) => new Array(nums2.length));
   for (let i = 0; i < nums1.length; i++) {
     nums1[i][0] = 0;
   }
@@ -15,7 +17,7 @@ const maxUncrossedLines = (nums1, nums2) => {
     if (i < 0 || j < 0) {
       return 0;
     }
-    if (typeof matrix[i][j] === 'number') {
+    if (typeof matrix[i][j] === "number") {
       return matrix[i][j];
     }
     if (nums1[i] === nums2[j]) {
@@ -28,6 +30,6 @@ const maxUncrossedLines = (nums1, nums2) => {
     const res = Math.max(res1, res2);
     matrix[i][j] = res;
     return matrix[i][j];
-  }
-  return calcUncrossedLines(nums1.length - 1, nums2.length - 1)
+  };
+  return calcUncrossedLines(nums1.length - 1, nums2.length - 1);
 };

@@ -9,4 +9,4 @@ const distributeCandies = (candyType) => {
     candySet.add(candy);
   }
   return Math.min(candySet.size, candyType.length / 2);
-}
+};

@@ -31,4 +31,4 @@ const searchMatrix = (matrix, target) => {
     }
   }
   return false;
-}
+};

@@ -21,16 +21,16 @@ const numMatchingSubseq = (s, words) => {
     }
   }
   return res;
-}
+};
 const isMatch = (reg, map) => {
   let cur = 0;
-  const is = (value) => (value >= cur)
+  const is = (value) => value >= cur;
   for (let i = 0; i < reg.length; i++) {
-    let arr = map.get(reg[i])
-    if (!Array.isArray(arr)) return false
-    const index = arr.findIndex(is)
-    if (index === -1) return false
-    cur = arr[index] + 1
+    let arr = map.get(reg[i]);
+    if (!Array.isArray(arr)) return false;
+    const index = arr.findIndex(is);
+    if (index === -1) return false;
+    cur = arr[index] + 1;
   }
   return true;
-}
+};

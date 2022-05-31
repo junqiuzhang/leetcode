@@ -10,7 +10,7 @@ const getIndex = (head) => {
     i++;
   }
   return i;
-}
+};
 /**
  * @param {Node} head
  * @return {number}
@@ -26,7 +26,7 @@ const getNode = (head, index) => {
     i++;
   }
   return null;
-}
+};
 /**
  * @param {Node} head
  * @return {Node}
@@ -51,4 +51,4 @@ const copyRandomList = (head) => {
     randomTemp = randomTemp.next;
   }
   return newHead.next;
-}
+};

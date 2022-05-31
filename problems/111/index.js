@@ -14,26 +14,26 @@
  * @return {number}
  */
 const minDepth = (root) => {
-    if (!root) {
-        return 0;
+  if (!root) {
+    return 0;
+  }
+  if (!root.left && !root.right) {
+    return 1;
+  }
+  const getMinDepth = (r) => {
+    if (!r.left && !r.right) {
+      return 1;
     }
-    if (!root.left && !root.right) {
-        return 1;
+    let leftDepth = Infinity;
+    if (r.left && typeof r.left.val === "number") {
+      leftDepth = getMinDepth(r.left);
     }
-    const getMinDepth = (r) => {
-        if (!r.left && !r.right) {
-            return 1;
-        }
-        let leftDepth = Infinity;
-        if (r.left && typeof r.left.val === 'number') {
-            leftDepth = getMinDepth(r.left);
-        }
-        let rightDepth = Infinity;
-        if (r.right && typeof r.right.val === 'number') {
-            rightDepth = getMinDepth(r.right);
-        }
-        return Math.min(leftDepth, rightDepth) + 1;
+    let rightDepth = Infinity;
+    if (r.right && typeof r.right.val === "number") {
+      rightDepth = getMinDepth(r.right);
     }
-    let rootDepth = getMinDepth(root);
-    return rootDepth;
+    return Math.min(leftDepth, rightDepth) + 1;
+  };
+  let rootDepth = getMinDepth(root);
+  return rootDepth;
 };

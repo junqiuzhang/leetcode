@@ -34,4 +34,4 @@ const minCostClimbingStairs = (cost) => {
   }
   // 离开第 cost.length 层 === 到达楼顶
   return cache[cost.length];
-}
+};

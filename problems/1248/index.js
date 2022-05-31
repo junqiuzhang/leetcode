@@ -9,7 +9,7 @@ const numberOfSubarrays = (nums, k) => {
   for (let i = 0; i < nums.length; i++) {
     const n = nums[i];
     if (n % 2) {
-      odds.push(i)
+      odds.push(i);
     }
   }
   odds.push(nums.length);

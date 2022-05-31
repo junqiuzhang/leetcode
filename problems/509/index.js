@@ -43,4 +43,4 @@ const cache = new Int32Array([
  */
 const fib = (n) => {
   return cache[n];
-}
+};

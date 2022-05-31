@@ -14,20 +14,24 @@
  * @return {boolean}
  */
 const isSymmetric = (root) => {
-    const isSym = (p, q) => {
-        if (!p || !q) {
-            return p === q;
-        }
-        if (typeof p.val === 'number' && typeof q.val === 'number' && p.val !== q.val) {
-            return false;
-        }
-        return isSym(p.left, q.right) && isSym(p.right, q.left);
+  const isSym = (p, q) => {
+    if (!p || !q) {
+      return p === q;
     }
-    if (!root) {
-        return true;
+    if (
+      typeof p.val === "number" &&
+      typeof q.val === "number" &&
+      p.val !== q.val
+    ) {
+      return false;
     }
-    if (!root.left || !root.right) {
-        return root.left === root.right;
-    }
-    return isSym(root.left, root.right);
+    return isSym(p.left, q.right) && isSym(p.right, q.left);
+  };
+  if (!root) {
+    return true;
+  }
+  if (!root.left || !root.right) {
+    return root.left === root.right;
+  }
+  return isSym(root.left, root.right);
 };

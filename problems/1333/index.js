@@ -5,15 +5,20 @@
  * @param {number} maxDistance
  * @return {number[]}
  */
-const filterRestaurants = (restaurants, veganFriendly, maxPrice, maxDistance) => {
+const filterRestaurants = (
+  restaurants,
+  veganFriendly,
+  maxPrice,
+  maxDistance
+) => {
   return restaurants
-    .filter(rest => {
+    .filter((rest) => {
       return !veganFriendly || rest[2] === veganFriendly;
     })
-    .filter(rest => {
+    .filter((rest) => {
       return rest[3] <= maxPrice;
     })
-    .filter(rest => {
+    .filter((rest) => {
       return rest[4] <= maxDistance;
     })
     .sort((a, b) => {
@@ -21,7 +26,7 @@ const filterRestaurants = (restaurants, veganFriendly, maxPrice, maxDistance) =>
       const d = b[0] - a[0];
       return c === 0 ? d : c;
     })
-    .map(rest => {
+    .map((rest) => {
       return rest[0];
-    })
+    });
 };

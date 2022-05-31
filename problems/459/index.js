@@ -13,7 +13,7 @@ const repeatedSubstringPattern = (s) => {
   const len = s.length;
   const max = Math.sqrt(len);
   let nums = [];
-  for (let i = 1; i <= max; i ++) {
+  for (let i = 1; i <= max; i++) {
     if (len % i === 0) {
       nums.push(i);
       if (len / i !== len && len / i !== i) {
@@ -23,7 +23,7 @@ const repeatedSubstringPattern = (s) => {
   }
   for (let i = 0; i < nums.length; i++) {
     let res = true;
-    for (let j = 0; j + nums[i] < s.length; j+=nums[i]) {
+    for (let j = 0; j + nums[i] < s.length; j += nums[i]) {
       if (s.slice(j, j + nums[i]) !== s.slice(j + nums[i], j + 2 * nums[i])) {
         res = false;
         break;

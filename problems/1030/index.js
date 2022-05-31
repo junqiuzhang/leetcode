@@ -13,7 +13,7 @@ const allCellsDistOrder = (R, C, r0, c0) => {
       return true;
     }
     return false;
-  }
+  };
   // x+y的移动距离
   for (let i = 0; i < len; i++) {
     // x的移动距离

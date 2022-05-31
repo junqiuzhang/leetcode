@@ -15,46 +15,45 @@
  * @return {boolean}
  */
 const hasPathSum = (root, sum) => {
-    if (!root) {
-        return false;
-    }
-    if (!root.left && !root.right) {
-        return root.val == sum;
-    }
-    let cur = root;
-    let tempSum = 0;
-    let stack = [];
-    let leftState = false;
-    let rightState = false;
-    do {
-        leftState = cur.left && !cur.left.visit;
-        rightState = cur.right && !cur.right.visit;
-        if (!cur.visit) {
-            cur.visit = true;
-            tempSum += cur.val;
-            stack.push(cur);
-            if (leftState) {
-                cur = cur.left;
-            } else if (rightState) {
-                cur = cur.right;
-            }
-        } else {
-            if (leftState) {
-                cur = cur.left;
-            } else if (rightState) {
-                cur = cur.right;
-            } else {
-                if (!cur.left && !cur.right) {
-                    if (tempSum == sum) {
-                        return true;
-                    }
-                }
-                tempSum -= cur.val;
-                stack.pop();
-                cur = stack[stack.length - 1];
-            }
-        }
-
-    } while (stack.length > 0 && cur)
+  if (!root) {
     return false;
+  }
+  if (!root.left && !root.right) {
+    return root.val == sum;
+  }
+  let cur = root;
+  let tempSum = 0;
+  let stack = [];
+  let leftState = false;
+  let rightState = false;
+  do {
+    leftState = cur.left && !cur.left.visit;
+    rightState = cur.right && !cur.right.visit;
+    if (!cur.visit) {
+      cur.visit = true;
+      tempSum += cur.val;
+      stack.push(cur);
+      if (leftState) {
+        cur = cur.left;
+      } else if (rightState) {
+        cur = cur.right;
+      }
+    } else {
+      if (leftState) {
+        cur = cur.left;
+      } else if (rightState) {
+        cur = cur.right;
+      } else {
+        if (!cur.left && !cur.right) {
+          if (tempSum == sum) {
+            return true;
+          }
+        }
+        tempSum -= cur.val;
+        stack.pop();
+        cur = stack[stack.length - 1];
+      }
+    }
+  } while (stack.length > 0 && cur);
+  return false;
 };

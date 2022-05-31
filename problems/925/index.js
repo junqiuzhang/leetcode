@@ -8,7 +8,7 @@ const isLongPressedName = (name, typed) => {
   const typedArr = string2array(typed);
   const string2array = (str) => {
     const arr = [];
-    let preChar = '';
+    let preChar = "";
     let preCount = 1;
     for (let i = 0; i <= str.length; i++) {
       const char = str[i];
@@ -21,7 +21,7 @@ const isLongPressedName = (name, typed) => {
       }
     }
     return arr;
-  }
+  };
   if (nameArr.length !== typedArr.length) {
     return false;
   }

@@ -17,7 +17,7 @@ const findContentChildren = (g, s) => {
       return 1;
     }
     return 0;
-  }
+  };
   g.sort(compare);
   s.sort(compare);
   let res = 0;

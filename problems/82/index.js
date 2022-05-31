@@ -1,4 +1,4 @@
-import { array2list, ListNode } from '../common/index.js';
+import { array2list, ListNode } from "../common/index.js";
 /**
  * @param {string | Array<T>} items
  * @return {[string | Array<T>, string | T]}
@@ -23,7 +23,7 @@ const removeDuplicates = (items) => {
   } else {
     return [uniqueItems.concat([lastItem]), lastItem];
   }
-}
+};
 /**
  * Definition for singly-linked list.
  * const ListNode = (val, next) => {
@@ -44,4 +44,4 @@ const deleteDuplicates = (head) => {
   const [removedArr] = removeDuplicates(arr);
   const removedHead = array2list(removedArr);
   return removedHead;
-}
+};

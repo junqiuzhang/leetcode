@@ -11,7 +11,7 @@ const getMatrixDefault = (mat, i, j) => {
     return 0;
   }
   return mat[i][j];
-}
+};
 /**
  * @param {number[][]} mat
  * @param {number} i
@@ -31,7 +31,7 @@ const getMatrixClosest = (mat, i, j) => {
     j = columns - 1;
   }
   return mat[i][j];
-}
+};
 /**
  * @param {number[][]} mat
  * @param {number} k
@@ -61,4 +61,4 @@ const matrixBlockSum = (mat, k) => {
     }
   }
   return sumMat;
-}
+};

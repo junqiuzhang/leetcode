@@ -19,4 +19,4 @@ const canVisitAllRooms = (rooms) => {
     }
   }
   return false;
-}
+};

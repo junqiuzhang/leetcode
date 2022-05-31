@@ -1,15 +1,15 @@
-import { calculate } from '../227/index.js';
-const OperateArray = ['*', '/', '+', '-'];
+import { calculate } from "../227/index.js";
+const OperateArray = ["*", "/", "+", "-"];
 /**
  * @param {number} N
  * @return {number}
  */
 const clumsy = (N) => {
-  let str = '';
+  let str = "";
   for (let i = 0; i < N; i++) {
     str += N - i;
     str += OperateArray[i % 4];
   }
   str = str.slice(0, str.length - 1);
-  return calculate(str)
+  return calculate(str);
 };

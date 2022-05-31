@@ -9,7 +9,7 @@ const seat2status = (seat) => {
   const digit = Math.floor(seat[1] / 2) - 1;
   if (digit < 0 || digit > 3) return 0;
   return 1 << digit;
-}
+};
 /**
  * @param {number} status
  * @return {number}
@@ -22,7 +22,7 @@ const status2num = (status) => {
   } else {
     return 2;
   }
-}
+};
 /**
  * @param {number} n
  * @param {number[][]} reservedSeats
@@ -46,4 +46,4 @@ const maxNumberOfFamilies = (n, reservedSeats) => {
   }
   num -= status2num(status);
   return num;
-}
+};

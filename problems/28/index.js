@@ -29,4 +29,4 @@ const strStr = (haystack, needle) => {
     }
   }
   return -1;
-}
+};

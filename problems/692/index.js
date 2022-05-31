@@ -1,4 +1,4 @@
-import KthHeap from '../703/index.js';
+import KthHeap from "../703/index.js";
 /**
  * @param {string[]} words
  * @param {number} k
@@ -25,4 +25,4 @@ const topKFrequent = (words, k) => {
     freWords.push(hp.pop());
   }
   return freWords;
-}
+};

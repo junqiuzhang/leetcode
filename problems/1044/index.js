@@ -9,7 +9,7 @@ const isDupSubstring = (s, i, len) => {
     s.indexOf(s.substring(i, i + len)) !==
     s.lastIndexOf(s.substring(i, i + len))
   );
-}
+};
 /**
  * @param {string} s
  * @param {number} i
@@ -33,7 +33,7 @@ const findLongestDupSubstringLength = (s, i, len) => {
     }
   }
   return left;
-}
+};
 /**
  * @param {string} s
  * @return {string}
@@ -52,4 +52,4 @@ const longestDupSubstring = (s) => {
     }
   }
   return s.substring(start, end);
-}
+};

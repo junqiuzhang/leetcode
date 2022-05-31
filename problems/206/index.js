@@ -14,22 +14,22 @@
  * @return {ListNode}
  */
 const reverseList = (head) => {
-    if (!head) {
-        return null;
-    }
-    if (!head.next) {
-        return head;
-    }
-    let before = head;
-    let temp = head.next;
-    let next = head.next.next;
-    head.next = null;
-    while (temp) {
-        next = temp && temp.next;
-        temp.next = before;
-        before = temp;
-        temp = next;
-        next = temp && temp.next;
-    }
-    return before;
+  if (!head) {
+    return null;
+  }
+  if (!head.next) {
+    return head;
+  }
+  let before = head;
+  let temp = head.next;
+  let next = head.next.next;
+  head.next = null;
+  while (temp) {
+    next = temp && temp.next;
+    temp.next = before;
+    before = temp;
+    temp = next;
+    next = temp && temp.next;
+  }
+  return before;
 };

@@ -33,4 +33,4 @@ const search = (nums, target) => {
     }
   }
   return false;
-}
+};

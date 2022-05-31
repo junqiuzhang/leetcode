@@ -11,17 +11,17 @@ const numWaterBottles = (numBottles, numExchange) => {
     total += wines;
     bottles += wines;
     wines = 0;
-  }
+  };
   const exchange = () => {
     wines = Math.floor(bottles / numExchange);
     bottles = bottles % numExchange;
-  }
+  };
   while (wines > 0 || bottles > numExchange) {
     drink();
     exchange();
   }
   return total;
-}
+};
 /**
  * @param {number} numBottles
  * @param {number} numExchange
@@ -31,4 +31,4 @@ const numWaterBottles = (numBottles, numExchange) => {
   return numBottles >= numExchange
     ? (numBottles - numExchange) / (numExchange - 1) + 1 + numBottles
     : numBottles;
-}
+};

@@ -28,4 +28,4 @@ const addTwoNumbers = (l1, l2) => {
     tmp.next = new ListNode(c);
   }
   return h.next;
-}
+};

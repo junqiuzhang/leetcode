@@ -8,16 +8,16 @@
  */
 const findDisappearedNumbers = (nums) => {
   const changeNums = (num) => {
-    if (typeof num !== 'number') {
+    if (typeof num !== "number") {
       return;
     }
-    const nextNum = nums[num - 1];   
+    const nextNum = nums[num - 1];
     nums[num - 1] = false;
-    if (typeof nextNum !== 'number') {
+    if (typeof nextNum !== "number") {
       return;
     }
     changeNums(nextNum);
-  }
+  };
   for (let i = 0; i < nums.length; i++) {
     changeNums(nums[i]);
   }

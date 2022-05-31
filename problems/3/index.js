@@ -11,7 +11,7 @@ const lengthOfLongestSubstring = (s) => {
     if (j - i + 1 > maxLength) {
       maxLength = j - i + 1;
     }
-  }
+  };
   while (j < len) {
     const subString = s.substring(i, j);
     const subIndex = subString.indexOf(s[j]);
@@ -24,4 +24,4 @@ const lengthOfLongestSubstring = (s) => {
     j++;
   }
   return maxLength;
-}
+};

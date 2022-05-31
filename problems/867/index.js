@@ -14,4 +14,4 @@ const transpose = (matrix) => {
     }
   }
   return transMatrix;
-}
+};

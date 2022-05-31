@@ -14,46 +14,46 @@
  * @return {boolean}
  */
 const isPalindrome = (head) => {
-    if (!head || !head.next) {
-      return true;
-    }
-    if (!head.next.next) {
-      return head.val == head.next.val;
-    } 
-    // 获得链表长度
-    let len = 0;
-    let temp = head;
-    while (temp) {
-        temp = temp.next;
-        len++;
-    }
-    // 翻转前半部分链表
-    let before = head;
-    temp = head.next;
-    let next = head.next.next;
-    let i = 0;
-    head.next = null;
-    while (temp && i < len/2 - 1) {
-        next = temp && temp.next;
-        temp.next = before;
-        before = temp;
-        temp = next;
-        next = temp && temp.next;
-        i++;
-    }
-    // 链表个数为奇数时修正链表
-    if (len % 2) {
-        before = before.next;
-    }
-    // 对比前半部分链表和后半部分链表
-    i = 0;
-    while (temp && i < len/2) {
-        if (before.val != temp.val) {
-            return false;
-        }
-        before = before.next;
-        temp = temp.next;
-        i++;
-    }
+  if (!head || !head.next) {
     return true;
+  }
+  if (!head.next.next) {
+    return head.val == head.next.val;
+  }
+  // 获得链表长度
+  let len = 0;
+  let temp = head;
+  while (temp) {
+    temp = temp.next;
+    len++;
+  }
+  // 翻转前半部分链表
+  let before = head;
+  temp = head.next;
+  let next = head.next.next;
+  let i = 0;
+  head.next = null;
+  while (temp && i < len / 2 - 1) {
+    next = temp && temp.next;
+    temp.next = before;
+    before = temp;
+    temp = next;
+    next = temp && temp.next;
+    i++;
+  }
+  // 链表个数为奇数时修正链表
+  if (len % 2) {
+    before = before.next;
+  }
+  // 对比前半部分链表和后半部分链表
+  i = 0;
+  while (temp && i < len / 2) {
+    if (before.val != temp.val) {
+      return false;
+    }
+    before = before.next;
+    temp = temp.next;
+    i++;
+  }
+  return true;
 };

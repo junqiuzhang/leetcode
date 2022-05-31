@@ -9,7 +9,7 @@
 const strangePrinter = (s) => {
   const dp = new Array(s.length).fill(0).map((i) => new Array(s.length));
   const calculate = (i, j) => {
-    if (typeof dp[i][j] === 'number') {
+    if (typeof dp[i][j] === "number") {
       return dp[i][j];
     }
     if (j - i < 1) {
@@ -26,13 +26,13 @@ const strangePrinter = (s) => {
       }
     }
     if (s[i] === s[j]) {
-      const tempDP = calculate(i + 1, j)
+      const tempDP = calculate(i + 1, j);
       if (tempDP < currentDP) {
         currentDP = tempDP;
       }
     }
     dp[i][j] = currentDP;
     return dp[i][j];
-  }
+  };
   return calculate(0, s.length - 1);
-}
+};

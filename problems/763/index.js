@@ -10,7 +10,7 @@ const partitionLabels = (S) => {
     if (!charObj) {
       charObj = {
         start: i,
-        end: i
+        end: i,
       };
       charMap.set(char, charObj);
     } else {
@@ -21,7 +21,7 @@ const partitionLabels = (S) => {
     }
   }
   const charArr = [];
-  charMap.forEach(val => {
+  charMap.forEach((val) => {
     charArr.push(val);
   });
   let condition = true;
@@ -38,5 +38,5 @@ const partitionLabels = (S) => {
       }
     }
   }
-  return charArr.map(obj => obj.end - obj.start + 1)
+  return charArr.map((obj) => obj.end - obj.start + 1);
 };

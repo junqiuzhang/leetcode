@@ -7,18 +7,18 @@
  * @return {number}
  */
 const lengthOfLastWord = (s) => {
-    if (!s.trim()) {
-        return 0;
+  if (!s.trim()) {
+    return 0;
+  }
+  let len = 0;
+  for (let i = s.length - 1; i >= 0; i--) {
+    if (s[i] != " ") {
+      len++;
+    } else {
+      if (len > 0) {
+        return len;
+      }
     }
-    let len = 0;
-    for (let i = s.length - 1; i >= 0; i-- ) {
-        if (s[i] != ' ') {
-            len++;
-        } else {
-            if (len > 0) {
-                return len;
-            }
-        }
-    }
-    return len;
+  }
+  return len;
 };

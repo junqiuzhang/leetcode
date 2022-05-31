@@ -22,7 +22,7 @@ const countNodes = (root) => {
   const getLeafNode = (root, height, index) => {
     let temp = root;
     for (let i = 0; i < height - 1; i++) {
-      const isRight = index >> (height - i - 2) & 1;
+      const isRight = (index >> (height - i - 2)) & 1;
       if (isRight) {
         temp = temp.right;
       } else {
@@ -30,10 +30,10 @@ const countNodes = (root) => {
       }
     }
     return temp;
-  }
+  };
   let leftIndex = 0;
   let rightIndex = Math.pow(2, h - 1) - 1;
-  let middleIndex = Math.floor((leftIndex + rightIndex) / 2);;
+  let middleIndex = Math.floor((leftIndex + rightIndex) / 2);
   while (true) {
     const temp = getLeafNode(root, h, middleIndex);
     if (temp) {

@@ -106,13 +106,13 @@ export const KthLargest = (k, nums) => {
   kHp = new KthHeap({ k, items: nums, compare: (a, b) => a > b });
   kHp.add = kHp.push;
   return kHp;
-}
+};
 
 export const KthSmallest = (k, nums) => {
   const kHp = new KthHeap({ k, items: nums, compare: (a, b) => a < b });
   kHp.add = kHp.push;
   return this;
-}
+};
 
 /**
  * Your KthLargest object will be instantiated and called as such:

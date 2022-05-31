@@ -7,22 +7,24 @@
  * @return {number[]}
  */
 const constructRectangle = (area) => {
-  let middle = Math.floor(Math.sqrt(area))
+  let middle = Math.floor(Math.sqrt(area));
   if (area % 2 === 0 && middle % 2 !== 0) {
-    middle++
+    middle++;
   } else if (area % 2 !== 0 && middle % 2 === 0) {
-    middle++
+    middle++;
   }
-  let left = middle
-  let right = middle
+  let left = middle;
+  let right = middle;
   for (let i = middle; i > 0; i--) {
     if (area % right === 0) {
-      return area / right > right ? [area / right, right] : [right, area / right]
+      return area / right > right
+        ? [area / right, right]
+        : [right, area / right];
     } else if (area % left === 0) {
-      return area / left > left ? [area / left, left] : [left, area / left]
+      return area / left > left ? [area / left, left] : [left, area / left];
     }
-    left -= 2
-    right += 2
+    left -= 2;
+    right += 2;
   }
-  return []
+  return [];
 };

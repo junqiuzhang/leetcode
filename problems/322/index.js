@@ -51,4 +51,4 @@ const coinChange = (coins, amount) => {
     cache[i] = min + 1;
   }
   return cache[amount] !== Infinity ? cache[amount] : -1;
-}
+};

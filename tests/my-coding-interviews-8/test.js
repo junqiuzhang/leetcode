@@ -1,5 +1,9 @@
 import { it, expect } from "../../libs/test/index.js";
-import { add, multi, multiply } from "../../problems/my-coding-interviews-8/index.js";
+import {
+  add,
+  multi,
+  multiply,
+} from "../../problems/my-coding-interviews-8/index.js";
 it("my-coding-interviews-8: add", () => {
   expect(add, "0", "0").toBe("0");
   expect(add, "1", "1").toBe("2");
@@ -12,12 +16,16 @@ it("my-coding-interviews-8: multi", () => {
   expect(multi, "1", "1").toBe("1");
   expect(multi, "99", "9").toBe("891");
   expect(multi, "9", "99").toBe("81");
-  expect(multi, "-1", "-1").toErr("Error: arguments must be a positive number!");
+  expect(multi, "-1", "-1").toErr(
+    "Error: arguments must be a positive number!"
+  );
 });
 it("my-coding-interviews-8: multiply", () => {
   expect(multiply, "0", "0").toBe("0");
   expect(multiply, "1", "1").toBe("1");
   expect(multiply, "99", "9").toBe("891");
   expect(multiply, "9", "99").toBe("891");
-  expect(multiply, "-1", "-1").toErr("Error: arguments must be a positive number!");
+  expect(multiply, "-1", "-1").toErr(
+    "Error: arguments must be a positive number!"
+  );
 });

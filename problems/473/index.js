@@ -20,6 +20,6 @@ const makesquare = (matchsticks) => {
       }
     }
     return false;
-  }
+  };
   return dfs(0);
-}
+};

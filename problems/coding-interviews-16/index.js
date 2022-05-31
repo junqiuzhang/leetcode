@@ -40,4 +40,4 @@ const myPow = (x, n) => {
   //   return 1 / calc(x, -n);
   // }
   // return calc(x, n);
-}
+};

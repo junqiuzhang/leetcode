@@ -34,7 +34,7 @@ const getKthElement = (nums1, nums2, k) => {
       index2 = newIndex2 + 1;
     }
   }
-}
+};
 /**
  * @param {number[]} nums1
  * @param {number[]} nums2
@@ -54,4 +54,4 @@ const findMedianSortedArrays = (nums1, nums2) => {
       2;
     return median;
   }
-}
+};

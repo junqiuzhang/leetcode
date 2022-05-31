@@ -18,4 +18,4 @@ const removeDuplicates = (nums) => {
   }
   nums.length = index;
   return nums.length;
-}
+};

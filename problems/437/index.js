@@ -66,32 +66,31 @@
 // };
 // 部分路径和（递归）
 const pathSum = (root, sum) => {
-    let total = 0;
-    const calcSum = (r, n) => {
-        if (r) {
-            if (r.val == n) {
-                total++;
-            }  
-            if (r.left) {
-                calcSum(r.left, n - r.val);
-            }
-            if (r.right) {
-                calcSum(r.right, n - r.val);
-            }
-        }
+  let total = 0;
+  const calcSum = (r, n) => {
+    if (r) {
+      if (r.val == n) {
+        total++;
+      }
+      if (r.left) {
+        calcSum(r.left, n - r.val);
+      }
+      if (r.right) {
+        calcSum(r.right, n - r.val);
+      }
     }
-    const loopRoot = (r) => {
-        if (r) {
-            calcSum(r, sum);
-            if (r.left) {
-                loopRoot(r.left);
-            }
-            if (r.right) {
-                loopRoot(r.right);
-            }
-        }
+  };
+  const loopRoot = (r) => {
+    if (r) {
+      calcSum(r, sum);
+      if (r.left) {
+        loopRoot(r.left);
+      }
+      if (r.right) {
+        loopRoot(r.right);
+      }
     }
-    loopRoot(root);
-    return total;
+  };
+  loopRoot(root);
+  return total;
 };
-

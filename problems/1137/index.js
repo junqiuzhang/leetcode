@@ -20,4 +20,4 @@ const tribonacci = (n) => {
     t2 = temp;
   }
   return t2;
-}
+};

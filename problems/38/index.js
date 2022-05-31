@@ -24,7 +24,7 @@
 //   }
 //   return str;
 // }
-const cache = [, '1'];
+const cache = [, "1"];
 /**
  * @param {number} n
  * @return {string}
@@ -34,7 +34,7 @@ const countAndSay = (n) => {
     return cache[n];
   }
   let str = countAndSay(n - 1);
-  let nextStr = '';
+  let nextStr = "";
   let num = str[0];
   let count = 0;
   for (let j = 0; j <= str.length; j++) {
@@ -48,4 +48,4 @@ const countAndSay = (n) => {
   str = nextStr;
   cache[n] = str;
   return cache[n];
-}
+};

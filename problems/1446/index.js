@@ -5,8 +5,8 @@
 const maxPower = (s) => {
   let maxCount = 1;
   let curCount = 1;
-  let preChar = 'pre';
-  let curChar = 'cur';
+  let preChar = "pre";
+  let curChar = "cur";
   for (let i = 0; i < s.length; i++) {
     curChar = s[i];
     if (curChar !== preChar) {
@@ -23,4 +23,4 @@ const maxPower = (s) => {
     maxCount = curCount;
   }
   return maxCount;
-}
+};

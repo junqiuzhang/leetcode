@@ -9,7 +9,7 @@ const sum = (nums, div) => {
     sum += Math.ceil(nums[i] / div);
   }
   return sum;
-}
+};
 /**
  * @param {number[]} nums
  * @param {number} threshold
@@ -36,4 +36,4 @@ const smallestDivisor = (nums, threshold) => {
     }
   }
   return right;
-}
+};

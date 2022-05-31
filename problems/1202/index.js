@@ -1,4 +1,4 @@
-import { UnionFind } from '../common/index.js';
+import { UnionFind } from "../common/index.js";
 /**
  * @param {string} s
  * @param {number[][]} pairs
@@ -24,7 +24,7 @@ const smallestStringWithSwaps = (s, pairs) => {
     els.push(key);
     elsList.set(elRoot, els);
   });
-  const sArray = s.split('');
+  const sArray = s.split("");
   elsList.forEach((val) => {
     let chars = [];
     for (let i = 0; i < val.length; i++) {
@@ -35,5 +35,5 @@ const smallestStringWithSwaps = (s, pairs) => {
       sArray[val[i]] = chars[i];
     }
   });
-  return sArray.join('');
+  return sArray.join("");
 };

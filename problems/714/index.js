@@ -12,7 +12,7 @@ const maxProfit = (prices, fee) => {
   let minPrice = prices[0];
   let maxPrice = prices[0];
   for (let i = 1; i < prices.length; i++) {
-    if ((prices[i] < maxPrice - fee) || (prices[i] < minPrice)) {
+    if (prices[i] < maxPrice - fee || prices[i] < minPrice) {
       // 递增终止条件
       if (maxPrice - minPrice > fee) {
         stageArray.push(minPrice, maxPrice);

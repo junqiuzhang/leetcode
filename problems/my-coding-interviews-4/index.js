@@ -18,4 +18,4 @@ const find = (root, num) => {
   }
   // ans[0] 下界 ans[1] 上界
   return [down, up];
-}
+};

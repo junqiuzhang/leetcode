@@ -29,4 +29,4 @@ const minDeletionSize = (strs) => {
     }
   }
   return subLen - max;
-}
+};

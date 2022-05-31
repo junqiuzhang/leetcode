@@ -21,7 +21,7 @@ const sortByBits = (arr) => {
     const sortedLeft = quickSort(left, compare);
     const sortedRight = quickSort(right, compare);
     return sortedLeft.concat([middle]).concat(sortedRight);
-  }
+  };
   const compare = (a, b) => {
     if (a.len < b.len) {
       return true;
@@ -30,23 +30,23 @@ const sortByBits = (arr) => {
     } else {
       return false;
     }
-  }
+  };
   const hammingWeight = (n) => {
     let res = 0;
-    for (let i = 0; i < 32; i++){
+    for (let i = 0; i < 32; i++) {
       res += (n >> i) & 1; // 累加
     }
     return res;
   };
-  const formattedArr = arr.map(num => {
+  const formattedArr = arr.map((num) => {
     const len = hammingWeight(num);
     return {
       num,
-      len
-    }
-  })
+      len,
+    };
+  });
   const sortedArr = quickSort(formattedArr, compare);
-  return sortedArr.map(item => {
+  return sortedArr.map((item) => {
     return item.num;
-  })
+  });
 };

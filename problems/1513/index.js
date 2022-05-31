@@ -11,7 +11,7 @@ const numSub = (s) => {
 
   for (let i = 0; i < s.length; i++) {
     const char = s[i];
-    if (char === '1') {
+    if (char === "1") {
       preLength++;
       preIsOne = true;
     } else {
@@ -31,4 +31,4 @@ const numSub = (s) => {
   }
 
   return subNum;
-}
+};

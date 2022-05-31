@@ -12,4 +12,4 @@ const repeatedNTimes = (nums) => {
     numSet.add(num);
   }
   return 0;
-}
+};

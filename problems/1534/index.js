@@ -18,4 +18,4 @@ const countGoodTriplets = (arr, a, b, c) => {
     }
   }
   return count;
-}
+};

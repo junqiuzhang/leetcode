@@ -1,4 +1,4 @@
-import { TreeNode } from '../common/index.js';
+import { TreeNode } from "../common/index.js";
 /**
  * Definition for a binary tree node.
  * const TreeNode = (val, left, right) => {
@@ -31,8 +31,8 @@ const removeLeafNodes = (root, target) => {
         parent.right = null;
       }
     }
-  }
+  };
   const parent = new TreeNode(0, root);
   remove(root, parent);
   return parent.left;
-}
+};

@@ -22,7 +22,7 @@ const fourSumCount = (A, B, C, D) => {
       }
     }
     return ABSumMap;
-  }
+  };
   const ABSumMap = getSumMap(A, B);
   const CDSumMap = getSumMap(C, D);
   let res = 0;
@@ -30,6 +30,6 @@ const fourSumCount = (A, B, C, D) => {
     if (CDSumMap.get(-key)) {
       res += val * CDSumMap.get(-key);
     }
-  })
+  });
   return res;
 };

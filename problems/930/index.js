@@ -40,16 +40,16 @@ const numSubarraysWithSum = (nums, goal) => {
     const leftIndex2 = indexArray[i];
     const rightIndex1 = indexArray[i + goal - 1];
     let rightIndex2 = indexArray[i + goal];
-    if (typeof leftIndex2 !== 'number' || typeof rightIndex1 !== 'number') {
+    if (typeof leftIndex2 !== "number" || typeof rightIndex1 !== "number") {
       break;
     }
-    if (typeof leftIndex1 !== 'number') {
+    if (typeof leftIndex1 !== "number") {
       leftIndex1 = -1;
     }
-    if (typeof rightIndex2 !== 'number') {
+    if (typeof rightIndex2 !== "number") {
       rightIndex2 = nums.length;
     }
     res += (leftIndex2 - leftIndex1) * (rightIndex2 - rightIndex1);
   }
   return res;
-}
+};

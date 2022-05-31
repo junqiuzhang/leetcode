@@ -25,8 +25,8 @@ const sumNumbers = (root) => {
       rightNumbers = getNumbers(root.right, curNumber);
     }
     return leftNumbers.concat(rightNumbers);
-  }
-  const nums = getNumbers(root, '');
+  };
+  const nums = getNumbers(root, "");
   let sum = 0;
   for (let i = 0; i < nums.length; i++) {
     sum += Number(nums[i]);

@@ -56,4 +56,4 @@ const combine = (n, k) => {
   }
   res.push(arr);
   return res;
-}
+};

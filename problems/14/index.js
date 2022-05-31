@@ -4,7 +4,7 @@
  */
 const longestCommonPrefix = (strs) => {
   if (strs.length === 0) {
-    return '';
+    return "";
   }
   const MAX_LENGTH = Math.max(...strs.map((str) => str.length));
   let j = 0;
@@ -18,4 +18,4 @@ const longestCommonPrefix = (strs) => {
     j++;
   }
   return strs[0].slice(0, j);
-}
+};

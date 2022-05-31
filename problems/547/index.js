@@ -1,4 +1,4 @@
-import { UnionFind } from '../common/index.js';
+import { UnionFind } from "../common/index.js";
 /**
  * @param {number[][]} isConnected
  * @return {number}

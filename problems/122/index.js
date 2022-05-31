@@ -7,15 +7,15 @@
  * @return {number}
  */
 const maxProfit = (prices) => {
-    if (!prices.length) {
-        return 0;
+  if (!prices.length) {
+    return 0;
+  }
+  let max = 0;
+  let len = prices.length;
+  for (let i = 0; i < len; i++) {
+    if (prices[i] < prices[i + 1]) {
+      max += prices[i + 1] - prices[i];
     }
-    let max = 0;
-    let len = prices.length;
-    for (let i = 0; i < len; i++) {
-        if (prices[i] < prices[i + 1]) {
-            max += prices[i + 1] - prices[i];
-        }
-    }
-    return max;
+  }
+  return max;
 };

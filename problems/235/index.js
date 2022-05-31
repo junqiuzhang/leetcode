@@ -28,4 +28,4 @@ const lowestCommonAncestor = (root, p, q) => {
     qPosition = Math.sign(q.val - res.val);
   }
   return res;
-}
+};

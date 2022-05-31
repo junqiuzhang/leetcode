@@ -4,7 +4,7 @@
  */
 const sortString = (s) => {
   const charCountArray = [];
-  const aCharCode = 'a'.charCodeAt();
+  const aCharCode = "a".charCodeAt();
   for (let i = 0; i < s.length; i++) {
     const charCountIndex = s[i].charCodeAt() - aCharCode;
     if (!charCountArray[charCountIndex]) {
@@ -12,7 +12,7 @@ const sortString = (s) => {
     }
     charCountArray[charCountIndex]++;
   }
-  let res = '';
+  let res = "";
   while (res.length < s.length) {
     for (let i = 0; i < 26; i++) {
       if (charCountArray[i]) {

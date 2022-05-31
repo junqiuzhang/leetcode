@@ -8,7 +8,7 @@ const getNumber = (n, i) => {
     return Number(n[i]);
   }
   return 0;
-}
+};
 const checkNumber = (func) => {
   return (...args) => {
     for (let i = 0; i < args.length; i++) {
@@ -19,7 +19,7 @@ const checkNumber = (func) => {
     }
     return func(...args);
   };
-}
+};
 /**
  * @param {string} x
  * @param {string} y

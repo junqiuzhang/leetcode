@@ -11,4 +11,4 @@ const duplicateZeros = (arr) => {
     }
   }
   arr.length = len;
-}
+};

@@ -17,4 +17,4 @@ const divide = (dividend, divisor) => {
     signRes = MAX_NUMBER;
   }
   return signRes;
-}
+};

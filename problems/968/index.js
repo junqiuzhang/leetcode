@@ -35,7 +35,7 @@ const minCameraCover = (root) => {
       return [leftMin + rightMin, STATUS.covered];
     }
     return [leftMin + rightMin, STATUS.need];
-  }
+  };
   const [min, status] = minCamera(root);
   return status === STATUS.need ? min + 1 : min;
-}
+};

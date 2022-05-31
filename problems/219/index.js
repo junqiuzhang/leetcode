@@ -8,16 +8,19 @@
  * @return {boolean}
  */
 const containsNearbyDuplicate = (nums, k) => {
-    let len = nums.length;
-    let numberMap = {};
-    let temp;
-    for (i = 0; i < len; i++) {
-        temp = nums[i];
-        if (typeof numberMap[`${temp}`] == 'number' && Math.abs(numberMap[`${temp}`] - i) <= k) {
-            return true;
-        } else {
-            numberMap[`${temp}`] = i;
-        }
+  let len = nums.length;
+  let numberMap = {};
+  let temp;
+  for (i = 0; i < len; i++) {
+    temp = nums[i];
+    if (
+      typeof numberMap[`${temp}`] == "number" &&
+      Math.abs(numberMap[`${temp}`] - i) <= k
+    ) {
+      return true;
+    } else {
+      numberMap[`${temp}`] = i;
     }
-    return false;
+  }
+  return false;
 };

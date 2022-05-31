@@ -17,7 +17,7 @@ const isSame = (aRoot, bRoot) => {
     return isSame(aRoot.left, bRoot.left) && isSame(aRoot.right, bRoot.right);
   }
   return false;
-}
+};
 const isSubTree = (aRoot, bRoot) => {
   if (isSame(aRoot, bRoot)) {
     return true;
@@ -29,4 +29,4 @@ const isSubTree = (aRoot, bRoot) => {
     return true;
   }
   return false;
-}
+};

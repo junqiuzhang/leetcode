@@ -1,8 +1,8 @@
 const Direction = {
-  top: 'top',
-  bottom: 'bottom',
-  left: 'left',
-  right: 'right',
+  top: "top",
+  bottom: "bottom",
+  left: "left",
+  right: "right",
 };
 const DirectionStepMap = {
   [Direction.top]: { i: -1, j: 0 },
@@ -55,6 +55,6 @@ const isNextDisabled = (i, j, n, direction, matrix) => {
     nextI >= n ||
     nextJ < 0 ||
     nextJ >= n ||
-    typeof matrix[nextI][nextJ] === 'number';
+    typeof matrix[nextI][nextJ] === "number";
   return isNextDisable;
-}
+};

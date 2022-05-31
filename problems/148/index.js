@@ -17,7 +17,7 @@ const getLength = (head) => {
     i++;
   }
   return i;
-}
+};
 /**
  * @param {ListNode} head
  * @return {ListNode[]}
@@ -35,7 +35,7 @@ const cut = (head, length) => {
     cur.next = null;
   }
   return restList;
-}
+};
 /**
  * @param {ListNode} head1
  * @param {ListNode} head2
@@ -65,7 +65,7 @@ const merge = (head1, head2) => {
     cur = cur.next;
   }
   return nHead.next;
-}
+};
 /**
  * @param {ListNode} head
  * @return {ListNode}
@@ -92,4 +92,4 @@ const sortList = (head) => {
     }
   }
   return nHead.next;
-}
+};

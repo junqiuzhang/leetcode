@@ -21,4 +21,4 @@ const rotateString = (s, goal) => {
     }
   }
   return false;
-}
+};

@@ -15,17 +15,17 @@
  * @return {boolean}
  */
 const hasCycle = (head) => {
-    let first = head;
-    let second = head;
-    while (first && first.next && second) {
-        first = first.next.next;
-        second = second.next;
-        if (!first || !second) {
-            return false;
-        }
-        if (first == second) {
-            return true;
-        }
+  let first = head;
+  let second = head;
+  while (first && first.next && second) {
+    first = first.next.next;
+    second = second.next;
+    if (!first || !second) {
+      return false;
     }
-    return false;
+    if (first == second) {
+      return true;
+    }
+  }
+  return false;
 };

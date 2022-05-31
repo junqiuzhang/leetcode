@@ -1,4 +1,4 @@
-import { ListNode } from '../common/index.js';
+import { ListNode } from "../common/index.js";
 /**
  * Definition for singly-linked list.
  * const ListNode = (val, next) => {
@@ -34,4 +34,4 @@ const numComponents = (head, nums) => {
   }
 
   return componentNum;
-}
+};

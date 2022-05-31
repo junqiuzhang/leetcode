@@ -1,9 +1,9 @@
 //@ts-check
 const Direction = {
-  up: 'up',
-  down: 'down',
-  left: 'left',
-  right: 'right',
+  up: "up",
+  down: "down",
+  left: "left",
+  right: "right",
 };
 const Path = {
   Street1: 1,
@@ -69,7 +69,7 @@ const getVisited = (visited, i, j) => {
     return true;
   }
   return !!visited[i][j];
-}
+};
 /**
  * @param {Direction[keyof Direction]} to
  * @param {number} i
@@ -78,7 +78,7 @@ const getVisited = (visited, i, j) => {
  */
 const getIndex = (to, i, j) => {
   return [i + ToIndexMap[to][0], j + ToIndexMap[to][1]];
-}
+};
 /**
  * @param {number[][]} grid
  * @param {number} i
@@ -93,14 +93,14 @@ const getPath = (grid, i, j) => {
     return;
   }
   return grid[i][j];
-}
+};
 /**
  * @param {Direction[keyof Direction]} to
  * @return {Direction[keyof Direction]}
  */
 const getFrom = (to) => {
   return ToFromMap[to];
-}
+};
 /**
  * @param {Direction[keyof Direction]} from
  * @param {Path[keyof Path]} path
@@ -108,7 +108,7 @@ const getFrom = (to) => {
  */
 const getTo = (from, path) => {
   return FormPathToMap[from][path];
-}
+};
 /**
  * @param {number[][]} grid
  * @return {boolean}
@@ -140,7 +140,7 @@ const hasValidPath = (grid) => {
     curPath = grid[i][j];
   }
   return false;
-}
+};
 // let grid = [[2,4,3],[6,5,2]]; // true
 // let grid = [[1,2,1],[1,2,1]] // false
 // let grid = [[1,1,2]] // false

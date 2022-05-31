@@ -20,4 +20,4 @@ const mySqrt = (x) => {
     }
   }
   return min;
-}
+};

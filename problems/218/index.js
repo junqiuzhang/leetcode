@@ -20,7 +20,7 @@ const getSkyline = (buildings) => {
       sections[i] = section;
     }
     return sections;
-  }
+  };
   const getHeights = (sections) => {
     let newBuildings = [];
     for (let i = 0; i < sections.length; i++) {
@@ -35,7 +35,7 @@ const getSkyline = (buildings) => {
       newBuildings.push([...section, height]);
     }
     return newBuildings;
-  }
+  };
   const merge = (buildings) => {
     const newBuildings = [buildings[0]];
     for (let i = 1; i < buildings.length; i++) {
@@ -48,7 +48,7 @@ const getSkyline = (buildings) => {
       }
     }
     return newBuildings;
-  }
+  };
   const sections = getSections(buildings);
   const heightSections = getHeights(sections);
   const mergedSections = merge(heightSections);
@@ -59,4 +59,4 @@ const getSkyline = (buildings) => {
   }
   skyline.push([mergedSections[mergedSections.length - 1][1], 0]);
   return skyline;
-}
+};

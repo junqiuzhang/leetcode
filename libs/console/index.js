@@ -8,11 +8,11 @@ const postMessage = (type, messages) => {
       messages,
     });
   }
-}
+};
 const printMessage = (type, messages) => {
   if (typeof CONSOLE_TYPE_TO_METHOD[type] === "function") {
     return CONSOLE_TYPE_TO_METHOD[type](...messages);
   }
-}
+};
 
 export { postMessage, printMessage };

@@ -28,4 +28,4 @@ const nthUglyNumber = (n) => {
     }
   }
   return nums[nums.length - 1];
-}
+};

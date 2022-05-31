@@ -15,28 +15,28 @@
  * @return {ListNode}
  */
 const removeElements = (head, val) => {
-    if (!head) {
-        return null;
+  if (!head) {
+    return null;
+  }
+  let before = {
+    val: Infinity,
+    next: head,
+  };
+  let temp = head;
+  while (temp) {
+    if (temp.val == val) {
+      if (temp == head) {
+        before.next = before.next && before.next.next;
+        head = head.next;
+        temp = head;
+        continue;
+      }
+      before.next = before.next && before.next.next;
+      temp = temp.next;
+      continue;
     }
-    let before = {
-        val: Infinity,
-        next: head
-    };
-    let temp = head;
-    while (temp) {
-        if (temp.val == val) {
-            if (temp == head) {
-                before.next = before.next && before.next.next;
-                head = head.next;
-                temp = head;
-                continue;
-            }
-            before.next = before.next && before.next.next;
-            temp = temp.next;
-            continue;
-        }
-        temp = temp.next;
-        before = before.next;
-    }
-    return head;
+    temp = temp.next;
+    before = before.next;
+  }
+  return head;
 };

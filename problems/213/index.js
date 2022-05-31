@@ -18,7 +18,10 @@ const rob = (nums) => {
     RobMaxArray[i] = NotRobMaxArray[i - 1] + nums[i];
     NotRobMaxArray[i] = Math.max(RobMaxArray[i - 1], NotRobMaxArray[i - 1]);
     ReverseRobMaxArray[i] = ReverseNotRobMaxArray[i - 1] + nums[len - i - 1];
-    ReverseNotRobMaxArray[i] = Math.max(ReverseRobMaxArray[i - 1], ReverseNotRobMaxArray[i - 1]);
+    ReverseNotRobMaxArray[i] = Math.max(
+      ReverseRobMaxArray[i - 1],
+      ReverseNotRobMaxArray[i - 1]
+    );
   }
   return Math.max(NotRobMaxArray[len - 1], ReverseNotRobMaxArray[len - 1]);
 };

@@ -14,6 +14,6 @@ const findTargetSumWays = (nums, target) => {
       calcTargetSumWays(nextIndex, target - nums[nextIndex]) +
       calcTargetSumWays(nextIndex, target + nums[nextIndex])
     );
-  }
+  };
   return calcTargetSumWays(nums.length, target);
-}
+};

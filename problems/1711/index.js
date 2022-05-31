@@ -1,4 +1,4 @@
-import { C } from '../common/index.js';
+import { C } from "../common/index.js";
 const MAX_NUMBER = Math.pow(10, 9) + 7;
 /**
  * @param {number[]} deliciousness
@@ -15,7 +15,9 @@ const countPairs = (deliciousness) => {
     arr.push(i);
     hashMap[num] = arr;
   }
-  const nums = Object.keys(hashMap).map(n => parseInt(n)).sort((a, b) => a - b);
+  const nums = Object.keys(hashMap)
+    .map((n) => parseInt(n))
+    .sort((a, b) => a - b);
   let res = 0;
   for (let i = 0; i <= 21; i++) {
     const sum = Math.pow(2, i);

@@ -7,7 +7,7 @@ const getDistance = (distance, i) => {
     return 0;
   }
   return distance[i];
-}
+};
 /**
  * @param {number[]} distance
  * @return {boolean}
@@ -48,4 +48,4 @@ const isSelfCrossing = (distance) => {
     }
   }
   return false;
-}
+};

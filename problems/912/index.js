@@ -34,4 +34,4 @@ const sortArray = (nums) => {
     stack.push(left, i - 2, i, right);
   }
   return nums;
-}
+};

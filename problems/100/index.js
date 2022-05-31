@@ -15,11 +15,15 @@
  * @return {boolean}
  */
 const isSameTree = (p, q) => {
-    if (!p || !q) {
-        return p === q;
-    }
-    if (typeof p.val === 'number' && typeof q.val === 'number' && p.val !== q.val) {
-        return false;
-    }
-    return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
+  if (!p || !q) {
+    return p === q;
+  }
+  if (
+    typeof p.val === "number" &&
+    typeof q.val === "number" &&
+    p.val !== q.val
+  ) {
+    return false;
+  }
+  return isSameTree(p.left, q.left) && isSameTree(p.right, q.right);
 };

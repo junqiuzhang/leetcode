@@ -7,16 +7,16 @@
  * @return {boolean}
  */
 const containsDuplicate = (nums) => {
-    let len = nums.length;
-    let numberMap = {};
-    let temp;
-    for (i = 0; i < len; i++) {
-        temp = nums[i];
-        if (numberMap[`${temp}`]) {
-            return true;
-        } else {
-            numberMap[`${temp}`] = true;
-        }
+  let len = nums.length;
+  let numberMap = {};
+  let temp;
+  for (i = 0; i < len; i++) {
+    temp = nums[i];
+    if (numberMap[`${temp}`]) {
+      return true;
+    } else {
+      numberMap[`${temp}`] = true;
     }
-    return false;
+  }
+  return false;
 };

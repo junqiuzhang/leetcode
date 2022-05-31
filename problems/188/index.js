@@ -37,4 +37,4 @@ const maxProfit = (k, prices) => {
     }
   }
   return Math.max(...noStock[noStock.length - 1]);
-}
+};

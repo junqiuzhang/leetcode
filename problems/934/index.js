@@ -37,7 +37,7 @@ const findIndex = (A, value) => {
  * @return {[number, number][]}
  */
 const findNeighborIndex = (A, value) => {
-  const visited = new Array(A.length).fill(0).map(i => []);
+  const visited = new Array(A.length).fill(0).map((i) => []);
   const rootIndex = findIndex(A, value);
   const allIndex = [];
   const loopFindIndex = (i, j) => {
@@ -58,7 +58,7 @@ const findNeighborIndex = (A, value) => {
  * @return {number}
  */
 const shortestBridge = (A) => {
-  const visited = new Array(A.length).fill(0).map(i => []);
+  const visited = new Array(A.length).fill(0).map((i) => []);
   const firstIndexArray = findNeighborIndex(A, 1);
   firstIndexArray.forEach(([i, j]) => {
     visited[i][j] = 1;

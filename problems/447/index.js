@@ -8,8 +8,11 @@
  */
 const numberOfBoomerangs = (points) => {
   const getDistance = (point1, point2) => {
-    return (point1[0] - point2[0]) * (point1[0] - point2[0]) + (point1[1] - point2[1]) * (point1[1] - point2[1]);
-  }
+    return (
+      (point1[0] - point2[0]) * (point1[0] - point2[0]) +
+      (point1[1] - point2[1]) * (point1[1] - point2[1])
+    );
+  };
   let total = 0;
   let len = points.length;
   /**
@@ -22,7 +25,7 @@ const numberOfBoomerangs = (points) => {
     let rowDistanceTotal = new Map();
     for (let j = 0; j < len; j++) {
       if (i != j) {
-        let distance = getDistance(points[i], points[j])
+        let distance = getDistance(points[i], points[j]);
         let distanceTotal = rowDistanceTotal.get(distance);
         if (distanceTotal) {
           rowDistanceTotal.set(distance, distanceTotal + 1);

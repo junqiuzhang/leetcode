@@ -4,5 +4,5 @@
  * @return {number[]}
  */
 const searchRange = (nums, target) => {
-  return [nums.indexOf(target), nums.lastIndexOf(target)]
+  return [nums.indexOf(target), nums.lastIndexOf(target)];
 };

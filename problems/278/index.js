@@ -4,7 +4,7 @@
  */
 /**
  * Definition for isBadVersion()
- * 
+ *
  * @param {integer} version number
  * @return {boolean} whether the version is bad
  * isBadVersion = function(version) {
@@ -17,23 +17,23 @@
  * @return {function}
  */
 const solution = (isBadVersion) => {
-    /**
-     * @param {integer} n Total versions
-     * @return {integer} The first bad version
-     */
-    return (n) => {
-        if (isBadVersion(1)) return 1;
-        let min = 1;
-        let max = n;
-        let mid = 0;
-        while (max - min > 1) {
-            mid = Math.floor((min + max) / 2);
-            if (isBadVersion(mid)) {
-                max = mid;
-            } else {
-                min = mid;
-            }
-        }
-        return max;
-    };
+  /**
+   * @param {integer} n Total versions
+   * @return {integer} The first bad version
+   */
+  return (n) => {
+    if (isBadVersion(1)) return 1;
+    let min = 1;
+    let max = n;
+    let mid = 0;
+    while (max - min > 1) {
+      mid = Math.floor((min + max) / 2);
+      if (isBadVersion(mid)) {
+        max = mid;
+      } else {
+        min = mid;
+      }
+    }
+    return max;
+  };
 };

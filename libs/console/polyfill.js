@@ -11,7 +11,7 @@ const consoleDecorator = (method) => {
     }
     return postMessage(CONSOLE_METHOD_TO_TYPE[method], messages);
   };
-}
+};
 
 console.log = consoleDecorator(console.log);
 console.warn = consoleDecorator(console.warn);

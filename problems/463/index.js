@@ -24,6 +24,6 @@ const islandPerimeter = (grid) => {
         }
       }
     }
-  }  
+  }
   return land * 4 - common * 2;
 };

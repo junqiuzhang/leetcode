@@ -35,4 +35,4 @@ const moveZeroes = (nums) => {
     }
   }
   return nums;
-}
+};

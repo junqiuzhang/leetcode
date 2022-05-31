@@ -5,7 +5,7 @@
  */
 const calcDistance = (p1, p2) => {
   return Math.abs(p1[0] - p2[0]) + Math.abs(p1[1] - p2[1]);
-}
+};
 const minCostConnectPoints = (points) => {
   // Prim算法
   const connectedSet = new Array(points.length).fill(false);
@@ -21,7 +21,7 @@ const minCostConnectPoints = (points) => {
         }
       }
     }
-  }
+  };
   // 找到未连通点集中权重最小的
   const findMinUnconnectedDistance = () => {
     let minDis = Number.MAX_VALUE;
@@ -36,7 +36,7 @@ const minCostConnectPoints = (points) => {
       }
     }
     return minDisIndex;
-  }
+  };
   // 初始化
   connectedSet[0] = true;
   connectedNumber++;

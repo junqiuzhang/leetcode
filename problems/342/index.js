@@ -7,6 +7,6 @@
  * @return {boolean}
  */
 const isPowerOfFour = (n) => {
-    let num = Math.log(n) / Math.log(4);
-    return num - Math.floor(num) < 0.00000000000001;
+  let num = Math.log(n) / Math.log(4);
+  return num - Math.floor(num) < 0.00000000000001;
 };

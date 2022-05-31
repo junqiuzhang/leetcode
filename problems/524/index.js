@@ -14,7 +14,7 @@ const isContain = (s1, s2) => {
     }
   }
   return j === s2.length;
-}
+};
 /**
  * @param {string} s
  * @param {string[]} dictionary
@@ -33,5 +33,5 @@ const findLongestWord = (s, dictionary) => {
       return word;
     }
   }
-  return '';
-}
+  return "";
+};

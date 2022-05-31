@@ -9,8 +9,8 @@
 const findMaxConsecutiveOnes = (nums) => {
   /**
    * 函数式
-   * 22.60%  
-  */
+   * 22.60%
+   */
   // return nums.filter((val, ind, arr) => val == 1 || arr[ind - 1] == 1)
   //   .join('')
   //   .split('0')

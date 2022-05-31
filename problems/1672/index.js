@@ -15,4 +15,4 @@ const maximumWealth = (accounts) => {
     }
   }
   return maxWealth;
-}
+};

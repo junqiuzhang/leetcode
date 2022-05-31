@@ -10,4 +10,4 @@ const maxSubArray = (nums) => {
     ans = Math.max(ans, sum);
   }
   return ans;
-}
+};

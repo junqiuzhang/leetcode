@@ -47,7 +47,7 @@ const isWin = (board, char) => {
     }
   }
   return false;
-}
+};
 /**
  * @param {string[]} board
  * @return {boolean}
@@ -56,14 +56,14 @@ const validTicTacToe = (board) => {
   let [totalX, totalO] = [0, 0];
   for (let i = 0; i < 3; i++) {
     for (let j = 0; j < 3; j++) {
-      if (board[i][j] === 'X') {
+      if (board[i][j] === "X") {
         totalX++;
-      } else if (board[i][j] === 'O') {
+      } else if (board[i][j] === "O") {
         totalO++;
       }
     }
   }
-  const [isXWin, isOWin] = [isWin(board, 'X'), isWin(board, 'O')];
+  const [isXWin, isOWin] = [isWin(board, "X"), isWin(board, "O")];
   if (isXWin && !isOWin && totalX === totalO + 1) {
     return true;
   }
@@ -74,4 +74,4 @@ const validTicTacToe = (board) => {
     return true;
   }
   return false;
-}
+};

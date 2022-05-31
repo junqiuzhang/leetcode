@@ -11,4 +11,4 @@ const isPalindrome = (x) => {
     tmp = parseInt(tmp / 10);
   }
   return ans == x;
-}
+};

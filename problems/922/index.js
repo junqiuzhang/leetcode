@@ -6,27 +6,27 @@
  * @return {number[]}
  */
 const sortArrayByParityII = (A) => {
-  const odd = []
-  const even = []
-  const index = []
+  const odd = [];
+  const even = [];
+  const index = [];
   for (let i = 0; i < A.length; i++) {
     const element = A[i];
     if (i % 2 !== element % 2) {
-      index.push(i)
+      index.push(i);
       if (element % 2) {
-        odd.push(element)
+        odd.push(element);
       } else {
-        even.push(element)
+        even.push(element);
       }
     }
   }
   for (let i = 0; i < index.length; i++) {
     const element = index[i];
     if (element % 2) {
-      A[element] = odd.pop()
+      A[element] = odd.pop();
     } else {
-      A[element] = even.pop()
+      A[element] = even.pop();
     }
   }
-  return A
+  return A;
 };

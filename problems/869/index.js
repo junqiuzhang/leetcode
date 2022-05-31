@@ -6,11 +6,11 @@ const MAX_NUMBER = Math.pow(10, 9);
 const getTrait = (n) => {
   return n
     .toString()
-    .split('')
+    .split("")
     .map((i) => Number(i))
     .sort((a, b) => a - b)
-    .join('');
-}
+    .join("");
+};
 /**
  * @param {number} n
  * @return {boolean}
@@ -25,4 +25,4 @@ const reorderedPowerOf2 = (n) => {
     p *= 2;
   }
   return false;
-}
+};

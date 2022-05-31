@@ -7,6 +7,6 @@
  * @return {number}
  */
 const addDigits = (num) => {
-    if (!num) return 0;
-    return num % 9 || 9;
+  if (!num) return 0;
+  return num % 9 || 9;
 };

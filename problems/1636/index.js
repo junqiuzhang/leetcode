@@ -19,4 +19,4 @@ const frequencySort = (nums) => {
     return diff;
   });
   return nums;
-}
+};

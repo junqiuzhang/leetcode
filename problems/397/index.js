@@ -11,4 +11,4 @@ const integerReplacement = (n) => {
   } else {
     return 1 + Math.min(integerReplacement(n + 1), integerReplacement(n - 1));
   }
-}
+};

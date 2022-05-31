@@ -23,4 +23,4 @@ const minArray = (nums) => {
     }
   }
   return Math.min(nums[left], nums[right]);
-}
+};

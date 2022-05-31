@@ -13,4 +13,4 @@ const chalkReplacer = (chalk, k) => {
     i = (i + 1) % len;
   }
   return (i + len - 1) % len;
-}
+};

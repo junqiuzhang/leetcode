@@ -37,4 +37,4 @@ const longestPalindrome = (s) => {
     }
   }
   return s.slice(maxLeft, maxRight + 1);
-}
+};

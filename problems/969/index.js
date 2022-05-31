@@ -1,6 +1,6 @@
 /**
- * @param {number[]} arr 
- * @param {number} k 
+ * @param {number[]} arr
+ * @param {number} k
  */
 const pancakeFlips = (arr, k) => {
   if (k < 0 || k > arr.length) return;
@@ -8,7 +8,7 @@ const pancakeFlips = (arr, k) => {
   for (let j = 0; j <= len; j++) {
     [arr[j], arr[k - j - 1]] = [arr[k - j - 1], arr[j]];
   }
-}
+};
 /**
  * @param {number[]} arr
  * @return {number[]}

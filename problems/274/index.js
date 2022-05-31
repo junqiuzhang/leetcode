@@ -16,7 +16,7 @@ const hIndex = (citations) => {
       max = h;
     }
     if (min >= max - 1) {
-      break
+      break;
     }
   }
   if (sortedCitations[len - max] >= max) {

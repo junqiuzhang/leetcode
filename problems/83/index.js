@@ -14,16 +14,16 @@
  * @return {ListNode}
  */
 const deleteDuplicates = (head) => {
-    if (!head) {
-        return null;
+  if (!head) {
+    return null;
+  }
+  let cur = head;
+  while (cur.next) {
+    if (cur.next.val == cur.val) {
+      cur.next = cur.next.next;
+      continue;
     }
-    let cur = head;
-    while (cur.next) {
-        if (cur.next.val == cur.val) {
-            cur.next = cur.next.next;
-            continue;
-        }
-        cur = cur.next;
-    }
-    return head;
+    cur = cur.next;
+  }
+  return head;
 };

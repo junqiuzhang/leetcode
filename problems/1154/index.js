@@ -10,4 +10,4 @@ const dayOfYear = (date) => {
   const newYearDateObj = new Date(dateObj);
   const newYearDay = newYearDateObj.getTime() / (1000 * 60 * 60 * 24);
   return day - newYearDay + 1;
-}
+};

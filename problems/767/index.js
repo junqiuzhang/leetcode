@@ -9,13 +9,13 @@ const reorganizeString = (S) => {
     if (!charMap.get(char)) {
       charMap.set(char, 0);
     }
-    charMap.set(char, charMap.get(char) + 1)
+    charMap.set(char, charMap.get(char) + 1);
   }
-  let maxChar = '';
+  let maxChar = "";
   let max = 0;
   for (const [key, value] of charMap) {
-    if (value > (S.length / 2  + 0.5)) {
-      return '';
+    if (value > S.length / 2 + 0.5) {
+      return "";
     }
     if (value > max) {
       maxChar = key;
@@ -36,5 +36,5 @@ const reorganizeString = (S) => {
   }
   return strArray.reduce((pre, cur) => {
     return pre + cur;
-  })
+  });
 };

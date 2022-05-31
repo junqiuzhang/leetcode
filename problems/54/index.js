@@ -1,8 +1,8 @@
 const Direction = {
-  top: 'top',
-  bottom: 'bottom',
-  left: 'left',
-  right: 'right',
+  top: "top",
+  bottom: "bottom",
+  left: "left",
+  right: "right",
 };
 const DirectionStepMap = {
   [Direction.top]: { i: -1, j: 0 },
@@ -30,7 +30,7 @@ const spiralOrder = (matrix) => {
   let j = 0;
   let curDirection = Direction.right;
   while (true) {
-    if (typeof matrix[i][j] === 'number') {
+    if (typeof matrix[i][j] === "number") {
       res.push(matrix[i][j]);
       TraversedSet.add(`${i},${j}`);
     }
@@ -62,4 +62,4 @@ const isNextDisabled = (i, j, ITotal, JTotal, direction, TraversedSet) => {
     nextJ >= JTotal ||
     TraversedSet.has(`${nextI},${nextJ}`);
   return isNextDisable;
-}
+};

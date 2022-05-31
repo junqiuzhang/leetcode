@@ -36,4 +36,4 @@ const nextPermutation = (nums) => {
   }
   nums.reverse();
   return;
-}
+};

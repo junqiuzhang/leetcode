@@ -30,4 +30,4 @@ const findLengthOfShortestSubarray = (arr) => {
     }
   }
   return arr.length - 1;
-}
+};

@@ -22,7 +22,7 @@ const eatenApples = (apples, days) => {
     return queue.filter((item) => {
       return item[0] > day && item[1] > 0;
     });
-  }
+  };
   /**
    * @param {number[][]} queue
    * @param {number} total
@@ -34,7 +34,7 @@ const eatenApples = (apples, days) => {
       return total + 1;
     }
     return total;
-  }
+  };
   const maxDay = apples.length;
   let day = 0;
   let queue = [];
@@ -45,4 +45,4 @@ const eatenApples = (apples, days) => {
     day++;
   }
   return total;
-}
+};

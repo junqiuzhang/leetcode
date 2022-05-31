@@ -35,4 +35,4 @@ const findRadius = (houses, heaters) => {
     }
   }
   return maxDis;
-}
+};

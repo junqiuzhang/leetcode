@@ -6,12 +6,12 @@ const smallerNumbersThanCurrent = (nums) => {
   const numsCount = [];
   const setNumsCount = (i, c) => {
     const count = numsCount[i];
-    if (typeof count === 'number') {
+    if (typeof count === "number") {
       numsCount[i] = count + c;
     } else {
       numsCount[i] = c;
     }
-  }
+  };
   const quickCount = (arr) => {
     if (arr.length == 0) {
       return;
@@ -42,7 +42,7 @@ const smallerNumbersThanCurrent = (nums) => {
     }
     quickCount(left);
     quickCount(right);
-  }
+  };
   const indexNums = nums.map((n, i) => ({ n, i }));
   quickCount(indexNums);
   return numsCount;

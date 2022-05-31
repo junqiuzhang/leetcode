@@ -57,4 +57,4 @@ const findMaximizedCapital = (k, w, profits, capital) => {
     }
   }
   return curCapital;
-}
+};

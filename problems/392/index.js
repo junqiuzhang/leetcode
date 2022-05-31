@@ -8,21 +8,21 @@
  * @return {boolean}
  */
 const isSubsequence = (s, t) => {
-    if (s.length === 0) {
+  if (s.length === 0) {
+    return true;
+  }
+  let i = 0;
+  let j = 0;
+  while (i < s.length && j < t.length) {
+    if (s[i] === t[j]) {
+      i++;
+      j++;
+      if (i === s.length) {
         return true;
+      }
+    } else {
+      j++;
     }
-    let i = 0;
-    let j = 0;
-    while (i < s.length && j < t.length) {
-        if (s[i] === t[j]) {
-            i++;
-            j++;
-            if (i === s.length) {
-                return true;
-            }
-        } else {
-            j++;
-        }
-    }
-    return false;
+  }
+  return false;
 };

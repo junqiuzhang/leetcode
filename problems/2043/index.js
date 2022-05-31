@@ -1,14 +1,14 @@
 class Bank {
   /**
-  * @param {number[]} balance
-  */
+   * @param {number[]} balance
+   */
   constructor(balance) {
     balance.splice(0, 0, 0);
     this.balance = balance;
-  };
-  /** 
-   * @param {number} account1 
-   * @param {number} account2 
+  }
+  /**
+   * @param {number} account1
+   * @param {number} account2
    * @param {number} money
    * @return {boolean}
    */
@@ -22,10 +22,10 @@ class Bank {
     this.balance[account1] -= money;
     this.balance[account2] += money;
     return true;
-  };
-  
-  /** 
-   * @param {number} account 
+  }
+
+  /**
+   * @param {number} account
    * @param {number} money
    * @return {boolean}
    */
@@ -35,10 +35,10 @@ class Bank {
     }
     this.balance[account] += money;
     return true;
-  };
-  
-  /** 
-   * @param {number} account 
+  }
+
+  /**
+   * @param {number} account
    * @param {number} money
    * @return {boolean}
    */
@@ -51,9 +51,8 @@ class Bank {
     }
     this.balance[account] -= money;
     return true;
-  };
+  }
 }
-
 
 /**
  * Your Bank object will be instantiated and called as such:

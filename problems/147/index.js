@@ -30,7 +30,7 @@ const insertionSortList = (head) => {
       temp = temp.next;
     }
     return sortedNode;
-  }
+  };
   let sortedHead = head;
   let insertHead = head.next;
   sortedHead.next = null;

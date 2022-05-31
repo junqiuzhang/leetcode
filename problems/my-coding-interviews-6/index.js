@@ -18,7 +18,7 @@ const quickSort = (nums) => {
   left = quickSort(left);
   right = quickSort(right);
   return [...left, p, ...right];
-}
+};
 const quickSort = (nums) => {
   if (nums.length <= 1) {
     return nums;
@@ -42,4 +42,4 @@ const quickSort = (nums) => {
     stack.push(left, i - 1, i + 1, right);
   }
   return nums;
-}
+};

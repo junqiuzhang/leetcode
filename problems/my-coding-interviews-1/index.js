@@ -14,7 +14,7 @@ const myMove = (arr, char, index) => {
     }
   }
   return j;
-}
+};
 /**
  * 字符串按指定顺序排序
  * @param {string[]} arr 待排序数组
@@ -30,4 +30,4 @@ const mySort = (arr, charSortArr) => {
     // 移动指定字符到指定位置
     startIndex = myMove(arr, char, startIndex);
   }
-}
+};

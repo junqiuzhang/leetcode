@@ -26,4 +26,4 @@ const removeCoveredIntervals = (intervals) => {
     }
   }
   return num;
-}
+};

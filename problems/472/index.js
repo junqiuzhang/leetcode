@@ -18,15 +18,15 @@ const isConcatenatedWord = (word, words) => {
       }
     }
     return false;
-  }
+  };
   return dfs(0);
-}
+};
 /**
  * @param {string[]} words
  * @return {string[]}
  */
 const findAllConcatenatedWordsInADict = (words) => {
-  words = words.filter((w) => w !== '').sort((a, b) => b.length - a.length);
+  words = words.filter((w) => w !== "").sort((a, b) => b.length - a.length);
   const ans = [];
   for (let i = 0; i < words.length; i++) {
     const word = words[i];
@@ -36,4 +36,4 @@ const findAllConcatenatedWordsInADict = (words) => {
     }
   }
   return ans;
-}
+};

@@ -1,4 +1,4 @@
-import { TreeNode } from '../common/index.js';
+import { TreeNode } from "../common/index.js";
 /**
  * Definition for a binary tree node.
  * const TreeNode = (val, left, right) => {
@@ -22,7 +22,7 @@ const sumEvenGrandparent = (root) => {
     }
     sumNode(root.left, root, parent);
     sumNode(root.right, root, parent);
-  }
+  };
   sumNode(root, new TreeNode(1), new TreeNode(1));
   return sum;
-}
+};

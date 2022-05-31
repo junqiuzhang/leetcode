@@ -11,19 +11,19 @@ const token = (stringStream) => {
   const eleRestReg = /[a-z]/;
   const countReg = /[0-9]/;
 
-  let curEleToken = '';
-  let curCountToken = '';
+  let curEleToken = "";
+  let curCountToken = "";
   let tokenStream = [];
   for (let i = 0; i < stringStream.length; i++) {
     const char = stringStream[i];
     if (eleFirstReg.test(char)) {
       if (curEleToken) {
         if (!curCountToken) {
-          curCountToken = '1';
+          curCountToken = "1";
         }
         tokenStream.push([curEleToken, curCountToken]);
-        curEleToken = '';
-        curCountToken = '';
+        curEleToken = "";
+        curCountToken = "";
       }
       curEleToken += char;
     } else if (eleRestReg.test(char)) {
@@ -33,11 +33,11 @@ const token = (stringStream) => {
     }
   }
   if (!curCountToken) {
-    curCountToken = '1';
+    curCountToken = "1";
   }
   tokenStream.push([curEleToken, curCountToken]);
   return tokenStream;
-}
+};
 /**
  * @param {Array<Array<string>>} tokenStream
  * @param {number} multiple
@@ -47,8 +47,8 @@ const multiply = (tokenStream, multiple) => {
   for (let i = 0; i < tokenStream.length; i++) {
     tokenStream[i][1] = parseInt(tokenStream[i][1]) * multiple;
   }
-  return tokenStream.map((token) => token.join('')).join('');
-}
+  return tokenStream.map((token) => token.join("")).join("");
+};
 /**
  * @param {Array<Array<string>>} tokenStream
  * @return {object}
@@ -63,14 +63,14 @@ const getCountFromTokenStream = (tokenStream) => {
     countObj[token[0]] += parseInt(token[1]);
   }
   return countObj;
-}
+};
 /**
  * @param {object} countObj
  * @param {Array<string>} eleArr
  * @return {string}
  */
 const getFormulaFormCount = (countObj, eleArr) => {
-  let resFormula = '';
+  let resFormula = "";
   for (let i = 0; i < eleArr.length; i++) {
     const ele = eleArr[i];
     resFormula += ele;
@@ -79,7 +79,7 @@ const getFormulaFormCount = (countObj, eleArr) => {
     }
   }
   return resFormula;
-}
+};
 /**
  * @param {string} formula
  * @return {string}
@@ -100,4 +100,4 @@ const countOfAtoms = (formula) => {
   const eleArr = Object.keys(countObj).sort();
   const resFormula = getFormulaFormCount(countObj, eleArr);
   return resFormula;
-}
+};

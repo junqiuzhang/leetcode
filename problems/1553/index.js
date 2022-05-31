@@ -114,13 +114,13 @@
 const minDays = (n) => {
   const cache = [0, 1, 2, 2];
   const calcMinDays = (num) => {
-    if (typeof cache[num] === 'number') {
+    if (typeof cache[num] === "number") {
       return cache[num];
     }
-    let case2 = calcMinDays(Math.floor(num / 2)) + num % 2;
-    let case3 = calcMinDays(Math.floor(num / 3)) + num % 3;
+    let case2 = calcMinDays(Math.floor(num / 2)) + (num % 2);
+    let case3 = calcMinDays(Math.floor(num / 3)) + (num % 3);
     cache[num] = Math.min(case2, case3) + 1;
     return cache[num];
-  }
+  };
   return calcMinDays(n);
-}
+};

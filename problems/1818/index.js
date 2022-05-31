@@ -28,11 +28,7 @@ const minAbsoluteSumDiff = (nums1, nums2) => {
     let curMaxDiff = 0;
     let j = i;
     let numJ = nums1[numIndex[j]];
-    while (
-      j < numIndex.length &&
-      numJ >= start &&
-      numJ <= end
-    ) {
+    while (j < numIndex.length && numJ >= start && numJ <= end) {
       const curDiff = diff - Math.abs(numJ - num2);
       if (curDiff > curMaxDiff) {
         curMaxDiff = curDiff;
@@ -42,11 +38,7 @@ const minAbsoluteSumDiff = (nums1, nums2) => {
     }
     let k = i;
     let numK = nums1[numIndex[k]];
-    while (
-      k > -1 &&
-      numK >= start &&
-      numK <= end
-    ) {
+    while (k > -1 && numK >= start && numK <= end) {
       const curDiff = diff - Math.abs(numK - num2);
       if (curDiff > curMaxDiff) {
         curMaxDiff = curDiff;
@@ -59,4 +51,4 @@ const minAbsoluteSumDiff = (nums1, nums2) => {
     }
   }
   return (sum - maxDiff) % MAX_NUMBER;
-}
+};

@@ -7,6 +7,6 @@
  * @return {boolean}
  */
 const isPowerOfThree = (n) => {
-    let num = Math.log(n) / Math.log(3);
-    return num - Math.floor(num) < 0.00000000000001;
+  let num = Math.log(n) / Math.log(3);
+  return num - Math.floor(num) < 0.00000000000001;
 };

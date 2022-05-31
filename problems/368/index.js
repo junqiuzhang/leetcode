@@ -14,14 +14,18 @@ const insertTree = (rootTree, childTree) => {
   } else {
     children.forEach((child) => insertTree(child, childTree));
   }
-}
+};
 const findTreeBranch = (rootTree) => {
   if (rootTree.children.length === 0) return [rootTree.val];
-  const childrenDeepestSet = rootTree.children.map(child => findTreeBranch(child));
-  const deepestSet = childrenDeepestSet.reduce((pre, cur) => cur.length > pre.length ? cur : pre);
+  const childrenDeepestSet = rootTree.children.map((child) =>
+    findTreeBranch(child)
+  );
+  const deepestSet = childrenDeepestSet.reduce((pre, cur) =>
+    cur.length > pre.length ? cur : pre
+  );
   deepestSet.push(rootTree.val);
   return deepestSet;
-}
+};
 /**
  * @param {number[]} nums
  * @return {number[]}

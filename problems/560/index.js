@@ -19,4 +19,4 @@ const subarraySum = (nums, k) => {
     preSumMap.set(sum, preSumMap.get(sum) + 1);
   }
   return res;
-}
+};

@@ -20,7 +20,7 @@ const reorderList = (head) => {
     temp1 = temp1.next;
   }
   const len = listArray.length;
-  const max = len / 2 - len % 2;
+  const max = len / 2 - (len % 2);
   let i;
   for (i = 0; i < max; i++) {
     listArray[len - i - 1].next = listArray[i].next;

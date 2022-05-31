@@ -7,5 +7,5 @@
  * @return {boolean}
  */
 const canWinNim = (n) => {
-    return !!(n % 4);
+  return !!(n % 4);
 };

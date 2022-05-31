@@ -6,7 +6,7 @@ const compare = (frac1, frac2) => {
     return -1;
   }
   return 0;
-}
+};
 class Fraction {
   constructor(m, n) {
     this.m = m;
@@ -49,7 +49,7 @@ class MaxHeap {
       nextI = Math.floor(i / 2);
       cur = this.heap[i];
       parent = this.heap[nextI];
-      if (typeof parent !== 'undefined' && this.compare(cur, parent) > 0) {
+      if (typeof parent !== "undefined" && this.compare(cur, parent) > 0) {
         this.heap[i] = parent;
         this.heap[nextI] = cur;
         i = nextI;
@@ -70,17 +70,17 @@ class MaxHeap {
       cur = this.heap[i];
       left = this.heap[i * 2];
       right = this.heap[i * 2 + 1];
-      if (typeof left !== 'undefined') {
+      if (typeof left !== "undefined") {
         child = left;
         nextI = i * 2;
       }
-      if (typeof right !== 'undefined') {
+      if (typeof right !== "undefined") {
         child = right;
         nextI = i * 2 + 1;
       }
       if (
-        typeof left !== 'undefined' &&
-        typeof right !== 'undefined' &&
+        typeof left !== "undefined" &&
+        typeof right !== "undefined" &&
         this.compare(left, right) > 0
       ) {
         child = left;
@@ -115,4 +115,4 @@ const kthSmallestPrimeFraction = (arr, k) => {
   }
   const kthSmallestFraction = maxHeap.pop();
   return [kthSmallestFraction.m, kthSmallestFraction.n];
-}
+};

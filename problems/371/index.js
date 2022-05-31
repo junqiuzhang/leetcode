@@ -34,4 +34,4 @@ const getSum = (a, b) => {
     b = c;
   }
   return a;
-}
+};
