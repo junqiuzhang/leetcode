@@ -70,15 +70,16 @@ export const it = (name, callback) => {
   const start = performance.now();
   callback();
   const end = performance.now();
-  console.log(
-    `Problem ${name}
+  const summary = `Problem ${name}
     ${passedTestCount} tests passed
     ${failedTestInfo.length} tests failed
-    average ${((end - start) / testCount).toFixed(2)} ms
-    ${
-      failedTestInfo.length > 0
-        ? failedTestInfo.map((info) => `Error: ${info}`).join("\n    ")
-        : ``
-    }`
-  );
+    average ${((end - start) / testCount).toFixed(2)} ms`;
+  if (failedTestInfo.length > 0) {
+    const detail = failedTestInfo
+      .map((info) => `\n    Error: ${info}`)
+      .join("");
+    console.error(`${summary}${detail}`);
+    return;
+  }
+  console.log(summary);
 };
