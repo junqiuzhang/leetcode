@@ -1,4 +1,4 @@
-const OperatorFunctionMap = {
+const OperatorMap = {
   "+": (m, n) => m + n,
   "-": (m, n) => m - n,
 };
@@ -29,7 +29,7 @@ export const generateTokens = (s) => {
       stack.pop();
       group = stack[stack.length - 1];
       token = "";
-    } else if (OperatorFunctionMap[char]) {
+    } else if (OperatorMap[char]) {
       if (token) {
         group.push(Number(token));
       }
@@ -50,14 +50,14 @@ export const generateTokens = (s) => {
  */
 export const calculateTokens = (tokens) => {
   let result = 0;
-  let operator = OperatorFunctionMap["+"];
+  let operator = OperatorMap["+"];
   for (let i = 0; i < tokens.length; i++) {
     const token = tokens[i];
     if (Array.isArray(token)) {
       const childResult = calculateTokens(token);
       result = operator(result, childResult);
-    } else if (OperatorFunctionMap[token]) {
-      operator = OperatorFunctionMap[token];
+    } else if (OperatorMap[token]) {
+      operator = OperatorMap[token];
     } else {
       result = operator(result, token);
     }
