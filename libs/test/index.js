@@ -1,30 +1,9 @@
 import { performance } from "perf_hooks";
-import { isObject, isEqual, toString } from "lodash-es";
+import { isEqual, toString } from "../common/index.js";
 
 let testCount = 0;
 let passedTestCount = 0;
 let failedTestInfo = [];
-const stringify = (param) => {
-  let str;
-  try {
-    str = JSON.stringify(param);
-  } catch (error) {
-    str = toString(param);
-  }
-  return str;
-};
-const isSameValue = (actualValue, expectedValue) => {
-  if (isObject(actualValue) && isObject(expectedValue)) {
-    return isEqual(actualValue, expectedValue);
-  }
-  return actualValue === expectedValue;
-};
-const isSameError = (actualError, expectedError) => {
-  if (isObject(actualError) && isObject(expectedError)) {
-    return actualError.message === expectedError.message;
-  }
-  return actualError === expectedError;
-};
 
 export const expect = (func, ...args) => {
   testCount++;
@@ -37,32 +16,32 @@ export const expect = (func, ...args) => {
   }
   return {
     toBe: (expectedValue) => {
-      if (isSameValue(actualValue, expectedValue)) {
+      if (isEqual(actualValue, expectedValue)) {
         passedTestCount++;
         return;
       }
       failedTestInfo.push(
         `
-        ${stringify(actualValue)}
+        ${toString(actualValue)}
         is not equal to
-        ${stringify(expectedValue)}
-        arguments: ${stringify(args)}
-        error detail: ${stringify(actualError)}`
+        ${toString(expectedValue)}
+        arguments: ${toString(args)}
+        error detail: ${toString(actualError)}`
       );
       return;
     },
     toErr: (expectedError) => {
-      if (isSameError(actualError, expectedError)) {
+      if (isEqual(actualError, expectedError)) {
         passedTestCount++;
         return;
       }
       failedTestInfo.push(
         `
-        ${stringify(actualError)}
+        ${toString(actualError)}
         is not equal to
-        ${stringify(expectedError)}
-        arguments: ${stringify(args)}
-        error detail: ${stringify(actualError)}`
+        ${toString(expectedError)}
+        arguments: ${toString(args)}
+        error detail: ${toString(actualError)}`
       );
       return;
     },
