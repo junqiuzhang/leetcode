@@ -1,4 +1,4 @@
-import { TreeNode } from "../common/index.js";
+import { TreeNode } from "../../libs/common/index.js";
 /**
  * @param {number[]} nums
  * @return {TreeNode}

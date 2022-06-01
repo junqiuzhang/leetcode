@@ -1,4 +1,4 @@
-import { UnionFind } from "../common/index.js";
+import { UnionFind } from "../../libs/common/index.js";
 // /**
 //  * 二分查找+dfs
 //  * @param {number[][]} heights

@@ -1,4 +1,4 @@
-import { tree2array, array2tree } from "../../problems/common/index.js";
+import { tree2array, array2tree } from "../../proble../../libs/common/index.js";
 /**
  * Definition for a binary tree node.
  * const TreeNode = (val) => {

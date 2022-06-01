@@ -1,4 +1,4 @@
-import { C } from "../common/index.js";
+import { C } from "../../libs/common/index.js";
 /**
  * @param {number} m
  * @param {number} n
