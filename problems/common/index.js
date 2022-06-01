@@ -1,4 +1,16 @@
-import { isNull, isUndefined, isInteger, isArray, isEmpty } from "lodash-es";
+export const isNull = (value) => value === null;
+export const isUndefined = (value) => value === undefined;
+export const isBoolean = (value) => typeof value === "boolean";
+export const isString = (value) => typeof value === "string";
+export const isNumber = (value) => typeof value === "number";
+export const isInteger = (value) => isNumber(value) && Number.isInteger(value);
+export const isFloat = (value) => isNumber(value) && !Number.isInteger(value);
+export const isArray = (value) => Array.isArray(value);
+export const isObject = (value) => !isNull(value) && typeof value === "object";
+export const isFunction = (value) => typeof value === "function";
+export const isEmpty = (value) =>
+  (isArray(value) && value.length === 0) ||
+  (isObject(value) && Object.keys(value).length === 0);
 /**
  * 链表
  */
