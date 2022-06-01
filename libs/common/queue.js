@@ -18,6 +18,6 @@ export class Queue {
     this.val.push(item);
   }
   pop() {
-    return this.val.pop();
+    return this.val.splice(0, 1);
   }
 }
