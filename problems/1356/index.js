@@ -1,52 +1,23 @@
+import { quickSortRecursion } from "../../libs/common/index.js";
+import { hammingWeight } from "../191/index.js";
 /**
  * @param {number[]} arr
  * @return {number[]}
  */
-const sortByBits = (arr) => {
-  const quickSort = (arr, compare) => {
-    if (arr.length <= 1) {
-      return arr;
-    }
-    const left = [];
-    const right = [];
-    const middle = arr[0];
-    for (let i = 1; i < arr.length; i++) {
-      const ele = arr[i];
-      if (compare(ele, middle)) {
-        left.push(ele);
-      } else {
-        right.push(ele);
-      }
-    }
-    const sortedLeft = quickSort(left, compare);
-    const sortedRight = quickSort(right, compare);
-    return sortedLeft.concat([middle]).concat(sortedRight);
-  };
+export const sortByBits = (arr) => {
   const compare = (a, b) => {
-    if (a.len < b.len) {
-      return true;
-    } else if (a.len === b.len && a.num < b.num) {
-      return true;
-    } else {
-      return false;
+    if (a.wei < b.wei) {
+      return -1;
     }
-  };
-  const hammingWeight = (n) => {
-    let res = 0;
-    for (let i = 0; i < 32; i++) {
-      res += (n >> i) & 1; // 累加
+    if (a.wei === b.wei && a.num < b.num) {
+      return -1;
     }
-    return res;
+    return 1;
   };
-  const formattedArr = arr.map((num) => {
-    const len = hammingWeight(num);
-    return {
-      num,
-      len,
-    };
-  });
-  const sortedArr = quickSort(formattedArr, compare);
-  return sortedArr.map((item) => {
-    return item.num;
-  });
+  const transedArr = arr.map((num) => ({
+    num,
+    wei: hammingWeight(num),
+  }));
+  const sortedArr = quickSortRecursion(transedArr, compare);
+  return sortedArr.map((item) => item.num);
 };
