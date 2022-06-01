@@ -2,9 +2,6 @@
  * 栈
  */
 export class Stack extends Array {
-  /**
-   * @param {any[]} arr
-   */
   constructor(...args) {
     super(...args);
   }

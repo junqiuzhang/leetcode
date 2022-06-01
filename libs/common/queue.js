@@ -1,23 +1,20 @@
 /**
  * 队列
  */
-export class Queue {
-  /**
-   * @param {any[]} arr
-   */
-  constructor(arr = []) {
-    this.val = arr;
+export class Queue extends Array {
+  constructor(...args) {
+    super(...args);
   }
   first() {
-    return this.val[0];
+    return this[0];
   }
   last() {
-    return this.val[this.val.length - 1];
+    return this[this.length - 1];
   }
   push(item) {
-    this.val.push(item);
+    this.push(item);
   }
   pop() {
-    return this.val.splice(0, 1);
+    return this.splice(0, 1);
   }
 }
