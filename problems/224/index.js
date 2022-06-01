@@ -16,7 +16,7 @@ export const generateTokens = (s, operatorSet) => {
     const char = noSpaceS[i];
     if (char === "(") {
       if (token) {
-        stack[stack.length - 1].push(token);
+        stack[stack.length - 1].push(Number(token));
       }
       const tmp = [];
       stack[stack.length - 1].push(tmp);
@@ -24,13 +24,13 @@ export const generateTokens = (s, operatorSet) => {
       token = "";
     } else if (char === ")") {
       if (token) {
-        stack[stack.length - 1].push(token);
+        stack[stack.length - 1].push(Number(token));
       }
       stack.pop();
       token = "";
     } else if (operatorSet.has(char)) {
       if (token) {
-        stack[stack.length - 1].push(token);
+        stack[stack.length - 1].push(Number(token));
       }
       stack[stack.length - 1].push(char);
       token = "";
@@ -39,7 +39,7 @@ export const generateTokens = (s, operatorSet) => {
     }
   }
   if (token) {
-    stack[stack.length - 1].push(token);
+    stack[stack.length - 1].push(Number(token));
   }
   return stack[0];
 };
@@ -58,8 +58,8 @@ export const calculateTokens = (tokens, operatorMap) => {
       result = operator(result, childResult);
     } else if (operatorMap.has(token)) {
       operator = operatorMap.get(token);
-    } else {
-      result = operator(result, Number(token));
+    } else if (typeof token === "number") {
+      result = operator(result, token);
     }
   }
   return result;
