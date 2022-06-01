@@ -1,3 +1,4 @@
+import { last } from "../../libs/common/index.js";
 import { calculateTokens } from "../224/index.js";
 export const HighPriorityOperatorSet = new Set(["*", "/"]);
 export const LowPriorityOperatorSet = new Set(["+", "-"]);
@@ -25,54 +26,48 @@ export const generateTokens = (
     const char = noSpaceS[i];
     if (char === "(") {
       if (token) {
-        stack[stack.length - 1].push(token);
+        last(stack).push(token);
       }
       const tmp = [];
-      stack[stack.length - 1].push(tmp);
+      last(stack).push(tmp);
       stack.push(tmp);
       token = "";
     } else if (char === ")") {
       if (token) {
-        stack[stack.length - 1].push(token);
+        last(stack).push(token);
       }
       stack.pop();
       token = "";
     } else if (highPriorityOperatorSet.has(char)) {
       if (
-        stack[stack.length - 1].length === 0 ||
-        lowPriorityOperatorSet.has(
-          stack[stack.length - 1][stack[stack.length - 1].length - 1]
-        )
+        last(stack).length === 0 ||
+        lowPriorityOperatorSet.has(last(last(stack)))
       ) {
         const tmp = [];
-        stack[stack.length - 1].push(tmp);
+        last(stack).push(tmp);
         stack.push(tmp);
       }
       if (token) {
-        stack[stack.length - 1].push(token);
+        last(stack).push(token);
       }
-      stack[stack.length - 1].push(char);
+      last(stack).push(char);
       token = "";
     } else if (lowPriorityOperatorSet.has(char)) {
-      let tmp = stack[stack.length - 1];
-      if (
-        highPriorityOperatorSet.has(
-          stack[stack.length - 1][stack[stack.length - 1].length - 1]
-        )
-      ) {
+      let tmp = last(stack);
+      if (highPriorityOperatorSet.has(last(last(stack)))) {
         tmp = stack.pop();
       }
       if (token) {
         tmp.push(token);
       }
-      stack[stack.length - 1].push(char);
+      last(stack).push(char);
       token = "";
     } else {
       token += char;
     }
   }
   if (token) {
-    stack[stack.length - 1].push(token);
+    last(stack).push(token);
   }
   return stack[0];
 };

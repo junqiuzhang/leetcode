@@ -1,3 +1,4 @@
+import { last } from "../../libs/common/index.js";
 export const OperatorSet = new Set(["+", "-"]);
 export const OperatorMap = new Map([
   ["+", (m, n) => m + n],
@@ -16,30 +17,30 @@ export const generateTokens = (s, operatorSet) => {
     const char = noSpaceS[i];
     if (char === "(") {
       if (token) {
-        stack[stack.length - 1].push(token);
+        last(stack).push(token);
       }
       const tmp = [];
-      stack[stack.length - 1].push(tmp);
+      last(stack).push(tmp);
       stack.push(tmp);
       token = "";
     } else if (char === ")") {
       if (token) {
-        stack[stack.length - 1].push(token);
+        last(stack).push(token);
       }
       stack.pop();
       token = "";
     } else if (operatorSet.has(char)) {
       if (token) {
-        stack[stack.length - 1].push(token);
+        last(stack).push(token);
       }
-      stack[stack.length - 1].push(char);
+      last(stack).push(char);
       token = "";
     } else {
       token += char;
     }
   }
   if (token) {
-    stack[stack.length - 1].push(token);
+    last(stack).push(token);
   }
   return stack[0];
 };

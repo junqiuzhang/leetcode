@@ -72,6 +72,18 @@ export const flow = (...funcs) => {
     return res;
   };
 };
+export const first = (arr) => {
+  if (!isArray(arr)) {
+    throw new Error("Error: arguments must be an array!");
+  }
+  return arr[0];
+};
+export const last = (arr) => {
+  if (!isArray(arr)) {
+    throw new Error("Error: arguments must be an array!");
+  }
+  return arr[arr.length - 1];
+};
 /**
  * 链表
  */
