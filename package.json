@@ -4,8 +4,8 @@
   "description": "leetcode problems",
   "type": "module",
   "scripts": {
-    "test": "node scripts/test/index.js",
     "analysis": "node scripts/analysis/index.js",
+    "test": "node scripts/test/index.js",
     "build": "esbuild problems/227/index.js --bundle --outfile=dist/index.js"
   },
   "repository": {
