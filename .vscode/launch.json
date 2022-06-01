@@ -7,13 +7,6 @@
       "name": "Test",
       "skipFiles": ["<node_internals>/**"],
       "args": ["scripts/test/index.js"]
-    },
-    {
-      "type": "node",
-      "request": "launch",
-      "name": "Analysis",
-      "skipFiles": ["<node_internals>/**"],
-      "args": ["scripts/analysis/index.js"]
     }
   ]
 }
