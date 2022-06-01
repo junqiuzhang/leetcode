@@ -44,19 +44,16 @@ export const toString = (value) => {
   return str;
 };
 export const isEqual = (value1, value2) => {
-  if (toValue(value1) === toValue(value2)) {
+  value1 = toValue(value1);
+  value2 = toValue(value2);
+  if (value1 === value2) {
     return true;
   }
-  if (isArray(value1) && isArray(value2)) {
-    const length = Math.max(value1.length, value2.length);
-    const keys = new Array(length).fill(0);
-    return keys.every((k, i) => isEqual(value1[i], value2[i]));
-  }
-  if (isObject(value1) && isObject(value2)) {
+  if (typeof value1 === "object" && typeof value2 === "object") {
     const keys1 = Object.keys(value1);
     const keys2 = Object.keys(value2);
     const keys = new Array(...keys1, ...keys2);
-    return keys.every((k, i) => isEqual(value1[k], value2[k]));
+    return keys.every((k) => isEqual(value1[k], value2[k]));
   }
   return false;
 };

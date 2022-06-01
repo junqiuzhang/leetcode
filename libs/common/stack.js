@@ -1,23 +1,17 @@
 /**
  * 栈
  */
-export class Stack {
+export class Stack extends Array {
   /**
    * @param {any[]} arr
    */
-  constructor(arr = []) {
-    this.val = arr;
+  constructor(...args) {
+    super(...args);
   }
   first() {
-    return this.val[0];
+    return this[0];
   }
   last() {
-    return this.val[this.val.length - 1];
-  }
-  push(item) {
-    this.val.push(item);
-  }
-  pop() {
-    return this.val.pop();
+    return this[this.length - 1];
   }
 }

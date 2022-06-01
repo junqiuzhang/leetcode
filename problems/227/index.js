@@ -1,4 +1,4 @@
-import { last } from "../../libs/common/index.js";
+import { Stack } from "../../libs/common/index.js";
 import { calculateTokens } from "../224/index.js";
 export const HighPriorityOperatorSet = new Set(["*", "/"]);
 export const LowPriorityOperatorSet = new Set(["+", "-"]);
@@ -20,56 +20,56 @@ export const generateTokens = (
   lowPriorityOperatorSet
 ) => {
   const noSpaceS = s.replace(/ /g, "");
-  const stack = [[]];
+  const stack = new Stack(new Stack());
   let token = "";
   for (let i = 0; i < noSpaceS.length; i++) {
     const char = noSpaceS[i];
     if (char === "(") {
       if (token) {
-        last(stack).push(token);
+        stack.last().push(token);
       }
-      const tmp = [];
-      last(stack).push(tmp);
+      const tmp = new Stack();
+      stack.last().push(tmp);
       stack.push(tmp);
       token = "";
     } else if (char === ")") {
       if (token) {
-        last(stack).push(token);
+        stack.last().push(token);
       }
       stack.pop();
       token = "";
     } else if (highPriorityOperatorSet.has(char)) {
       if (
-        last(stack).length === 0 ||
-        lowPriorityOperatorSet.has(last(last(stack)))
+        stack.last().length === 0 ||
+        lowPriorityOperatorSet.has(stack.last().last())
       ) {
-        const tmp = [];
-        last(stack).push(tmp);
+        const tmp = new Stack();
+        stack.last().push(tmp);
         stack.push(tmp);
       }
       if (token) {
-        last(stack).push(token);
+        stack.last().push(token);
       }
-      last(stack).push(char);
+      stack.last().push(char);
       token = "";
     } else if (lowPriorityOperatorSet.has(char)) {
-      let tmp = last(stack);
-      if (highPriorityOperatorSet.has(last(last(stack)))) {
+      let tmp = stack.last();
+      if (highPriorityOperatorSet.has(stack.last().last())) {
         tmp = stack.pop();
       }
       if (token) {
         tmp.push(token);
       }
-      last(stack).push(char);
+      stack.last().push(char);
       token = "";
     } else {
       token += char;
     }
   }
   if (token) {
-    last(stack).push(token);
+    stack.last().push(token);
   }
-  return stack[0];
+  return stack.first();
 };
 /**
  * @param {string} s

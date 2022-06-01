@@ -1,4 +1,4 @@
-import { last } from "../../libs/common/index.js";
+import { Stack } from "../../libs/common/index.js";
 export const OperatorSet = new Set(["+", "-"]);
 export const OperatorMap = new Map([
   ["+", (m, n) => m + n],
@@ -11,38 +11,38 @@ export const OperatorMap = new Map([
  */
 export const generateTokens = (s, operatorSet) => {
   const noSpaceS = s.replace(/ /g, "");
-  const stack = [[]];
+  const stack = new Stack(new Stack());
   let token = "";
   for (let i = 0; i < noSpaceS.length; i++) {
     const char = noSpaceS[i];
     if (char === "(") {
       if (token) {
-        last(stack).push(token);
+        stack.last().push(token);
       }
-      const tmp = [];
-      last(stack).push(tmp);
+      const tmp = new Stack();
+      stack.last().push(tmp);
       stack.push(tmp);
       token = "";
     } else if (char === ")") {
       if (token) {
-        last(stack).push(token);
+        stack.last().push(token);
       }
       stack.pop();
       token = "";
     } else if (operatorSet.has(char)) {
       if (token) {
-        last(stack).push(token);
+        stack.last().push(token);
       }
-      last(stack).push(char);
+      stack.last().push(char);
       token = "";
     } else {
       token += char;
     }
   }
   if (token) {
-    last(stack).push(token);
+    stack.last().push(token);
   }
-  return stack[0];
+  return stack.first();
 };
 /**
  * @param {string[]} tokens
