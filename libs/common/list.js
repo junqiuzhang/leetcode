@@ -1,3 +1,4 @@
+import { isArray, isEmpty } from "./lodash.js";
 /**
  * 链表
  */
