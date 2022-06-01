@@ -1,6 +1,6 @@
 import { EOL } from "os";
 import { readFile } from "fs/promises";
-import { isNumber, flow } from "lodash-es";
+import { isNumber, flow } from "../../libs/common/index.js";
 
 const sliceText = (readmeText) =>
   readmeText.split(`-- | -- | -- | --${EOL}`)[1];

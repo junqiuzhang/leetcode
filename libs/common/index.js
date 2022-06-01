@@ -60,10 +60,18 @@ export const isEqual = (value1, value2) => {
   }
   return false;
 };
-export const flow =
-  (...funcs) =>
-  (value) =>
-    isFunction(funcs[0]) ? funcs[0](value) : funcs.slice(1);
+export const flow = (...funcs) => {
+  return (arg) => {
+    let res = arg;
+    funcs.forEach((func) => {
+      if (!isFunction(func)) {
+        throw new Error("Error: arguments must be a function!");
+      }
+      res = func(res);
+    });
+    return res;
+  };
+};
 /**
  * 链表
  */
@@ -98,7 +106,7 @@ export class TreeNode {
  * @returns {ListNode}
  */
 export const array2list = (arr) => {
-  if (!isArray(arr)) throw new Error("Type Error");
+  if (!isArray(arr)) throw new Error("Error: arguments must be an array!");
   if (isEmpty(arr)) return null;
   const list = new ListNode(arr[0]);
   let node = list;
@@ -126,7 +134,7 @@ export const list2array = (list) => {
  * @returns {TreeNode}
  */
 export const array2tree = (arr) => {
-  if (!isArray(arr)) throw new Error("Type Error");
+  if (!isArray(arr)) throw new Error("Error: arguments must be an array!");
   if (isEmpty(arr)) return null;
   const root = new TreeNode(arr[0]);
   const nodes = [root];
@@ -242,7 +250,7 @@ export const postOrderTraverse = (root, traverse) => {
  * @returns {number}
  */
 export const quickFindIndex = (arr, predicate) => {
-  if (!isArray(arr)) throw new Error("Type Error");
+  if (!isArray(arr)) throw new Error("Error: arguments must be an array!");
   if (isEmpty(arr)) return -1;
   let min = 0;
   let max = arr.length - 1;
@@ -364,7 +372,7 @@ export class UnionFind {
  * @returns {number}
  */
 export const A = (m, n) => {
-  if (m > n) throw new Error("m 不能大于 n");
+  if (m > n) throw new Error("Error: m must be smaller than n!");
   if (m === 0) return 1;
   if (m === 1) return n;
   let num = 1;
