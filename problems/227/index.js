@@ -1,70 +1,90 @@
-const SpaceReg = /\s/g;
-const NumberReg = /\d/g;
-const OperateReg = /\+|\-|\*|\//g;
-const BracketReg = /\(|\)/g;
+import { calculateTokens } from "../224/index.js";
+export const HighPriorityOperatorSet = new Set(["*", "/"]);
+export const LowPriorityOperatorSet = new Set(["+", "-"]);
+export const OperatorMap = new Map([
+  ["+", (m, n) => m + n],
+  ["-", (m, n) => m - n],
+  ["*", (m, n) => m * n],
+  ["/", (m, n) => Math.floor(m / n)],
+]);
+/**
+ * @param {string} s
+ * @param {Set<string, (m: number, n: number) => number>} highPriorityOperatorSet
+ * @param {Set<string, (m: number, n: number) => number>} lowPriorityOperatorSet
+ * @return {string[]}
+ */
+export const generateTokens = (
+  s,
+  highPriorityOperatorSet,
+  lowPriorityOperatorSet
+) => {
+  const noSpaceS = s.replace(/ /g, "");
+  const stack = [[]];
+  let token = "";
+  for (let i = 0; i < noSpaceS.length; i++) {
+    const char = noSpaceS[i];
+    if (char === "(") {
+      if (token) {
+        stack[stack.length - 1].push(token);
+      }
+      const tmp = [];
+      stack[stack.length - 1].push(tmp);
+      stack.push(tmp);
+      token = "";
+    } else if (char === ")") {
+      if (token) {
+        stack[stack.length - 1].push(token);
+      }
+      stack.pop();
+      token = "";
+    } else if (highPriorityOperatorSet.has(char)) {
+      if (
+        stack[stack.length - 1].length === 0 ||
+        lowPriorityOperatorSet.has(
+          stack[stack.length - 1][stack[stack.length - 1].length - 1]
+        )
+      ) {
+        const tmp = [];
+        stack[stack.length - 1].push(tmp);
+        stack.push(tmp);
+      }
+      if (token) {
+        stack[stack.length - 1].push(token);
+      }
+      stack[stack.length - 1].push(char);
+      token = "";
+    } else if (lowPriorityOperatorSet.has(char)) {
+      let tmp = stack[stack.length - 1];
+      if (
+        highPriorityOperatorSet.has(
+          stack[stack.length - 1][stack[stack.length - 1].length - 1]
+        )
+      ) {
+        tmp = stack.pop();
+      }
+      if (token) {
+        tmp.push(token);
+      }
+      stack[stack.length - 1].push(char);
+      token = "";
+    } else {
+      token += char;
+    }
+  }
+  if (token) {
+    stack[stack.length - 1].push(token);
+  }
+  return stack[0];
+};
 /**
  * @param {string} s
  * @return {number}
  */
 export const calculate = (s) => {
-  let formattedS = s.replace(SpaceReg, "");
-  let tokens = tokenize(formattedS);
-  let i = 0;
-  while (i < tokens.length) {
-    if (tokens[i] === "*" || tokens[i] === "/") {
-      tokens[i + 1] = calc(tokens[i - 1], tokens[i + 1], tokens[i]);
-      tokens[i] = undefined;
-      tokens[i - 1] = undefined;
-    }
-    i += 2;
-  }
-  tokens = tokens.filter((t) => t !== undefined);
-  let pre = 0;
-  let j = 0;
-  while (j < tokens.length) {
-    pre = calc(pre, tokens[j + 1], tokens[j]);
-    j += 2;
-  }
-  return pre;
-};
-/**
- * @param {string} s
- * @return {string[]} tokens
- */
-const tokenize = (s) => {
-  const formattedS = s.replace(BracketReg, "");
-  let numbers = formattedS.split(OperateReg).filter((n) => n.trim());
-  let operates = formattedS.split(NumberReg).filter((o) => o.trim());
-  const tokens = [];
-  if (numbers.length - operates.length === 1) {
-    operates = ["+", ...operates];
-  }
-  for (let i = 0; i < numbers.length; i++) {
-    tokens.push(operates[i]);
-    tokens.push(numbers[i]);
-  }
-  return tokens.filter((t) => t);
-};
-/**
- *
- * @param {number | string} m
- * @param {number | string} n
- * @param {'+' | '-' | '*' | '/'} o
- * @return {number}
- */
-const calc = (m, n, o) => {
-  const intM = parseInt(m);
-  const intN = parseInt(n);
-  switch (o) {
-    case "+":
-      return intM + intN;
-    case "-":
-      return intM - intN;
-    case "*":
-      return Math.floor(intM * intN);
-    case "/":
-      return Math.floor(intM / intN);
-    default:
-      return 0;
-  }
+  const tokens = generateTokens(
+    s,
+    HighPriorityOperatorSet,
+    LowPriorityOperatorSet
+  );
+  return calculateTokens(tokens, OperatorMap);
 };
