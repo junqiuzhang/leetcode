@@ -1,4 +1,4 @@
-import { quickSort2 } from "../../libs/common/index";
+import { quickSortIteration } from "../../libs/common/index";
 /**
  * @param {string} str1
  * @param {string} str2
@@ -20,7 +20,7 @@ const compare = (str1, str2) => {
  */
 const minNumber = (nums) => {
   const strs = nums.map((n) => `${n}`);
-  return quickSort2(strs, (i, j) => {
+  return quickSortIteration(strs, (i, j) => {
     const a = strs[i] + strs[j];
     const b = strs[j] + strs[i];
     return compare(a, b);
