@@ -10,38 +10,39 @@ export const OperatorMap = new Map([
  * @return {string[]}
  */
 export const generateTokens = (s, operatorSet) => {
-  const noSpaceS = s.replace(/ /g, '');
+  const chars = s.replace(/ /g, '');
   const stack = new Stack(new Stack());
-  let token = '';
-  for (let i = 0; i < noSpaceS.length; i++) {
-    const char = noSpaceS[i];
-    if (char === '(') {
-      if (token) {
-        stack.last().push(token);
-      }
-      const tmp = new Stack();
+  let preValue = '';
+  const pushStack = (tmp) => {
+    if (tmp) {
       stack.last().push(tmp);
       stack.push(tmp);
-      token = '';
+    }
+  };
+  const pushStackLast = (tmp) => {
+    if (tmp) {
+      stack.last().push(tmp);
+    }
+  };
+  for (let i = 0; i < chars.length; i++) {
+    const char = chars[i];
+    if (char === '(') {
+      pushStackLast(preValue);
+      pushStack(new Stack());
+      preValue = '';
     } else if (char === ')') {
-      if (token) {
-        stack.last().push(token);
-      }
+      pushStackLast(preValue);
       stack.pop();
-      token = '';
+      preValue = '';
     } else if (operatorSet.has(char)) {
-      if (token) {
-        stack.last().push(token);
-      }
-      stack.last().push(char);
-      token = '';
+      pushStackLast(preValue);
+      pushStackLast(char);
+      preValue = '';
     } else {
-      token += char;
+      preValue += char;
     }
   }
-  if (token) {
-    stack.last().push(token);
-  }
+  pushStackLast(preValue);
   return stack.first();
 };
 /**

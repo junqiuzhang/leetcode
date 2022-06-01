@@ -6,7 +6,7 @@
   "scripts": {
     "analysis": "node scripts/analysis/index.js",
     "test": "node scripts/test/index.js",
-    "build": "esbuild problems/227/index.js --bundle --outfile=dist/index.js"
+    "build": "esbuild problems/224/index.js --bundle --outfile=dist/index.js"
   },
   "repository": {
     "type": "git",
