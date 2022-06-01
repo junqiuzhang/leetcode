@@ -7,7 +7,7 @@ export class UnionFind {
     this.elsTree = new Map();
     this.size = 0;
     if (isArray(param)) {
-      param.forEach((v, i) => {
+      param.forEach((v) => {
         this.elsTree.set(v, v);
       });
       this.size = param.length;
