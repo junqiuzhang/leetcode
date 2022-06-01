@@ -44,7 +44,7 @@ export const generateTokens = (s, operatorSet) => {
   return stack[0];
 };
 /**
- * @param {(string)[]} tokens
+ * @param {string[]} tokens
  * @param {Map<string, (m: number, n: number) => number>} operatorMap
  * @return {number}
  */
