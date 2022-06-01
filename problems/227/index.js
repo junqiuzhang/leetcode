@@ -36,15 +36,7 @@ export const generateTokens = (
   };
   for (let i = 0; i < chars.length; i++) {
     const char = chars[i];
-    if (char === '(') {
-      pushStackLast(preValue);
-      pushStack(new Stack());
-      preValue = '';
-    } else if (char === ')') {
-      pushStackLast(preValue);
-      stack.pop();
-      preValue = '';
-    } else if (highPriorityOperatorSet.has(char)) {
+    if (highPriorityOperatorSet.has(char)) {
       if (!preOperator || lowPriorityOperatorSet.has(preOperator)) {
         pushStack(new Stack());
       }
@@ -53,12 +45,9 @@ export const generateTokens = (
       preValue = '';
       preOperator = char;
     } else if (lowPriorityOperatorSet.has(char)) {
-      let tmp = stack.last();
+      pushStackLast(preValue);
       if (highPriorityOperatorSet.has(preOperator)) {
-        tmp = stack.pop();
-      }
-      if (preValue) {
-        tmp.push(preValue);
+        stack.pop();
       }
       pushStackLast(char);
       preValue = '';
