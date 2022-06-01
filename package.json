@@ -5,7 +5,8 @@
   "type": "module",
   "scripts": {
     "test": "node scripts/test/index.js",
-    "analysis": "node scripts/analysis/index.js"
+    "analysis": "node scripts/analysis/index.js",
+    "build": "esbuild problems/227/index.js --bundle --outfile=dist/index.js"
   },
   "repository": {
     "type": "git",
@@ -16,5 +17,8 @@
   "bugs": {
     "url": "https://github.com/junqiuzhang/leetcode/issues"
   },
-  "homepage": "https://github.com/junqiuzhang/leetcode#readme"
+  "homepage": "https://github.com/junqiuzhang/leetcode#readme",
+  "dependencies": {
+    "esbuild": "^0.14.42"
+  }
 }
