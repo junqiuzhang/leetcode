@@ -22,7 +22,7 @@ export const generateTokens = (
   const chars = s.replace(/ /g, '');
   const stack = new Stack(new Stack());
   let preValue = '';
-  let preOperator = '';
+  let preOperator = '+';
   const pushStack = (tmp) => {
     if (tmp) {
       stack.last().push(tmp);
@@ -37,7 +37,7 @@ export const generateTokens = (
   for (let i = 0; i < chars.length; i++) {
     const char = chars[i];
     if (highPriorityOperatorSet.has(char)) {
-      if (!preOperator || lowPriorityOperatorSet.has(preOperator)) {
+      if (lowPriorityOperatorSet.has(preOperator)) {
         pushStack(new Stack());
       }
       pushStackLast(preValue);
