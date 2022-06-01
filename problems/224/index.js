@@ -9,38 +9,35 @@ const OperatorMap = {
 export const generateTokens = (s) => {
   const noSpaceS = s.replace(/ /g, "");
   const stack = [[]];
-  let group = stack[stack.length - 1];
   let token = "";
   for (let i = 0; i < noSpaceS.length; i++) {
     const char = noSpaceS[i];
     if (char === "(") {
       if (token) {
-        group.push(Number(token));
+        stack[stack.length - 1].push(token);
       }
-      const childGroup = [];
-      group.push(childGroup);
-      stack.push(childGroup);
-      group = childGroup;
+      const tmp = [];
+      stack[stack.length - 1].push(tmp);
+      stack.push(tmp);
       token = "";
     } else if (char === ")") {
       if (token) {
-        group.push(Number(token));
+        stack[stack.length - 1].push(token);
       }
       stack.pop();
-      group = stack[stack.length - 1];
       token = "";
     } else if (OperatorMap[char]) {
       if (token) {
-        group.push(Number(token));
+        stack[stack.length - 1].push(token);
       }
-      group.push(char);
+      stack[stack.length - 1].push(char);
       token = "";
     } else {
       token += char;
     }
   }
   if (token) {
-    group.push(Number(token));
+    stack[stack.length - 1].push(token);
   }
   return stack[0];
 };
@@ -59,7 +56,7 @@ export const calculateTokens = (tokens) => {
     } else if (OperatorMap[token]) {
       operator = OperatorMap[token];
     } else {
-      result = operator(result, token);
+      result = operator(result, Number(token));
     }
   }
   return result;
