@@ -10,7 +10,7 @@ const firstUniqChar = (s) => {
   let temp = {};
   let len = s.length;
   for (let i = 0; i < len; i++) {
-    if (typeof temp[s[i]] == "number") {
+    if (typeof temp[s[i]] == 'number') {
       temp[s[i]]++;
     } else {
       temp[s[i]] = 1;

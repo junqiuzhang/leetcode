@@ -1,5 +1,5 @@
-import { quickSortIteration } from "../../libs/common/index.js";
-import { hammingWeight } from "../191/index.js";
+import { quickSortIteration } from '../../libs/common/index.js';
+import { hammingWeight } from '../191/index.js';
 /**
  * @param {number[]} arr
  * @return {number[]}

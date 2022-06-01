@@ -1,10 +1,10 @@
-import { isMainThread } from "worker_threads";
-import { CONSOLE_METHOD_TO_TYPE } from "./constants.js";
-import { postMessage, printMessage } from "./index.js";
+import { isMainThread } from 'worker_threads';
+import { CONSOLE_METHOD_TO_TYPE } from './constants.js';
+import { postMessage, printMessage } from './index.js';
 
 const consoleDecorator = (method) => {
-  if (typeof method !== "function")
-    throw new Error("Error: arguments must be a function!");
+  if (typeof method !== 'function')
+    throw new Error('Error: arguments must be a function!');
   return (...messages) => {
     if (isMainThread) {
       return printMessage(CONSOLE_METHOD_TO_TYPE[method], messages);

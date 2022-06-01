@@ -4,7 +4,7 @@
 class NumArray {
   constructor(nums) {
     this.len = nums.length;
-    this.map = { "-1": 0 };
+    this.map = { '-1': 0 };
     let sum = 0;
     for (let i = 0; i < nums.length; i++) {
       sum += nums[i];

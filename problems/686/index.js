@@ -5,7 +5,7 @@
  * @return {number}
  */
 const isRepeatedStringSubstring = (a, b, repeatCount) => {
-  const repeatStr = new Array(repeatCount).fill(a).join("");
+  const repeatStr = new Array(repeatCount).fill(a).join('');
   return repeatStr.includes(b);
 };
 /**

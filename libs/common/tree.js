@@ -1,4 +1,4 @@
-import { isNull, isUndefined, isArray, isEmpty } from "./lodash.js";
+import { isNull, isUndefined, isArray, isEmpty } from './lodash.js';
 /**
  * 二叉树
  */
@@ -20,7 +20,7 @@ export class TreeNode {
  * @returns {TreeNode}
  */
 export const array2tree = (arr) => {
-  if (!isArray(arr)) throw new Error("Error: arguments must be an array!");
+  if (!isArray(arr)) throw new Error('Error: arguments must be an array!');
   if (isEmpty(arr)) return null;
   const root = new TreeNode(arr[0]);
   const nodes = [root];

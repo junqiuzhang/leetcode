@@ -11,11 +11,11 @@ const reorganizeString = (S) => {
     }
     charMap.set(char, charMap.get(char) + 1);
   }
-  let maxChar = "";
+  let maxChar = '';
   let max = 0;
   for (const [key, value] of charMap) {
     if (value > S.length / 2 + 0.5) {
-      return "";
+      return '';
     }
     if (value > max) {
       maxChar = key;

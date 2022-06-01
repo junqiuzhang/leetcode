@@ -1,16 +1,16 @@
 export const isNull = (value) => value === null;
 export const isUndefined = (value) => value === undefined;
 export const isBoolean = (value) =>
-  typeof value === "boolean" || value instanceof Boolean;
+  typeof value === 'boolean' || value instanceof Boolean;
 export const isString = (value) =>
-  typeof value === "string" || value instanceof String;
+  typeof value === 'string' || value instanceof String;
 export const isNumber = (value) =>
-  typeof value === "number" || value instanceof Number;
+  typeof value === 'number' || value instanceof Number;
 export const isFunction = (value) =>
-  typeof value === "function" || value instanceof Function;
+  typeof value === 'function' || value instanceof Function;
 export const isArray = (value) => Array.isArray(value);
 export const isObject = (value) =>
-  typeof value === "object" &&
+  typeof value === 'object' &&
   !isNull(value) &&
   !isUndefined(value) &&
   !isBoolean(value) &&
@@ -49,7 +49,7 @@ export const isEqual = (value1, value2) => {
   if (value1 === value2) {
     return true;
   }
-  if (typeof value1 === "object" && typeof value2 === "object") {
+  if (typeof value1 === 'object' && typeof value2 === 'object') {
     const keys1 = Object.keys(value1);
     const keys2 = Object.keys(value2);
     const keys = new Array(...keys1, ...keys2);
@@ -62,7 +62,7 @@ export const flow = (...funcs) => {
     let res = arg;
     funcs.forEach((func) => {
       if (!isFunction(func)) {
-        throw new Error("Error: arguments must be a function!");
+        throw new Error('Error: arguments must be a function!');
       }
       res = func(res);
     });

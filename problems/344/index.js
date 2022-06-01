@@ -7,7 +7,7 @@
  * @return {void} Do not return anything, modify s in-place instead.
  */
 const reverseString = (s) => {
-  let temp = "";
+  let temp = '';
   let len = s.length;
   for (let i = 0; i < len / 2; i++) {
     temp = s[i];

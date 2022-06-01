@@ -10,9 +10,9 @@ const countSegments = (s) => {
   if (s.trim().length === 0) {
     return 0;
   }
-  let splitByComma = s.trim().split(",");
+  let splitByComma = s.trim().split(',');
   return splitByComma.reduce((t, cur, i) => {
-    let splitBySpace = cur.trim().split(" ");
+    let splitBySpace = cur.trim().split(' ');
     if (i === splitByComma.length - 1) {
       if (!cur.trim()) {
         return t;

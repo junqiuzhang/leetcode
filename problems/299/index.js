@@ -21,7 +21,7 @@ const getHint = (secret, guess) => {
   for (let i = 0; i < guess.length; i++) {
     if (guess[i] == secret[i]) {
       map[guess[i]]--;
-      guess = guess.slice(0, i) + "$" + guess.slice(i + 1);
+      guess = guess.slice(0, i) + '$' + guess.slice(i + 1);
       A++;
     }
   }
@@ -31,5 +31,5 @@ const getHint = (secret, guess) => {
       B++;
     }
   }
-  return A + "A" + B + "B";
+  return A + 'A' + B + 'B';
 };

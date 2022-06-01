@@ -19,8 +19,8 @@ const isSymmetric = (root) => {
       return p === q;
     }
     if (
-      typeof p.val === "number" &&
-      typeof q.val === "number" &&
+      typeof p.val === 'number' &&
+      typeof q.val === 'number' &&
       p.val !== q.val
     ) {
       return false;

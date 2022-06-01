@@ -12,7 +12,7 @@ const groupAnagrams = (strs) => {
         charCodeCountArray[s[i].charCodeAt() - 97] = 1;
       }
     }
-    return charCodeCountArray.join(",");
+    return charCodeCountArray.join(',');
   };
   const strMap = new Map();
   for (let i = 0; i < strs.length; i++) {

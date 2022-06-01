@@ -33,5 +33,5 @@ const findLongestWord = (s, dictionary) => {
       return word;
     }
   }
-  return "";
+  return '';
 };

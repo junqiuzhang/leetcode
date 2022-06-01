@@ -1,4 +1,4 @@
-import { TreeNode } from "../../libs/common/index.js";
+import { TreeNode } from '../../libs/common/index.js';
 /**
  * Definition for a binary tree node.
  * const TreeNode = (val, left, right) => {

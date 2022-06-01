@@ -1,4 +1,4 @@
-import { isArray, isEmpty } from "./lodash.js";
+import { isArray, isEmpty } from './lodash.js';
 /**
  * 链表
  */
@@ -18,7 +18,7 @@ export class ListNode {
  * @returns {ListNode}
  */
 export const array2list = (arr) => {
-  if (!isArray(arr)) throw new Error("Error: arguments must be an array!");
+  if (!isArray(arr)) throw new Error('Error: arguments must be an array!');
   if (isEmpty(arr)) return null;
   const list = new ListNode(arr[0]);
   let node = list;

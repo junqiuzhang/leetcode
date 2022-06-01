@@ -1,4 +1,4 @@
-import { tree2array, array2tree } from "../../proble../../libs/common/index.js";
+import { tree2array, array2tree } from '../../proble../../libs/common/index.js';
 /**
  * Definition for a binary tree node.
  * const TreeNode = (val) => {
@@ -14,10 +14,10 @@ import { tree2array, array2tree } from "../../proble../../libs/common/index.js";
  * @return {string}
  */
 export const serialize = (root) => {
-  if (!root) return "[]";
+  if (!root) return '[]';
   return `[${tree2array(root)
-    .map((n) => (n === null ? "null" : new String(n)))
-    .join(",")}]`;
+    .map((n) => (n === null ? 'null' : new String(n)))
+    .join(',')}]`;
 };
 
 /**
@@ -27,12 +27,12 @@ export const serialize = (root) => {
  * @return {TreeNode}
  */
 export const deserialize = (data) => {
-  if (data === "[]") return null;
+  if (data === '[]') return null;
   return array2tree(
     data
       .substring(1, data.length - 1)
-      .split(",")
-      .map((s) => (s === "null" ? null : new Number(s)))
+      .split(',')
+      .map((s) => (s === 'null' ? null : new Number(s)))
   );
 };
 

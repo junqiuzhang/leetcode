@@ -1,10 +1,10 @@
-import { EOL } from "os";
-import { readFile } from "fs/promises";
-import { isNumber, flow } from "../../libs/common/index.js";
+import { EOL } from 'os';
+import { readFile } from 'fs/promises';
+import { isNumber, flow } from '../../libs/common/index.js';
 
 const sliceText = (readmeText) =>
   readmeText.split(`-- | -- | -- | --${EOL}`)[1];
-const text2Table = (text) => text.split(EOL).map((row) => row.split("|"));
+const text2Table = (text) => text.split(EOL).map((row) => row.split('|'));
 const filterPercentage = (table) => table.map((row) => row.slice(2));
 const transposeTable = (table) =>
   table.reduce(
@@ -29,7 +29,7 @@ const formatAverage = (row) => row.map((item) => item.toFixed(2));
     filterNumber,
     calculateAverage,
     formatAverage
-  )(await readFile("README.md", { encoding: "utf-8" }));
+  )(await readFile('README.md', { encoding: 'utf-8' }));
 
   console.log(`Average time complexity percentage: ${timeComplexity}%`);
   console.log(`Average space complexity percentage: ${spaceComplexity}%`);

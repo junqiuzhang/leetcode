@@ -5,7 +5,7 @@
  * @returns {number}
  */
 export const A = (m, n) => {
-  if (m > n) throw new Error("Error: m must be smaller than n!");
+  if (m > n) throw new Error('Error: m must be smaller than n!');
   if (m === 0) return 1;
   if (m === 1) return n;
   let num = 1;

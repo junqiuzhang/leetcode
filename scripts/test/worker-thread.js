@@ -1,6 +1,6 @@
-import { constants } from "fs";
-import { access } from "fs/promises";
-import { workerData as testGroup } from "worker_threads";
+import { constants } from 'fs';
+import { access } from 'fs/promises';
+import { workerData as testGroup } from 'worker_threads';
 
 testGroup.forEach(async (testName) => {
   const testPath = `tests/${testName}/test.js`;

@@ -39,7 +39,7 @@ const binaryTreePaths = (root) => {
         cur = cur.right;
       } else {
         if (!cur.left && !cur.right) {
-          res.push(stack.map((s) => s.val).join("->"));
+          res.push(stack.map((s) => s.val).join('->'));
         }
         stack.pop();
         cur = stack[stack.length - 1];

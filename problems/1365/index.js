@@ -6,7 +6,7 @@ const smallerNumbersThanCurrent = (nums) => {
   const numsCount = [];
   const setNumsCount = (i, c) => {
     const count = numsCount[i];
-    if (typeof count === "number") {
+    if (typeof count === 'number') {
       numsCount[i] = count + c;
     } else {
       numsCount[i] = c;

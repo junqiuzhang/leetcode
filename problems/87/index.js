@@ -33,17 +33,17 @@ const isScramble = (s1, s2) => {
   const loopScramble = (i1, j1, i2, j2) => {
     const tempS1 = s1.slice(i1, j1);
     const tempS2 = s2.slice(i2, j2);
-    if (typeof getScrambleMap(i1, j1, i2, j2) === "boolean") {
+    if (typeof getScrambleMap(i1, j1, i2, j2) === 'boolean') {
       return getScrambleMap(i1, j1, i2, j2);
     }
-    if (tempS1.split("").sort().join("") !== tempS2.split("").sort().join("")) {
+    if (tempS1.split('').sort().join('') !== tempS2.split('').sort().join('')) {
       return false;
     }
     if (tempS1 === tempS2) {
       setScrambleMap(i1, j1, i2, j2, true);
       return true;
     }
-    if (tempS1 === tempS2.split("").reverse().join("")) {
+    if (tempS1 === tempS2.split('').reverse().join('')) {
       setScrambleMap(i1, j1, i2, j2, true);
       return true;
     }

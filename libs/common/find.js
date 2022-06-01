@@ -1,4 +1,4 @@
-import { isArray, isEmpty } from "./lodash.js";
+import { isArray, isEmpty } from './lodash.js';
 /**
  * 二分查找-迭代实现
  * @param {any[]} arr
@@ -6,7 +6,7 @@ import { isArray, isEmpty } from "./lodash.js";
  * @returns {number}
  */
 export const quickFindIndexRecursion = (arr, predicate) => {
-  if (!isArray(arr)) throw new Error("Error: arguments must be an array!");
+  if (!isArray(arr)) throw new Error('Error: arguments must be an array!');
   if (isEmpty(arr)) return -1;
   let min = 0;
   let max = arr.length - 1;
@@ -25,7 +25,7 @@ export const quickFindIndexRecursion = (arr, predicate) => {
  * @returns {number}
  */
 export const quickFindIndexIteration = (arr, predicate) => {
-  if (!isArray(arr)) throw new Error("Error: arguments must be an array!");
+  if (!isArray(arr)) throw new Error('Error: arguments must be an array!');
   if (isEmpty(arr)) return -1;
   let min = 0;
   let max = arr.length - 1;

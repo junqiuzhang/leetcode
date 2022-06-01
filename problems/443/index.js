@@ -11,12 +11,12 @@ const compress = (chars) => {
   for (let i = 0; i < chars.length; i++) {
     if (chars[i + 1] !== chars[i]) {
       i++;
-      chars.splice(i, 0, "$$$$$$");
+      chars.splice(i, 0, '$$$$$$');
     }
   }
   let tempChars = chars
-    .join("")
-    .split("$$$$$$")
+    .join('')
+    .split('$$$$$$')
     .filter((c) => c);
   let tempLength = 0;
   for (let i = 0; i < tempChars.length; i++) {
@@ -27,7 +27,7 @@ const compress = (chars) => {
         chars[tempLength] = String(tempChars[i].length);
         tempLength++;
       } else {
-        let tempNums = String(tempChars[i].length).split("");
+        let tempNums = String(tempChars[i].length).split('');
         for (let j = 0; j < tempNums.length; j++) {
           chars[tempLength] = tempNums[j];
           tempLength++;
@@ -62,7 +62,7 @@ const compress2 = (chars) => {
           chars[writeIndex] = String(num);
           writeIndex++;
         } else {
-          let tempNums = String(num).split("");
+          let tempNums = String(num).split('');
           for (let i = 0; i < tempNums.length; i++) {
             chars[writeIndex] = tempNums[i];
             writeIndex++;

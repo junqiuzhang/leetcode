@@ -1,8 +1,8 @@
-import { Stack } from "../../libs/common/index.js";
-export const OperatorSet = new Set(["+", "-"]);
+import { Stack } from '../../libs/common/index.js';
+export const OperatorSet = new Set(['+', '-']);
 export const OperatorMap = new Map([
-  ["+", (m, n) => m + n],
-  ["-", (m, n) => m - n],
+  ['+', (m, n) => m + n],
+  ['-', (m, n) => m - n],
 ]);
 /**
  * @param {string} s
@@ -10,31 +10,31 @@ export const OperatorMap = new Map([
  * @return {string[]}
  */
 export const generateTokens = (s, operatorSet) => {
-  const noSpaceS = s.replace(/ /g, "");
+  const noSpaceS = s.replace(/ /g, '');
   const stack = new Stack(new Stack());
-  let token = "";
+  let token = '';
   for (let i = 0; i < noSpaceS.length; i++) {
     const char = noSpaceS[i];
-    if (char === "(") {
+    if (char === '(') {
       if (token) {
         stack.last().push(token);
       }
       const tmp = new Stack();
       stack.last().push(tmp);
       stack.push(tmp);
-      token = "";
-    } else if (char === ")") {
+      token = '';
+    } else if (char === ')') {
       if (token) {
         stack.last().push(token);
       }
       stack.pop();
-      token = "";
+      token = '';
     } else if (operatorSet.has(char)) {
       if (token) {
         stack.last().push(token);
       }
       stack.last().push(char);
-      token = "";
+      token = '';
     } else {
       token += char;
     }
@@ -51,7 +51,7 @@ export const generateTokens = (s, operatorSet) => {
  */
 export const calculateTokens = (tokens, operatorMap) => {
   let result = 0;
-  let operator = operatorMap.get("+");
+  let operator = operatorMap.get('+');
   for (let i = 0; i < tokens.length; i++) {
     const token = tokens[i];
     if (Array.isArray(token)) {

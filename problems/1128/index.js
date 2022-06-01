@@ -1,4 +1,4 @@
-import { C } from "../../libs/common/index.js";
+import { C } from '../../libs/common/index.js';
 const getKey = (domino) => {
   return domino[0] > domino[1]
     ? `${domino[0]},${domino[1]}`

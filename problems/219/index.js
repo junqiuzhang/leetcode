@@ -14,7 +14,7 @@ const containsNearbyDuplicate = (nums, k) => {
   for (i = 0; i < len; i++) {
     temp = nums[i];
     if (
-      typeof numberMap[`${temp}`] == "number" &&
+      typeof numberMap[`${temp}`] == 'number' &&
       Math.abs(numberMap[`${temp}`] - i) <= k
     ) {
       return true;

@@ -3,5 +3,5 @@
  * @return {string}
  */
 const defangIPaddr = (address) => {
-  return address.replace(/\./g, "[.]");
+  return address.replace(/\./g, '[.]');
 };

@@ -1,4 +1,4 @@
-import { array2list, ListNode } from "../../libs/common/index.js";
+import { array2list, ListNode } from '../../libs/common/index.js';
 /**
  * @param {string | Array<T>} items
  * @return {[string | Array<T>, string | T]}

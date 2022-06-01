@@ -20,7 +20,7 @@ const findPeakElement = (nums) => {
   if (nums[right] > nums[max]) {
     max = right;
   }
-  if (typeof nums[right - 1] === "number" && nums[right - 1] > nums[max]) {
+  if (typeof nums[right - 1] === 'number' && nums[right - 1] > nums[max]) {
     max = right - 1;
   }
   return max;

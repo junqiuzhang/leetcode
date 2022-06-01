@@ -6,9 +6,9 @@ const isValid = (s) => {
   let count = 0;
   for (let i = 0; i < s.length; i++) {
     let char = s[i];
-    if (char === "(") {
+    if (char === '(') {
       count++;
-    } else if (char === ")") {
+    } else if (char === ')') {
       count--;
       if (count < 0) {
         return false;
@@ -25,7 +25,7 @@ const generateSubStr = (strs) => {
   const subStrSet = new Set();
   strs.forEach((s) => {
     for (let i = 0; i < s.length; i++) {
-      if (s[i] === "(" || s[i] === ")") {
+      if (s[i] === '(' || s[i] === ')') {
         const subStr = s.slice(0, i) + s.slice(i + 1);
         subStrSet.add(subStr);
       }

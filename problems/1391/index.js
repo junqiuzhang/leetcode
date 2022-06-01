@@ -1,9 +1,9 @@
 //@ts-check
 const Direction = {
-  up: "up",
-  down: "down",
-  left: "left",
-  right: "right",
+  up: 'up',
+  down: 'down',
+  left: 'left',
+  right: 'right',
 };
 const Path = {
   Street1: 1,

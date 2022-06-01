@@ -1,4 +1,4 @@
-import { ListNode } from "../../libs/common/index.js";
+import { ListNode } from '../../libs/common/index.js';
 /**
  * Definition for singly-linked list.
  * const ListNode = (val, next) => {

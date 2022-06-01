@@ -13,7 +13,7 @@ class MinStack {
    */
   push(x) {
     this.stack.push(x);
-    if (typeof this.min !== "number" || x < this.min) {
+    if (typeof this.min !== 'number' || x < this.min) {
       this.min = x;
     }
   }

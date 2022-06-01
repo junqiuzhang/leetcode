@@ -4,7 +4,7 @@ const NUMBER_REGEXP = /^\d+$/;
  * @param {number} i
  */
 const getNumber = (n, i) => {
-  if (typeof n[i] === "string") {
+  if (typeof n[i] === 'string') {
     return Number(n[i]);
   }
   return 0;
@@ -26,7 +26,7 @@ const checkNumber = (func) => {
  * @returns {string}
  */
 export const add = checkNumber((x, y) => {
-  let ans = "";
+  let ans = '';
   let car = 0;
   const len = Math.max(x.length, y.length);
   for (let i = 0; i < len; i++) {
@@ -48,7 +48,7 @@ export const add = checkNumber((x, y) => {
 export const multi = checkNumber((x, y) => {
   checkNumber(x);
   checkNumber(y);
-  let ans = "";
+  let ans = '';
   let car = 0;
   for (let i = 0; i < x.length; i++) {
     const cur = getNumber(x, x.length - i - 1) * getNumber(y, 0) + car;
@@ -68,10 +68,10 @@ export const multi = checkNumber((x, y) => {
 export const multiply = checkNumber((x, y) => {
   checkNumber(x);
   checkNumber(y);
-  let ans = "0";
+  let ans = '0';
   for (let i = 0; i < y.length; i++) {
     const pro = multi(x, y[y.length - i - 1]);
-    const tmp = pro + new Array(i).fill(0).join("");
+    const tmp = pro + new Array(i).fill(0).join('');
     ans = add(ans, tmp);
   }
   return ans;

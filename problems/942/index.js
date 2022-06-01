@@ -7,7 +7,7 @@ export const diStringMatch = (s) => {
   let max = s.length;
   const ans = [];
   for (let i = 0; i < s.length; i++) {
-    if (s[i] === "I") {
+    if (s[i] === 'I') {
       ans.push(min);
       min++;
     } else {

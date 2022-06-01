@@ -17,7 +17,7 @@ const maxUncrossedLines = (nums1, nums2) => {
     if (i < 0 || j < 0) {
       return 0;
     }
-    if (typeof matrix[i][j] === "number") {
+    if (typeof matrix[i][j] === 'number') {
       return matrix[i][j];
     }
     if (nums1[i] === nums2[j]) {

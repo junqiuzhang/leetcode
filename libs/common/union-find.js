@@ -1,4 +1,4 @@
-import { isArray } from "./lodash.js";
+import { isArray } from './lodash.js';
 /**
  * 并查集
  */

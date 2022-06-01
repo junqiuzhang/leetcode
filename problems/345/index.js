@@ -19,7 +19,7 @@ const reverseVowels = (s) => {
     O: true,
     U: true,
   };
-  let allArr = s.split("");
+  let allArr = s.split('');
   let vowelsArr = [];
   let i = 0;
   let len = allArr.length;
@@ -35,5 +35,5 @@ const reverseVowels = (s) => {
     allArr[vowelsArr[i].key] = vowelsArr[len - i - 1].value;
     i++;
   }
-  return allArr.join("");
+  return allArr.join('');
 };

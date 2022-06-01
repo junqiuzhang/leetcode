@@ -20,7 +20,7 @@ const countPrimes = (n) => {
       num[i] = false;
     }
     for (j = primes; j <= n; j++) {
-      if (typeof num[j] == "undefined") {
+      if (typeof num[j] == 'undefined') {
         primes = j;
         break;
       }

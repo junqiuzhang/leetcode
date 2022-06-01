@@ -114,7 +114,7 @@
 const minDays = (n) => {
   const cache = [0, 1, 2, 2];
   const calcMinDays = (num) => {
-    if (typeof cache[num] === "number") {
+    if (typeof cache[num] === 'number') {
       return cache[num];
     }
     let case2 = calcMinDays(Math.floor(num / 2)) + (num % 2);

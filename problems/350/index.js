@@ -13,7 +13,7 @@ const intersect = (nums1, nums2) => {
   let res = [];
   for (let i = 0; i < nums1.length; i++) {
     n1 = nums1[i];
-    if (typeof map[n1] === "undefined") {
+    if (typeof map[n1] === 'undefined') {
       map[n1] = 1;
     } else {
       map[n1]++;
@@ -21,7 +21,7 @@ const intersect = (nums1, nums2) => {
   }
   for (let i = 0; i < nums2.length; i++) {
     n2 = nums2[i];
-    if (typeof map[n2] === "number" && map[n2] > 0) {
+    if (typeof map[n2] === 'number' && map[n2] > 0) {
       map[n2]--;
       res.push(n2);
     }

@@ -1,5 +1,5 @@
-import { performance } from "perf_hooks";
-import { isEqual, toString } from "../common/index.js";
+import { performance } from 'perf_hooks';
+import { isEqual, toString } from '../common/index.js';
 
 let testCount = 0;
 let passedTestCount = 0;
@@ -62,7 +62,7 @@ export const it = (name, callback) => {
   if (failedTestInfo.length > 0) {
     const detail = failedTestInfo
       .map((info) => `\n    Error: ${info}`)
-      .join("");
+      .join('');
     console.error(`${summary}${detail}`);
     return;
   }

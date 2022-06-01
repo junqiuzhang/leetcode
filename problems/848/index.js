@@ -14,7 +14,7 @@ const shiftLetter = (letter, num) => {
  * @return {string}
  */
 const shiftingLetters = (s, shifts) => {
-  let res = "";
+  let res = '';
   let sum = 0;
   for (let i = shifts.length - 1; i > -1; i--) {
     sum += shifts[i];

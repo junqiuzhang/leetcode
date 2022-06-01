@@ -6,7 +6,7 @@
 const backspaceCompare = (S, T) => {
   const replaceSharp = (str) => {
     while (true) {
-      temp = str.replace(/[^#]?#/, "");
+      temp = str.replace(/[^#]?#/, '');
       if (temp === str) {
         break;
       } else {

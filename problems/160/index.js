@@ -24,7 +24,7 @@ const getIntersectionNode = (headA, headB) => {
   }
   temp = headA;
   while (temp) {
-    if (typeof map[temp.val] === "object" && map[temp.val] == temp) {
+    if (typeof map[temp.val] === 'object' && map[temp.val] == temp) {
       return map[temp.val];
     }
     temp = temp.next;
