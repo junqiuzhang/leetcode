@@ -32,20 +32,19 @@ export const quickSortIteration = (arr, compare) => {
   let left = 0;
   let right = arr.length - 1;
   let pivot = right;
-  const stack = [left, right];
+  const stack = [[left, right]];
   while (stack.length > 0) {
-    right = stack.pop();
-    left = stack.pop();
+    [left, right] = stack.pop();
     if (left >= right) continue;
     pivot = right;
     let i = left;
     for (let j = left; j <= right; j++) {
-      if (compare(j, pivot) <= 0) {
+      if (compare(arr[j], arr[pivot]) <= 0) {
         [arr[i], arr[j]] = [arr[j], arr[i]];
         i++;
       }
     }
-    stack.push(left, i - 2, i, right);
+    stack.push([left, i - 2], [i, right]);
   }
   return arr;
 };
