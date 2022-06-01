@@ -1,6 +1,6 @@
 import { isArray, isEmpty } from './lodash.js';
 /**
- * 二分查找-迭代实现
+ * 二分查找-递归实现
  * @param {any[]} arr
  * @param {(val: any, index: number, array: any[]) => boolean)} predicate
  * @returns {number}
