@@ -4,21 +4,21 @@ class Tree {
     this.children = [];
   }
 }
-const insertTree = (rootTree, childTree) => {
-  if (rootTree.val === childTree.val) return;
+const insertTree = (rootTree, treeNode) => {
+  if (rootTree.val === treeNode.val) return;
   const children = rootTree.children.filter(
-    (child) => childTree.val % child.val === 0
+    (child) => treeNode.val % child.val === 0
   );
   if (children.length === 0) {
-    rootTree.children.push(childTree);
+    rootTree.children.push(treeNode);
   } else {
-    children.forEach((child) => insertTree(child, childTree));
+    children.forEach((child) => insertTree(child, treeNode));
   }
 };
-const findTreeBranch = (rootTree) => {
+const findDeepestTreePath = (rootTree) => {
   if (rootTree.children.length === 0) return [rootTree.val];
   const childrenDeepestSet = rootTree.children.map((child) =>
-    findTreeBranch(child)
+    findDeepestTreePath(child)
   );
   const deepestSet = childrenDeepestSet.reduce((pre, cur) =>
     cur.length > pre.length ? cur : pre
@@ -35,9 +35,9 @@ export const largestDivisibleSubset = (nums) => {
   const rootTree = new Tree(-1);
   for (let i = 0; i < sortedNums.length; i++) {
     const num = sortedNums[i];
-    const childTree = new Tree(num);
-    insertTree(rootTree, childTree);
+    const treeNode = new Tree(num);
+    insertTree(rootTree, treeNode);
   }
-  const rootTreeBranch = findTreeBranch(rootTree);
+  const rootTreeBranch = findDeepestTreePath(rootTree);
   return rootTreeBranch.slice(0, rootTreeBranch.length - 1);
 };
