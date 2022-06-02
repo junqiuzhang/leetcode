@@ -1,19 +1,27 @@
-const MinimumTreeReg = /\d+,#,#/;
 /**
  * @param {string} preorder
  * @return {boolean}
  */
-const isValidSerialization = (preorder) => {
-  // 递归化简
-  let tree = preorder;
+export const isValidSerialization = (preorder) => {
+  // 因为 叶子节点数 = 非叶子节点数 + 1
+  // 所以 对于任意中间时刻，遍历过的叶子节点数 < 遍历过的非叶子节点数 + 1
+  let tree = preorder.split(',');
   if (tree === '#') return true;
-  if (tree[0] === '#' || tree[tree.length - 1] !== '#') return false;
-  let len = tree.length;
-  while (true) {
-    tree = tree.replace(MinimumTreeReg, '#');
-    if (len === tree.length) break;
-    len = tree.length;
+  let leafCount = 0;
+  let unLeafCount = 0;
+  for (let i = 0; i < tree.length; i++) {
+    if (leafCount >= unLeafCount + 1) {
+      return false;
+    }
+    const node = tree[i];
+    if (node === '#') {
+      leafCount++;
+    } else {
+      unLeafCount++;
+    }
   }
-  if (tree === '#') return true;
-  return false;
+  if (leafCount !== unLeafCount + 1) {
+    return false;
+  }
+  return true;
 };
