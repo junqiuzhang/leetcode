@@ -30,7 +30,7 @@ const findTreeBranch = (rootTree) => {
  * @param {number[]} nums
  * @return {number[]}
  */
-const largestDivisibleSubset = (nums) => {
+export const largestDivisibleSubset = (nums) => {
   const sortedNums = nums.sort((a, b) => a - b);
   const rootTree = new Tree(-1);
   for (let i = 0; i < sortedNums.length; i++) {
@@ -39,5 +39,5 @@ const largestDivisibleSubset = (nums) => {
     insertTree(rootTree, childTree);
   }
   const rootTreeBranch = findTreeBranch(rootTree);
-  return rootTreeBranch.reverse().slice(1);
+  return rootTreeBranch.slice(0, rootTreeBranch.length - 1);
 };
