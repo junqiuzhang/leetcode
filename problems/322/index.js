@@ -37,8 +37,9 @@
  * @param {number} amount
  * @return {number}
  */
-const coinChange = (coins, amount) => {
+export const coinChange = (coins, amount) => {
   // 凑成金额 i 所需的最少硬币数
+  coins = coins.filter((coin) => coin <= amount);
   const cache = [0];
   for (let i = 1; i <= amount; i++) {
     let min = Infinity;
