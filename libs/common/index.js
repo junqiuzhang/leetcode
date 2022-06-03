@@ -1,3 +1,4 @@
+export * from './lisp.js';
 export * from './lodash.js';
 export * from './math.js';
 export * from './find.js';
