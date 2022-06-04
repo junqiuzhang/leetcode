@@ -3,25 +3,20 @@
  * @return {number}
  */
 export const consecutiveNumbersSum = (n) => {
-  let i = 1;
-  let j = 1;
-  let sum = 1;
-  let count = 0;
-  let max = n / 2;
+  let count = 1;
+  let i = 2;
+  let max = (-1 + Math.sqrt(1 + 8 * n)) / 2;
   while (i <= max) {
-    if (sum < n) {
-      while (sum < n) {
-        j++;
-        sum += j;
+    if (i % 2 === 0) {
+      if (((2 * n) / i) % 2 === 1) {
+        count++;
+      }
+    } else {
+      if (n % i === 0) {
+        count++;
       }
     }
-    if (sum === n) {
-      count++;
-    }
-    sum -= i;
     i++;
-    sum -= j;
-    j--;
   }
-  return count + 1;
+  return count;
 };
