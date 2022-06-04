@@ -4,9 +4,8 @@
  */
 export const consecutiveNumbersSum = (n) => {
   let count = 1;
-  let i = 2;
   let max = (-1 + Math.sqrt(1 + 8 * n)) / 2;
-  while (i <= max) {
+  for (let i = 2; i <= max; i++) {
     if (i % 2 === 0) {
       if (((2 * n) / i) % 2 === 1) {
         count++;
@@ -16,7 +15,6 @@ export const consecutiveNumbersSum = (n) => {
         count++;
       }
     }
-    i++;
   }
   return count;
 };
