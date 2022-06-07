@@ -3,23 +3,24 @@
  * @param {number} k
  * @return {string}
  */
-const removeKdigits = (num, k) => {
-  if (num.length === k) {
-    return '0';
-  }
-  const numArray = num.slice(k - num.length).split('');
-  let left = -1;
-  for (let i = 0; i < num.length - k; i++) {
-    let min = numArray[i];
-    let minIndex = 0;
-    for (let j = k + i; j > left; j--) {
-      if (Number(num[j]) <= Number(min)) {
-        min = num[j];
-        minIndex = j;
-      }
+export const removeKdigits = (num, k) => {
+  const stack = [];
+  for (let i = 0; i < num.length; i++) {
+    while (stack.length > 0 && stack[stack.length - 1] > num[i] && k) {
+      stack.pop();
+      k -= 1;
     }
-    numArray[i] = min;
-    left = minIndex;
+    stack.push(num[i]);
   }
-  return numArray.join('').replace(/^0*/, '') || '0';
+  for (; k > 0; --k) {
+    stack.pop();
+  }
+  let ans = '';
+  for (let i = 0; i < stack.length; i++) {
+    if (ans === '' && stack[i] === '0') {
+      continue;
+    }
+    ans += stack[i];
+  }
+  return ans === '' ? '0' : ans;
 };

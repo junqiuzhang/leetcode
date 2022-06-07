@@ -9,15 +9,7 @@ export const isNumber = (value) =>
 export const isFunction = (value) =>
   typeof value === 'function' || value instanceof Function;
 export const isArray = (value) => Array.isArray(value);
-export const isObject = (value) =>
-  typeof value === 'object' &&
-  !isNull(value) &&
-  !isUndefined(value) &&
-  !isBoolean(value) &&
-  !isString(value) &&
-  !isNumber(value) &&
-  !isFunction(value) &&
-  !isArray(value);
+export const isObject = (value) => typeof value === 'object' && !isNull(value);
 export const isEmpty = (value) =>
   (isArray(value) && value.length === 0) ||
   (isObject(value) && Object.keys(value).length === 0);
@@ -43,29 +35,63 @@ export const toString = (value) => {
   }
   return str;
 };
-export const isEqual = (value1, value2) => {
-  value1 = toValue(value1);
-  value2 = toValue(value2);
-  if (value1 === value2) {
+export const isEqual = (value, other) => {
+  value = toValue(value);
+  other = toValue(other);
+  if (value === other) {
     return true;
   }
-  if (typeof value1 === 'object' && typeof value2 === 'object') {
-    const keys1 = Object.keys(value1);
-    const keys2 = Object.keys(value2);
+  if (typeof value === 'object' && typeof other === 'object') {
+    const keys1 = Object.keys(value);
+    const keys2 = Object.keys(other);
     const keys = new Array(...keys1, ...keys2);
-    return keys.every((k) => isEqual(value1[k], value2[k]));
+    return keys.every((k) => isEqual(value[k], other[k]));
   }
   return false;
 };
 export const flow = (...funcs) => {
-  return (arg) => {
-    let res = arg;
-    funcs.forEach((func) => {
+  return (args) => {
+    let value = args;
+    for (let i = 0; i < funcs.length; i++) {
+      const func = funcs[i];
       if (!isFunction(func)) {
         throw new Error('Error: arguments must be a function!');
       }
-      res = func(res);
-    });
-    return res;
+      value = func(value);
+    }
+    return value;
   };
+};
+export const get = (object, path, defaultValue) => {
+  if (!isObject(object)) {
+    throw new Error('Error: first arguments must be a object!');
+  }
+  if (!isArray(path)) {
+    throw new Error('Error: second arguments must be a array!');
+  }
+  let currentValue = object;
+  for (let i = 0; i < path.length; i++) {
+    if (isUndefined(currentValue[path[i]])) {
+      return defaultValue;
+    }
+    currentValue = currentValue[path[i]];
+  }
+  return currentValue;
+};
+export const set = (object, path, value) => {
+  if (!isObject(object)) {
+    throw new Error('Error: first arguments must be a object!');
+  }
+  if (!isArray(path)) {
+    throw new Error('Error: second arguments must be a array!');
+  }
+  let currentValue = object;
+  for (let i = 0; i < path.length - 1; i++) {
+    if (isUndefined(currentValue[path[i]])) {
+      currentValue[path[i]] = {};
+    }
+    currentValue = currentValue[path[i]];
+  }
+  currentValue[path[path.length - 1]] = value;
+  return object;
 };
