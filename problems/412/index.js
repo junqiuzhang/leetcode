@@ -1,23 +1,25 @@
-const fizz = 'Fizz';
-const buzz = 'Buzz';
+const FizzBuzz = 'FizzBuzz';
+const Fizz = 'Fizz';
+const Buzz = 'Buzz';
 /**
  * @param {number} n
  * @return {string[]}
  */
-const fizzBuzz = (n) => {
+export const fizzBuzz = (n) => {
   const res = [];
   for (let i = 0; i < n; i++) {
-    let cur = '';
-    if ((i + 1) % 3 === 0) {
-      cur += fizz;
+    const num = i + 1;
+    const isFizz = num % 3 === 0;
+    const isBuzz = num % 5 === 0;
+    if (isFizz && isBuzz) {
+      res[i] = FizzBuzz;
+    } else if (isFizz) {
+      res[i] = Fizz;
+    } else if (isBuzz) {
+      res[i] = Buzz;
+    } else {
+      res[i] = `${num}`;
     }
-    if ((i + 1) % 5 === 0) {
-      cur += buzz;
-    }
-    if (cur === '') {
-      cur = `${i + 1}`;
-    }
-    res.push(cur);
   }
   return res;
 };
