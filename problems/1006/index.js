@@ -1,15 +1,29 @@
-import { calculate } from '../227/index.js';
-const OperateArray = ['*', '/', '+', '-'];
 /**
  * @param {number} N
  * @return {number}
  */
-const clumsy = (N) => {
-  let str = '';
-  for (let i = 0; i < N; i++) {
-    str += N - i;
-    str += OperateArray[i % 4];
+export const clumsy = (N) => {
+  let ans = 0;
+  let pre = N;
+  for (let i = 1; i < N; i++) {
+    const n = N - i;
+    switch (i % 4) {
+      case 1:
+        pre *= n;
+        break;
+      case 2:
+        pre = parseInt(pre / n);
+        break;
+      case 3:
+        ans += pre;
+        pre = n;
+        break;
+      default:
+        ans += pre;
+        pre = -n;
+        break;
+    }
   }
-  str = str.slice(0, str.length - 1);
-  return calculate(str);
+  ans += pre;
+  return ans;
 };
