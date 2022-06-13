@@ -12,7 +12,7 @@ import { TreeNode } from '../../libs/common/index.js';
  * @param {TreeNode} root2
  * @return {TreeNode}
  */
-const mergeTrees = (root1, root2) => {
+export const mergeTrees = (root1, root2) => {
   if (!root1 && !root2) {
     return null;
   }
