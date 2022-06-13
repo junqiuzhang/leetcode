@@ -18,10 +18,8 @@
     "url": "https://github.com/junqiuzhang/leetcode/issues"
   },
   "homepage": "https://github.com/junqiuzhang/leetcode#readme",
-  "dependencies": {
-    "esbuild": "^0.14.42"
-  },
   "devDependencies": {
+    "esbuild": "^0.14.43",
     "eslint": "^8.16.0"
   }
 }
