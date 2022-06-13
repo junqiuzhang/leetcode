@@ -6,11 +6,11 @@
 const hammingDistance = (x, y) => {
   let xXORy = x ^ y;
   let temp;
-  let res = 0;
+  let ans = 0;
   for (let i = 0; i < 32; i++) {
     temp = xXORy >> i;
     temp &= 1;
-    res += temp;
+    ans += temp;
   }
-  return res;
+  return ans;
 };

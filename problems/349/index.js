@@ -12,7 +12,7 @@ const intersection = (nums1, nums2) => {
   let i;
   let len1 = nums1.length;
   let len2 = nums2.length;
-  let res = [];
+  let ans = [];
   for (i = 0; i < len1; i++) {
     map[nums1[i]] = 1;
   }
@@ -23,8 +23,8 @@ const intersection = (nums1, nums2) => {
   }
   for (i in map) {
     if (map[i] == 2) {
-      res.push(i);
+      ans.push(i);
     }
   }
-  return res;
+  return ans;
 };

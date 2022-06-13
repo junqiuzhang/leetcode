@@ -36,9 +36,9 @@ const titleToNumber = (s) => {
     Z: 26,
   };
   let len = s.length;
-  let res = 0;
+  let ans = 0;
   for (let i = 0; i < len; i++) {
-    res = res * 26 + Map[s[i]];
+    ans = ans * 26 + Map[s[i]];
   }
-  return res;
+  return ans;
 };

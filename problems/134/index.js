@@ -13,19 +13,19 @@ const canCompleteCircuit = (gas, cost) => {
    */
   let curTotal = 0;
   let total = 0;
-  let res = 0;
+  let ans = 0;
   for (let i = 0; i < gas.length; i++) {
     const diff = gas[i] - cost[i];
     total += diff;
     if (curTotal < 0) {
       curTotal = diff;
-      res = i;
+      ans = i;
     } else {
       curTotal += diff;
     }
   }
   if (total >= 0) {
-    return res;
+    return ans;
   }
   return -1;
 };

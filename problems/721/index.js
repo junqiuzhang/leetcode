@@ -30,11 +30,11 @@ const accountsMerge = (accounts) => {
     els.push(key);
     elsList.set(elRoot, els);
   });
-  const res = [];
+  const ans = [];
   elsList.forEach((val, key) => {
     const emailIndex = emails.indexOf(key);
     const accountIndex = ids[emailIndex];
-    res.push([accounts[accountIndex][0], ...val.sort()]);
+    ans.push([accounts[accountIndex][0], ...val.sort()]);
   });
-  return res;
+  return ans;
 };

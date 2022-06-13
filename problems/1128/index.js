@@ -21,11 +21,11 @@ const numEquivDominoPairs = (dominoes) => {
     const domino = dominoes[i];
     pairsMap.set(getKey(domino), getValue(pairsMap, domino) + 1);
   }
-  let res = 0;
+  let ans = 0;
   pairsMap.forEach((value, key) => {
     if (value > 1) {
-      res += C(2, value);
+      ans += C(2, value);
     }
   });
-  return res;
+  return ans;
 };

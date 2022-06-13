@@ -14,14 +14,14 @@ const shiftLetter = (letter, num) => {
  * @return {string}
  */
 const shiftingLetters = (s, shifts) => {
-  let res = '';
+  let ans = '';
   let sum = 0;
   for (let i = shifts.length - 1; i > -1; i--) {
     sum += shifts[i];
     shifts[i] = sum;
   }
   for (let i = 0; i < s.length; i++) {
-    res += shiftLetter(s[i], shifts[i]);
+    ans += shiftLetter(s[i], shifts[i]);
   }
-  return res;
+  return ans;
 };

@@ -7,7 +7,7 @@
  * @return {string}
  */
 const convertToTitle = (n) => {
-  let res = '';
+  let ans = '';
   let temp = n;
   let code = 0;
   let Map = [
@@ -40,8 +40,8 @@ const convertToTitle = (n) => {
   ];
   while (temp > 0) {
     code = temp % 26;
-    res = Map[code] + res;
+    ans = Map[code] + ans;
     temp = code === 0 ? Math.floor(temp / 26) - 1 : Math.floor(temp / 26);
   }
-  return res;
+  return ans;
 };

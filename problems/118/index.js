@@ -13,15 +13,15 @@ const generate = (numRows) => {
   if (numRows === 1) {
     return [[1]];
   }
-  let res = [[1], [1, 1]];
+  let ans = [[1], [1, 1]];
   for (let i = 2; i < numRows; i++) {
-    res.push(new Array(i + 1));
-    res[i][0] = 1;
+    ans.push(new Array(i + 1));
+    ans[i][0] = 1;
     for (let j = 1; j < (i + 1) / 2; j++) {
-      res[i][j] = res[i - 1][j - 1] + res[i - 1][j];
-      res[i][i - j] = res[i][j];
+      ans[i][j] = ans[i - 1][j - 1] + ans[i - 1][j];
+      ans[i][i - j] = ans[i][j];
     }
-    res[i][i] = 1;
+    ans[i][i] = 1;
   }
-  return res;
+  return ans;
 };

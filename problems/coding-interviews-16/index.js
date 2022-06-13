@@ -10,15 +10,15 @@ const myPow = (x, n) => {
     x = 1 / x;
     n = -n;
   }
-  let res = 1;
+  let ans = 1;
   while (n > 0) {
     if (n & 1) {
-      res *= x;
+      ans *= x;
     }
     x *= x;
     n = Math.floor(n / 2);
   }
-  return res;
+  return ans;
   // 递归
   // if (x === 0) return 0;
   // const cache = [];

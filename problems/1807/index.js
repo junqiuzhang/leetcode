@@ -9,7 +9,7 @@ const evaluate = (s, knowledge) => {
     const [key, value] = knowledge[i];
     dicMap.set(key, value);
   }
-  let res = '';
+  let ans = '';
   let key = '';
   let isInBracket = false;
   for (let i = 0; i < s.length; i++) {
@@ -19,14 +19,14 @@ const evaluate = (s, knowledge) => {
       key = '';
     } else if (char === ')') {
       isInBracket = false;
-      res += dicMap.get(key) || '?';
+      ans += dicMap.get(key) || '?';
     } else {
       if (isInBracket) {
         key += char;
       } else {
-        res += char;
+        ans += char;
       }
     }
   }
-  return res;
+  return ans;
 };

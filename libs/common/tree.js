@@ -116,17 +116,17 @@ export const inOrderTraverse = (root, traverse) => {
  */
 export const postOrderTraverse = (root, traverse) => {
   const stack = [];
-  const res = [];
+  const nodes = [];
   let cur = root;
   let tmp = root;
   while (cur || stack.length > 0) {
     while (cur) {
-      res.push(cur);
+      nodes.push(cur);
       stack.push(cur);
       cur = cur.right;
     }
     tmp = stack.pop();
     cur = tmp.left;
   }
-  res.reverse().forEach((tmp) => traverse(tmp.val));
+  nodes.reverse().forEach((tmp) => traverse(tmp.val));
 };

@@ -9,17 +9,17 @@
  */
 const twoSum = (numbers, target) => {
   let len = numbers.length;
-  let res = [1, len];
+  let ans = [1, len];
   let diff = 0;
   for (let i = 0; i < len; i++) {
-    diff = numbers[res[0] - 1] + numbers[res[1] - 1] - target;
+    diff = numbers[ans[0] - 1] + numbers[ans[1] - 1] - target;
     if (diff === 0) {
-      return res;
+      return ans;
     } else if (diff < 0) {
-      res[0]++;
+      ans[0]++;
     } else if (diff > 0) {
-      res[1]--;
+      ans[1]--;
     }
   }
-  return res;
+  return ans;
 };

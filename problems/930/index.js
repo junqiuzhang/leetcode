@@ -22,19 +22,19 @@ const numSubarraysWithSum = (nums, goal) => {
   }
   if (goal === 0) {
     indexArray.push(nums.length);
-    let res = 0;
+    let ans = 0;
     let left = 0;
     for (let i = 0; i < indexArray.length; i++) {
       let right = indexArray[i];
       let sum = right - left;
       for (let j = 0; j < sum; j++) {
-        res += j + 1;
+        ans += j + 1;
       }
       left = right + 1;
     }
-    return res;
+    return ans;
   }
-  let res = 0;
+  let ans = 0;
   for (let i = 0; i < indexArray.length; i++) {
     let leftIndex1 = indexArray[i - 1];
     const leftIndex2 = indexArray[i];
@@ -49,7 +49,7 @@ const numSubarraysWithSum = (nums, goal) => {
     if (typeof rightIndex2 !== 'number') {
       rightIndex2 = nums.length;
     }
-    res += (leftIndex2 - leftIndex1) * (rightIndex2 - rightIndex1);
+    ans += (leftIndex2 - leftIndex1) * (rightIndex2 - rightIndex1);
   }
-  return res;
+  return ans;
 };

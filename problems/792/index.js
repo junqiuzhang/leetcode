@@ -13,14 +13,14 @@ const numMatchingSubseq = (s, words) => {
     arr.push(i);
     charMap.set(s[i], arr);
   }
-  let res = 0;
+  let ans = 0;
   for (let i = 0; i < words.length; i++) {
     const word = words[i];
     if (isMatch(word, charMap)) {
-      res++;
+      ans++;
     }
   }
-  return res;
+  return ans;
 };
 const isMatch = (reg, map) => {
   let cur = 0;

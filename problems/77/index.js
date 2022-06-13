@@ -39,10 +39,10 @@ const combine = (n, k) => {
   if (k === n) {
     return [new Array(k).fill(0).map((o, i) => i + 1)];
   }
-  const res = [];
+  const ans = [];
   let arr = new Array(k).fill(0).map((o, i) => i + 1);
   while (arr[0] < n - k + 1) {
-    res.push(arr);
+    ans.push(arr);
     for (let i = 1; i <= k; i++) {
       if (arr[k - i] < n - i + 1) {
         arr = [...arr];
@@ -54,6 +54,6 @@ const combine = (n, k) => {
       }
     }
   }
-  res.push(arr);
-  return res;
+  ans.push(arr);
+  return ans;
 };

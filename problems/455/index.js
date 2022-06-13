@@ -20,17 +20,17 @@ const findContentChildren = (g, s) => {
   };
   g.sort(compare);
   s.sort(compare);
-  let res = 0;
+  let ans = 0;
   let i = g.length - 1;
   let j = s.length - 1;
   while (i > -1 && j > -1) {
     if (s[j] >= g[i]) {
-      res++;
+      ans++;
       i--;
       j--;
     } else {
       i--;
     }
   }
-  return res;
+  return ans;
 };

@@ -17,9 +17,9 @@ const numberOfSubarrays = (nums, k) => {
   for (let i = 0; i + 1 < odds.length; i++) {
     diffs.push(odds[i + 1] - odds[i]);
   }
-  let res = 0;
+  let ans = 0;
   for (let i = 0; i + k < diffs.length; i++) {
-    res += diffs[i] * diffs[i + k];
+    ans += diffs[i] * diffs[i + k];
   }
-  return res;
+  return ans;
 };

@@ -16,7 +16,7 @@ const binaryTreePaths = (root) => {
   if (!root.left && !root.right) {
     return [root.val.toString()];
   }
-  let res = [];
+  let ans = [];
   let cur = root;
   let stack = [];
   let leftState = false;
@@ -39,12 +39,12 @@ const binaryTreePaths = (root) => {
         cur = cur.right;
       } else {
         if (!cur.left && !cur.right) {
-          res.push(stack.map((s) => s.val).join('->'));
+          ans.push(stack.map((s) => s.val).join('->'));
         }
         stack.pop();
         cur = stack[stack.length - 1];
       }
     }
   } while (stack.length > 0 && cur);
-  return res;
+  return ans;
 };

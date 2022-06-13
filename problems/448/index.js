@@ -21,11 +21,11 @@ const findDisappearedNumbers = (nums) => {
   for (let i = 0; i < nums.length; i++) {
     changeNums(nums[i]);
   }
-  let res = [];
+  let ans = [];
   for (let i = 0; i < nums.length; i++) {
     if (nums[i]) {
-      res.push(i + 1);
+      ans.push(i + 1);
     }
   }
-  return res;
+  return ans;
 };

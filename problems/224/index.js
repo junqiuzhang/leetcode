@@ -51,20 +51,20 @@ export const generateTokens = (s, operatorSet) => {
  * @return {number}
  */
 export const calculateTokens = (tokens, operatorMap) => {
-  let result = 0;
+  let ans = 0;
   let operator = operatorMap.get('+');
   for (let i = 0; i < tokens.length; i++) {
     const token = tokens[i];
     if (Array.isArray(token)) {
       const childResult = calculateTokens(token, operatorMap);
-      result = operator(result, childResult);
+      ans = operator(ans, childResult);
     } else if (operatorMap.has(token)) {
       operator = operatorMap.get(token);
     } else {
-      result = operator(result, Number(token));
+      ans = operator(ans, Number(token));
     }
   }
-  return result;
+  return ans;
 };
 /**
  * @param {string} s

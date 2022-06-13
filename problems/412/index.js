@@ -6,20 +6,20 @@ const Buzz = 'Buzz';
  * @return {string[]}
  */
 export const fizzBuzz = (n) => {
-  const res = [];
+  const ans = [];
   for (let i = 0; i < n; i++) {
     const num = i + 1;
     const isFizz = num % 3 === 0;
     const isBuzz = num % 5 === 0;
     if (isFizz && isBuzz) {
-      res[i] = FizzBuzz;
+      ans[i] = FizzBuzz;
     } else if (isFizz) {
-      res[i] = Fizz;
+      ans[i] = Fizz;
     } else if (isBuzz) {
-      res[i] = Buzz;
+      ans[i] = Buzz;
     } else {
-      res[i] = `${num}`;
+      ans[i] = `${num}`;
     }
   }
-  return res;
+  return ans;
 };

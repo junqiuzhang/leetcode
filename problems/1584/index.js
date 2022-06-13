@@ -43,15 +43,15 @@ const minCostConnectPoints = (points) => {
   calcUnconnectedDistance(0);
 
   // 循环
-  let res = 0;
+  let ans = 0;
   while (connectedNumber !== points.length) {
     const minIndex = findMinUnconnectedDistance();
     connectedSet[minIndex] = true;
     connectedNumber++;
-    res += distance[minIndex][2];
+    ans += distance[minIndex][2];
     calcUnconnectedDistance(minIndex);
   }
-  return res;
+  return ans;
   // Kruskal+并查集算法
   // // 计算边的权重
   // const distance = [];
@@ -66,18 +66,18 @@ const minCostConnectPoints = (points) => {
   // distance.sort((a, b) => (a[2] - b[2]));
   // // 并查集
   // const uf = new UnionFind(points.length);
-  // let res = 0;
+  // let ans = 0;
   // for (let i = 0; i < distance.length; i++) {
   //   const dis = distance[i];
   //   // 遍历边，若边连接的两点不连通则连通两点
   //   if (!uf.same(dis[0], dis[1])) {
-  //     res += dis[2];
+  //     ans += dis[2];
   //     uf.union(dis[0], dis[1]);
   //   }
   //   // 若连通点集数 === 1则终止
   //   if (uf.size === 1) {
-  //     return res
+  //     return ans
   //   }
   // }
-  // return res;
+  // return ans;
 };

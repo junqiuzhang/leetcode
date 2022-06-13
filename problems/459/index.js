@@ -22,14 +22,14 @@ const repeatedSubstringPattern = (s) => {
     }
   }
   for (let i = 0; i < nums.length; i++) {
-    let res = true;
+    let ans = true;
     for (let j = 0; j + nums[i] < s.length; j += nums[i]) {
       if (s.slice(j, j + nums[i]) !== s.slice(j + nums[i], j + 2 * nums[i])) {
-        res = false;
+        ans = false;
         break;
       }
     }
-    if (res) {
+    if (ans) {
       return true;
     }
   }

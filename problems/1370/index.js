@@ -12,20 +12,20 @@ const sortString = (s) => {
     }
     charCountArray[charCountIndex]++;
   }
-  let res = '';
-  while (res.length < s.length) {
+  let ans = '';
+  while (ans.length < s.length) {
     for (let i = 0; i < 26; i++) {
       if (charCountArray[i]) {
-        res += String.fromCharCode(i + aCharCode);
+        ans += String.fromCharCode(i + aCharCode);
         charCountArray[i]--;
       }
     }
     for (let i = 25; i >= 0; i--) {
       if (charCountArray[i]) {
-        res += String.fromCharCode(i + aCharCode);
+        ans += String.fromCharCode(i + aCharCode);
         charCountArray[i]--;
       }
     }
   }
-  return res;
+  return ans;
 };

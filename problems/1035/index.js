@@ -21,14 +21,14 @@ const maxUncrossedLines = (nums1, nums2) => {
       return matrix[i][j];
     }
     if (nums1[i] === nums2[j]) {
-      const res = calcUncrossedLines(i - 1, j - 1);
-      matrix[i][j] = res + 1;
+      const ans = calcUncrossedLines(i - 1, j - 1);
+      matrix[i][j] = ans + 1;
       return matrix[i][j];
     }
     const res1 = calcUncrossedLines(i - 1, j);
     const res2 = calcUncrossedLines(i, j - 1);
-    const res = Math.max(res1, res2);
-    matrix[i][j] = res;
+    const ans = Math.max(res1, res2);
+    matrix[i][j] = ans;
     return matrix[i][j];
   };
   return calcUncrossedLines(nums1.length - 1, nums2.length - 1);

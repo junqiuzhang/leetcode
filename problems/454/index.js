@@ -25,11 +25,11 @@ const fourSumCount = (A, B, C, D) => {
   };
   const ABSumMap = getSumMap(A, B);
   const CDSumMap = getSumMap(C, D);
-  let res = 0;
+  let ans = 0;
   ABSumMap.forEach((val, key) => {
     if (CDSumMap.get(-key)) {
-      res += val * CDSumMap.get(-key);
+      ans += val * CDSumMap.get(-key);
     }
   });
-  return res;
+  return ans;
 };

@@ -18,7 +18,7 @@ const countPairs = (deliciousness) => {
   const nums = Object.keys(hashMap)
     .map((n) => parseInt(n))
     .sort((a, b) => a - b);
-  let res = 0;
+  let ans = 0;
   for (let i = 0; i <= 21; i++) {
     const sum = Math.pow(2, i);
     for (let j = 0; j < nums.length; j++) {
@@ -27,12 +27,12 @@ const countPairs = (deliciousness) => {
       if (num1 > num2) break;
       if (hashMap[num2]) {
         if (num1 === num2 && hashMap[num2].length >= 2) {
-          res += C(2, hashMap[num2].length) % MAX_NUMBER;
+          ans += C(2, hashMap[num2].length) % MAX_NUMBER;
         } else if (num1 < num2) {
-          res += (hashMap[num1].length * hashMap[num2].length) % MAX_NUMBER;
+          ans += (hashMap[num1].length * hashMap[num2].length) % MAX_NUMBER;
         }
       }
     }
   }
-  return res % MAX_NUMBER;
+  return ans % MAX_NUMBER;
 };

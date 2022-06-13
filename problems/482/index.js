@@ -9,9 +9,9 @@
  */
 const licenseKeyFormatting = (S, K) => {
   let str = S.split('-').join('');
-  let res = '';
+  let ans = '';
   for (let i = str.length; i > 0; i -= K) {
-    res = str.substring(i - K, i) + '-' + res;
+    ans = str.substring(i - K, i) + '-' + ans;
   }
-  return res.substring(0, res.length - 1).toUpperCase();
+  return ans.substring(0, ans.length - 1).toUpperCase();
 };

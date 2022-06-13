@@ -7,10 +7,10 @@
  * @return {number}
  */
 const singleNumber = (nums) => {
-  let res = 0;
+  let ans = 0;
   let len = nums.length;
   for (let i = 0; i < len; i++) {
-    res = res ^ nums[i];
+    ans = ans ^ nums[i];
   }
-  return res;
+  return ans;
 };

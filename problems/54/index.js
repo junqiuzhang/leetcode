@@ -25,13 +25,13 @@ const spiralOrder = (matrix) => {
   const JTotal = (matrix[0] && matrix[0].length) || 0;
   const Total = ITotal * JTotal;
   const TraversedSet = new Set();
-  const res = [];
+  const ans = [];
   let i = 0;
   let j = 0;
   let curDirection = Direction.right;
   while (true) {
     if (typeof matrix[i][j] === 'number') {
-      res.push(matrix[i][j]);
+      ans.push(matrix[i][j]);
       TraversedSet.add(`${i},${j}`);
     }
     if (isNextDisabled(i, j, ITotal, JTotal, curDirection, TraversedSet)) {
@@ -39,8 +39,8 @@ const spiralOrder = (matrix) => {
     }
     i = i + DirectionStepMap[curDirection].i;
     j = j + DirectionStepMap[curDirection].j;
-    if (res.length === Total) {
-      return res;
+    if (ans.length === Total) {
+      return ans;
     }
   }
 };
