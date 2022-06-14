@@ -18,19 +18,19 @@ export const findDiagonalOrder = (mat) => {
       i -= direct;
       j += direct;
     }
-    i += direct;
-    j -= direct;
     if (direct === 1) {
-      if (isValid(i, j + 1)) {
-        j++;
-      } else {
-        i++;
-      }
-    } else {
       if (isValid(i + 1, j)) {
         i++;
       } else {
+        i += 2;
+        j--;
+      }
+    } else {
+      if (isValid(i, j + 1)) {
         j++;
+      } else {
+        i--;
+        j += 2;
       }
     }
     direct = -direct;
