@@ -1,9 +1,10 @@
+import { Stack } from '../../libs/common/index.js';
 /**
  * initialize your data structure here.
  */
-class MinStack {
+export class MinStack {
   constructor() {
-    this.stack = [];
+    this.stack = new Stack();
     this.min = Infinity;
   }
 
@@ -22,7 +23,7 @@ class MinStack {
    * @return {void}
    */
   pop() {
-    if (this.min == this.stack[this.stack.length - 1]) {
+    if (this.min == this.stack.last()) {
       this.stack.pop();
       this.min = Math.min(...this.stack);
     } else {
@@ -34,7 +35,7 @@ class MinStack {
    * @return {number}
    */
   top() {
-    return this.stack[this.stack.length - 1];
+    return this.stack.last();
   }
 
   /**
