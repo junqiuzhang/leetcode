@@ -41,7 +41,7 @@ export const isEqual = (value, other) => {
   if (value === other) {
     return true;
   }
-  if (typeof value === 'object' && typeof other === 'object') {
+  if (isObject(value) && isObject(other)) {
     const keys1 = Object.keys(value);
     const keys2 = Object.keys(other);
     const keys = new Array(...keys1, ...keys2);
