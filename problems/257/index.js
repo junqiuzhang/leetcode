@@ -9,42 +9,29 @@
  * @param {TreeNode} root
  * @return {string[]}
  */
-const binaryTreePaths = (root) => {
+export const binaryTreePaths = (root) => {
   if (!root) {
     return [];
   }
   if (!root.left && !root.right) {
     return [root.val.toString()];
   }
-  let ans = [];
-  let cur = root;
-  let stack = [];
-  let leftState = false;
-  let rightState = false;
-  do {
-    leftState = cur.left && !cur.left.visit;
-    rightState = cur.right && !cur.right.visit;
-    if (!cur.visit) {
-      cur.visit = true;
-      stack.push(cur);
-      if (leftState) {
-        cur = cur.left;
-      } else if (rightState) {
-        cur = cur.right;
-      }
-    } else {
-      if (leftState) {
-        cur = cur.left;
-      } else if (rightState) {
-        cur = cur.right;
-      } else {
-        if (!cur.left && !cur.right) {
-          ans.push(stack.map((s) => s.val).join('->'));
-        }
-        stack.pop();
-        cur = stack[stack.length - 1];
-      }
+  const ans = [];
+  const binaryTreePathsRecursion = (root, path) => {
+    if (!root) {
+      return;
     }
-  } while (stack.length > 0 && cur);
+    if (!root.left && !root.right) {
+      ans.push(path);
+      return;
+    }
+    if (root.left) {
+      binaryTreePathsRecursion(root.left, `${path}->${root.left.val}`);
+    }
+    if (root.right) {
+      binaryTreePathsRecursion(root.right, `${path}->${root.right.val}`);
+    }
+  };
+  binaryTreePathsRecursion(root, root.val);
   return ans;
 };
