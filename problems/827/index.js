@@ -3,11 +3,14 @@ class UnionFind {
     this.tree = [...tree];
     this.size = [...size];
   }
-  find(el) {
+  findSet(el) {
     if (this.tree[el] !== el) {
-      this.tree[el] = this.find(this.tree[el]);
+      this.tree[el] = this.findSet(this.tree[el]);
     }
     return this.tree[el];
+  }
+  findSize(el) {
+    return this.size[this.findSet(el)];
   }
   add(el) {
     this.tree[el] = el;
@@ -18,13 +21,13 @@ class UnionFind {
     this.size[el] = 0;
   }
   same(el1, el2) {
-    const elRoot1 = this.find(el1);
-    const elRoot2 = this.find(el2);
+    const elRoot1 = this.findSet(el1);
+    const elRoot2 = this.findSet(el2);
     return elRoot1 === elRoot2;
   }
   union(el1, el2) {
-    const elRoot1 = this.find(el1);
-    const elRoot2 = this.find(el2);
+    const elRoot1 = this.findSet(el1);
+    const elRoot2 = this.findSet(el2);
     if (elRoot1 === elRoot2) return;
     this.tree[Math.max(elRoot1, elRoot2)] = Math.min(elRoot1, elRoot2);
     const el1Size = this.size[elRoot1];
@@ -73,37 +76,27 @@ export const largestIsland = (grid) => {
   // try to union
   for (let i = 0; i < len; i++) {
     for (let j = 0; j < len; j++) {
-      if (getValue(i, j) === 1) {
+      if (getValue(i, j) === 0) {
         const neighbors = [
           { i: i - 1, j: j },
           { i: i + 1, j: j },
           { i: i, j: j - 1 },
           { i: i, j: j + 1 },
         ];
+        const islandSet = new Set();
+        let tempMaxSize = 1;
         for (let m = 0; m < neighbors.length; m++) {
           const neighbor = neighbors[m];
-          if (getValue(neighbor.i, neighbor.j) === 0) {
-            const tempUf = uf.clone();
-            tempUf.add(getKey(neighbor.i, neighbor.j));
-            const doubleNeighbors = [
-              { i: neighbor.i - 1, j: neighbor.j },
-              { i: neighbor.i + 1, j: neighbor.j },
-              { i: neighbor.i, j: neighbor.j - 1 },
-              { i: neighbor.i, j: neighbor.j + 1 },
-            ];
-            for (let n = 0; n < doubleNeighbors.length; n++) {
-              const doubleNeighbor = doubleNeighbors[n];
-              isValid(doubleNeighbor.i, doubleNeighbor.j) &&
-                tempUf.union(
-                  getKey(neighbor.i, neighbor.j),
-                  getKey(doubleNeighbor.i, doubleNeighbor.j)
-                );
-            }
-            const tempMaxSize = tempUf.size.reduce((m, s) => Math.max(m, s), 1);
-            if (tempMaxSize > maxSize) {
-              maxSize = tempMaxSize;
+          if (getValue(neighbor.i, neighbor.j) === 1) {
+            const island = uf.findSet(getKey(neighbor.i, neighbor.j));
+            if (!islandSet.has(island)) {
+              islandSet.add(island);
+              tempMaxSize += uf.findSize(getKey(neighbor.i, neighbor.j));
             }
           }
+        }
+        if (tempMaxSize > maxSize) {
+          maxSize = tempMaxSize;
         }
       }
     }
