@@ -12,7 +12,7 @@ import { TreeNode } from '../../libs/common/index.js';
  * @param {number[]} postorder
  * @return {TreeNode}
  */
-const buildTree = (inorder, postorder) => {
+export const buildTree = (inorder, postorder) => {
   if (inorder.length === 0 || postorder.length === 0) {
     return null;
   }
