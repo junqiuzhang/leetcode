@@ -3,14 +3,17 @@ import { isArray } from './lodash.js';
  * 并查集
  */
 export class UnionFind {
-  constructor(param) {
+  /**
+   * @arr {Array} arr
+   */
+  constructor(arr) {
     this.elsTree = new Map();
     this.size = 0;
-    if (isArray(param)) {
-      param.forEach((v) => {
-        this.elsTree.set(v, v);
+    if (isArray(arr)) {
+      arr.forEach((el) => {
+        this.elsTree.set(el, el);
       });
-      this.size = param.length;
+      this.size = arr.length;
     }
   }
   find(el) {

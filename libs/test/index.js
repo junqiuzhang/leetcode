@@ -12,7 +12,7 @@ export const expect = (func, ...args) => {
   try {
     actualValue = func(...args);
   } catch (error) {
-    actualError = error.message;
+    actualError = `${error.stack}`;
   }
   return {
     toBe: (expectedValue) => {
