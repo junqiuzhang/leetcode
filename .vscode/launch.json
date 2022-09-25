@@ -13,7 +13,7 @@
       "request": "launch",
       "name": "Test Current",
       "skipFiles": ["<node_internals>/**"],
-      "args": ["tests/827/test.js"]
+      "args": ["tests/788/test.js"]
     },
   ]
 }
