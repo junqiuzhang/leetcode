@@ -4,16 +4,23 @@
     {
       "type": "node",
       "request": "launch",
-      "name": "Test",
+      "name": "Build",
       "skipFiles": ["<node_internals>/**"],
-      "args": ["scripts/test/index.js"]
+      "args": ["scripts/build/index.js", "${fileDirname}"]
     },
     {
       "type": "node",
       "request": "launch",
-      "name": "Test Current",
+      "name": "Test",
       "skipFiles": ["<node_internals>/**"],
-      "args": ["tests/788/test.js"]
+      "args": ["scripts/test/index.js", "${fileDirname}"]
+    },
+    {
+      "type": "node",
+      "request": "launch",
+      "name": "Test all",
+      "skipFiles": ["<node_internals>/**"],
+      "args": ["scripts/test/index.js"]
     },
   ]
 }

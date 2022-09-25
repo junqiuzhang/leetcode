@@ -5,8 +5,8 @@ import {
   rotatedDigits,
 } from '../../problems/788/index.js';
 it('788:rotateNumber', () => {
-  // expect(rotateNumber, 1).toBe(1);
-  // expect(rotateNumber, 2).toBe(5);
+  expect(rotateNumber, 1).toBe(1);
+  expect(rotateNumber, 2).toBe(5);
   expect(rotateNumber, 25).toBe(52);
 });
 it('788:isGoodNumber', () => {

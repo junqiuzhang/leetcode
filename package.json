@@ -5,8 +5,9 @@
   "type": "module",
   "scripts": {
     "analysis": "node scripts/analysis/index.js",
-    "test": "node scripts/test/index.js",
     "build": "node scripts/build/index.js",
+    "test": "node scripts/test/index.js",
+    "test-all": "node scripts/test-all/index.js",
     "format": "prettier --write ./**/**/*.js"
   },
   "repository": {

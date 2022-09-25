@@ -1,2 +1,1 @@
-import '../../libs/console/polyfill.js';
-import './main-thread.js';
+import(`../../tests/${process.argv[2].match(/\d+/)[0]}/test.js`);
