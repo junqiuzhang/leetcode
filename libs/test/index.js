@@ -5,16 +5,31 @@ let testCount = 0;
 let passedTestCount = 0;
 let failedTestInfo = [];
 
-export const expect = (func, ...args) => {
+export const expect = (func, ...actualArgs) => {
   testCount++;
   let actualValue;
   let actualError;
   try {
-    actualValue = func(...args);
+    actualValue = func(...actualArgs);
   } catch (error) {
     actualError = `${error.stack}`;
   }
   return {
+    argsToBe: (...expectedArgs) => {
+      if (isEqual(actualArgs, expectedArgs)) {
+        passedTestCount++;
+        return;
+      }
+      failedTestInfo.push(
+        `
+        ${toString(actualArgs)}
+        is not equal to
+        ${toString(expectedArgs)}
+        arguments: ${toString(actualArgs)}
+        error detail: ${toString(actualError)}`
+      );
+      return;
+    },
     toBe: (expectedValue) => {
       if (isEqual(actualValue, expectedValue)) {
         passedTestCount++;
@@ -25,7 +40,7 @@ export const expect = (func, ...args) => {
         ${toString(actualValue)}
         is not equal to
         ${toString(expectedValue)}
-        arguments: ${toString(args)}
+        arguments: ${toString(actualArgs)}
         error detail: ${toString(actualError)}`
       );
       return;
@@ -40,7 +55,7 @@ export const expect = (func, ...args) => {
         ${toString(actualError)}
         is not equal to
         ${toString(expectedError)}
-        arguments: ${toString(args)}
+        arguments: ${toString(actualArgs)}
         error detail: ${toString(actualError)}`
       );
       return;
