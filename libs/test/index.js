@@ -4,63 +4,68 @@ import { isEqual, toString } from '../common/index.js';
 let testCount = 0;
 let passedTestCount = 0;
 let failedTestInfo = [];
-
-export const expect = (func, ...actualArgs) => {
-  testCount++;
-  let actualValue;
-  let actualError;
-  try {
-    actualValue = func(...actualArgs);
-  } catch (error) {
-    actualError = `${error.stack}`;
+class Test {
+  constructor(actualFunc) {
+    this.actualFunc = actualFunc;
   }
-  return {
-    argsToBe: (...expectedArgs) => {
-      if (isEqual(actualArgs, expectedArgs)) {
-        passedTestCount++;
-        return;
-      }
-      failedTestInfo.push(
-        `
-        ${toString(actualArgs)}
-        is not equal to
-        ${toString(expectedArgs)}
-        arguments: ${toString(actualArgs)}
-        error detail: ${toString(actualError)}`
-      );
-      return;
-    },
-    toBe: (expectedValue) => {
-      if (isEqual(actualValue, expectedValue)) {
-        passedTestCount++;
-        return;
-      }
-      failedTestInfo.push(
-        `
-        ${toString(actualValue)}
-        is not equal to
-        ${toString(expectedValue)}
-        arguments: ${toString(actualArgs)}
-        error detail: ${toString(actualError)}`
-      );
-      return;
-    },
-    toErr: (expectedError) => {
-      if (isEqual(actualError, expectedError)) {
-        passedTestCount++;
-        return;
-      }
-      failedTestInfo.push(
-        `
-        ${toString(actualError)}
-        is not equal to
-        ${toString(expectedError)}
-        arguments: ${toString(actualArgs)}
-        error detail: ${toString(actualError)}`
-      );
-      return;
-    },
-  };
+  call(...actualArgs) {
+    this.actualArgs = actualArgs;
+    try {
+      this.actualVal = this.actualFunc(...actualArgs);
+    } catch (error) {
+      this.actualErr = error;
+    }
+    return this;
+  }
+  argsToBe(...expectedArgs) {
+    if (isEqual(this.actualArgs, expectedArgs)) {
+      passedTestCount++;
+      return this;
+    }
+    failedTestInfo.push(
+      `
+      ${toString(this.actualArgs)}
+      is not equal to
+      ${toString(expectedArgs)}
+      arguments: ${toString(this.actualArgs)}
+      error detail: ${toString(this.actualErr.stack)}`
+    );
+    return this;
+  }
+  toBe(expectedVal) {
+    if (isEqual(this.actualVal, expectedVal)) {
+      passedTestCount++;
+      return this;
+    }
+    failedTestInfo.push(
+      `
+      ${toString(this.actualVal)}
+      is not equal to
+      ${toString(expectedVal)}
+      arguments: ${toString(this.actualArgs)}
+      error detail: ${toString(this.actualErr.stack)}`
+    );
+    return this;
+  }
+  toErr(expectedErr) {
+    if (isEqual(this.actualErr.message, expectedErr)) {
+      passedTestCount++;
+      return this;
+    }
+    failedTestInfo.push(
+      `
+      ${toString(this.actualErr.message)}
+      is not equal to
+      ${toString(expectedErr)}
+      arguments: ${toString(this.actualArgs)}
+      error detail: ${toString(this.actualErr.stack)}`
+    );
+    return this;
+  }
+}
+export const expect = (func) => {
+  testCount++;
+  return new Test(func);
 };
 
 export const it = (name, callback) => {

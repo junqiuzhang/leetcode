@@ -12,7 +12,7 @@ while (tests.length > 0) {
 }
 
 testGroups.forEach(async (testGroup) => {
-  const worker = new Worker(`./scripts/test/worker-thread.js`, {
+  const worker = new Worker(`./scripts/test-all/worker-thread.js`, {
     workerData: testGroup,
   });
   worker.on('message', (msg) => console.log(msg));
