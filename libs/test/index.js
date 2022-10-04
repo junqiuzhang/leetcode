@@ -7,6 +7,8 @@ let failedTestInfo = [];
 class Test {
   constructor(actualFunc) {
     this.actualFunc = actualFunc;
+    this.actualVal = null;
+    this.actualErr = new Error();
   }
   call(...actualArgs) {
     this.actualArgs = actualArgs;
