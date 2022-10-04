@@ -1,6 +1,6 @@
 import { it, expect } from '../../libs/test/index.js';
-import { add, multi, multiply } from '../../problems/008/index.js';
-it('my-coding-interviews-8: add', () => {
+import { add, multi, multiply } from '../../problems/20008/index.js';
+it('20008: add', () => {
   expect(add).call('0', '0').toBe('0');
   expect(add).call('1', '1').toBe('2');
   expect(add).call('99', '9').toBe('108');
@@ -9,7 +9,7 @@ it('my-coding-interviews-8: add', () => {
     .call('-1', '-1')
     .toErr('Error: arguments must be a positive number!');
 });
-it('my-coding-interviews-8: multi', () => {
+it('20008: multi', () => {
   expect(multi).call('0', '0').toBe('0');
   expect(multi).call('1', '1').toBe('1');
   expect(multi).call('99', '9').toBe('891');
@@ -18,7 +18,7 @@ it('my-coding-interviews-8: multi', () => {
     .call('-1', '-1')
     .toErr('Error: arguments must be a positive number!');
 });
-it('my-coding-interviews-8: multiply', () => {
+it('20008: multiply', () => {
   expect(multiply).call('0', '0').toBe('0');
   expect(multiply).call('1', '1').toBe('1');
   expect(multiply).call('99', '9').toBe('891');
