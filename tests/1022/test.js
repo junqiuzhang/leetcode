@@ -4,8 +4,8 @@ import { sumRootToLeaf } from '../../problems/1022/index.js';
 it('1022', () => {
   expect(sumRootToLeaf)
     .call(array2tree([1, 0, 1, 0, 1, 0, 1]))
-    .toBe(22);
+    .toReturn(22);
   expect(sumRootToLeaf)
     .call(array2tree([0]))
-    .toBe(0);
+    .toReturn(0);
 });

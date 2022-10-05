@@ -3,7 +3,7 @@ import { fizzBuzz } from '../../problems/412/index.js';
 it('412', () => {
   expect(fizzBuzz)
     .call(15)
-    .toBe([
+    .toReturn([
       '1',
       '2',
       'Fizz',

@@ -13,6 +13,7 @@ const consoleDecorator = (method) => {
   };
 };
 
-console.log = consoleDecorator(console.log);
+console.log = consoleDecorator(console.info);
+console.info = consoleDecorator(console.info);
 console.warn = consoleDecorator(console.warn);
 console.error = consoleDecorator(console.error);

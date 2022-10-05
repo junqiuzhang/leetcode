@@ -3,12 +3,12 @@ import { isAlienSorted } from '../../problems/953/index.js';
 it('953', () => {
   expect(isAlienSorted)
     .call(['hello', 'leetcode'], 'hlabcdefgijkmnopqrstuvwxyz')
-    .toBe(true);
+    .toReturn(true);
   expect(isAlienSorted)
     .call(['word', 'world', 'row'], 'worldabcefghijkmnpqstuvxyz')
-    .toBe(false);
+    .toReturn(false);
   expect(isAlienSorted)
     .call(['apple', 'app'], 'abcdefghijklmnopqrstuvwxyz')
-    .toBe(false);
-  expect(isAlienSorted).call([], 'abcdefghijklmnopqrstuvwxyz').toBe(true);
+    .toReturn(false);
+  expect(isAlienSorted).call([], 'abcdefghijklmnopqrstuvwxyz').toReturn(true);
 });

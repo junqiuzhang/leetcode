@@ -6,26 +6,26 @@ it('827', () => {
       [1, 0],
       [0, 1],
     ])
-    .toBe(3);
+    .toReturn(3);
   expect(largestIsland)
     .call([
       [1, 1],
       [1, 0],
     ])
-    .toBe(4);
+    .toReturn(4);
   expect(largestIsland)
     .call([
       [1, 1],
       [1, 1],
     ])
-    .toBe(4);
+    .toReturn(4);
   expect(largestIsland)
     .call([
       [1, 1, 1],
       [1, 1, 1],
       [1, 1, 1],
     ])
-    .toBe(9);
+    .toReturn(9);
   expect(largestIsland)
     .call([
       [0, 0, 0, 0, 0, 0, 0],
@@ -36,20 +36,20 @@ it('827', () => {
       [0, 1, 0, 0, 1, 0, 0],
       [0, 1, 1, 1, 1, 0, 0],
     ])
-    .toBe(18);
+    .toReturn(18);
   expect(largestIsland)
     .call([
       [1, 0, 1],
       [0, 0, 0],
       [0, 1, 1],
     ])
-    .toBe(4);
+    .toReturn(4);
   expect(largestIsland)
     .call([
       [0, 0],
       [0, 0],
     ])
-    .toBe(1);
+    .toReturn(1);
   expect(largestIsland)
     .call([
       [1, 0, 0, 1, 1],
@@ -58,5 +58,5 @@ it('827', () => {
       [1, 1, 1, 0, 1],
       [0, 0, 0, 1, 0],
     ])
-    .toBe(16);
+    .toReturn(16);
 });

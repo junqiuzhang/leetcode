@@ -4,8 +4,8 @@ import { binaryTreePaths } from '../../problems/257/index.js';
 it('112', () => {
   expect(binaryTreePaths)
     .call(array2tree([1, 2, 3, null, 5]))
-    .toBe(['1->2->5', '1->3']);
+    .toReturn(['1->2->5', '1->3']);
   expect(binaryTreePaths)
     .call(array2tree([1]))
-    .toBe(['1']);
+    .toReturn(['1']);
 });

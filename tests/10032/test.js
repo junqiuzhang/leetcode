@@ -4,9 +4,9 @@ import { levelOrder } from '../../problems/10032/index.js';
 it('10032', () => {
   expect(levelOrder)
     .call(array2tree([3, 9, 20, null, null, 15, 7]))
-    .toBe([3, 9, 20, 15, 7]);
+    .toReturn([3, 9, 20, 15, 7]);
   expect(levelOrder)
     .call(array2tree([3, 9, 20, 7]))
-    .toBe([3, 9, 20, 7]);
-  expect(levelOrder).call(array2tree([])).toBe([]);
+    .toReturn([3, 9, 20, 7]);
+  expect(levelOrder).call(array2tree([])).toReturn([]);
 });

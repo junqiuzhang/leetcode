@@ -1,92 +1,121 @@
 import { performance } from 'perf_hooks';
 import { isEqual, toString } from '../common/index.js';
 
-let testCount = 0;
-let passedTestCount = 0;
-let failedTestInfo = [];
-class Test {
-  constructor(actualFunc) {
-    this.actualFunc = actualFunc;
-    this.actualVal = null;
-    this.actualErr = new Error();
+let currentTest = null;
+let currentTestCase = null;
+class TestCase {
+  constructor(func = () => {}) {
+    this.func = func;
+    this.args = [];
+    this.val = undefined;
+    this.err = new Error();
+    this.startTime = 0;
+    this.endTime = 0;
   }
-  call(...actualArgs) {
-    this.actualArgs = actualArgs;
-    try {
-      this.actualVal = this.actualFunc(...actualArgs);
-    } catch (error) {
-      this.actualErr = error;
-    }
+  apply(args) {
+    this.args = args;
+    this.test();
+    return this;
+  }
+  call(...args) {
+    this.args = args;
+    this.test();
     return this;
   }
   argsToBe(...expectedArgs) {
-    if (isEqual(this.actualArgs, expectedArgs)) {
-      passedTestCount++;
-      return this;
+    this.expectedArgs = expectedArgs;
+    if (!isEqual(this.args, expectedArgs)) {
+      this.report(this.args, expectedArgs);
+      return;
     }
-    failedTestInfo.push(
-      `
-      ${toString(this.actualArgs)}
-      is not equal to
-      ${toString(expectedArgs)}
-      arguments: ${toString(this.actualArgs)}
-      error detail: ${toString(this.actualErr.stack)}`
-    );
-    return this;
+    this.report();
   }
-  toBe(expectedVal) {
-    if (isEqual(this.actualVal, expectedVal)) {
-      passedTestCount++;
-      return this;
+  toReturn(expectedVal) {
+    this.expectedVal = expectedVal;
+    if (!isEqual(this.val, expectedVal)) {
+      this.report(this.val, expectedVal);
+      return;
     }
-    failedTestInfo.push(
-      `
-      ${toString(this.actualVal)}
-      is not equal to
-      ${toString(expectedVal)}
-      arguments: ${toString(this.actualArgs)}
-      error detail: ${toString(this.actualErr.stack)}`
-    );
-    return this;
+    this.report();
   }
-  toErr(expectedErr) {
-    if (isEqual(this.actualErr.message, expectedErr)) {
-      passedTestCount++;
-      return this;
+  toThrow(expectedErr) {
+    this.expectedErr = expectedErr;
+    if (!isEqual(this.err.message, expectedErr)) {
+      this.report(this.err.message, expectedErr);
+      return;
     }
-    failedTestInfo.push(
-      `
-      ${toString(this.actualErr.message)}
+    this.report();
+  }
+  test() {
+    this.startTime = performance.now();
+    try {
+      this.val = this.func(...this.args);
+    } catch (err) {
+      this.err = err;
+    }
+    this.endTime = performance.now();
+  }
+  report(actualVal, expectedVal) {
+    if (actualVal !== expectedVal) {
+      const summary = `
+      ${toString(actualVal)}
       is not equal to
-      ${toString(expectedErr)}
-      arguments: ${toString(this.actualArgs)}
-      error detail: ${toString(this.actualErr.stack)}`
-    );
-    return this;
+      ${toString(expectedVal)}`;
+      const detail = `
+      arguments: ${toString(this.args)}
+      returns: ${toString(this.val)}
+      errors: ${toString(this.err.stack)}`;
+      currentTest.addTestCase(`${summary}${detail}`);
+      return;
+    }
+    currentTest.addTestCase(``);
+  }
+}
+class Test {
+  constructor(name = '', func = () => {}) {
+    this.name = name;
+    this.func = func;
+    this.startTime = 0;
+    this.endTime = 0;
+    this.testCases = [];
+  }
+  addTestCase(testCase) {
+    this.testCases.push(testCase);
+  }
+  removeTestCase(testCase) {
+    this.testCases = this.testCases.filter((tc) => tc === testCase);
+  }
+  test() {
+    this.startTime = performance.now();
+    this.func();
+    this.endTime = performance.now();
+  }
+  report() {
+    const succeedTestCases = this.testCases.filter((tc) => !tc);
+    const failedTestCases = this.testCases.filter((tc) => !!tc);
+    const summary = `Problem ${this.name}
+      ${succeedTestCases.length} tests passed
+      ${failedTestCases.length} tests failed
+      total ${((this.endTime - this.startTime) / this.testCases.length).toFixed(
+        2
+      )} ms`;
+    if (failedTestCases.length > 0) {
+      const detail = failedTestCases
+        .map((tc) => `\n      Error: ${tc}`)
+        .join('');
+      console.log(`${summary}${detail}`);
+      return;
+    }
+    console.log(summary);
   }
 }
 export const expect = (func) => {
-  testCount++;
-  return new Test(func);
+  currentTestCase = new TestCase(func);
+  return currentTestCase;
 };
 
-export const it = (name, callback) => {
-  testCount = 0;
-  passedTestCount = 0;
-  failedTestInfo = [];
-  const start = performance.now();
-  callback();
-  const end = performance.now();
-  const summary = `Problem ${name}
-    ${passedTestCount} tests passed
-    ${failedTestInfo.length} tests failed
-    average ${((end - start) / testCount).toFixed(2)} ms`;
-  if (failedTestInfo.length > 0) {
-    const detail = failedTestInfo
-      .map((info) => `\n    Error: ${info}`)
-      .join('');
-    console.error(`${summary}${detail}`);
-    return;
-  }
-  console.log(summary);
+export const it = (name, func) => {
+  currentTest = new Test(name, func);
+  currentTest.test();
+  currentTest.report();
 };
