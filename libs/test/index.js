@@ -8,7 +8,7 @@ class TestCase {
     this.func = func;
     this.args = [];
     this.val = undefined;
-    this.err = new Error();
+    this.err = undefined;
     this.startTime = 0;
     this.endTime = 0;
   }
@@ -24,27 +24,18 @@ class TestCase {
   }
   argsToBe(...expectedArgs) {
     this.expectedArgs = expectedArgs;
-    if (!isEqual(this.args, expectedArgs)) {
-      this.report(this.args, expectedArgs);
-      return;
-    }
-    this.report();
+    this.report(this.args, expectedArgs);
+    return this;
   }
   toReturn(expectedVal) {
     this.expectedVal = expectedVal;
-    if (!isEqual(this.val, expectedVal)) {
-      this.report(this.val, expectedVal);
-      return;
-    }
-    this.report();
+    this.report(this.val, expectedVal);
+    return this;
   }
   toThrow(expectedErr) {
     this.expectedErr = expectedErr;
-    if (!isEqual(this.err.message, expectedErr)) {
-      this.report(this.err.message, expectedErr);
-      return;
-    }
-    this.report();
+    this.report(this.err?.message, expectedErr);
+    return this;
   }
   test() {
     this.startTime = performance.now();
@@ -56,15 +47,16 @@ class TestCase {
     this.endTime = performance.now();
   }
   report(actualVal, expectedVal) {
-    if (actualVal !== expectedVal) {
+    if (!isEqual(actualVal, expectedVal)) {
       const summary = `
-      ${toString(actualVal)}
+      Summary: ${toString(actualVal)}
       is not equal to
       ${toString(expectedVal)}`;
       const detail = `
-      arguments: ${toString(this.args)}
-      returns: ${toString(this.val)}
-      errors: ${toString(this.err.stack)}`;
+      Arguments: ${toString(this.args)}
+      Returns: ${toString(this.val)}
+      Error message: ${this.err?.message}
+      Error stack: ${this.err?.stack}`;
       currentTest.addTestCase(`${summary}${detail}`);
       return;
     }
@@ -94,15 +86,13 @@ class Test {
     const succeedTestCases = this.testCases.filter((tc) => !tc);
     const failedTestCases = this.testCases.filter((tc) => !!tc);
     const summary = `Problem ${this.name}
-      ${succeedTestCases.length} tests passed
-      ${failedTestCases.length} tests failed
+      ${succeedTestCases.length} test cases passed
+      ${failedTestCases.length} test cases failed
       total ${((this.endTime - this.startTime) / this.testCases.length).toFixed(
         2
       )} ms`;
     if (failedTestCases.length > 0) {
-      const detail = failedTestCases
-        .map((tc) => `\n      Error: ${tc}`)
-        .join('');
+      const detail = failedTestCases.join('');
       console.log(`${summary}${detail}`);
       return;
     }
