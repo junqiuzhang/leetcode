@@ -10,6 +10,9 @@ export const getGCD = (num1, num2) => {
   }
   return getGCD(num1, num2 % num1);
 };
+export const getGCDGeneral = (nums) => {
+  return nums.reduce((pre, cur) => getGCD(pre, cur));
+};
 /**
  * @param {number[]} nums
  * @return {number}
