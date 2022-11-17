@@ -95,3 +95,14 @@ export const set = (object, path, value) => {
   currentValue[path[path.length - 1]] = value;
   return object;
 };
+export const memorize = (func) => {
+  const cache = new Map();
+  return (keyArg, ...restArgs) => {
+    if (cache.has(keyArg)) {
+      return cache.get(keyArg);
+    }
+    const val = func(keyArg, ...restArgs);
+    cache.set(keyArg, val);
+    return val;
+  };
+};

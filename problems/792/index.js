@@ -1,36 +1,42 @@
+import { memorize } from '../../libs/common/index.js';
+/**
+ * @param {string} str
+ * @param {string} substr
+ * @returns {boolean}
+ */
+export const isMatchSubseq = (substr, str) => {
+  let strI = 0;
+  let strJ = 0;
+  let subI = 0;
+  while (strI > -1 && strI <= str.length - substr.length) {
+    while (strJ > -1 && strJ < str.length) {
+      if (str[strJ] === substr[subI]) {
+        subI++;
+        if (subI === substr.length) {
+          return true;
+        }
+      }
+      strJ = str.indexOf(substr[subI], strJ + 1);
+    }
+    strI = str.indexOf(substr[0], strI + 1);
+    strJ = strI;
+    subI = 0;
+  }
+  return false;
+};
 /**
  * @param {string} s
  * @param {string[]} words
  * @return {number}
  */
-const numMatchingSubseq = (s, words) => {
-  const charMap = new Map();
-  for (let i = 0; i < s.length; i++) {
-    let arr = charMap.get(s[i]);
-    if (!Array.isArray(arr)) {
-      arr = [];
-    }
-    arr.push(i);
-    charMap.set(s[i], arr);
-  }
+export const numMatchingSubseq = (s, words) => {
+  const isMatch = memorize(isMatchSubseq);
   let ans = 0;
   for (let i = 0; i < words.length; i++) {
     const word = words[i];
-    if (isMatch(word, charMap)) {
+    if (isMatch(word, s)) {
       ans++;
     }
   }
   return ans;
-};
-const isMatch = (reg, map) => {
-  let cur = 0;
-  const is = (value) => value >= cur;
-  for (let i = 0; i < reg.length; i++) {
-    let arr = map.get(reg[i]);
-    if (!Array.isArray(arr)) return false;
-    const index = arr.findIndex(is);
-    if (index === -1) return false;
-    cur = arr[index] + 1;
-  }
-  return true;
 };
