@@ -30,22 +30,25 @@ export const toString = (value) => {
     try {
       str = value.toString();
     } catch (error) {
-      str = new String(value);
+      str = `${value}`;
     }
   }
   return str;
 };
 export const isEqual = (value, other) => {
-  value = toValue(value);
-  other = toValue(other);
-  if (value === other) {
+  if (toValue(value) === toValue(other)) {
     return true;
   }
   if (isObject(value) && isObject(other)) {
-    const keys1 = Object.keys(value);
-    const keys2 = Object.keys(other);
-    const keys = new Array(...keys1, ...keys2);
-    return keys.every((k) => isEqual(value[k], other[k]));
+    const valueKeys = Object.keys(value);
+    const otherKeys = Object.keys(other);
+    const keys = new Set([...valueKeys, ...otherKeys]);
+    for (const key of keys) {
+      if (!isEqual(value[key], other[key])) {
+        return false;
+      }
+    }
+    return true;
   }
   return false;
 };
