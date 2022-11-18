@@ -1,3 +1,12 @@
+export const factorial = (n) => {
+  if (n < 0) throw new Error('Error: n must be a non-negative number!');
+  if (n === 0) return 1;
+  let num = 1;
+  for (let i = 1; i <= n; i++) {
+    num *= i;
+  }
+  return num;
+};
 /**
  * 排列组合A
  * @param {number} m
@@ -5,14 +14,8 @@
  * @returns {number}
  */
 export const A = (m, n) => {
-  if (m > n) throw new Error('Error: m must be smaller than n!');
-  if (m === 0) return 1;
-  if (m === 1) return n;
-  let num = 1;
-  for (let i = 0; i < m; i++) {
-    num = num * (n - i);
-  }
-  return num;
+  if (m > n) throw new Error('Error: m must be less than or equal to n!');
+  return factorial(n) / factorial(n - m);
 };
 /**
  * 排列组合C
@@ -21,5 +24,6 @@ export const A = (m, n) => {
  * @returns {number}
  */
 export const C = (m, n) => {
-  return A(m, n) / A(m, m);
+  if (m > n) throw new Error('Error: m must be less than or equal to n!');
+  return factorial(n) / (factorial(n - m) * factorial(m, m));
 };
