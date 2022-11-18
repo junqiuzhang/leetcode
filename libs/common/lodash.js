@@ -11,46 +11,37 @@ export const isFunction = (value) =>
 export const isArray = (value) => Array.isArray(value);
 export const isObject = (value) => typeof value === 'object' && !isNull(value);
 export const isEmpty = (value) =>
-  (isArray(value) && value.length === 0) ||
-  (isObject(value) && Object.keys(value).length === 0);
-export const toValue = (value) => {
-  let val;
-  try {
-    val = value.valueOf();
-  } catch (error) {
-    val = value;
-  }
-  return val;
-};
-export const toString = (value) => {
-  let str;
-  try {
-    str = JSON.stringify(value);
-  } catch (error) {
-    try {
-      str = value.toString();
-    } catch (error) {
-      str = `${value}`;
-    }
-  }
-  return str;
-};
+  isObject(value) && Object.keys(value).length === 0;
 export const isEqual = (value, other) => {
-  if (toValue(value) === toValue(other)) {
-    return true;
+  if (
+    isUndefined(value) ||
+    isUndefined(other) ||
+    isNull(value) ||
+    isNull(other)
+  ) {
+    return value === other;
   }
-  if (isObject(value) && isObject(other)) {
-    const valueKeys = Object.keys(value);
-    const otherKeys = Object.keys(other);
-    const keys = new Set([...valueKeys, ...otherKeys]);
-    for (const key of keys) {
-      if (!isEqual(value[key], other[key])) {
-        return false;
-      }
+  if (
+    isBoolean(value) ||
+    isBoolean(other) ||
+    isString(value) ||
+    isString(other) ||
+    isNumber(value) ||
+    isNumber(other) ||
+    isFunction(value) ||
+    isFunction(other)
+  ) {
+    return value.valueOf() === other.valueOf();
+  }
+  const valueKeys = Object.keys(value);
+  const otherKeys = Object.keys(other);
+  const keys = new Set([...valueKeys, ...otherKeys]);
+  for (const key of keys) {
+    if (!isEqual(value[key], other[key])) {
+      return false;
     }
-    return true;
   }
-  return false;
+  return true;
 };
 export const flow = (...funcs) => {
   return (args) => {

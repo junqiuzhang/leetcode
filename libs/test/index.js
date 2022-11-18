@@ -1,8 +1,17 @@
 import { performance } from 'perf_hooks';
-import { isEqual, toString } from '../common/index.js';
+import { isEqual } from '../common/index.js';
 
 let currentTest = null;
 let currentTestCase = null;
+const stringify = (value) => {
+  let str;
+  try {
+    str = JSON.stringify(value);
+  } catch (error) {
+    str = `${value}`;
+  }
+  return str;
+};
 class TestCase {
   constructor(func = () => {}) {
     this.func = func;
@@ -49,12 +58,12 @@ class TestCase {
   report(actualVal, expectedVal) {
     if (!isEqual(actualVal, expectedVal)) {
       const summary = `
-      Summary: ${toString(actualVal)}
+      Summary: ${stringify(actualVal)}
       is not equal to
-      ${toString(expectedVal)}`;
+      ${stringify(expectedVal)}`;
       const detail = `
-      Arguments: ${toString(this.args)}
-      Returns: ${toString(this.val)}
+      Arguments: ${stringify(this.args)}
+      Returns: ${stringify(this.val)}
       Error message: ${this.err?.message}
       Error stack: ${this.err?.stack}`;
       currentTest.addTestCase(`${summary}${detail}`);
