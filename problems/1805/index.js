@@ -4,10 +4,9 @@
  * @return {string}
  */
 export const trimStartRecursion = (str, trimStr = ' ') => {
-  if (str.indexOf(trimStr) === 0) {
-    return trimStartRecursion(str.substring(trimStr.length));
-  }
-  return str;
+  const recursion = (i) =>
+    str.indexOf(trimStr, i) === 0 ? recursion(i + trimStr.length) : i;
+  return str.substring(recursion(0));
 };
 /**
  * @param {string} str
