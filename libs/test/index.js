@@ -58,14 +58,15 @@ class TestCase {
   report(actualVal, expectedVal) {
     if (!isEqual(actualVal, expectedVal)) {
       const summary = `
-      Summary: ${stringify(actualVal)}
-      is not equal to
-      ${stringify(expectedVal)}`;
+      Summary: ${stringify(actualVal)} is not equal to ${stringify(
+        expectedVal
+      )}`;
       const detail = `
       Arguments: ${stringify(this.args)}
       Returns: ${stringify(this.val)}
       Error message: ${this.err?.message}
-      Error stack: ${this.err?.stack}`;
+      Error stack: ${this.err?.stack}
+      `;
       currentTest.addTestCase(`${summary}${detail}`);
       return;
     }
@@ -99,7 +100,8 @@ class Test {
       ${failedTestCases.length} test cases failed
       total ${((this.endTime - this.startTime) / this.testCases.length).toFixed(
         2
-      )} ms`;
+      )} ms
+      `;
     if (failedTestCases.length > 0) {
       const detail = failedTestCases.join('');
       console.log(`${summary}${detail}`);
