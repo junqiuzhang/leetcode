@@ -46,19 +46,26 @@ export const minOperations = (nums1, nums2) => {
   for (let i = 0; i < nums2.length; i++) {
     sumDiff -= nums2[i];
   }
-  let numCounts;
+  let numDiffs = [];
   if (sumDiff === 0) {
     return 0;
   } else if (sumDiff > 0) {
-    numCounts = getNumCountArr(
-      nums1.map((n) => n - 1).concat(nums2.map((n) => 6 - n))
-    );
+    for (let i = 0; i < nums1.length; i++) {
+      numDiffs.push(nums1[i] - 1);
+    }
+    for (let i = 0; i < nums2.length; i++) {
+      numDiffs.push(6 - nums2[i]);
+    }
   } else {
     sumDiff = -sumDiff;
-    numCounts = getNumCountArr(
-      nums1.map((n) => 6 - n).concat(nums2.map((n) => n - 1))
-    );
+    for (let i = 0; i < nums1.length; i++) {
+      numDiffs.push(6 - nums1[i]);
+    }
+    for (let i = 0; i < nums2.length; i++) {
+      numDiffs.push(nums2[i] - 1);
+    }
   }
+  const numCounts = getNumCountArr(numDiffs);
   numCounts.sort((a, b) => b[0] - a[0]);
   let ans = 0;
   for (let i = 0; i < numCounts.length; i++) {
