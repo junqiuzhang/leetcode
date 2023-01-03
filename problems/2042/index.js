@@ -1,19 +1,27 @@
+const Nums = '0123456789';
 /**
  * @param {string} s
  * @return {boolean}
  */
 export const areNumbersAscending = (s) => {
-  const words = s.split(' ');
-  let pre = -Infinity;
-  for (let i = 0; i < words.length; i++) {
-    const word = words[i];
-    const num = parseInt(word);
-    if (Number.isInteger(num)) {
-      if (pre >= num) {
+  let token = '';
+  let preNum = -Infinity;
+  for (let i = 0; i < s.length; i++) {
+    const c = s[i];
+    if (Nums.includes(c)) {
+      token += c;
+    } else if (token !== '' && c === ' ') {
+      const curNum = parseInt(token);
+      if (curNum <= preNum) {
         return false;
       }
-      pre = num;
+      token = '';
+      preNum = curNum;
     }
+  }
+  const num = parseInt(token);
+  if (num <= preNum) {
+    return false;
   }
   return true;
 };
