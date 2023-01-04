@@ -4,9 +4,11 @@
  */
 export const getSum = (num, count) => {
   if (count > num) {
-    return ((num + 1) * num) / 2 + count - num;
+    // return ((num + 1) * num) / 2 + count - num;
+    return (num * num - num) / 2 + count;
   }
-  return ((num + num - count + 1) * count) / 2;
+  // return ((num + num - count + 1) * count) / 2;
+  return num * count + (count - count * count) / 2;
 };
 /**
  * @param {number} n
