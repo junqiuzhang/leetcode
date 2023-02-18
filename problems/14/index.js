@@ -2,13 +2,13 @@
  * @param {string[]} strs
  * @return {string}
  */
-const longestCommonPrefix = (strs) => {
+export const longestCommonPrefix = (strs) => {
   if (strs.length === 0) {
     return '';
   }
-  const MAX_LENGTH = Math.max(...strs.map((str) => str.length));
+  const len = strs[0].length;
   let j = 0;
-  while (j < MAX_LENGTH) {
+  while (j < len) {
     let char = strs[0][j];
     for (let i = 1; i < strs.length; i++) {
       if (char !== strs[i][j]) {
